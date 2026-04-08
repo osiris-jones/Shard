@@ -75,7 +75,7 @@
     }
   ],
   "socket": false,
-  "url": "",
-  "manifest": "",
-  "download": ""
+  "url": "https://github.com/osiris-jones/Shard",
+  "manifest": "https://github.com/osiris-jones/Shard/system.json",
+  "download": "https://github.com/osiris-jones/Shard/releases/download/Releases/Shard.zip"
 }
