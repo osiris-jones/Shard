@@ -1,0 +1,26 @@
+{{! templates/chat/resist-card.hbs }}
+<div class="shard-chat-card resist-card {{#if resisted}}resisted{{else}}failed{{/if}}">
+
+  <div class="card-header">
+    {{#if tokenImg}}<img src="{{tokenImg}}" class="ability-img" />{{/if}}
+    <div class="card-title">
+      <span class="actor-name">{{actor.name}}</span>
+    </div>
+    <span class="resist-label">{{#if resisted}}RESISTED{{else}}FAILED{{/if}}</span>
+  </div>
+
+  <div class="card-body">
+    <div class="roll-result {{#if resisted}}hit{{else}}miss{{/if}}">
+      <span class="roll-total">{{total}}</span>
+      <span class="vs-label">vs DV</span>
+      <span class="target-def">{{dv}}</span>
+      <span class="hit-label">{{#if resisted}}RESIST{{else}}FAIL{{/if}}</span>
+    </div>
+    <div class="roll-breakdown hint">
+      {{roll.formula}} = {{roll.total}}
+      {{#if flatBonus}}<span> + {{flatBonus}} (bonus)</span>{{/if}}
+      {{#if net}}<span class="adv-label"> [{{#if (lte net 0)}}Dis {{net}}{{else}}Adv +{{net}}{{/if}}]</span>{{/if}}
+    </div>
+  </div>
+
+</div>

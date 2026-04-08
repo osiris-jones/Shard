@@ -1,0 +1,17 @@
+{
+  "SHARD.ActorTypePC":         "Player Character",
+  "SHARD.ActorTypeNPC":        "Non-Player Character",
+  "SHARD.ItemTypeAbility":     "Ability",
+  "SHARD.ItemTypeNPCAbility":  "NPC Ability",
+  "SHARD.ItemTypeClass":       "Class",
+  "SHARD.ItemTypeNPCClass":    "NPC Class",
+  "SHARD.ItemTypeNPCTemplate": "NPC Template",
+  "SHARD.ItemTypeTag":         "Tag",
+  "SHARD.SheetPC":             "Shard PC Sheet",
+  "SHARD.SheetNPC":            "Shard NPC Sheet",
+  "SHARD.SheetAbility":        "Shard Ability Sheet",
+  "SHARD.SheetNPCAbility":     "Shard NPC Ability Sheet",
+  "SHARD.SheetClass":          "Shard Class Sheet",
+  "SHARD.SheetNPCClass":       "Shard NPC Class Sheet",
+  "SHARD.SheetNPCTemplate":    "Shard NPC Template Sheet"
+}

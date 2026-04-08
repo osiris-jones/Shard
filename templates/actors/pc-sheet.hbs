@@ -1,0 +1,402 @@
+{{! templates/actors/pc-sheet.hbs }}
+<form class="shard-sheet pc-sheet" autocomplete="off">
+
+  {{! ── Header ─────────────────────────────────────────── }}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <div class="header-fields">
+      <h1 class="charname">
+        <input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+      </h1>
+      <div class="level-display">
+        Level <strong>{{totalLevel}}</strong>
+        {{#each classEntries}}
+          <span class="class-pill {{#if isBase}}is-base{{/if}}">{{item.name}} {{level}}</span>
+        {{/each}}
+      </div>
+    </div>
+  </header>
+
+  {{! ── Vitals Bar ─────────────────────────────────────── }}
+  <section class="vitals-bar">
+    <div class="vital-block hp-block">
+      <label>HP</label>
+      <div class="vital-track">
+        <input class="hp-value-input" type="number" value="{{system.hp.value}}" min="0" />
+        <span class="sep">/</span>
+        <input name="system.hp.max" type="number" value="{{system.hp.max}}" min="0" />
+      </div>
+      {{#if system.hp.temp}}<div class="temp-hp">+{{system.hp.temp}} temp</div>{{/if}}
+    </div>
+    <div class="vital-block barrier-block">
+      <label>Barrier</label>
+      <div class="vital-track">
+        <input class="barrier-value-input" type="number" value="{{system.barrier}}" min="0" />
+      </div>
+    </div>
+    <div class="vital-block focus-block">
+      <label>Focus</label>
+      <div class="vital-track">
+        <input class="focus-value-input" type="number" value="{{system.focus.value}}" min="0" />
+        <span class="sep">/</span>
+        <span>{{system.focus.max}}</span>
+      </div>
+      <button class="refocus-btn" type="button" title="Refocus — recover ⌈Max/3⌉ Focus, remove Off Guard">
+        <i class="fas fa-redo-alt"></i> Refocus
+      </button>
+    </div>
+    {{#each system.resources as |res key|}}
+      {{#if res.visible}}
+        <div class="vital-block resource-block">
+          <label>{{res.label}}</label>
+          <div class="vital-track">
+            <input name="system.resources.{{key}}.value" type="number" step="1" value="{{res.value}}" min="0" />
+            <span class="sep">/</span>
+            <span>{{res.max}}</span>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
+  </section>
+
+  {{! ── Stats Bar ──────────────────────────────────────── }}
+  <section class="stats-bar">
+    <div class="stat-pill"><span class="stat-label">ATK</span><span class="stat-value">{{system.stats.atk}}</span></div>
+    <div class="stat-pill"><span class="stat-label">MAG</span><span class="stat-value">{{system.stats.mag}}</span></div>
+    <div class="stat-pill"><span class="stat-label">DEF</span><span class="stat-value">{{system.stats.def}}</span></div>
+    <div class="stat-pill"><span class="stat-label">SPD</span><span class="stat-value">{{system.stats.spd}}</span></div>
+    <div class="stat-pill"><span class="stat-label">ARMOR</span><span class="stat-value">{{system.stats.armor}}</span></div>
+    <div class="stat-pill"><span class="stat-label">TIER</span><span class="stat-value">{{system.stats.tier}}</span></div>
+    <div class="stat-pill bonus-pill" title="Flat bonus added per AP spent on ATK-damage abilities">
+      <span class="stat-label">ATK+</span>
+      <input type="number" name="system.atkBonus" value="{{system.atkBonus}}" min="0" />
+    </div>
+    <div class="stat-pill bonus-pill" title="Flat bonus added per AP spent on MAG-damage abilities">
+      <span class="stat-label">MAG+</span>
+      <input type="number" name="system.magBonus" value="{{system.magBonus}}" min="0" />
+    </div>
+  </section>
+
+  {{! ── Tabs ───────────────────────────────────────────── }}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="abilities">Abilities</a>
+    <a class="item" data-tab="classes">Classes</a>
+    <a class="item" data-tab="narrative">Narrative</a>
+  </nav>
+
+  <section class="sheet-body">
+
+    {{! ── Abilities Tab ────────────────────────────────── }}
+    <div class="tab" data-tab="abilities">
+
+      {{! Innate actions are system-wide basics (e.g. Basic Attack, Study) }}
+      {{#if innateAbilities.length}}
+      <h3 class="section-header innate-header collapsible-header" data-section="innate">
+        <i class="section-collapse-caret fas fa-chevron-down"></i> Innate Actions
+      </h3>
+      <ol class="item-list ability-list innate-ability-list" data-section-body="innate">
+        {{#each innateAbilities}}
+          <li class="item ability-item innate-ability-item" data-item-id="{{id}}">
+            <div class="ability-name-row">
+              <span class="expand-caret">▶</span>
+              <span class="ability-icon-col innate-icon" title="Innate"><i class="fas fa-infinity"></i></span>
+              <span class="item-name">{{name}}</span>
+              <div class="item-cost">
+                {{shardCostLabel system.cost}}
+                {{#if system.focusCost}}<span class="focus-cost">{{system.focusCost}}F</span>{{/if}}
+              </div>
+              <div class="item-range">{{system.range}}</div>
+              <div class="item-tags">{{#each system.tags}}<span class="tag" data-tooltip="{{lookup @root.tagDescriptions uuid}}">{{name}}</span>{{/each}}</div>
+              <div class="item-controls">
+                {{#unless system.isAttack}}
+                  <a class="ability-activate" title="Activate"><i class="fas fa-bolt"></i></a>
+                {{/unless}}
+                {{#if system.isAttack}}
+                  <a class="ability-attack-roll" title="Attack Roll"><i class="fas fa-dice-d6"></i></a>
+                {{/if}}
+                <a class="item-edit" title="Edit"><i class="fas fa-edit"></i></a>
+                <a class="item-delete" title="Delete"><i class="fas fa-trash"></i></a>
+              </div>
+            </div>
+            <div class="ability-details">
+              {{#if system.isAttack}}
+                <div class="detail-row"><span class="detail-label">Damage</span> {{system.damage}}</div>
+                {{#if system.hasGraze}}<div class="detail-row"><span class="detail-label">Graze</span> {{system.grazeDamage}}</div>{{/if}}
+              {{/if}}
+              {{#if system.hasResistance}}
+                <div class="detail-row"><span class="detail-label">Resist DV</span> {{system.resistanceDV}}</div>
+                <div class="detail-row"><span class="detail-label">Resist Dmg</span> {{system.resistanceDamage}}</div>
+              {{/if}}
+              {{#if effectHTML}}<div class="ability-effect">{{{effectHTML}}}</div>{{/if}}
+            </div>
+          </li>
+        {{/each}}
+      </ol>
+      {{/if}}
+
+      <h3 class="section-header collapsible-header" data-section="active">
+        <i class="section-collapse-caret fas fa-chevron-down"></i> Active Abilities
+      </h3>
+      <ol class="item-list ability-list" data-section-body="active">
+        {{#each activeAbilities}}
+          <li class="item ability-item" data-item-id="{{id}}">
+            <div class="ability-name-row">
+              <span class="expand-caret">▶</span>
+              <span class="ability-icon-col"></span>
+              <span class="item-name">{{name}}</span>
+              <div class="item-cost">
+                {{shardCostLabel system.cost}}
+                {{#if system.focusCost}}<span class="focus-cost">{{system.focusCost}}F</span>{{/if}}
+              </div>
+              <div class="item-range">{{system.range}}</div>
+              <div class="item-tags">{{#each system.tags}}<span class="tag" data-tooltip="{{lookup @root.tagDescriptions uuid}}">{{name}}</span>{{/each}}</div>
+              <div class="item-controls">
+                {{#unless system.isAttack}}
+                  <a class="ability-activate" title="Activate"><i class="fas fa-bolt"></i></a>
+                {{/unless}}
+                {{#if system.isAttack}}
+                  <a class="ability-attack-roll" title="Attack Roll"><i class="fas fa-dice-d6"></i></a>
+                {{/if}}
+                <a class="item-edit" title="Edit"><i class="fas fa-edit"></i></a>
+                <a class="item-delete" title="Delete"><i class="fas fa-trash"></i></a>
+              </div>
+            </div>
+            <div class="ability-details">
+              {{#if system.isAttack}}
+                <div class="detail-row"><span class="detail-label">Damage</span> {{system.damage}}</div>
+                {{#if system.hasGraze}}<div class="detail-row"><span class="detail-label">Graze</span> {{system.grazeDamage}}</div>{{/if}}
+              {{/if}}
+              {{#if system.hasResistance}}
+                <div class="detail-row"><span class="detail-label">Resist DV</span> {{system.resistanceDV}}</div>
+                <div class="detail-row"><span class="detail-label">Resist Dmg</span> {{system.resistanceDamage}}</div>
+              {{/if}}
+              {{#if effectHTML}}<div class="ability-effect">{{{effectHTML}}}</div>{{/if}}
+            </div>
+          </li>
+        {{else}}
+          <li class="item-empty">No active abilities. Drag abilities from the compendium.</li>
+        {{/each}}
+      </ol>
+
+      <h3 class="section-header collapsible-header" data-section="passive">
+        <i class="section-collapse-caret fas fa-chevron-down"></i> Passive Abilities
+      </h3>
+      <ol class="item-list ability-list" data-section-body="passive">
+        {{#each passiveAbilities}}
+          <li class="item ability-item passive-ability-item" data-item-id="{{id}}">
+            <div class="ability-name-row">
+              <span class="expand-caret">▶</span>
+              <span class="ability-icon-col"></span>
+              <span class="item-name">{{name}}</span>
+              <div class="item-tags">{{#each system.tags}}<span class="tag" data-tooltip="{{lookup @root.tagDescriptions uuid}}">{{name}}</span>{{/each}}</div>
+              <div class="item-controls">
+                <a class="ability-activate" title="Post to Chat"><i class="fas fa-scroll"></i></a>
+                <a class="item-edit" title="Edit"><i class="fas fa-edit"></i></a>
+                <a class="item-delete" title="Delete"><i class="fas fa-trash"></i></a>
+              </div>
+            </div>
+            <div class="ability-details">
+              {{#if effectHTML}}<div class="ability-effect">{{{effectHTML}}}</div>{{/if}}
+            </div>
+          </li>
+        {{else}}
+          <li class="item-empty">No passive abilities.</li>
+        {{/each}}
+      </ol>
+
+    </div>
+
+    {{! ── Classes Tab ──────────────────────────────────── }}
+    <div class="tab" data-tab="classes">
+      {{#each classEntries}}
+        <div class="class-block" data-item-id="{{item.id}}">
+
+          {{! Header }}
+          <div class="class-header-row">
+            <a class="class-collapse-toggle" title="Collapse/Expand"><i class="fas fa-chevron-down"></i></a>
+            <div class="class-name">{{item.name}}</div>
+            <div class="class-level-control">
+              <label>Lvl</label>
+              <input class="class-level-input" type="number" value="{{level}}" min="1" max="10" />
+            </div>
+            <div class="class-base-control">
+              <label>Base</label>
+              <input class="base-class-radio" type="radio" name="baseClass"
+                value="{{item.id}}" {{#if isBase}}checked{{/if}} />
+            </div>
+            <div class="class-stats-summary">
+              ATK {{item.system.stats.atk}} |
+              MAG {{item.system.stats.mag}} |
+              DEF {{item.system.stats.def}} |
+              HP {{item.system.stats.maxHP}}
+            </div>
+            <div class="item-controls">
+              <a class="item-edit" title="Edit"><i class="fas fa-edit"></i></a>
+              <a class="item-delete" title="Remove"><i class="fas fa-trash"></i></a>
+            </div>
+          </div>
+
+          {{! Basic abilities (rank 0) }}
+          {{#if (lookup resolvedByRank 0)}}
+            <div class="class-ability-group">
+              <div class="class-ability-group-label">
+                <span class="rank-badge rank-basic">Basic</span>
+                <span class="hint">auto-granted</span>
+              </div>
+              {{#each (lookup resolvedByRank 0)}}
+                <div class="class-ability-row granted" data-uuid="{{uuid}}">
+                  <span class="caret-col"><i class="fas fa-caret-right expand-caret"></i></span>
+                  <span class="ability-granted-icon"><i class="fas fa-check-circle" title="Auto-granted"></i></span>
+                  <span class="class-ability-name">{{name}}</span>
+                  {{#if abilityData}}
+                    <span class="class-ability-meta">
+                      {{shardCostLabel abilityData.cost}}
+                      {{#if abilityData.focusCost}}<span class="focus-cost">{{abilityData.focusCost}}F</span>{{/if}}
+                      {{#each abilityData.tags}}<span class="tag" data-tooltip="{{lookup @root.tagDescriptions uuid}}">{{name}}</span>{{/each}}
+                    </span>
+                  {{/if}}
+                </div>
+                {{#if abilityData}}
+                  <div class="class-ability-details" style="display:none">
+                    {{#if abilityData.range}}<div class="detail-row"><span class="detail-label">Range</span>{{abilityData.range}}</div>{{/if}}
+                    {{#if abilityData.isAttack}}<div class="detail-row"><span class="detail-label">Damage</span>{{abilityData.damage}}</div>{{/if}}
+                    {{#if abilityData.hasResistance}}<div class="detail-row"><span class="detail-label">Resist DV</span>{{abilityData.resistanceDV}}</div>{{/if}}
+                    {{#if abilityData.effectHTML}}<div class="ability-effect">{{{abilityData.effectHTML}}}</div>{{/if}}
+                  </div>
+                {{/if}}
+              {{/each}}
+            </div>
+          {{/if}}
+
+          {{! Rank 1-5 }}
+          {{#times 5}}
+            {{#if (lookup ../resolvedByRank this)}}
+              {{#if (includes ../unlockedRanks this)}}
+                <div class="class-ability-group">
+                  <div class="class-ability-group-label">
+                    <span class="rank-badge rank-{{this}}">Rank {{this}}</span>
+                  </div>
+                  {{#each (lookup ../resolvedByRank this)}}
+                    <div class="class-ability-row {{#if (includes ../../../grantedUUIDs uuid)}}granted{{/if}}"
+                         data-uuid="{{uuid}}">
+                      <span class="caret-col"><i class="fas fa-caret-right expand-caret"></i></span>
+                      <span class="ability-granted-icon">
+                        {{#if (includes ../../../grantedUUIDs uuid)}}
+                          <i class="fas fa-check-circle" title="On sheet"></i>
+                        {{else}}
+                          <i class="fas fa-circle-dot ca-ungranted" title="Right-click to add"></i>
+                        {{/if}}
+                      </span>
+                      <span class="class-ability-name">{{name}}</span>
+                      {{#if abilityData}}
+                        <span class="class-ability-meta">
+                          {{shardCostLabel abilityData.cost}}
+                          {{#if abilityData.focusCost}}<span class="focus-cost">{{abilityData.focusCost}}F</span>{{/if}}
+                          {{#each abilityData.tags}}<span class="tag" data-tooltip="{{lookup @root.tagDescriptions uuid}}">{{name}}</span>{{/each}}
+                        </span>
+                      {{/if}}
+                    </div>
+                    {{#if abilityData}}
+                      <div class="class-ability-details" style="display:none">
+                        {{#if abilityData.range}}<div class="detail-row"><span class="detail-label">Range</span>{{abilityData.range}}</div>{{/if}}
+                        {{#if abilityData.isAttack}}<div class="detail-row"><span class="detail-label">Damage</span>{{abilityData.damage}}</div>{{/if}}
+                        {{#if abilityData.hasResistance}}<div class="detail-row"><span class="detail-label">Resist DV</span>{{abilityData.resistanceDV}}</div>{{/if}}
+                        {{#if abilityData.effectHTML}}<div class="ability-effect">{{{abilityData.effectHTML}}}</div>{{/if}}
+                      </div>
+                    {{/if}}
+                  {{/each}}
+                </div>
+              {{else}}
+                <div class="class-ability-group locked">
+                  <div class="class-ability-group-label">
+                    <i class="fas fa-lock"></i>
+                    <span class="rank-badge rank-{{this}}">Rank {{this}}</span>
+                    <span class="lock-req hint">requires Level {{lookup ../../config.RANK_LEVEL_REQUIREMENTS this}}</span>
+                  </div>
+                </div>
+              {{/if}}
+            {{/if}}
+          {{/times}}
+
+        </div>
+      {{else}}
+        <div class="item-empty">No classes. Drag a class from the compendium.</div>
+      {{/each}}
+    </div>
+
+    {{! ── Narrative Tab ────────────────────────────────── }}
+    <div class="tab" data-tab="narrative">
+
+      <div class="tag-section">
+        <div class="tag-section-header">
+          <label>Narrative Tags</label>
+          <button type="button" class="skill-check-btn shard-btn">Skill Check</button>
+        </div>
+        <div class="tag-cloud">
+          {{#each system.narrativeTags}}
+            <span class="tag narrative-tag">
+              {{this}}<a class="tag-remove" data-index="{{@index}}" title="Remove">×</a>
+            </span>
+          {{/each}}
+          <a class="tag-add button"><i class="fas fa-plus"></i> Add Tag</a>
+        </div>
+      </div>
+
+      <div class="form-group biography-group">
+        <div class="narrative-field-header">
+          <label>Biography</label>
+          {{#if editingBiography}}
+            <button type="button" class="narrative-done-btn shard-btn" data-field="biography">Done</button>
+          {{else}}
+            <button type="button" class="narrative-edit-btn shard-btn" data-field="biography">Edit</button>
+          {{/if}}
+        </div>
+        {{#if editingBiography}}
+          <div class="editor">
+            <div class="editor-menu"></div>
+            <div class="editor-content" data-edit="system.biography">{{{biographyHTML}}}</div>
+          </div>
+        {{else}}
+          <div class="narrative-view-body">
+            {{#if biographyHTML}}{{{biographyHTML}}}{{else}}<p class="narrative-empty-hint">No biography yet.</p>{{/if}}
+          </div>
+        {{/if}}
+      </div>
+
+      <div class="form-group notes-group">
+        <div class="narrative-field-header">
+          <label>Notes</label>
+          {{#if editingNotes}}
+            <button type="button" class="narrative-done-btn shard-btn" data-field="notes">Done</button>
+          {{else}}
+            <button type="button" class="narrative-edit-btn shard-btn" data-field="notes">Edit</button>
+          {{/if}}
+        </div>
+        {{#if editingNotes}}
+          <div class="editor">
+            <div class="editor-menu"></div>
+            <div class="editor-content" data-edit="system.notes">{{{notesHTML}}}</div>
+          </div>
+        {{else}}
+          <div class="narrative-view-body">
+            {{#if notesHTML}}{{{notesHTML}}}{{else}}<p class="narrative-empty-hint">No notes yet.</p>{{/if}}
+          </div>
+        {{/if}}
+      </div>
+
+      <div class="resources-config">
+        <label>Custom Resources</label>
+        {{#each system.resources as |res key|}}
+          <div class="resource-row">
+            <input name="system.resources.{{key}}.visible" type="checkbox" {{#if res.visible}}checked{{/if}} />
+            <input name="system.resources.{{key}}.label" type="text" value="{{res.label}}" placeholder="Resource Name" />
+            <span>Max:</span>
+            <input name="system.resources.{{key}}.max" type="number" step="1" value="{{res.max}}" min="0" style="width:60px" />
+          </div>
+        {{/each}}
+      </div>
+
+    </div>
+
+  </section>
+</form>

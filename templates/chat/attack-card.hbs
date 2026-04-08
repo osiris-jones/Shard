@@ -1,0 +1,88 @@
+{{! templates/chat/attack-card.hbs }}
+<div class="shard-chat-card attack-card">
+
+  <div class="card-header">
+    <img src="{{ability.img}}" class="ability-img" />
+    <div class="card-title">
+      <span class="actor-name">{{actor.name}}</span>
+      <span class="ability-name">{{ability.name}}</span>
+    </div>
+    {{#if tags.length}}
+      <div class="card-tags">{{#each tags}}<span class="tag">{{name}}</span>{{/each}}</div>
+    {{/if}}
+  </div>
+
+  {{#if effectHTML}}
+    <div class="card-effect">{{{effectHTML}}}</div>
+  {{/if}}
+
+  <div class="card-body">
+
+    {{#each targetResults}}
+      {{#unless @first}}<hr class="target-sep">{{/unless}}
+
+      {{! Expandable roll formula }}
+      {{{rollHTML}}}
+
+      {{! Concealment notice }}
+      {{#if concealBlocked}}
+        <div class="conceal-blocked">
+          <i class="fas fa-eye-slash"></i>
+          Concealment blocked! (rolled {{concealRoll.total}} ≤ {{concealVal}}) — Attack total set to 0.
+        </div>
+      {{else if concealRoll}}
+        <div class="conceal-pass hint">
+          Concealment: rolled {{concealRoll.total}} vs {{concealVal}} — clear.
+        </div>
+      {{/if}}
+
+      {{! Result row }}
+      <div class="roll-result {{#if (eq hit null)}}unknown{{else if isCrit}}crit{{else if hit}}hit{{else}}miss{{/if}}">
+        <span class="roll-total">{{attackTotal}}</span>
+        {{#if actor}}
+          <span class="vs-label">vs</span>
+          {{#if tokenImg}}<img src="{{tokenImg}}" class="roll-target-img" />{{/if}}
+          <span class="target-def">{{actor.name}} DEF {{targetDEF}}</span>
+          {{#unless (eq hit null)}}
+            <span class="hit-label">{{#if isCrit}}CRIT{{else if hit}}HIT{{else}}MISS{{/if}}</span>
+          {{/unless}}
+        {{else}}
+          <span class="no-target-label">No Target</span>
+        {{/if}}
+      </div>
+
+    {{/each}}
+
+  </div>
+
+  <div class="card-footer">
+    {{#if ability.system.isAttack}}
+      {{#if hitAny}}
+        <button class="roll-damage-btn shard-btn" type="button">
+          <i class="fas fa-skull"></i> Roll Damage
+          <span class="formula-hint">({{damageFormula}})</span>
+        </button>
+      {{/if}}
+      {{#if critAny}}
+        <button class="roll-crit-damage-btn shard-btn shard-btn-crit" type="button">
+          <i class="fas fa-skull-crossbones"></i> Critical Damage
+          <span class="formula-hint">({{damageFormula}} max)</span>
+        </button>
+      {{/if}}
+      {{#if hasGraze}}
+        {{#if missAny}}
+          <button class="roll-graze-btn shard-btn shard-btn-secondary" type="button">
+            <i class="fas fa-tint"></i> Graze
+            <span class="formula-hint">({{grazeFormula}})</span>
+          </button>
+        {{/if}}
+      {{/if}}
+    {{/if}}
+    {{#if hasResistance}}
+      <button class="resist-roll-btn shard-btn shard-btn-resist" type="button">
+        <i class="fas fa-shield-alt"></i> Resistance Roll (DV {{resistanceDV}})
+      </button>
+    {{/if}}
+  </div>
+
+</div>

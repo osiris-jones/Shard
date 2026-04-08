@@ -1,0 +1,48 @@
+{{! templates/dialogs/resist-dialog.hbs }}
+<form class="shard-dialog-form" autocomplete="off">
+
+  <div class="dialog-section">
+    <div class="target-info-row">
+      <img src="{{actor.img}}" class="target-img" />
+      <span class="target-name">{{actor.name}}</span>
+    </div>
+    <div class="resist-dv-display">
+      DV <strong>{{resistanceDV}}</strong> — roll 3d6 and meet or beat it to resist.
+    </div>
+  </div>
+
+  {{#if baseAdv}}
+    <div class="dialog-section">
+      <div class="section-label">Status Effects</div>
+      <span class="hint">Auto net: {{baseAdv}}</span>
+    </div>
+  {{/if}}
+
+  <div class="dialog-section">
+    <div class="section-label">Advantage / Disadvantage</div>
+    <div class="adv-row">
+      <div class="number-stepper">
+        <button type="button" class="step-btn" data-delta="-1">−</button>
+        <input type="number" name="netAdvantage" value="0" class="stepper-input" />
+        <button type="button" class="step-btn" data-delta="1">+</button>
+      </div>
+      <span class="hint">Positive = Adv, Negative = Dis</span>
+    </div>
+  </div>
+
+  <div class="dialog-section">
+    <div class="section-label">Flat Bonus</div>
+    <input type="number" name="flatBonus" value="0" class="small-input" />
+    <span class="hint">(future attributes)</span>
+  </div>
+
+</form>
+
+<script>
+  document.querySelectorAll(".step-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const input = btn.closest(".number-stepper").querySelector("input");
+      input.value = parseInt(input.value || "0") + parseInt(btn.dataset.delta);
+    });
+  });
+</script>

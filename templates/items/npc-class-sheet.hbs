@@ -1,0 +1,103 @@
+{{! templates/items/npc-class-sheet.hbs }}
+<form class="shard-sheet item-sheet class-sheet npc-class-sheet" autocomplete="off">
+
+  <header class="sheet-header">
+    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <h1><input name="name" type="text" value="{{item.name}}" placeholder="NPC Class Name" /></h1>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="basics">Stats</a>
+    <a class="item" data-tab="abilities">Abilities</a>
+  </nav>
+
+  <section class="sheet-body">
+
+    {{! ── Stats Tab ──────────────────────────────────────── }}
+    <div class="tab" data-tab="basics">
+
+      <h3 class="section-header">Base Stats <span class="hint">(applied to the NPC when this is their base class)</span></h3>
+      <div class="stats-grid">
+
+        <div class="form-group">
+          <label>Max HP</label>
+          <input name="system.stats.maxHP" type="number" value="{{system.stats.maxHP}}" min="1" />
+        </div>
+
+        <div class="form-group">
+          <label>Armor</label>
+          <input name="system.stats.armor" type="number" value="{{system.stats.armor}}" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>DEF</label>
+          <input name="system.stats.def" type="number" value="{{system.stats.def}}" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>SPD</label>
+          <input name="system.stats.spd" type="number" value="{{system.stats.spd}}" min="0" />
+        </div>
+
+      </div>
+
+      <div class="form-group full-width">
+        <label>Description</label>
+        <div class="editor">
+          <div class="editor-menu"></div>
+          <div class="editor-content" data-edit="system.description">{{{descHTML}}}</div>
+        </div>
+      </div>
+
+    </div>
+
+    {{! ── Abilities Tab ───────────────────────────────────── }}
+    <div class="tab" data-tab="abilities">
+
+      <div class="ability-drop-zone drop-hint">
+        <i class="fas fa-arrow-down"></i>
+        Drop NPC Ability items here to add them to this class.
+        The ability's Tier field determines where it's sorted.
+      </div>
+
+      {{! Basic Abilities }}
+      <div class="rank-section">
+        <h3 class="section-header rank-header">
+          <span class="rank-badge rank-basic">Basic</span>
+          <span class="rank-desc">Auto-granted abilities for this NPC class</span>
+        </h3>
+        <ol class="item-list rank-ability-list">
+          {{#each abilitiesByTier.basic}}
+            <li class="item rank-ability-row" data-uuid="{{uuid}}">
+              <span class="item-name">{{name}}</span>
+              <span class="rank-badge rank-basic">Basic</span>
+              <a class="ability-remove" data-uuid="{{uuid}}" title="Remove"><i class="fas fa-times"></i></a>
+            </li>
+          {{else}}
+            <li class="item-empty">No basic abilities. Drop NPC Ability items here to add them.</li>
+          {{/each}}
+        </ol>
+      </div>
+
+      {{! Optional Abilities }}
+      <div class="rank-section">
+        <h3 class="section-header rank-header">
+          <span class="rank-badge rank-1">Optional</span>
+          <span class="rank-desc">Additional abilities available to this NPC class</span>
+        </h3>
+        <ol class="item-list rank-ability-list">
+          {{#each abilitiesByTier.optional}}
+            <li class="item rank-ability-row" data-uuid="{{uuid}}">
+              <span class="item-name">{{name}}</span>
+              <a class="ability-remove" data-uuid="{{uuid}}" title="Remove"><i class="fas fa-times"></i></a>
+            </li>
+          {{else}}
+            <li class="item-empty">No optional abilities.</li>
+          {{/each}}
+        </ol>
+      </div>
+
+    </div>
+
+  </section>
+</form>

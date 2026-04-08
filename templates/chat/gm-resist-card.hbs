@@ -1,0 +1,17 @@
+{{! templates/chat/gm-resist-card.hbs — GM-initiated resistance roll card }}
+<div class="shard-chat-card gm-resist-card">
+
+  <div class="card-header">
+    <div class="card-title">
+      {{#if actorName}}<span class="actor-name">{{actorName}}</span>{{/if}}
+      <span class="ability-name">{{rollName}}</span>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button class="resist-roll-btn shard-btn shard-btn-resist" type="button">
+      <i class="fas fa-shield-alt"></i> Resistance Roll (DV {{dv}})
+    </button>
+  </div>
+
+</div>

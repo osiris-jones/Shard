@@ -1,0 +1,36 @@
+{{! templates/chat/ability-card.hbs }}
+<div class="shard-chat-card ability-card">
+
+  <div class="card-header">
+    <img src="{{item.img}}" class="ability-img" />
+    <div class="card-title">
+      <span class="actor-name">{{actor.name}}</span>
+      <span class="ability-name">{{item.name}}</span>
+    </div>
+    <div class="ability-cost">
+      {{shardCostLabel item.system.cost}}
+      {{#if item.system.focusCost}}<span class="focus-cost">{{item.system.focusCost}}F spent</span>{{/if}}
+    </div>
+  </div>
+
+  {{#if tags.length}}
+    <div class="card-tags padded">{{#each tags}}<span class="tag">{{name}}</span>{{/each}}</div>
+  {{/if}}
+
+  {{#if item.system.range}}
+    <div class="card-range hint padded">Range: {{item.system.range}}</div>
+  {{/if}}
+
+  {{#if effectHTML}}
+    <div class="card-effect">{{{effectHTML}}}</div>
+  {{/if}}
+
+  {{#if hasResistance}}
+    <div class="card-footer">
+      <button class="resist-roll-btn shard-btn shard-btn-resist" type="button">
+        <i class="fas fa-shield-alt"></i> Resistance Roll (DV {{resistanceDV}})
+      </button>
+    </div>
+  {{/if}}
+
+</div>

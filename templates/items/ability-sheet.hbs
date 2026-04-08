@@ -1,0 +1,191 @@
+{{! templates/items/ability-sheet.hbs }}
+<form class="shard-sheet item-sheet ability-sheet" autocomplete="off">
+
+  <header class="sheet-header">
+    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-fields">
+      <h1><input name="name" type="text" value="{{item.name}}" placeholder="Ability Name" /></h1>
+      <div class="ability-meta">
+        <label>Rank</label>
+        <select name="system.rank">
+          <option value="0" {{#if (eq system.rank 0)}}selected{{/if}}>Basic</option>
+          {{#times 5}}<option value="{{this}}" {{#if (eq ../system.rank this)}}selected{{/if}}>Rank {{this}}</option>{{/times}}
+        </select>
+      </div>
+      <div class="ability-meta">
+        <label class="checkbox-label">
+          <input name="system.isInnate" type="checkbox" {{#if system.isInnate}}checked{{/if}} />
+          Innate
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <section class="form-body">
+
+    {{! ── Passive / Active Toggle ─────────────────────────── }}
+    <div class="form-row passive-active-row">
+      <label class="radio-label">
+        <input type="radio" class="cost-mode-radio" value="active" {{#unless system.isPassive}}checked{{/unless}} />
+        Active
+      </label>
+      <label class="radio-label">
+        <input type="radio" class="cost-mode-radio" value="passive" {{#if system.isPassive}}checked{{/if}} />
+        Passive
+      </label>
+    </div>
+
+    {{! ── Cost (active only) ─────────────────────────────── }}
+    {{#unless system.isPassive}}
+    <div class="form-row">
+      <div class="form-group">
+        <label>Cost</label>
+        <select name="system.cost">
+          {{#each activeCosts as |label key|}}
+            <option value="{{key}}" {{#if (eq ../system.cost key)}}selected{{/if}}>{{label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Focus Cost</label>
+        <input name="system.focusCost" type="number" value="{{system.focusCost}}" min="0" style="width:60px" />
+      </div>
+      <div class="form-group">
+        <label>Range</label>
+        <input name="system.range" type="text" value="{{system.range}}" placeholder="e.g. Melee" />
+      </div>
+    </div>
+    {{/unless}}
+
+    {{! ── Attack & Resistance (active only) ─────────────────── }}
+    {{#unless system.isPassive}}
+
+    <div class="form-row checkbox-row">
+      <label class="checkbox-label">
+        <input name="system.isAttack" type="checkbox" {{#if system.isAttack}}checked{{/if}} />
+        Is Attack?
+      </label>
+      {{#if system.isAttack}}
+        <label class="checkbox-label">
+          <input name="system.hasGraze" type="checkbox" {{#if system.hasGraze}}checked{{/if}} />
+          Has Graze?
+        </label>
+      {{/if}}
+    </div>
+
+    {{#if system.isAttack}}
+      <div class="form-row">
+        <div class="form-group wide">
+          <label>Damage Formula</label>
+          <input name="system.damage" type="text" value="{{system.damage}}" placeholder="e.g. 3[atk]+[tier]" />
+          <span class="hint">Use [atk] for ATK die, [tier] for tier value.</span>
+        </div>
+      </div>
+      {{#if system.hasGraze}}
+        <div class="form-row">
+          <div class="form-group wide">
+            <label>Graze Formula (on miss)</label>
+            <input name="system.grazeDamage" type="text" value="{{system.grazeDamage}}" placeholder="e.g. [tier]" />
+          </div>
+        </div>
+      {{/if}}
+    {{/if}}
+
+    <div class="form-row checkbox-row">
+      <label class="checkbox-label">
+        <input name="system.hasResistance" type="checkbox" {{#if system.hasResistance}}checked{{/if}} />
+        Has Resistance Roll?
+      </label>
+    </div>
+
+    {{#if system.hasResistance}}
+      <div class="form-row">
+        <div class="form-group">
+          <label>Difficulty Value (DV)</label>
+          <input name="system.resistanceDV" type="text" value="{{system.resistanceDV}}" placeholder="e.g. 10+[tier]" style="width:90px" />
+        </div>
+        <div class="form-group wide">
+          <label>Resistance Damage Formula</label>
+          <input name="system.resistanceDamage" type="text" value="{{system.resistanceDamage}}" placeholder="e.g. 2[atk]" />
+        </div>
+      </div>
+    {{/if}}
+
+    {{/unless}}
+
+    {{! ── Passive Modifiers ───────────────────────────────── }}
+    {{#if system.isPassive}}
+      <div class="form-group modifiers-section">
+        <label class="section-label-inline">
+          Passive Modifiers
+          <a class="modifier-add button"><i class="fas fa-plus"></i> Add</a>
+        </label>
+        <p class="hint">Applied to the actor's stats while this passive ability is equipped.</p>
+
+        {{#if system.modifiers.length}}
+          <table class="modifier-table">
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Target Stat</th>
+                <th>Bonus</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each system.modifiers}}
+                <tr data-index="{{@index}}">
+                  <td>
+                    <input name="system.modifiers.{{@index}}.label"
+                           type="text" value="{{label}}" placeholder="e.g. Toughness" />
+                  </td>
+                  <td>
+                    <select name="system.modifiers.{{@index}}.target">
+                      {{#each ../config.MODIFIER_TARGETS as |label key|}}
+                        <option value="{{key}}" {{#if (eq ../target key)}}selected{{/if}}>{{label}}</option>
+                      {{/each}}
+                    </select>
+                  </td>
+                  <td>
+                    <input name="system.modifiers.{{@index}}.value"
+                           type="number" value="{{value}}" style="width:55px" />
+                  </td>
+                  <td>
+                    <a class="modifier-remove" data-index="{{@index}}"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          <p class="hint">No modifiers. Click Add to create one.</p>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{! ── Tags ───────────────────────────────────────────── }}
+    <div class="form-group">
+      <label>Tags</label>
+      <div class="tag-drop-zone drop-hint">
+        <i class="fas fa-tags"></i> Drop Tag items here.
+      </div>
+      <div class="tag-cloud">
+        {{#each system.tags}}
+          <span class="tag" data-tooltip="{{lookup @root.tagDescriptions uuid}}">{{name}}<a class="tag-remove" data-uuid="{{uuid}}">×</a></span>
+        {{else}}
+          <span class="hint">No tags.</span>
+        {{/each}}
+      </div>
+    </div>
+
+    {{! ── Effect ─────────────────────────────────────────── }}
+    <div class="form-group full-width">
+      <label>Effect / Description</label>
+      <div class="editor">
+        <div class="editor-menu"></div>
+        <div class="editor-content" data-edit="system.effect">{{{effectHTML}}}</div>
+      </div>
+    </div>
+
+  </section>
+</form>

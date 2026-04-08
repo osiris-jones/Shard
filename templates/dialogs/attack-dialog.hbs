@@ -1,0 +1,113 @@
+{{! templates/dialogs/attack-dialog.hbs }}
+<form class="shard-dialog-form" autocomplete="off">
+
+  {{! Per-target modifiers }}
+  <div class="dialog-section">
+    <div class="section-label">{{#if targets.length}}Targets{{else}}Target{{/if}}</div>
+    {{#if targets.length}}
+      {{#each targets}}
+        <div class="target-modifier-block">
+          <div class="target-info-row">
+            <img src="{{img}}" class="target-img" />
+            <span class="target-name">{{name}}</span>
+            <span class="target-def">DEF {{def}}</span>
+            {{#if isOffGuard}}
+              <span class="off-guard-tag"><i class="fas fa-crosshairs"></i> Off Guard <span class="hint">(+1 Adv)</span></span>
+            {{/if}}
+            {{#if isProne}}
+              <span class="off-guard-tag prone-tag"><i class="fas fa-level-down-alt"></i> Prone <span class="hint">(+1 Adv)</span></span>
+            {{/if}}
+          </div>
+          <div class="target-modifier-row">
+            <label class="modifier-inline">
+              <input type="checkbox" name="cover_{{@index}}" value="true" />
+              Cover <span class="hint">(−1 die)</span>
+            </label>
+            <label class="modifier-inline">
+              Concealment:
+              <input type="number" name="concealment_{{@index}}" value="0" min="0" max="6" class="small-input" />
+              <span class="hint">d6 ≤ value → blocked</span>
+            </label>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <div class="target-display no-target">No target selected.</div>
+    {{/if}}
+  </div>
+
+  {{! Status auto-bonuses }}
+  {{#if statuses.length}}
+    <div class="dialog-section">
+      <div class="section-label">Status Effects</div>
+      <div class="status-bonuses">
+        {{#each statuses}}
+          <span class="status-tag">{{name}}
+            {{#if advantageBonus}}(+{{advantageBonus}} Adv){{/if}}
+            {{#if disadvantageBonus}}(−{{disadvantageBonus}} Dis){{/if}}
+          </span>
+        {{/each}}
+        <span class="hint">Auto net: {{baseAdv}}</span>
+      </div>
+    </div>
+  {{/if}}
+
+  {{! Advantage / Disadvantage stepper }}
+  <div class="dialog-section">
+    <div class="section-label">Advantage / Disadvantage</div>
+    <div class="adv-row">
+      <div class="number-stepper">
+        <button type="button" class="step-btn" data-target="netAdvantage" data-delta="-1">−</button>
+        <input type="number" name="netAdvantage" value="0" class="stepper-input" />
+        <button type="button" class="step-btn" data-target="netAdvantage" data-delta="1">+</button>
+      </div>
+      <span class="hint">Positive = Adv, Negative = Dis (shared across all targets)</span>
+    </div>
+  </div>
+
+  {{! Shared modifiers }}
+  <div class="dialog-section">
+    <div class="section-label">Modifiers</div>
+    <label class="modifier-row">
+      <input type="checkbox" name="ignoreArmor" />
+      <span>Ignore Armor?</span>
+    </label>
+    <div class="modifier-row">
+      <label>Flat Bonus <span class="hint">(future attributes)</span>:</label>
+      <input type="number" name="flatBonus" value="0" class="small-input" />
+    </div>
+  </div>
+
+  {{! Bonus Damage }}
+  {{#if ability.system.damage}}
+  <div class="dialog-section">
+    <div class="section-label">Bonus Damage</div>
+    <div class="modifier-row">
+      <input type="text" name="bonusDamage" value="" placeholder="e.g. 2d6, [tier]" class="bonus-damage-input" style="width:100%;min-width:220px" />
+      <span class="hint">Added to this attack's damage roll only</span>
+    </div>
+  </div>
+  {{/if}}
+
+  {{! Ability summary }}
+  <div class="dialog-section ability-summary-row">
+    <span class="ability-name">{{ability.name}}</span>
+    {{#if ability.system.damage}}
+      <span class="hint">Dmg: {{ability.system.damage}}</span>
+    {{/if}}
+    {{#if ability.system.focusCost}}
+      <span class="focus-cost">{{ability.system.focusCost}} Focus</span>
+    {{/if}}
+  </div>
+
+</form>
+
+<script>
+  // Stepper buttons
+  document.querySelectorAll(".step-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const input = btn.closest(".number-stepper").querySelector("input");
+      input.value = parseInt(input.value || "0") + parseInt(btn.dataset.delta);
+    });
+  });
+</script>

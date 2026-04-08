@@ -1,0 +1,64 @@
+{{! templates/items/npc-template-sheet.hbs }}
+<form class="shard-sheet item-sheet class-sheet npc-template-sheet" autocomplete="off">
+
+  <header class="sheet-header">
+    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <h1><input name="name" type="text" value="{{item.name}}" placeholder="NPC Template Name" /></h1>
+  </header>
+
+  <section class="form-body">
+
+    <div class="ability-drop-zone drop-hint">
+      <i class="fas fa-arrow-down"></i>
+      Drop NPC Ability items here. Basic abilities are auto-granted;
+      Optional abilities are available for selection.
+    </div>
+
+    {{! Basic Abilities }}
+    <div class="rank-section">
+      <h3 class="section-header rank-header">
+        <span class="rank-badge rank-basic">Basic</span>
+        <span class="rank-desc">Abilities added automatically by this template</span>
+      </h3>
+      <ol class="item-list rank-ability-list">
+        {{#each abilitiesByTier.basic}}
+          <li class="item rank-ability-row" data-uuid="{{uuid}}">
+            <span class="item-name">{{name}}</span>
+            <span class="rank-badge rank-basic">Basic</span>
+            <a class="ability-remove" data-uuid="{{uuid}}" title="Remove"><i class="fas fa-times"></i></a>
+          </li>
+        {{else}}
+          <li class="item-empty">No basic abilities. Drop NPC Ability items here to add them.</li>
+        {{/each}}
+      </ol>
+    </div>
+
+    {{! Optional Abilities }}
+    <div class="rank-section">
+      <h3 class="section-header rank-header">
+        <span class="rank-badge rank-1">Optional</span>
+        <span class="rank-desc">Additional abilities provided by this template</span>
+      </h3>
+      <ol class="item-list rank-ability-list">
+        {{#each abilitiesByTier.optional}}
+          <li class="item rank-ability-row" data-uuid="{{uuid}}">
+            <span class="item-name">{{name}}</span>
+            <a class="ability-remove" data-uuid="{{uuid}}" title="Remove"><i class="fas fa-times"></i></a>
+          </li>
+        {{else}}
+          <li class="item-empty">No optional abilities.</li>
+        {{/each}}
+      </ol>
+    </div>
+
+    {{! Description }}
+    <div class="form-group full-width">
+      <label>Description</label>
+      <div class="editor">
+        <div class="editor-menu"></div>
+        <div class="editor-content" data-edit="system.description">{{{descHTML}}}</div>
+      </div>
+    </div>
+
+  </section>
+</form>

@@ -1,0 +1,36 @@
+{{! templates/chat/damage-card.hbs }}
+<div class="shard-chat-card damage-card {{#if isGraze}}graze-card{{else if isCrit}}crit-card{{/if}}">
+
+  <div class="card-header">
+    <span class="damage-label">{{#if isGraze}}Graze Damage{{else if isCrit}}Critical Damage{{else}}Damage{{/if}}</span>
+  </div>
+
+  <div class="card-body">
+    <div class="damage-result">
+      <span class="damage-raw">{{raw}}</span>
+    </div>
+
+    {{#each appliedTargets}}
+      <div class="target-applied hint">
+        {{actor.name}}:
+        {{#if armor}}−{{armor}} armor → {{/if}}
+        {{#if barrierTaken}}
+          {{barrierTaken}} barrier{{#if reduced}} + {{reduced}} HP{{/if}}
+        {{else}}
+          {{reduced}} HP
+        {{/if}}
+      </div>
+    {{/each}}
+
+    {{#if appliedTargets.length}}
+      <div class="target-applied hint">
+        <a class="undo-damage-btn" title="Undo — restore this damage">
+          <i class="fas fa-undo"></i> Undo
+        </a>
+      </div>
+    {{/if}}
+
+    <div class="roll-formula hint">{{roll.formula}} = {{raw}}</div>
+  </div>
+
+</div>

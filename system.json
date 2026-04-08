@@ -1,0 +1,81 @@
+{
+  "id": "shard",
+  "title": "Shard",
+  "description": "A custom tactical RPG system for FoundryVTT.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Osiris J"
+    }
+  ],
+  "esmodules": [
+    "module/shard.mjs"
+  ],
+  "templatePaths": [
+    "systems/shard/templates/actors/pc-sheet.hbs",
+    "systems/shard/templates/actors/npc-sheet.hbs",
+    "systems/shard/templates/items/ability-sheet.hbs",
+    "systems/shard/templates/items/class-sheet.hbs",
+    "systems/shard/templates/dialogs/attack-dialog.hbs",
+    "systems/shard/templates/dialogs/resist-dialog.hbs",
+    "systems/shard/templates/chat/attack-card.hbs",
+    "systems/shard/templates/chat/ability-card.hbs",
+    "systems/shard/templates/chat/damage-card.hbs",
+    "systems/shard/templates/chat/resist-card.hbs"
+  ],
+  "styles": [
+    "styles/shard.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "pc": {},
+      "npc": {}
+    },
+    "Item": {
+      "ability": {},
+      "npc-ability": {},
+      "class": {},
+      "npc-class": {},
+      "npc-template": {},
+      "tag": {}
+    }
+  },
+  "packs": [
+    {
+      "name": "shard-tags",
+      "label": "Shard Tags",
+      "path": "packs/shard-tags",
+      "type": "Item",
+      "system": "shard"
+    },
+    {
+      "name": "shard-abilities",
+      "label": "Shard Abilities",
+      "path": "packs/shard-abilities",
+      "type": "Item",
+      "system": "shard"
+    },
+    {
+      "name": "shard-classes",
+      "label": "Shard Classes",
+      "path": "packs/shard-classes",
+      "type": "Item",
+      "system": "shard"
+    }
+  ],
+  "socket": false,
+  "url": "",
+  "manifest": "",
+  "download": ""
+}

@@ -1,0 +1,25 @@
+{{! templates/chat/macro-heal-card.hbs — Heal / Barrier macro chat card }}
+<div class="shard-chat-card heal-card">
+
+  <div class="card-header">
+    <span class="damage-label">Healing</span>
+  </div>
+
+  <div class="card-body">
+    {{#each healTargets}}
+      <div class="target-applied hint">
+        {{name}}:
+        {{#if hpRestored}}+{{hpRestored}} HP{{/if}}{{#if barrierRestored}}{{#if hpRestored}} + {{/if}}+{{barrierRestored}} barrier{{/if}}
+      </div>
+    {{/each}}
+
+    {{#if healTargets.length}}
+      <div class="target-applied hint">
+        <a class="undo-heal-btn" title="Undo — reverse this healing">
+          <i class="fas fa-undo"></i> Undo
+        </a>
+      </div>
+    {{/if}}
+  </div>
+
+</div>

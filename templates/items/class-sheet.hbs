@@ -1,0 +1,133 @@
+{{! templates/items/class-sheet.hbs }}
+<form class="shard-sheet item-sheet class-sheet" autocomplete="off">
+
+  <header class="sheet-header">
+    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <h1><input name="name" type="text" value="{{item.name}}" placeholder="Class Name" /></h1>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="basics">Stats</a>
+    <a class="item" data-tab="abilities">Abilities</a>
+  </nav>
+
+  <section class="sheet-body">
+
+    {{! ── Stats Tab ──────────────────────────────────────── }}
+    <div class="tab" data-tab="basics">
+
+      <h3 class="section-header">Base Stats <span class="hint">(inherited when this is the base class)</span></h3>
+      <div class="stats-grid">
+
+        <div class="form-group">
+          <label>ATK Die</label>
+          <select name="system.stats.atk">
+            {{#each config.STAT_DICE as |label key|}}
+              <option value="{{key}}" {{#if (eq ../system.stats.atk key)}}selected{{/if}}>{{label}}</option>
+            {{/each}}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>MAG Die</label>
+          <select name="system.stats.mag">
+            {{#each config.STAT_DICE as |label key|}}
+              <option value="{{key}}" {{#if (eq ../system.stats.mag key)}}selected{{/if}}>{{label}}</option>
+            {{/each}}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>DEF</label>
+          <input name="system.stats.def" type="number" value="{{system.stats.def}}" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>SPD</label>
+          <input name="system.stats.spd" type="number" value="{{system.stats.spd}}" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>Armor</label>
+          <input name="system.stats.armor" type="number" value="{{system.stats.armor}}" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>Focus Pool</label>
+          <input name="system.stats.focusPool" type="number" value="{{system.stats.focusPool}}" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label>Max HP</label>
+          <input name="system.stats.maxHP" type="number" value="{{system.stats.maxHP}}" min="1" />
+        </div>
+
+      </div>
+
+      <div class="form-group full-width">
+        <label>Description</label>
+        <div class="editor">
+          <div class="editor-menu"></div>
+          <div class="editor-content" data-edit="system.description">{{{descHTML}}}</div>
+        </div>
+      </div>
+
+    </div>
+
+    {{! ── Abilities Tab ───────────────────────────────────── }}
+    <div class="tab" data-tab="abilities">
+
+      <div class="ability-drop-zone drop-hint">
+        <i class="fas fa-arrow-down"></i>
+        Drop Ability items here to add them to this class.
+        The ability's Rank field determines where it's sorted.
+        Rank 0 = Basic (auto-granted).
+      </div>
+
+      {{! Basic Abilities (rank 0) }}
+      <div class="rank-section">
+        <h3 class="section-header rank-header">
+          <span class="rank-badge rank-basic">Basic</span>
+          <span class="rank-desc">Auto-granted when this is a character's base class</span>
+        </h3>
+        <ol class="item-list rank-ability-list">
+          {{#each (lookup abilitiesByRank 0)}}
+            <li class="item rank-ability-row" data-uuid="{{uuid}}">
+              <span class="item-name">{{name}}</span>
+              <span class="rank-badge rank-basic">Basic</span>
+              <a class="ability-remove" data-uuid="{{uuid}}" title="Remove"><i class="fas fa-times"></i></a>
+            </li>
+          {{else}}
+            <li class="item-empty">No basic abilities. Drop ability items here to add them.</li>
+          {{/each}}
+        </ol>
+      </div>
+
+      {{! Rank 1–5 Abilities }}
+      {{#times 5}}
+        <div class="rank-section">
+          <h3 class="section-header rank-header">
+            <span class="rank-badge rank-{{this}}">Rank {{this}}</span>
+            {{#if (eq this 1)}}<span class="rank-desc">Requires Level 1</span>{{/if}}
+            {{#if (eq this 2)}}<span class="rank-desc">Requires Level 2 + a Rank 1 ability</span>{{/if}}
+            {{#if (eq this 3)}}<span class="rank-desc">Requires Level 4 + a Rank 2 ability</span>{{/if}}
+            {{#if (eq this 4)}}<span class="rank-desc">Requires Level 6 + a Rank 3 ability</span>{{/if}}
+            {{#if (eq this 5)}}<span class="rank-desc">Requires Level 8 + a Rank 4 ability</span>{{/if}}
+          </h3>
+          <ol class="item-list rank-ability-list">
+            {{#each (lookup ../abilitiesByRank this)}}
+              <li class="item rank-ability-row" data-uuid="{{uuid}}">
+                <span class="item-name">{{name}}</span>
+                <a class="ability-remove" data-uuid="{{uuid}}" title="Remove"><i class="fas fa-times"></i></a>
+              </li>
+            {{else}}
+              <li class="item-empty">No rank {{this}} abilities.</li>
+            {{/each}}
+          </ol>
+        </div>
+      {{/times}}
+
+    </div>
+
+  </section>
+</form>
