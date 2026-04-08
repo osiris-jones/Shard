@@ -1,5 +1,6 @@
 {
   "id": "shard",
+  "name": "shard",
   "title": "Shard",
   "description": "A custom tactical RPG system for FoundryVTT.",
   "version": "0.1.0",
@@ -76,6 +77,6 @@
   ],
   "socket": false,
   "url": "https://github.com/osiris-jones/Shard",
-  "manifest": "https://github.com/osiris-jones/Shard/system.json",
+  "manifest": "https://raw.githubusercontent.com/osiris-jones/Shard/refs/heads/main/source.json",
   "download": "https://github.com/osiris-jones/Shard/releases/download/Releases/Shard.zip"
 }
