@@ -18,10 +18,12 @@ export class NpcClassDataModel extends foundry.abstract.TypeDataModel {
 
       /* ---- Base Stats ----------------------------------------------- */
       stats: new fields.SchemaField({
-        maxHP: new fields.NumberField({ integer: true, initial: 10, min: 1 }),
-        armor: new fields.NumberField({ integer: true, initial: 0,  min: 0 }),
-        def:   new fields.NumberField({ integer: true, initial: 10, min: 0 }),
-        spd:   new fields.NumberField({ integer: true, initial: 5,  min: 0 })
+        // HP formula: hp + hpBonus × tier  (templates leave both at 0)
+        hp:      new fields.NumberField({ integer: true, initial: 10, min: 0 }),
+        hpBonus: new fields.NumberField({ integer: true, initial: 0,  min: 0 }),
+        armor:   new fields.NumberField({ integer: true, initial: 0,  min: 0 }),
+        def:     new fields.NumberField({ integer: true, initial: 10, min: 0 }),
+        spd:     new fields.NumberField({ integer: true, initial: 5,  min: 0 })
       }),
 
       /* ---- Abilities ------------------------------------------------ */

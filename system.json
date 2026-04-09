@@ -1,6 +1,5 @@
 {
   "id": "shard",
-  "name": "shard",
   "title": "Shard",
   "description": "A custom tactical RPG system for FoundryVTT.",
   "version": "0.1.0",
@@ -73,10 +72,24 @@
       "path": "packs/shard-classes",
       "type": "Item",
       "system": "shard"
+    },
+    {
+      "name": "shard-npc-abilities",
+      "label": "Shard NPC Abilities",
+      "path": "packs/shard-npc-abilities",
+      "type": "Item",
+      "system": "shard"
+    },
+    {
+      "name": "shard-npc-classes",
+      "label": "Shard NPC Classes",
+      "path": "packs/shard-npc-classes",
+      "type": "Item",
+      "system": "shard"
     }
   ],
   "socket": false,
-  "url": "https://github.com/osiris-jones/Shard",
-  "manifest": "https://raw.githubusercontent.com/osiris-jones/Shard/refs/heads/main/source.json",
-  "download": "https://github.com/osiris-jones/Shard/releases/download/Releases/Shard.zip"
+  "url": "",
+  "manifest": "",
+  "download": ""
 }

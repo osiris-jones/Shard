@@ -1,0 +1,5 @@
+2026/04/08-22:00:06.719 5fc Recovering log #8
+2026/04/08-22:00:06.719 5fc Level-0 table #10: started
+2026/04/08-22:00:06.722 5fc Level-0 table #10: 11303 bytes OK
+2026/04/08-22:00:06.722 5fc Delete type=0 #8
+2026/04/08-22:00:06.722 5fc Delete type=3 #6

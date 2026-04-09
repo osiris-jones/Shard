@@ -200,6 +200,17 @@ export class ShardNPCActorSheet extends ActorSheet {
     super.activateListeners(html);
     if (!this.isEditable) return;
 
+    // Section collapse
+    html.on("click", ".collapsible-header", this._onSectionCollapse.bind(this));
+
+    // Restore section collapsed states across re-renders
+    if (this._collapsedSections) {
+      for (const section of this._collapsedSections) {
+        html.find(`[data-section="${section}"]`).addClass("collapsed");
+        html.find(`[data-section-body="${section}"]`).addClass("section-body-collapsed");
+      }
+    }
+
     // Inventory ability expand/collapse
     html.on("click", ".ability-name-row", this._onAbilityExpand.bind(this));
 
@@ -268,6 +279,27 @@ export class ShardNPCActorSheet extends ActorSheet {
     event.preventDefault();
     event.stopPropagation();
     event.currentTarget.closest(".class-block").classList.toggle("collapsed");
+  }
+
+  /* ---- Ability Section Collapse ------------------------------------- */
+
+  _onSectionCollapse(event) {
+    if (event.target.closest(".ability-name-row")) return;
+    const header  = event.currentTarget;
+    const section = header.dataset.section;
+    if (!section) return;
+
+    if (!this._collapsedSections) this._collapsedSections = new Set();
+
+    header.classList.toggle("collapsed");
+    const body = this.element[0].querySelector(`[data-section-body="${section}"]`);
+    if (body) body.classList.toggle("section-body-collapsed");
+
+    if (header.classList.contains("collapsed")) {
+      this._collapsedSections.add(section);
+    } else {
+      this._collapsedSections.delete(section);
+    }
   }
 
   /* ---- Drag-sort within ability lists ------------------------------- */

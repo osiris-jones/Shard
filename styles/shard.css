@@ -1,0 +1,1525 @@
+/* styles/shard.css — Shard System Stylesheet */
+
+/* ── Variables ──────────────────────────────────────────────────────── */
+:root {
+  --shard-bg:         #fef0b0;  /* pale champagne gold */
+  --shard-bg-light:   #d4a020;  /* warm gold */
+  --shard-accent:     #7a3500;  /* dark auburn — buttons, active states */
+  --shard-gold:       #6b4500;  /* dark gold-brown — text highlights */
+  --shard-text:       #111111;  /* near-black */
+  --shard-text-muted: #5c3e00;  /* dark amber */
+  --shard-border:     #b8920a;  /* golden border */
+  --shard-hit:        #1a6b2a;  /* dark green */
+  --shard-miss:       #b52b1a;  /* dark red */
+  --shard-radius:     4px;
+}
+
+/* ── Sheet Base ─────────────────────────────────────────────────────── */
+.shard-sheet {
+  font-family: "Signika", sans-serif;
+  color: var(--shard-text);
+  background: var(--shard-bg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.shard-sheet .sheet-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--shard-bg-light);
+  border-bottom: 1px solid var(--shard-accent);
+}
+
+.shard-sheet .profile-img,
+.shard-sheet .item-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--shard-radius);
+  border: 2px solid var(--shard-accent);
+  cursor: pointer;
+}
+
+.shard-sheet .charname input,
+.shard-sheet h1 input {
+  font-size: 1.4em;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--shard-border);
+  color: var(--shard-text);
+  width: 100%;
+}
+
+.level-display {
+  font-size: 0.85em;
+  color: var(--shard-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.class-pill {
+  background: var(--shard-bg);
+  border: 1px solid var(--shard-border);
+  border-radius: 12px;
+  padding: 1px 8px;
+  font-size: 0.8em;
+}
+.class-pill.is-base {
+  border-color: var(--shard-gold);
+  color: var(--shard-gold);
+}
+
+/* ── Vitals Bar ─────────────────────────────────────────────────────── */
+.vitals-bar {
+  display: flex;
+  gap: 16px;
+  padding: 8px 14px;
+  background: var(--shard-bg-light);
+  border-bottom: 1px solid var(--shard-border);
+  flex-wrap: wrap;
+}
+
+.vital-block label {
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--shard-text-muted);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.vital-track {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vital-track input {
+  width: 50px;
+  text-align: center;
+  background: var(--shard-bg);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  color: var(--shard-text);
+  font-size: 1.1em;
+  padding: 2px 4px;
+}
+
+.vital-track .sep { color: var(--shard-text-muted); }
+
+/* Barrier block — teal accent to distinguish from HP */
+.barrier-block label { color: #4ecdc4; }
+.barrier-block .vital-track input { border-color: #4ecdc4; }
+
+/* Refocus button — sits inside the focus-block */
+.refocus-btn {
+  margin-top: 4px;
+  padding: 2px 8px;
+  font-size: 0.72em;
+  background: rgba(107, 69, 0, 0.35);
+  border: 1px solid var(--shard-gold);
+  border-radius: 3px;
+  color: var(--shard-gold);
+  cursor: pointer;
+  white-space: nowrap;
+  width: 100%;
+}
+.refocus-btn:hover { background: rgba(107, 69, 0, 0.6); }
+
+/* ── Stats Bar ──────────────────────────────────────────────────────── */
+.stats-bar {
+  display: flex;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--shard-bg);
+  border-bottom: 1px solid var(--shard-border);
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 52px;
+  background: var(--shard-bg-light);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  padding: 4px 8px;
+}
+
+.stat-label {
+  font-size: 0.65em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--shard-text-muted);
+  letter-spacing: 0.08em;
+}
+
+.stat-value {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--shard-gold);
+}
+
+.stat-pill input {
+  width: 44px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: var(--shard-gold);
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/* ATK+ / MAG+ bonus pills — editable, dashed border to signal interactivity */
+.bonus-pill {
+  border-style: dashed;
+  opacity: 0.85;
+}
+.bonus-pill:focus-within { opacity: 1; border-color: var(--shard-gold); }
+
+/* ── Tabs ───────────────────────────────────────────────────────────── */
+.shard-sheet .sheet-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--shard-border);
+  padding: 0 14px;
+  background: var(--shard-bg-light);
+}
+
+.shard-sheet .sheet-tabs .item {
+  padding: 6px 14px;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--shard-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.shard-sheet .sheet-tabs .item.active {
+  color: var(--shard-accent);
+  border-bottom-color: var(--shard-accent);
+}
+
+.shard-sheet .sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px;
+}
+
+.shard-sheet .tab { display: none; }
+.shard-sheet .tab.active { display: block; }
+
+/* ── Item Lists ─────────────────────────────────────────────────────── */
+.shard-sheet .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shard-sheet .item-list .item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--shard-border);
+  font-size: 0.9em;
+}
+
+.shard-sheet .item-list .item:hover { background: var(--shard-bg-light); }
+
+.shard-sheet .item-list .item-empty {
+  color: var(--shard-text-muted);
+  font-style: italic;
+  padding: 8px;
+  font-size: 0.85em;
+}
+
+.shard-sheet .item-name { font-weight: 500; }
+.shard-sheet .item-cost {
+  color: var(--shard-gold);
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.shard-sheet .item-range { color: var(--shard-text-muted); font-size: 0.85em; white-space: nowrap; overflow: hidden; }
+
+.shard-sheet .item-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.shard-sheet .item-controls a {
+  color: var(--shard-text-muted);
+  cursor: pointer;
+  font-size: 0.85em;
+}
+.shard-sheet .item-controls a:hover { color: var(--shard-accent); }
+
+/* ── Tags ───────────────────────────────────────────────────────────── */
+.shard-sheet .tag-cloud,
+.shard-dialog-form .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+.shard-sheet .tag,
+.shard-chat-card .tag,
+.shard-dialog-form .tag {
+  background: var(--shard-bg-light);
+  border: 1px solid var(--shard-border);
+  border-radius: 12px;
+  padding: 1px 8px;
+  font-size: 0.78em;
+  color: var(--shard-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.shard-sheet .tag .tag-remove,
+.shard-dialog-form .tag .tag-remove { cursor: pointer; color: var(--shard-accent); font-weight: bold; }
+
+.shard-sheet .focus-cost,
+.shard-chat-card .focus-cost {
+  background: var(--shard-accent);
+  border-radius: 8px;
+  padding: 0 6px;
+  font-size: 0.8em;
+  color: var(--shard-bg);
+  margin-left: 4px;
+}
+
+/* ── Section Headers ────────────────────────────────────────────────── */
+.shard-sheet .section-header {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--shard-text-muted);
+  margin: 12px 0 4px;
+  border-bottom: 1px solid var(--shard-border);
+  padding-bottom: 4px;
+}
+
+.shard-sheet .collapsible-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+}
+.shard-sheet .collapsible-header:hover { color: var(--shard-text); }
+
+.section-collapse-caret {
+  font-size: 0.85em;
+  transition: transform 0.15s;
+}
+.collapsible-header.collapsed .section-collapse-caret {
+  transform: rotate(-90deg);
+}
+.section-body-collapsed { display: none !important; }
+
+/* ── Forms (item/ability sheets only) ───────────────────────────────── */
+.shard-sheet .form-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.shard-sheet .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.shard-sheet .form-group.wide { flex: 2; }
+.shard-sheet .form-group.full-width { flex-basis: 100%; }
+
+.shard-sheet .form-group label {
+  font-size: 0.78em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--shard-text-muted);
+}
+
+.shard-sheet .form-group input[type="text"],
+.shard-sheet .form-group input[type="number"],
+.shard-sheet .form-group select,
+.shard-sheet .form-group textarea {
+  background: var(--shard-bg-light);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  color: var(--shard-text);
+  padding: 4px 8px;
+  font-size: 0.9em;
+}
+
+.shard-sheet .hint,
+.shard-chat-card .hint,
+.shard-dialog-form .hint {
+  font-size: 0.78em;
+  color: var(--shard-text-muted);
+  font-style: italic;
+}
+
+/* ── Buttons (shard sheets and dialogs only) ─────────────────────────── */
+.shard-sheet .button, .shard-sheet a.button,
+.shard-dialog-form .button, .shard-dialog-form a.button {
+  background: var(--shard-accent);
+  color: white;
+  border: none;
+  border-radius: var(--shard-radius);
+  padding: 3px 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.shard-sheet .button:hover,
+.shard-dialog-form .button:hover { filter: brightness(1.15); }
+
+/* ── Class Sheet ────────────────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.rank-section { margin-bottom: 14px; }
+.rank-section h3 {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--shard-gold);
+  border-bottom: 1px solid var(--shard-border);
+  padding-bottom: 3px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Chat Cards ─────────────────────────────────────────────────────── */
+.shard-chat-card {
+  background: var(--shard-bg-light);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  overflow: hidden;
+  font-size: 0.9em;
+}
+
+.shard-chat-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--shard-bg);
+  border-bottom: 1px solid var(--shard-border);
+}
+
+.shard-chat-card .ability-img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: var(--shard-radius);
+  border: 1px solid var(--shard-accent);
+}
+
+.shard-chat-card .card-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.shard-chat-card .actor-name { font-size: 0.75em; color: var(--shard-text-muted); }
+.shard-chat-card .ability-name { font-weight: bold; }
+
+.shard-chat-card .card-body { padding: 10px; }
+.shard-chat-card .card-footer {
+  padding: 8px 10px;
+  background: var(--shard-bg);
+  border-top: 1px solid var(--shard-border);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── Roll Result ────────────────────────────────────────────────────── */
+.roll-result {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border-radius: var(--shard-radius);
+  background: var(--shard-bg);
+  margin-bottom: 6px;
+  min-width: 0;
+}
+
+.roll-total {
+  font-size: 1.8em;
+  font-weight: bold;
+  min-width: 38px;
+  flex-shrink: 0;
+  text-align: center;
+  color: var(--shard-gold);
+}
+
+.vs-label {
+  color: var(--shard-text-muted);
+  font-size: 0.8em;
+  flex-shrink: 0;
+}
+
+.roll-target-img {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  object-fit: cover;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.target-def {
+  color: var(--shard-text-muted);
+  font-size: 0.8em;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hit-label {
+  font-weight: bold;
+  font-size: 0.95em;
+  padding: 2px 8px;
+  border-radius: var(--shard-radius);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.roll-result.hit  .hit-label  { background: var(--shard-hit);  color: #000; }
+.roll-result.miss .hit-label  { background: var(--shard-miss); color: #fff; }
+.roll-result.crit .hit-label  { background: #8a2be2; color: #fff; }
+
+/* ── Damage Card ────────────────────────────────────────────────────── */
+.damage-card .card-header { background: #2c1010; border-bottom-color: var(--shard-miss); }
+.graze-card .card-header  { background: #1a1a10; border-bottom-color: var(--shard-gold); }
+.damage-label { font-weight: bold; color: var(--shard-miss); }
+.graze-card .damage-label { color: var(--shard-gold); }
+
+.damage-result {
+  font-size: 1.3em;
+  font-weight: bold;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.damage-raw { color: var(--shard-miss); }
+.armor-reduction { color: var(--shard-text-muted); font-size: 0.85em; }
+.damage-final { color: var(--shard-text); }
+
+.damage-undone { opacity: 0.5; }
+.damage-undone .card-body { text-decoration: line-through; }
+.damage-undone .undo-damage-btn { pointer-events: none; cursor: default; }
+
+/* ── Embedded Dice Roll Tooltip ─────────────────────────────────────── */
+/* Foundry v13 toggles .expanded on .dice-roll; mirror that here so the
+   tooltip hidden/shown state works inside our custom card structure.    */
+.shard-chat-card .dice-roll .dice-tooltip          { display: none; }
+.shard-chat-card .dice-roll.expanded .dice-tooltip { display: block; }
+.shard-chat-card .dice-roll { cursor: pointer; }
+.shard-chat-card .dice-total                       { display: none; }
+
+/* ── Shard Buttons ──────────────────────────────────────────────────── */
+.shard-btn {
+  background: var(--shard-accent);
+  color: white;
+  border: none;
+  border-radius: var(--shard-radius);
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 0.85em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.shard-btn:hover { filter: brightness(1.15); }
+
+.shard-btn-secondary { background: #444; }
+
+.formula-hint {
+  font-size: 0.8em;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* ── Attack Dialog ──────────────────────────────────────────────────── */
+.shard-attack-dialog .dialog-section {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--shard-border);
+}
+
+.shard-attack-dialog .dialog-section:last-child { border-bottom: none; }
+
+.shard-attack-dialog label {
+  font-size: 0.78em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--shard-text-muted);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.target-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--shard-bg);
+  padding: 6px 10px;
+  border-radius: var(--shard-radius);
+}
+
+.target-img { width: 32px; height: 32px; border-radius: var(--shard-radius); object-fit: cover; }
+.target-name { font-weight: bold; }
+.target-def { color: var(--shard-text-muted); font-size: 0.85em; margin-left: auto; }
+
+.no-target { color: var(--shard-text-muted); font-style: italic; }
+
+/* ── Multi-target dialog rows ───────────────────────────────────────── */
+.target-modifier-block {
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  padding: 6px 8px;
+  margin-bottom: 6px;
+}
+.target-info-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+.target-modifier-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.modifier-inline { display: flex; align-items: center; gap: 4px; font-size: 0.85em; }
+
+.off-guard-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--shard-accent);
+  background: color-mix(in srgb, var(--shard-accent) 12%, var(--shard-bg));
+  border: 1px solid var(--shard-accent);
+  border-radius: 10px;
+  padding: 1px 7px;
+}
+
+.prone-tag {
+  color: #5a3a00;
+  background: color-mix(in srgb, #5a3a00 12%, var(--shard-bg));
+  border-color: #5a3a00;
+}
+
+/* ── Attack card target separator ───────────────────────────────────── */
+.target-sep { border: none; border-top: 1px solid var(--shard-border); margin: 8px 0; }
+
+.status-bonuses { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.status-tag {
+  background: #2a2a2a;
+  border: 1px solid var(--shard-border);
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-size: 0.8em;
+}
+
+.shard-dialog-form .ability-summary {
+  background: var(--shard-bg);
+  padding: 6px 10px;
+  border-radius: var(--shard-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shard-dialog-form .ability-summary .ability-name { font-weight: bold; }
+.shard-dialog-form .damage-hint { color: var(--shard-text-muted); font-size: 0.85em; }
+
+/* ── Resources Config ───────────────────────────────────────────────── */
+.resources-config { margin-top: 14px; }
+.resource-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+.resource-row input[type="text"] { flex: 1; }
+
+/* ── Rich Text Editor (Foundry v13 ProseMirror structure) ───────────── */
+/* Foundry expects: .editor > .editor-menu + .editor-content[data-edit] */
+.shard-sheet .editor {
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  background: var(--shard-bg-light);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The toolbar that ProseMirrorMenu injects into .editor-menu */
+.shard-sheet .editor-menu {
+  border-bottom: 1px solid var(--shard-border);
+  background: var(--shard-bg);
+  min-height: 0;   /* collapses to 0 when no toolbar is mounted */
+  flex-shrink: 0;
+}
+
+.shard-sheet .editor-content {
+  flex: 1;
+  min-height: 100px;
+  padding: 8px 10px;
+  color: var(--shard-text);
+  font-size: 0.9em;
+  line-height: 1.6;
+  cursor: text;
+  overflow-y: auto;
+}
+
+.shard-sheet .editor-content p { margin: 0 0 6px; }
+
+/* ProseMirror editing surface */
+.shard-sheet .editor .ProseMirror {
+  min-height: 100px;
+  padding: 8px 10px;
+  color: var(--shard-text);
+  outline: none;
+  flex: 1;
+}
+
+/* ProseMirror toolbar button theming */
+.shard-sheet .editor-menu .pm-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px 6px;
+}
+
+.shard-sheet .editor-menu button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: var(--shard-text-muted);
+  padding: 2px 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+}
+
+.shard-sheet .editor-menu button:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--shard-text);
+}
+
+/* ── Ability Expand ─────────────────────────────────────────────────── */
+
+/*
+ * Grid columns: caret(16px) | icon-col(20px) | name(1fr) |
+ *               cost(60px)  | range(82px)    | tags(1fr) | controls(auto)
+ * Passive items skip cost + range (different template columns).
+ */
+.ability-item .ability-name-row {
+  display: grid;
+  grid-template-columns: 16px 20px 1fr 60px 82px 1fr auto;
+  align-items: center;
+  column-gap: 6px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.passive-ability-item .ability-name-row {
+  grid-template-columns: 16px 20px 1fr 1fr auto;
+}
+
+.ability-icon-col {
+  width: 20px;
+  text-align: center;
+  font-size: 0.75em;
+  color: var(--shard-text-muted);
+}
+
+.ability-item .expand-caret {
+  font-size: 0.65em;
+  color: var(--shard-text-muted);
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+.ability-item.expanded .expand-caret {
+  transform: rotate(90deg);
+}
+
+.ability-item .ability-details {
+  display: none;
+  padding: 6px 10px 6px 22px;
+  border-top: 1px solid var(--shard-border);
+  background: var(--shard-bg-light);
+  font-size: 0.85em;
+}
+
+.ability-item.expanded .ability-details {
+  display: block;
+}
+
+.detail-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: var(--shard-text-muted);
+  min-width: 80px;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ability-effect {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--shard-border);
+  line-height: 1.5;
+}
+
+/* ── Dialog Form ────────────────────────────────────────────────────── */
+.shard-dialog-form .dialog-section {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--shard-border);
+}
+
+.shard-dialog-form .dialog-section:last-child {
+  border-bottom: none;
+}
+
+.shard-dialog-form .section-label {
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--shard-gold);
+  margin-bottom: 6px;
+}
+
+.shard-dialog-form .adv-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.shard-dialog-form .number-stepper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.shard-dialog-form .step-btn {
+  background: var(--shard-bg-light);
+  border: 1px solid var(--shard-border);
+  color: var(--shard-text);
+  width: 26px;
+  height: 26px;
+  border-radius: var(--shard-radius);
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.shard-dialog-form .step-btn:hover {
+  border-color: var(--shard-accent);
+  color: var(--shard-accent);
+}
+
+.shard-dialog-form .stepper-input {
+  width: 48px;
+  text-align: center;
+  background: var(--shard-bg);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  color: var(--shard-text);
+  font-size: 1em;
+  padding: 3px;
+}
+
+.shard-dialog-form .small-input {
+  width: 56px;
+  background: var(--shard-bg);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  color: var(--shard-text);
+  padding: 3px 6px;
+  font-size: 0.9em;
+}
+
+.shard-dialog-form .modifier-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.shard-dialog-form .concealment-row {
+  margin-top: 6px;
+}
+
+.shard-dialog-form .checkbox-label-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.shard-dialog-form .ability-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--shard-bg);
+  padding: 6px 8px;
+  border-radius: var(--shard-radius);
+  margin-top: 2px;
+}
+
+.shard-dialog-form .ability-summary-row .ability-name { font-weight: bold; }
+
+/* .roll-target-img defined in Roll Result section above */
+
+/* ── Ability sheet checkbox rows ────────────────────────────────────── */
+.shard-sheet .checkbox-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.shard-sheet .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+/* ── Chat Card — tags, effect, resist ───────────────────────────────── */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 10px;
+  background: var(--shard-bg);
+  border-bottom: 1px solid var(--shard-border);
+}
+
+.card-tags.padded { padding: 6px 10px; }
+
+.card-effect {
+  padding: 8px 10px;
+  font-size: 0.88em;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--shard-border);
+  color: var(--shard-text);
+}
+
+.card-range.padded {
+  padding: 4px 10px;
+}
+
+.conceal-blocked {
+  background: #3a1010;
+  border: 1px solid var(--shard-miss);
+  border-radius: var(--shard-radius);
+  color: var(--shard-miss);
+  padding: 5px 10px;
+  font-size: 0.85em;
+  margin-bottom: 6px;
+}
+
+.conceal-pass {
+  padding: 3px 0;
+}
+
+.shard-btn-resist {
+  background: #1a3a5c;
+  border: 1px solid #3a6a9c;
+  color: #8ecff0;
+}
+
+.shard-btn-resist:hover {
+  background: #24507a;
+}
+
+.shard-btn-crit {
+  background: #3b1a5c;
+  border: 1px solid #8a2be2;
+  color: #d4a8ff;
+}
+
+.shard-btn-crit:hover {
+  background: #532080;
+}
+
+/* ── Crit damage card ───────────────────────────────────────────────── */
+.crit-card .card-header  { background: #1e0a2e; border-bottom-color: #8a2be2; }
+.crit-card .damage-label { color: #d4a8ff; }
+
+/* ── Resist card ────────────────────────────────────────────────────── */
+.resist-card .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: var(--shard-bg);
+  border-bottom: 1px solid var(--shard-border);
+}
+
+.resist-label {
+  font-weight: bold;
+  font-size: 1em;
+  padding: 2px 10px;
+  border-radius: var(--shard-radius);
+}
+
+.resist-card.resisted .resist-label { background: var(--shard-hit); color: #000; }
+.resist-card.failed   .resist-label { background: var(--shard-miss); color: #fff; }
+
+/* ── Resist DV display ──────────────────────────────────────────────── */
+.resist-dv-display {
+  background: var(--shard-bg);
+  padding: 6px 10px;
+  border-radius: var(--shard-radius);
+  font-size: 0.9em;
+}
+
+/* ── Modifier Table ─────────────────────────────────────────────────── */
+.modifiers-section {
+  margin-top: 10px;
+}
+
+.section-label-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--shard-text-muted);
+  margin-bottom: 4px;
+}
+
+.modifier-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85em;
+  margin-top: 4px;
+}
+
+.modifier-table th {
+  text-align: left;
+  color: var(--shard-text-muted);
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--shard-border);
+}
+
+.modifier-table td {
+  padding: 3px 4px;
+  border-bottom: 1px solid #222;
+  vertical-align: middle;
+}
+
+.modifier-table input[type="text"],
+.modifier-table input[type="number"],
+.modifier-table select {
+  width: 100%;
+  background: var(--shard-bg);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  color: var(--shard-text);
+  padding: 2px 5px;
+  font-size: 0.9em;
+}
+
+.modifier-table .modifier-remove {
+  color: var(--shard-text-muted);
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.modifier-table .modifier-remove:hover { color: var(--shard-accent); }
+
+/* ── Class Block (PC sheet classes tab) ─────────────────────────────── */
+.class-block {
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.class-header-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  background: var(--shard-bg-light);
+  border-bottom: 1px solid var(--shard-border);
+  flex-wrap: wrap;
+}
+
+.class-header-row .class-name {
+  font-weight: bold;
+  font-size: 1em;
+  flex: 1;
+  min-width: 100px;
+}
+
+.class-ability-group {
+  padding: 4px 10px 4px 10px;
+  border-bottom: 1px solid #1e1e30;
+}
+
+.class-ability-group:last-child { border-bottom: none; }
+
+.class-ability-group-label {
+  font-size: 0.72em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--shard-gold);
+  margin: 4px 0 3px;
+}
+
+.class-ability-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 4px;
+  border-radius: var(--shard-radius);
+  font-size: 0.88em;
+}
+
+.class-ability-row:hover { background: var(--shard-bg-light); }
+
+.class-ability-row.granted { opacity: 0.6; }
+
+.ability-granted-icon {
+  width: 18px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.ability-granted-icon .fa-check-circle { color: var(--shard-hit); }
+
+.class-ability-add {
+  color: var(--shard-text-muted);
+  cursor: pointer;
+}
+.class-ability-add:hover { color: var(--shard-accent); }
+
+.class-ability-name { flex: 1; }
+
+/* ── Tag drop zone (inline, compact) ───────────────────────────────── */
+.tag-drop-zone.drop-hint {
+  border: 1px dashed var(--shard-border);
+  border-radius: var(--shard-radius);
+  padding: 4px 10px;
+  margin-bottom: 6px;
+  color: var(--shard-text-muted);
+  font-size: 0.8em;
+  text-align: center;
+}
+
+/* ── Class Sheet — drop zone & rank badges ──────────────────────────── */
+.ability-drop-zone.drop-hint {
+  border: 2px dashed var(--shard-border);
+  border-radius: var(--shard-radius);
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  text-align: center;
+  color: var(--shard-text-muted);
+  font-size: 0.82em;
+  line-height: 1.6;
+}
+
+.rank-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rank-badge {
+  font-size: 0.72em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: var(--shard-bg);
+  border: 1px solid var(--shard-border);
+  color: var(--shard-text-muted);
+  white-space: nowrap;
+}
+
+.rank-badge.rank-basic { border-color: var(--shard-gold); color: var(--shard-gold); }
+.rank-badge.rank-1     { border-color: #5a7a9a; color: #8ab0cf; }
+.rank-badge.rank-2     { border-color: #5a8a6a; color: #8ac89a; }
+.rank-badge.rank-3     { border-color: #8a7a4a; color: #c8b070; }
+.rank-badge.rank-4     { border-color: #8a5a7a; color: #c880b0; }
+.rank-badge.rank-5     { border-color: #8a4a4a; color: #c86060; }
+
+.rank-desc {
+  font-size: 0.78em;
+  color: var(--shard-text-muted);
+  font-style: italic;
+}
+
+.rank-ability-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  font-size: 0.88em;
+  border-bottom: 1px solid #1e1e2e;
+}
+
+.rank-ability-row .ability-remove {
+  margin-left: auto;
+  color: var(--shard-text-muted);
+  cursor: pointer;
+  font-size: 0.8em;
+}
+.rank-ability-row .ability-remove:hover { color: var(--shard-accent); }
+
+/* ── Ability action buttons — larger hit area ───────────────────────── */
+.ability-item .item-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.ability-item .item-controls a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--shard-radius);
+  font-size: 0.95em;
+  color: var(--shard-text-muted);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.ability-item .item-controls a:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--shard-text);
+}
+
+/* Activate and attack roll buttons get distinct colours */
+.ability-item .ability-activate {
+  color: #7ec8e3 !important;
+  background: rgba(30, 80, 110, 0.4) !important;
+  font-size: 1em !important;
+}
+.ability-item .ability-activate:hover {
+  background: rgba(30, 80, 110, 0.7) !important;
+  color: #aee8ff !important;
+}
+
+.ability-item .ability-attack-roll {
+  color: #e39a7e !important;
+  background: rgba(110, 50, 30, 0.4) !important;
+  font-size: 1em !important;
+}
+.ability-item .ability-attack-roll:hover {
+  background: rgba(110, 50, 30, 0.7) !important;
+  color: #ffc0a0 !important;
+}
+
+/* ── Locked rank group ──────────────────────────────────────────────── */
+.class-ability-group.locked {
+  opacity: 0.45;
+}
+
+.class-ability-group.locked .class-ability-group-label {
+  color: var(--shard-text-muted);
+}
+
+.lock-req {
+  font-style: italic;
+}
+
+/* ── Class ability rows — expand/details ────────────────────────────── */
+.class-ability-row {
+  cursor: pointer;
+  user-select: none;
+}
+
+.class-ability-row .caret-col {
+  width: 14px;
+  flex-shrink: 0;
+  color: var(--shard-text-muted);
+  font-size: 0.75em;
+  transition: transform 0.15s;
+}
+
+.class-ability-row.expanded .caret-col .expand-caret {
+  transform: rotate(90deg);
+}
+
+.class-ability-meta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8em;
+  color: var(--shard-text-muted);
+  flex-shrink: 0;
+}
+
+.class-ability-details {
+  padding: 5px 10px 6px 36px;
+  background: var(--shard-bg-light);
+  border-bottom: 1px solid var(--shard-border);
+  font-size: 0.84em;
+  line-height: 1.5;
+}
+
+.ca-ungranted {
+  color: var(--shard-text-muted);
+  font-size: 0.85em;
+}
+
+/* Context menu uses Foundry's built-in .context-menu — theme it */
+.shard.sheet .context-menu,
+#context-menu.shard-context {
+  background: var(--shard-bg-light);
+  border: 1px solid var(--shard-accent);
+  border-radius: var(--shard-radius);
+  padding: 2px 0;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.shard.sheet .context-menu li,
+#context-menu.shard-context li {
+  padding: 5px 12px;
+  font-size: 0.88em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--shard-text);
+}
+
+.shard.sheet .context-menu li:hover,
+#context-menu.shard-context li:hover {
+  background: var(--shard-accent);
+  color: #fff;
+}
+
+/* ── Drag-sort indicators ───────────────────────────────────────────── */
+.item-list .item.drop-above {
+  box-shadow: inset 0 2px 0 var(--shard-accent);
+}
+.item-list .item.drop-below {
+  box-shadow: inset 0 -2px 0 var(--shard-accent);
+}
+
+/* ── Class block collapse ───────────────────────────────────────────── */
+.class-collapse-toggle {
+  cursor: pointer;
+  color: var(--shard-text-muted);
+  flex-shrink: 0;
+  padding: 0 4px;
+  line-height: 1;
+}
+.class-collapse-toggle:hover { color: var(--shard-accent); }
+.class-collapse-toggle i {
+  transition: transform 0.15s ease;
+  display: inline-block;
+}
+.class-block.collapsed .class-collapse-toggle i {
+  transform: rotate(-90deg);
+}
+.class-block.collapsed .class-ability-group {
+  display: none;
+}
+
+/* ── Innate Actions ─────────────────────────────────────────────────── */
+.shard-sheet .innate-header {
+  color: var(--shard-accent);
+  border-bottom-color: var(--shard-accent);
+}
+
+.innate-ability-item .innate-icon {
+  font-size: 0.75em;
+  color: var(--shard-accent);
+  opacity: 0.7;
+}
+
+.innate-ability-item .ability-name-row {
+  border-left: 3px solid var(--shard-accent);
+  padding-left: 6px;
+}
+
+/* Ability sheet — Innate checkbox label in header */
+.ability-sheet .ability-meta .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85em;
+  color: var(--shard-text-muted);
+  cursor: pointer;
+}
+
+/* ── Narrative Tab ──────────────────────────────────────────────────── */
+
+/* Tag section header row (label + Skill Check button) */
+.shard-sheet .tag-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.shard-sheet .tag-section-header label {
+  font-weight: bold;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--shard-text-muted);
+}
+
+/* Biography / Notes field header row (label + Edit/Done button) */
+.shard-sheet .narrative-field-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.shard-sheet .narrative-field-header label {
+  font-weight: bold;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--shard-text-muted);
+}
+
+/* Shared style for Edit/Done/Skill Check narrative buttons */
+.shard-sheet .narrative-edit-btn,
+.shard-sheet .narrative-done-btn,
+.shard-sheet .skill-check-btn {
+  background: transparent;
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  color: var(--shard-text-muted);
+  font-size: 0.78em;
+  padding: 2px 8px;
+  cursor: pointer;
+  line-height: 1.6;
+}
+.shard-sheet .narrative-edit-btn:hover,
+.shard-sheet .narrative-done-btn:hover,
+.shard-sheet .skill-check-btn:hover {
+  border-color: var(--shard-accent);
+  color: var(--shard-accent);
+}
+.shard-sheet .narrative-done-btn {
+  border-color: var(--shard-hit);
+  color: var(--shard-hit);
+}
+
+/* Read-only view body for biography / notes */
+.shard-sheet .narrative-view-body {
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  background: var(--shard-bg-light);
+  min-height: 80px;
+  padding: 8px 10px;
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: var(--shard-text);
+  margin-bottom: 10px;
+}
+.shard-sheet .narrative-view-body p { margin: 0 0 6px; }
+
+/* Muted placeholder when field is empty */
+.shard-sheet .narrative-empty-hint {
+  color: var(--shard-text-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Skill Check dialog — tag list */
+.sc-tag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.sc-tag-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+/* Skill Check dialog — advantage stepper */
+.sc-adv-stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sc-adv-stepper button {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--shard-border);
+  border-radius: 4px;
+  background: var(--shard-bg);
+  color: var(--shard-text);
+  cursor: pointer;
+  font-size: 1em;
+  line-height: 1;
+  padding: 0;
+}
+.sc-adv-stepper button:hover { border-color: var(--shard-accent); color: var(--shard-accent); }
+.sc-adv-val {
+  min-width: 28px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+}

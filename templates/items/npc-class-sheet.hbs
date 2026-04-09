@@ -20,8 +20,13 @@
       <div class="stats-grid">
 
         <div class="form-group">
-          <label>Max HP</label>
-          <input name="system.stats.maxHP" type="number" value="{{system.stats.maxHP}}" min="1" />
+          <label>Base HP</label>
+          <input name="system.stats.hp" type="number" value="{{system.stats.hp}}" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label title="Added to HP per Tier (Max HP = Base HP + Bonus × Tier)">HP / Tier</label>
+          <input name="system.stats.hpBonus" type="number" value="{{system.stats.hpBonus}}" min="0" />
         </div>
 
         <div class="form-group">

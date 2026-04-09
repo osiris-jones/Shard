@@ -220,11 +220,13 @@ export class ShardActor extends Actor {
     // Inherit stats from the new class
     const classItem = this.items.get(itemId);
     if (classItem) {
-      const s = classItem.system.stats;
+      const s    = classItem.system.stats;
+      const tier = this.system.stats?.tier ?? 1;
+      const maxHP = (s.hp ?? 10) + (s.hpBonus ?? 0) * tier;
       await this.update({
         "system.npcClassId":  itemId,
-        "system.hp.max":      s.maxHP,
-        "system.hp.value":    Math.min(this.system.hp.value, s.maxHP),
+        "system.hp.max":      maxHP,
+        "system.hp.value":    Math.min(this.system.hp.value, maxHP),
         "system.stats.armor": s.armor,
         "system.stats.def":   s.def,
         "system.stats.spd":   s.spd

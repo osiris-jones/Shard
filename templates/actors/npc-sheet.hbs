@@ -64,12 +64,15 @@
     {{! ── Abilities Tab ────────────────────────────────── }}
     <div class="tab" data-tab="abilities">
 
-      <h3 class="section-header">Active Abilities</h3>
-      <ol class="item-list ability-list">
+      <h3 class="section-header collapsible-header" data-section="npc-active">
+        <i class="section-collapse-caret fas fa-chevron-down"></i> Active Abilities
+      </h3>
+      <ol class="item-list ability-list" data-section-body="npc-active">
         {{#each activeAbilities}}
           <li class="item ability-item" data-item-id="{{id}}">
             <div class="ability-name-row">
               <span class="expand-caret">▶</span>
+              <span class="ability-icon-col"></span>
               <span class="item-name">{{name}}</span>
               <div class="item-cost">{{shardCostLabel system.cost}}
                 {{#if system.charged}}<span class="focus-cost">Charged</span>{{/if}}
@@ -104,12 +107,15 @@
         {{/each}}
       </ol>
 
-      <h3 class="section-header">Passive Abilities</h3>
-      <ol class="item-list ability-list">
+      <h3 class="section-header collapsible-header" data-section="npc-passive">
+        <i class="section-collapse-caret fas fa-chevron-down"></i> Passive Abilities
+      </h3>
+      <ol class="item-list ability-list" data-section-body="npc-passive">
         {{#each passiveAbilities}}
-          <li class="item ability-item" data-item-id="{{id}}">
+          <li class="item ability-item passive-ability-item" data-item-id="{{id}}">
             <div class="ability-name-row">
               <span class="expand-caret">▶</span>
+              <span class="ability-icon-col"></span>
               <span class="item-name">{{name}}</span>
               <div class="item-tags">{{#each system.tags}}<span class="tag" data-tooltip="{{lookup @root.tagDescriptions uuid}}">{{name}}</span>{{/each}}</div>
               <div class="item-controls">
@@ -139,7 +145,7 @@
             <a class="class-collapse-toggle" title="Collapse/Expand"><i class="fas fa-chevron-down"></i></a>
             <div class="class-name">{{npcClass.item.name}}</div>
             <div class="class-stats-summary">
-              HP {{npcClass.item.system.stats.maxHP}} |
+              HP {{npcClass.item.system.stats.hp}}{{#if npcClass.item.system.stats.hpBonus}}+{{npcClass.item.system.stats.hpBonus}}×T{{/if}} |
               Armor {{npcClass.item.system.stats.armor}} |
               DEF {{npcClass.item.system.stats.def}} |
               SPD {{npcClass.item.system.stats.spd}}

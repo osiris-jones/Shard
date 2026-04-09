@@ -1,0 +1,5702 @@
+{
+  "npcAbilities": [
+    {
+      "name": "Minion: Melee Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-melee-attack",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "4+[tier]",
+        "hasGraze": false,
+        "grazeDamage": "0",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Minion: Team Up",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-initiative",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "0",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "0",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Another Minion that hasn&#39;t taken a turn this round immediately takes a turn. That character can&#39;t use Team Up this turn.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Minion: Fodder",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-fodder",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "0",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Abilities can&#39;t increase a Minion&#39;s Max HP. Abilities granted by Templates deal half damage and no bonus damage.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Minion: Ranged Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-ranged-attack",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "3+[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Minion: Swift Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-swift-attack",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "3+[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>Replaces <strong>Melee Attack</strong></p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Minion: Opportunity",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-opportunity",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Condition</strong>: A hostile character within the Range of <strong>Melee Attack</strong> performs a <em>Movement</em> <strong>Action</strong>.<br><strong>Effect</strong>: Perform <strong>Melee Attack</strong> on the triggering character before the triggering <strong>Action</strong>.</p>",
+        "_tagIds": [
+          "attack",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Minion: Assist",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-assist",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>An adjacent non-Minion allied character gains <strong>+1 Advantage</strong> on their next <strong>Attack Roll</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Minion: Long Reach",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-long-reach",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Requires <strong>Melee Attack.</strong><br><strong>Melee Attack</strong> gains <strong>+1 Range.</strong></p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Minion: Evasion",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-evasion",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>If the Minion Resists an effect that would deal half damage: the Minion takes no damage.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Minion: Revenge",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-revenge",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>When this minion is defeated: adjacent characters take [tier]+2 damage.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Minion: Swarm",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-swarm",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li>At the end of a turn granted by <strong>Team Up</strong>: Another Minion that hasn&#39;t taken a turn this round immediately takes a turn. That character can&#39;t use <strong>Team Up</strong> this turn.</li>\n<li>When a hostile character defeats this minion during their turn: that character gains (?). A character can only gain AP this way 1/Round.</li>\n</ul>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Minion: Take Cover",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "minion-tactical",
+          "sourceClass": "npc-class-minion"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Perform <strong>Take Cover</strong> only as the last <strong>Action</strong> in a turn.<br>Attacks against the <strong>Minion</strong> have <strong>+1 Disadvantage</strong> until the start of its next turn.</p>",
+        "_tagIds": [
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Backstab",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-backstab",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "3+[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>If the target has no adjacent allies, <strong>Backstab</strong> has <strong>+1 Advantage</strong> and <strong>On Hit:</strong> <strong>Bleeding 1+[tier]</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Dodge",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-dodge",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Condition</strong>: The Assassin takes damage.<br><strong>Effect</strong>: The Assassin performs <strong>Evade</strong> and moves an extra tile when <strong>Evading</strong> this way.</p>",
+        "_tagIds": [
+          "movement",
+          "reaction",
+          "limitturn"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Skirmisher",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-skirmisher",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Assassin can move diagonally.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Assassin: Sap",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-sap",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Melee",
+        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or is <strong>Stunned +1</strong>.<br>If the target has no adjacent allies: reduce the cost of <strong>Sap</strong> to <strong>1 AP</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Ensnare",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-ensnare",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 3",
+        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or is <strong>Immobilized</strong> until the end of their next turn.</p>",
+        "_tagIds": [
+          "ranged",
+          "limitencounter"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Needle Shot",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-needle-shot",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]",
+        "hasGraze": false,
+        "grazeDamage": "1",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "<ul>\n<li><strong>Flurry</strong></li>\n<li>Deals <strong>Piercing Damage</strong>.</li>\n<li><strong>On Hit:</strong> <strong>Bleeding</strong> +1.</li>\n</ul>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Vanish",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-vanish",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Assassin gains <strong>Concealment 6</strong> until the end of its next turn.</p>",
+        "_tagIds": [
+          "spell",
+          "limitencounter"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Jump",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-jump",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>This turn, while moving, the Assassin is <strong>Flying</strong>.</p>",
+        "_tagIds": [
+          "spell",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Trip",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-trip",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Condition:</strong> An adjacent hostile character with no adjacent allies performs a <em>Movement</em> <strong>Action</strong>.</p>\n<p><strong>Effect</strong>: That character makes a <strong>Resistance</strong> Roll or loses that <em>Movement</em> <strong>Action</strong> and becomes <strong>Prone</strong>.</p>",
+        "_tagIds": [
+          "reaction"
+        ]
+      }
+    },
+    {
+      "name": "Assassin: Death Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-death-attack",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Backstab&#39;s</strong> 1/Round limit is ignored against characters with no adjacent allies.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Assassin: Death Attack of Opportunity",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "assassin-opportunity",
+          "sourceClass": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li>Perform <strong>Death Attack of Opportunity</strong> only while the Assassin is adjacent to exactly one hostile character.</li>\n<li><strong>Condition</strong>: An adjacent hostile character performs a <em>Movement</em> <strong>Action</strong>.</li>\n<li><strong>Effect:</strong> Perform <strong>Backstab</strong> on the triggering character before the triggering <strong>Action</strong>. It gains <strong>On Damage: Bleeding +1</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "attack",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "name": "Medic: Restore",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-restore",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 1",
+        "effect": "<p>Target allied character clears a hostile Condition.</p>",
+        "_tagIds": [
+          "support",
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Medic: Heal",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-heal",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "3",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 1",
+        "effect": "<p>Target allied character receives Healing equal to their Max HP (half for Elite/Legendary).</p>",
+        "_tagIds": [
+          "support",
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Medic: Emergency Aid",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-emergency-aid",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Condition:</strong> An allied character receives a hostile Condition.<br><strong>Effect:</strong> The Medic moves toward that character.</p>",
+        "_tagIds": [
+          "movement",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Medic: Weakness Exposure",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-weakness-exposure",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+1",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "<p>Deals <strong>Piercing Damage</strong>. <strong>On Hit:</strong> Target makes a <strong>Resistance Roll</strong> or becomes <strong>Vulnerable</strong> until they perform <strong>Refocus</strong>.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Medic: Shove",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-shove",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>1/Round. Target hostile character makes a <strong>Resistance Roll</strong> or becomes <strong>Prone</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Medic: Resupply",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-resupply",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 1",
+        "effect": "<p>1/Round. A target allied character performs <strong>Refocus</strong> if able.</p>",
+        "_tagIds": [
+          "support",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Medic: Distant Curatives",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-distant-curatives",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Medic&#39;s <em>Support</em> <strong>Actions</strong> have <strong>Range 4</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Medic: Modern Medicine",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-modern-medicine",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Medic&#39;s <em>Spell</em> <strong>Actions</strong> aren&#39;t <strong>Spells</strong> and don&#39;t provoke <strong>Reactions</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Medic: Lasting Cure",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-lasting-cure",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Heal</strong> costs (◆◆) but instead provides <strong>Regeneration X</strong> where X is half the target&#39;s missing HP.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Medic: Prophylaxis",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-prophylaxis",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 1",
+        "effect": "<p>Target allied character gains <strong>Barrier [tier]+2</strong>. This Barrier doesn&#39;t end as turns end.</p>",
+        "_tagIds": [
+          "support",
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Beast: Melee Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-melee-attack",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+4",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p><strong>+1 Disadvantage</strong>. <strong>On Hit:</strong> The Beast can perform <strong>Clamp</strong> as a Free Action. Against an <strong>Immobilized</strong> character: <strong>+1 Advantage</strong> and <strong>+3 Bonus Damage</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Beast: Clamp",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-clamp",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or is <strong>Immobilized</strong> until they are no longer adjacent to the Beast.</p>",
+        "_tagIds": [
+          "melee"
+        ]
+      }
+    },
+    {
+      "name": "Beast: Thrash",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-thrash",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "0",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>1/Round. Perform <strong>Thrash</strong> only while a hostile character is <strong>Immobilized</strong> by <strong>Clamp</strong>. The Beast and the Immobilized character simultaneously move 1 tile in any direction. This movement doesn&#39;t provoke <strong>Reactions</strong>.</p>",
+        "_tagIds": [
+          "movement",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Beast: Rampage",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-rampage",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "3",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>1/Encounter. The Beast moves twice its SPD. During this movement: it can&#39;t change directions, passes through hostile characters, has <strong>Damage Resistance</strong>, ignores <strong>Difficult Terrain</strong>, and hostile characters it becomes adjacent to make a <strong>Resistance Roll</strong>, becoming <strong>Prone</strong> on a failure. At the end of this movement: the Beast can perform <strong>Clamp</strong> as a Free Action.</p>",
+        "_tagIds": [
+          "limitencounter"
+        ]
+      }
+    },
+    {
+      "name": "Beast: Ragdoll",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-ragdoll",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Perform <strong>Ragdoll</strong> only if a hostile character was <strong>Immobilized</strong> by <strong>Clamp</strong> at the beginning of the Beast&#39;s turn. The <strong>Immobilized</strong> character suffers <strong>Push 4</strong></p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Beast: Unleash",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-unleash",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>For the rest of the encounter: The Beast has 0 Armor and can&#39;t receive <strong>Healing</strong> or be targeted by <em>Support</em> <strong>Actions</strong>. It gains <strong>+1 SPD</strong> and gains <strong>(◆)</strong> at the beginning of each of its turns.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Beast: Imposing",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-imposing",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Characters <strong>Immobilized</strong> by the Beast&#39;s <strong>Clamp</strong> have <strong>+1 Disadvantage</strong> on <strong>Attack Rolls</strong> and <strong>Resistance Rolls</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Beast: Shatter",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-shatter",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>When the Beast&#39;s <strong>Melee Attack</strong> hits a character <strong>Immobilized</strong> by <strong>Clamp</strong>: That character is <strong>Sundered</strong> for the rest of the encounter.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Guardian: Heavy Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-heavy-attack",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+5",
+        "hasGraze": true,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p><strong>On Hit:</strong> Push 1. Target makes a <strong>Resistance Roll</strong> or falls <strong>Prone</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Guardian: Counterattack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-counterattack",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+1",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 2",
+        "effect": "<p>1/Turn. <strong>Condition:</strong> The Guardian takes damage.<br><strong>Effect:</strong> Deal [tier]+1 damage to the attacker within Range 2.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "reaction",
+          "limitturn"
+        ]
+      }
+    },
+    {
+      "name": "Guardian: Entrenched",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-entrenched",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Adjacent tiles are <strong>Difficult Terrain</strong> for hostile characters.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Guardian: Unbreakable",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-unbreakable",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Guardian and adjacent allies have <strong>Damage Resistance</strong>. This doesn&#39;t apply while the Guardian is <strong>Prone</strong> or <strong>Immobilized</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Guardian: Destructive Wave",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-destrowave",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Range 2",
+        "effect": "<p>All characters within Range 2 make a <strong>Resistance Roll</strong>, becoming <strong>Prone</strong> and <strong>Stunned +1</strong> on a failure. Adjacent allied characters have <strong>+1 Advantage</strong> on the <strong>Resistance Roll</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Guardian: Bouncing Shield",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-bouncing-shield",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": true,
+        "damage": "[tier]+3",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 3",
+        "effect": "<p><strong>On Hit:</strong> Repeat the attack with <strong>Flurry</strong> against a different character within Range 2 of the previous target. This effect can occur no more than [tier]+1 times.</p>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Guardian: Hand of Protection",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-handofprotection",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 3",
+        "effect": "<p>Target allied character becomes <strong>Invulnerable</strong> until the start of the Guardian&#39;s next turn, or until the Guardian is defeated or moves beyond Range 3. While this is active: The Guardian loses <strong>Unbreakable</strong>.</p>",
+        "_tagIds": [
+          "support",
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Guardian: Attack of Opportunity",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-opportunity",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character within the Range of <strong>Heavy Attack</strong> performs a <em>Movement</em> <strong>Action</strong>.<br><strong>Effect:</strong> Perform <strong>Heavy Attack</strong> on the triggering character before the triggering <strong>Action</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Guardian: Mail Breaker",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-mailbreaker",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Counterattack</strong> deals <strong>Piercing Damage</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Guardian: Shield Stance",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-shieldstance",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Guardian: Tears of Denial",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-tears-of-denial",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The first time the Guardian is hit by an <strong>Attack</strong> each round: prevent all damage and bonus damage from that <strong>Attack</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Sentinel: Melee Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-melee-attack",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+4",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 2",
+        "effect": "<p><strong>+1 Advantage</strong> when not the Sentinel&#39;s turn.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Sentinel: Attack of Opportunity",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-opportunity",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character within Range 2 performs a <em>Movement</em> <strong>Action</strong>.<br><strong>Effect:</strong> Perform <strong>Melee Attack</strong> on the triggering character before the triggering <strong>Action</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Sentinel: Preparation",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-preparation",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The next time the Sentinel performs <strong>Melee Attack</strong> against a target this turn the Sentinel performs <strong>Melee Attack</strong> twice against that target instead.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Sentinel: Combat Reflexes",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-combat-reflexes",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Sentinel is <strong>Immobilized</strong> until <strong>Combat Reflexes</strong> is deactivated (◆◆). While active: <strong>Attack of Opportunity</strong> triggers <strong>1/Turn</strong> instead of <strong>1/Round</strong>.</p>",
+        "_tagIds": [
+          "special"
+        ]
+      }
+    },
+    {
+      "name": "Sentinel: Brace",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-brace",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>1/Round. <strong>Condition:</strong> The Sentinel is dealt any amount of damage and bonus damage from a single source.<br><strong>Effect:</strong> The Sentinel gains <strong>Damage Resistance</strong> against the triggering damage. An adjacent non-Minion allied character gains <strong>+1 Advantage</strong> on their next <strong>Attack Roll</strong>.</p>",
+        "_tagIds": [
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Sentinel: Hamstring",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-hamstring",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Attack of Opportunity</strong> gains <strong>On Hit:</strong> The target is <strong>Immobilized</strong> until the start of their next turn.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Sentinel: Long Reach",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-long-reach",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Melee Attack</strong> gains <strong>+1 Range</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Sentinel: Mage Slayer",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-mage-slayer",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Attack of Opportunity</strong> has the following additional <strong>Condition:</strong> A hostile character within the Range of <strong>Melee Attack</strong> performs a <em>Spell</em> <strong>Action</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Sentinel: Avenger",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-avenger",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Attack of Opportunity</strong> has the following additional <strong>Condition:</strong> A hostile character within the Range of <strong>Melee Attack</strong> performs an <strong>Action</strong> that targets an adjacent allied character.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Sentinel: Stable",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sentinel-stable",
+          "sourceClass": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Sentinel ignores <strong>Difficult Terrain</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Executioner: Executioner's Swing",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-swing",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "3",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[X]+[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>Only available at Initiative. <strong>+1 Advantage</strong>. X equals half the target&#39;s Max HP. Deals <strong>Piercing Chaos Damage</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Executioner: Sharpen",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-sharpen",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Reduces the <strong>AP Cost</strong> of the next <strong>Executioner&#39;s Swing</strong> by 1.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Executioner: Gallows Hook",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-gallowshook",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+2",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 3",
+        "effect": "<p><strong>Flurry.</strong> <strong>On Hit:</strong> Pull the target adjacent to the Executioner.</p>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Executioner: Beyond Salvation",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-beyondsalvation",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Adjacent hostile characters can&#39;t move or be moved except by their own <strong>Actions</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Executioner: Throat Punch",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-throatpunch",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+2",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p><strong>Flurry.</strong> 1/Round. <strong>On Hit:</strong> The target is <strong>Silenced</strong> until the end of their next turn. (A <strong>Silenced</strong> character can&#39;t perform <em>Spell</em> <strong>Actions</strong>.)</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Executioner: At Any Cost",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-atanycost",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Executioner has <strong>Damage Resistance</strong> while adjacent to a hostile character.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Executioner: Public Execution",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-publicexecution",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>When the Executioner reduces a hostile character to 0 HP hostile characters in a <strong>Size 3 Area</strong> centered on the Executioner make a <strong>Resistance Roll</strong></p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Executioner: In the Name of God",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-inthenameofgod",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>When the Executioner performs <strong>Executioner&#39;s Swing</strong>: X equals the target&#39;s maximum HP.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Melee Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-melee-attack",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Adaptation",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-adaptation",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Emanation - Beam",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-emanation-beam",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Emanation - Wave",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-emanation-wave",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Emanation - Line",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-emanation-line",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Spider: Swift Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-swift-attack",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+1",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p><strong>+1 Advantage</strong> against characters in <strong>Difficult Terrain</strong>. <strong>On Hit:</strong> <strong>Poisoned +1</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Spider: Attack of Opportunity",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-opportunity",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character within the Spider&#39;s attack range performs a <em>Movement</em> <strong>Action</strong>.<br><strong>Effect:</strong> Perform <strong>Swift Attack</strong> on the triggering character before the triggering <strong>Action</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Spider: Set Snare",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-set-snare",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 3",
+        "effect": "<p>1/Encounter. Creates <strong>Difficult Terrain</strong> in a <strong>Size 1 Area</strong> within Range 3.</p>",
+        "_tagIds": [
+          "limitencounter"
+        ]
+      }
+    },
+    {
+      "name": "Spider: Stable",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-stable",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Ignores <strong>Difficult Terrain</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Spider: Envenomed Snare",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-envenomed-snare",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>When the Spider&#39;s <strong>Difficult Terrain</strong> causes a hostile character to spend additional movement: That character is <strong>Poisoned +1</strong>. (No roll.)</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Spider: Impassable Snare",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-impassable-snare",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Difficult Terrain</strong> created by the Spider&#39;s <strong>Snare</strong> requires one additional <strong>Speed</strong> of movement per tile entered.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Spider: Pounce",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-pounce",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character performs a <em>Movement</em> <strong>Action</strong> while within a <strong>Snare</strong>, or enters a <strong>Snare</strong> during movement.<br><strong>Effect:</strong> The Spider performs a <em>Movement</em> <strong>Action</strong>. It must end this movement closer to the triggering character than it began.</p>",
+        "_tagIds": [
+          "movement",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Spider: Mobile Snare",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-mobile-snare",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>At the beginning of the Spider&#39;s turn: Choose any number of <strong>Snares</strong> in play. For each chosen <strong>Snare</strong> move it to a tile within Range 2 of that <strong>Snare</strong>. (It doesn&#39;t cross the intervening distance.)</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Spider: Camouflage",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-camouflage",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>While within a <strong>Snare</strong>: The Spider has <strong>Concealment 3</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Spider: Venom Spit",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-venomspit",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+1",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "<p><strong>+1 Advantage</strong> against characters in <strong>Difficult Terrain</strong>. <strong>On Hit:</strong> <strong>Poisoned +2</strong>.</p>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Spider: Manifold Snare",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "spider-manifoldsnare",
+          "sourceClass": "npc-class-spider"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Mindflayer: Spell Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-spellattack",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+2",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p><strong>On Hit:</strong> Target makes a <strong>Resistance Roll</strong> or becomes <strong>Addled</strong>.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Mindflayer: Compulsion",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-compulsion",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Target takes [tier]+4 <strong>Chaos Damage</strong> at the end of their next turn unless they spend <strong>Focus</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Mindflayer: Blink",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-blink",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p>Teleport up to Range 6. This movement doesn&#39;t provoke <strong>Reactions</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Mindflayer: Extract Mind",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-extractmind",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>1/Round. <strong>On Hit:</strong> If the target has no <strong>Focus</strong> remaining deals bonus <strong>Chaos Damage</strong> equal to that character&#39;s maximum HP.</p>",
+        "_tagIds": [
+          "melee",
+          "spell",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Mindflayer: Thoughtskein",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-thoughtskein",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p>Target hostile character with less than half their maximum <strong>Focus</strong> remaining becomes <strong>Slowed +1</strong>. (No roll.)</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Mindflayer: Wandering",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-wandering",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p>1/Round. <strong>On Hit:</strong> Target performs <em>Move</em> in a direction of the Mindflayer&#39;s choice unless they spend [tier]+1 <strong>Focus</strong>.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Mindflayer: Mindleech Trap",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-mindleech-trap",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p>A <strong>Mindleech Trap</strong> deploys in a free space and is triggered by the hostile character that moves into it. <strong>Effect:</strong> That character makes a <strong>Resistance Roll</strong> or loses [tier]+2 <strong>Focus</strong>. Whether or not they Resist they become <strong>Immobilized</strong> until the end of their next turn if they have less than half their maximum <strong>Focus</strong> remaining.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Mindflayer: Nether Spike",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-netherspike",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>A hostile character that spends <strong>Focus</strong> while adjacent to the Mindflayer takes that much <strong>Chaos Damage</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Mindflayer: Detect Thoughts",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-detect-thoughts",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Mindflayer has <strong>Damage Resistance</strong> from characters with less than half their maximum <strong>Focus</strong> remaining.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Mindflayer: Curse of the Silent",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "mindflayer-curseofthesilent",
+          "sourceClass": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Compulsion</strong> targets all hostile characters in a <strong>Size 1 Area</strong> within range.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Angel: Principality",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-principality",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Angel becomes <strong>Immobilized</strong>. Allied characters in a <strong>Size 2 Area</strong> centered on the Angel have <strong>+1 Advantage</strong> on <strong>Resistance Rolls</strong>, and attacks against them have <strong>+1 Disadvantage</strong>.</p>",
+        "_tagIds": [
+          "support",
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Angel: Regenerator",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-regenerator",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>At the start of the Angel&#39;s turn it clears a hostile Condition.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Angel: Goad",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-goad",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+1",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p>1/Round. <strong>On Hit:</strong> Target makes a <strong>Resistance Roll</strong>. On a failure that character performs <em>Move</em> toward the Angel.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Angel: Scorching Ray",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-scorchingray",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+1",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p><strong>+1 Disadvantage</strong> if the Angel has performed an <strong>Attack</strong> this turn.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Angel: Solar Flare",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-solarflare",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p>Target hostile character becomes <strong>Blinded 3</strong> until the end of their next turn. (No roll.)</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Angel: Degeneration Aura",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-degenaura",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Hostile characters in <strong>Principality</strong> are <strong>Sundered</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Angel: Immaculate Aura",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-immaculateaura",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>A friendly character that begins their turn in <strong>Principality</strong> or moves into <strong>Principality</strong> for the first time during their turn receives <strong>2 Healing</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Invoker: Flame Strike",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-flamestrike",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+4",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 7",
+        "effect": "<p>Targets two <strong>Size 1 Areas</strong>. <strong>On Attack:</strong> The Invoker becomes <strong>Immobilized 1</strong>.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Invoker: Overload",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-overload",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Invoker&#39;s next <strong>Flame Strike</strong> knocks targets <strong>Prone</strong> on damage.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Invoker: Blanketing Fire",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-blanketingfire",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>+1 Net Advantage</strong> on <strong>Flame Strike</strong> when targeting the same areas as the previous <strong>Flame Strike</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Invoker: Artillery",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-artillery",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Treats obstructions as <strong>Cover</strong> when determining attack lines.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Invoker: Mage Armor",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-magearmor",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Damage Resistance</strong> from <em>Melee</em> <strong>Actions</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Invoker: Exploding Trap",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-explodingtrap",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "[tier]+4",
+        "range": "Range 5",
+        "effect": "<p>An <strong>Exploding Trap</strong> deploys in a free space and is triggered by the hostile character that moves into it. <strong>Effect:</strong> That character makes a <strong>Resistance Roll</strong> or suffers [tier]+4 <strong>Damage</strong> and <strong>Push 2</strong>. A character that Resists suffers half damage and isn&#39;t pushed.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Invoker: Blink",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-blink",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 6",
+        "effect": "<p>Teleport to a free tile within range. <strong>Blink</strong> doesn&#39;t provoke <strong>Reactions</strong>.</p>",
+        "_tagIds": [
+          "movement",
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Invoker: Shrapnel Blasts",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-shrapnelblasts",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Flame Strike</strong> gains <strong>On Miss:</strong> The target suffers <strong>Bleeding +1</strong>. (No roll.)</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Invoker: Secret Fire",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-secretfire",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Flame Strike</strong> becomes <strong>Charged</strong> and can only be performed with <strong>Initiative</strong>. <strong>On Damage:</strong> The target makes a <strong>Resistance Roll</strong> or becomes <strong>Stunned +2</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Invoker: Radiant Fire",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-radiantfire",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Invoker ignores <strong>Concealment</strong> and <em>Stealth</em> <strong>Actions</strong>. <strong>Flame Strike</strong> leaves a lingering <strong>Size 1 Area</strong> until the Invoker next performs <strong>Flame Strike</strong>. A character in this area loses <strong>Concealment</strong> and can&#39;t perform <em>Stealth</em> <strong>Actions</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Aberration: Backstab",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-backstab",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+3",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>1/Round. <strong>On Hit:</strong> Target makes a <strong>Resistance Roll</strong> or becomes <strong>Dazed +1</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Aberration: Namestealing",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-namestealing",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character&#39;s dice show exactly two 1s.<br><strong>Effect:</strong> That character treats the other shown value as 0 on all future rolls.</p>",
+        "_tagIds": [
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Aberration: Skirmisher",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-skirmisher",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Aberration can move diagonally.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Aberration: Propagation",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-propagation",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Damage and Conditions dealt by the Aberration also apply to the next hostile character in alphabetical order.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Aberration: Destroy Summon",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-destroysummon",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "0",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>1/Round. Perform <strong>Destroy Summon</strong> only with <strong>Initiative</strong>. <strong>On Hit:</strong> The target <strong>Summoned</strong> character is reduced to 0 HP. (No roll.)</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Aberration: Destroy Hope",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-destroyhope",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>Adjacent hostile character makes a <strong>Resistance Roll</strong>. On a failure for the rest of the encounter: that character can&#39;t pay the Inspiration costs of non-Ultimate abilities.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Aberration: Light Eater",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-lighteater",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character within Range 4 is reduced to 0 HP.<br><strong>Effect:</strong> For the rest of the Quest that character can&#39;t use a <strong>Narrative Tag</strong> of the Aberration&#39;s choice.</p>",
+        "_tagIds": [
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Aberration: Hide",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-hide",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>An Aberration can <strong>Hide</strong> only if it performed <strong>Hunker Down</strong> last turn. 1/Round. <strong>Condition:</strong> A hostile character begins their turn.<br><strong>Effect:</strong> That character makes a <strong>Resistance Roll</strong>. On a failure this turn that character can&#39;t target the Aberration with <strong>Actions</strong> that target only one character.</p>",
+        "_tagIds": [
+          "stealth",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Aberration: Infliction",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-infliction",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Backstab</strong> also inflicts <strong>Slowed +1</strong> on a failed <strong>Resistance Roll</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Aberration: Fleshmend",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-fleshmend",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Aberration recovers half its maximum HP when performing <strong>Refocus</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Aberration: Skinshift",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-skinshift",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Aberration ignores <strong>Damage</strong> and <strong>Conditions</strong> from <strong>Actions</strong> that share a name with the last <strong>Action</strong> to inflict <strong>Damage</strong> or a <strong>Condition</strong> on the Aberration.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Aberration: Aberrant Movement",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-movement",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Aberration ignores <strong>Difficult Terrain</strong> and can move through hostile characters.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Aberration: Mobius Trip",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "aberration-mobius",
+          "sourceClass": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>When the Aberration becomes adjacent to a map edge: The Aberration may <strong>Teleport</strong> to the opposite map edge appearing in the nearest free tile. The Aberration ends the current <strong>Movement</strong> and loses all unspent <strong>AP</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Brute: Tough",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-brute-tough",
+          "sourceClass": "npc-template-brute"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Brute: Warding",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-brute-warding",
+          "sourceClass": "npc-template-brute"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Brute: Throat Punch",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-brute-throatpunch",
+          "sourceClass": "npc-template-brute"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Large: Tough",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-large-tough",
+          "sourceClass": "npc-template-large"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Large: Large Silhouette",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-large-silhouette",
+          "sourceClass": "npc-template-large"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Large: Unstoppable",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-large-unstoppable",
+          "sourceClass": "npc-template-large"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Large: Plated",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-large-plated",
+          "sourceClass": "npc-template-large"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Leader: Tough",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-leader-tough",
+          "sourceClass": "npc-template-leader"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Leader: Move Order",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-leader-moveorder",
+          "sourceClass": "npc-template-leader"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Leader: Steadfast",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-leader-steadfast",
+          "sourceClass": "npc-template-leader"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Leader: Attack Order",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-leader-attackorder",
+          "sourceClass": "npc-template-leader"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Ranger: Stable",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-ranger-stable",
+          "sourceClass": "npc-template-ranger"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Ranger: Spotter",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-ranger-spotter",
+          "sourceClass": "npc-template-ranger"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Ranger: Farsight",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-ranger-farsight",
+          "sourceClass": "npc-template-ranger"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Ranger: Guerilla",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-ranger-guerilla",
+          "sourceClass": "npc-template-ranger"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Ranger: Artillery",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-ranger-artillery",
+          "sourceClass": "npc-template-ranger"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Heckler: Gambit",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-heckler-gambit",
+          "sourceClass": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Heckler: Flanking",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-heckler-flanking",
+          "sourceClass": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Heckler: Evasive",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-heckler-evasive",
+          "sourceClass": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Heckler: Slingshot",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-heckler-slingshot",
+          "sourceClass": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Heckler: Bomb",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-heckler-bomb",
+          "sourceClass": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Heckler: Reposition",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-heckler-reposition",
+          "sourceClass": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Heckler: Poison Blade",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-heckler-poisonblade",
+          "sourceClass": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Heckler: Evasion",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-heckler-evasion",
+          "sourceClass": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Howlpack: Howl",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-howlpack-howl",
+          "sourceClass": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Howlpack: Tactics",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-howlpack-tactics",
+          "sourceClass": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Howlpack: Mangle",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-howlpack-mangle",
+          "sourceClass": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Howlpack: Wound",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-howlpack-wound",
+          "sourceClass": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Howlpack: Bloodrush",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-howlpack-bloodrush",
+          "sourceClass": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Howlpack: Bloodscent",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-howlpack-bloodscent",
+          "sourceClass": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Howlpack: Flight",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-howlpack-flight",
+          "sourceClass": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Howlpack: Piercing Fang",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-howlpack-piercingfang",
+          "sourceClass": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Mirage",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-mirage",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Dominate",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-dominate",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Linger",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-linger",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Fade",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-fade",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Dreamwalk",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-dreamwalk",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Animate",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-animate",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Tanglebough",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-tanglebough",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Illusoryobject",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-illusoryobject",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Confusion",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-confusion",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Enthrall",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-enthrall",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Trickster: Shadow Swap",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-trickster-shadowswap",
+          "sourceClass": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Duelist: Melee Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-melee-attack",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[level]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<ul>\n<li><strong>Flurry</strong></li>\n<li>After spending <strong>AP</strong> to perform <strong>Melee Attack</strong>: Repeat <strong>Melee Attack</strong> as a <strong>Free Action</strong> a number of times equal to the Duelist&#39;s level.</li>\n</ul>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Duelist: Duel",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-duel",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "0",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 3",
+        "effect": "<p>The <strong>Duelist</strong> marks a target. The <strong>Duelist</strong> treats the marked target as <strong>Sundered</strong> and has <strong>Damage Resistance</strong> from the marked target, and their attacks against the marked target have <strong>+1 Advantage</strong>. The mark lasts for the rest of the scene, until the marked target is reduced to 0 HP, or until this <strong>Action</strong> is performed again.</p>\n<p>When the <strong>Marked</strong> target is reduced to 0 HP, recharge <strong>Duel</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Duelist: Parry",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-parry",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Condition:</strong> A character hits the <strong>Duelist</strong> with the <strong>Attack Roll</strong> of a <em>Melee Weapon Attack</em>.</p>\n<p><strong>Effect:</strong> The <strong>Duelist</strong> makes an <strong>Attack Roll</strong> against that character. On a hit, the triggering attack roll misses instead.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Duelist: Lethality",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-lethality",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Duelist&#39;s attacks have <strong>On Critical Hit:</strong> The target chooses - they are <strong>Dazed 3</strong>, <strong>Slowed 2</strong>, or <strong>Immobilized 1</strong>. They can&#39;t choose a condition they have already.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Duelist: Falling Feathers",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-falling-feathers",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "2+[level]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "<ul>\n<li><strong>Flurry</strong></li>\n<li><strong>On Hit:</strong> The Duelist may <strong>Move 2</strong>. The movement doesn&#39;t trigger <strong>Reactions</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Duelist: Grace",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-grace",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Each round, the first <strong>Reaction</strong> the Duelist triggers has no effect.</p>",
+        "_tagIds": [
+          "limitround"
+        ]
+      }
+    }
+  ],
+  "npcClasses": [
+    {
+      "name": "Minion",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-minion"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 5,
+          "hpBonus": 2,
+          "def": 9,
+          "spd": 4,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "minion-melee-attack",
+            "name": "Minion: Melee Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-initiative",
+            "name": "Minion: Team Up",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-fodder",
+            "name": "Minion: Fodder",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-ranged-attack",
+            "name": "Minion: Ranged Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-swift-attack",
+            "name": "Minion: Swift Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-opportunity",
+            "name": "Minion: Opportunity",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-assist",
+            "name": "Minion: Assist",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-long-reach",
+            "name": "Minion: Long Reach",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-evasion",
+            "name": "Minion: Evasion",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-revenge",
+            "name": "Minion: Revenge",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-swarm",
+            "name": "Minion: Swarm",
+            "tier": "basic"
+          },
+          {
+            "id": "minion-tactical",
+            "name": "Minion: Take Cover",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Asssassin",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-assassin"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 7,
+          "hpBonus": 3,
+          "def": 10,
+          "spd": 4,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "assassin-backstab",
+            "name": "Assassin: Backstab",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-dodge",
+            "name": "Assassin: Dodge",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-skirmisher",
+            "name": "Assassin: Skirmisher",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-sap",
+            "name": "Assassin: Sap",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-ensnare",
+            "name": "Assassin: Ensnare",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-needle-shot",
+            "name": "Assassin: Needle Shot",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-vanish",
+            "name": "Assassin: Vanish",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-jump",
+            "name": "Assassin: Jump",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-trip",
+            "name": "Assassin: Trip",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-death-attack",
+            "name": "Assassin: Death Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "assassin-opportunity",
+            "name": "Assassin: Death Attack of Opportunity",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Medic",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-medic"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 9,
+          "hpBonus": 3,
+          "def": 10,
+          "spd": 3,
+          "armor": 1
+        },
+        "_abilityIds": [
+          {
+            "id": "medic-restore",
+            "name": "Medic: Restore",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-heal",
+            "name": "Medic: Heal",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-emergency-aid",
+            "name": "Medic: Emergency Aid",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-weakness-exposure",
+            "name": "Medic: Weakness Exposure",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-shove",
+            "name": "Medic: Shove",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-resupply",
+            "name": "Medic: Resupply",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-distant-curatives",
+            "name": "Medic: Distant Curatives",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-modern-medicine",
+            "name": "Medic: Modern Medicine",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-lasting-cure",
+            "name": "Medic: Lasting Cure",
+            "tier": "basic"
+          },
+          {
+            "id": "medic-prophylaxis",
+            "name": "Medic: Prophylaxis",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Beast",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-beast"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 4,
+          "hpBonus": 4,
+          "def": 9,
+          "spd": 3,
+          "armor": 3
+        },
+        "_abilityIds": [
+          {
+            "id": "beast-melee-attack",
+            "name": "Beast: Melee Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "beast-clamp",
+            "name": "Beast: Clamp",
+            "tier": "basic"
+          },
+          {
+            "id": "beast-thrash",
+            "name": "Beast: Thrash",
+            "tier": "basic"
+          },
+          {
+            "id": "beast-rampage",
+            "name": "Beast: Rampage",
+            "tier": "basic"
+          },
+          {
+            "id": "beast-ragdoll",
+            "name": "Beast: Ragdoll",
+            "tier": "basic"
+          },
+          {
+            "id": "beast-unleash",
+            "name": "Beast: Unleash",
+            "tier": "basic"
+          },
+          {
+            "id": "beast-imposing",
+            "name": "Beast: Imposing",
+            "tier": "basic"
+          },
+          {
+            "id": "beast-shatter",
+            "name": "Beast: Shatter",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Guardian",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 10,
+          "hpBonus": 2,
+          "def": 11,
+          "spd": 3,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "guardian-heavy-attack",
+            "name": "Guardian: Heavy Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-counterattack",
+            "name": "Guardian: Counterattack",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-entrenched",
+            "name": "Guardian: Entrenched",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-unbreakable",
+            "name": "Guardian: Unbreakable",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-destrowave",
+            "name": "Guardian: Destructive Wave",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-bouncing-shield",
+            "name": "Guardian: Bouncing Shield",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-handofprotection",
+            "name": "Guardian: Hand of Protection",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-opportunity",
+            "name": "Guardian: Attack of Opportunity",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-mailbreaker",
+            "name": "Guardian: Mail Breaker",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-shieldstance",
+            "name": "Guardian: Shield Stance",
+            "tier": "basic"
+          },
+          {
+            "id": "guardian-tears-of-denial",
+            "name": "Guardian: Tears of Denial",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sentinel",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-sentinel"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 9,
+          "hpBonus": 3,
+          "def": 10,
+          "spd": 4,
+          "armor": 1
+        },
+        "_abilityIds": [
+          {
+            "id": "sentinel-melee-attack",
+            "name": "Sentinel: Melee Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-opportunity",
+            "name": "Sentinel: Attack of Opportunity",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-preparation",
+            "name": "Sentinel: Preparation",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-combat-reflexes",
+            "name": "Sentinel: Combat Reflexes",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-brace",
+            "name": "Sentinel: Brace",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-hamstring",
+            "name": "Sentinel: Hamstring",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-long-reach",
+            "name": "Sentinel: Long Reach",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-mage-slayer",
+            "name": "Sentinel: Mage Slayer",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-avenger",
+            "name": "Sentinel: Avenger",
+            "tier": "basic"
+          },
+          {
+            "id": "sentinel-stable",
+            "name": "Sentinel: Stable",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Executioner",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 9,
+          "hpBonus": 3,
+          "def": 10,
+          "spd": 4,
+          "armor": 1
+        },
+        "_abilityIds": [
+          {
+            "id": "executioner-swing",
+            "name": "Executioner: Executioner's Swing",
+            "tier": "basic"
+          },
+          {
+            "id": "executioner-sharpen",
+            "name": "Executioner: Sharpen",
+            "tier": "basic"
+          },
+          {
+            "id": "executioner-gallowshook",
+            "name": "Executioner: Gallows Hook",
+            "tier": "basic"
+          },
+          {
+            "id": "executioner-beyondsalvation",
+            "name": "Executioner: Beyond Salvation",
+            "tier": "basic"
+          },
+          {
+            "id": "executioner-throatpunch",
+            "name": "Executioner: Throat Punch",
+            "tier": "basic"
+          },
+          {
+            "id": "executioner-atanycost",
+            "name": "Executioner: At Any Cost",
+            "tier": "basic"
+          },
+          {
+            "id": "executioner-publicexecution",
+            "name": "Executioner: Public Execution",
+            "tier": "basic"
+          },
+          {
+            "id": "executioner-inthenameofgod",
+            "name": "Executioner: In the Name of God",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Scourge",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 12,
+          "hpBonus": 3,
+          "def": 8,
+          "spd": 4,
+          "armor": 0
+        },
+        "_abilityIds": []
+      }
+    },
+    {
+      "name": "Spider",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-spider"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 6,
+          "hpBonus": 3,
+          "def": 9,
+          "spd": 4,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "spider-swift-attack",
+            "name": "Spider: Swift Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-opportunity",
+            "name": "Spider: Attack of Opportunity",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-set-snare",
+            "name": "Spider: Set Snare",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-stable",
+            "name": "Spider: Stable",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-envenomed-snare",
+            "name": "Spider: Envenomed Snare",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-impassable-snare",
+            "name": "Spider: Impassable Snare",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-pounce",
+            "name": "Spider: Pounce",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-mobile-snare",
+            "name": "Spider: Mobile Snare",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-camouflage",
+            "name": "Spider: Camouflage",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-venomspit",
+            "name": "Spider: Venom Spit",
+            "tier": "basic"
+          },
+          {
+            "id": "spider-manifoldsnare",
+            "name": "Spider: Manifold Snare",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mindflayer",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-mindflayer"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 5,
+          "hpBonus": 4,
+          "def": 11,
+          "spd": 4,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "mindflayer-spellattack",
+            "name": "Mindflayer: Spell Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-compulsion",
+            "name": "Mindflayer: Compulsion",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-blink",
+            "name": "Mindflayer: Blink",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-extractmind",
+            "name": "Mindflayer: Extract Mind",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-thoughtskein",
+            "name": "Mindflayer: Thoughtskein",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-wandering",
+            "name": "Mindflayer: Wandering",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-mindleech-trap",
+            "name": "Mindflayer: Mindleech Trap",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-netherspike",
+            "name": "Mindflayer: Nether Spike",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-detect-thoughts",
+            "name": "Mindflayer: Detect Thoughts",
+            "tier": "basic"
+          },
+          {
+            "id": "mindflayer-curseofthesilent",
+            "name": "Mindflayer: Curse of the Silent",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Angel",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-angel"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 6,
+          "hpBonus": 3,
+          "def": 10,
+          "spd": 4,
+          "armor": 2
+        },
+        "_abilityIds": [
+          {
+            "id": "angel-principality",
+            "name": "Angel: Principality",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-regenerator",
+            "name": "Angel: Regenerator",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-goad",
+            "name": "Angel: Goad",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-scorchingray",
+            "name": "Angel: Scorching Ray",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-solarflare",
+            "name": "Angel: Solar Flare",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-degenaura",
+            "name": "Angel: Degeneration Aura",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-immaculateaura",
+            "name": "Angel: Immaculate Aura",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Invoker",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 6,
+          "hpBonus": 4,
+          "def": 9,
+          "spd": 2,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "invoker-flamestrike",
+            "name": "Invoker: Flame Strike",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-overload",
+            "name": "Invoker: Overload",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-blanketingfire",
+            "name": "Invoker: Blanketing Fire",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-artillery",
+            "name": "Invoker: Artillery",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-magearmor",
+            "name": "Invoker: Mage Armor",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-explodingtrap",
+            "name": "Invoker: Exploding Trap",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-blink",
+            "name": "Invoker: Blink",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-shrapnelblasts",
+            "name": "Invoker: Shrapnel Blasts",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-secretfire",
+            "name": "Invoker: Secret Fire",
+            "tier": "basic"
+          },
+          {
+            "id": "invoker-radiantfire",
+            "name": "Invoker: Radiant Fire",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Aberration",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-aberration"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 6,
+          "hpBonus": 5,
+          "def": 11,
+          "spd": 5,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "aberration-backstab",
+            "name": "Aberration: Backstab",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-namestealing",
+            "name": "Aberration: Namestealing",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-skirmisher",
+            "name": "Aberration: Skirmisher",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-propagation",
+            "name": "Aberration: Propagation",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-destroysummon",
+            "name": "Aberration: Destroy Summon",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-destroyhope",
+            "name": "Aberration: Destroy Hope",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-lighteater",
+            "name": "Aberration: Light Eater",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-hide",
+            "name": "Aberration: Hide",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-infliction",
+            "name": "Aberration: Infliction",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-fleshmend",
+            "name": "Aberration: Fleshmend",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-skinshift",
+            "name": "Aberration: Skinshift",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-movement",
+            "name": "Aberration: Aberrant Movement",
+            "tier": "basic"
+          },
+          {
+            "id": "aberration-mobius",
+            "name": "Aberration: Mobius Trip",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Duelist",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 7,
+          "hpBonus": 4,
+          "def": 11,
+          "spd": 4,
+          "armor": 1
+        },
+        "_abilityIds": [
+          {
+            "id": "duelist-melee-attack",
+            "name": "Duelist: Melee Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "duelist-duel",
+            "name": "Duelist: Duel",
+            "tier": "basic"
+          },
+          {
+            "id": "duelist-parry",
+            "name": "Duelist: Parry",
+            "tier": "basic"
+          },
+          {
+            "id": "duelist-lethality",
+            "name": "Duelist: Lethality",
+            "tier": "basic"
+          },
+          {
+            "id": "duelist-falling-feathers",
+            "name": "Duelist: Falling Feathers",
+            "tier": "basic"
+          },
+          {
+            "id": "duelist-grace",
+            "name": "Duelist: Grace",
+            "tier": "basic"
+          }
+        ]
+      }
+    }
+  ],
+  "npcTemplates": [
+    {
+      "name": "Brute",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-brute"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": [
+          {
+            "id": "template-brute-tough",
+            "name": "Brute: Tough",
+            "tier": "basic"
+          },
+          {
+            "id": "template-brute-warding",
+            "name": "Brute: Warding",
+            "tier": "basic"
+          },
+          {
+            "id": "template-brute-throatpunch",
+            "name": "Brute: Throat Punch",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Large",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-large"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": [
+          {
+            "id": "template-large-tough",
+            "name": "Large: Tough",
+            "tier": "basic"
+          },
+          {
+            "id": "template-large-silhouette",
+            "name": "Large: Large Silhouette",
+            "tier": "basic"
+          },
+          {
+            "id": "template-large-unstoppable",
+            "name": "Large: Unstoppable",
+            "tier": "basic"
+          },
+          {
+            "id": "template-large-plated",
+            "name": "Large: Plated",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Leader",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-leader"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": [
+          {
+            "id": "template-leader-tough",
+            "name": "Leader: Tough",
+            "tier": "basic"
+          },
+          {
+            "id": "template-leader-moveorder",
+            "name": "Leader: Move Order",
+            "tier": "basic"
+          },
+          {
+            "id": "template-leader-steadfast",
+            "name": "Leader: Steadfast",
+            "tier": "basic"
+          },
+          {
+            "id": "template-leader-attackorder",
+            "name": "Leader: Attack Order",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ghost",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-ghost"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": []
+      }
+    },
+    {
+      "name": "Ranger",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-ranger"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": [
+          {
+            "id": "template-ranger-stable",
+            "name": "Ranger: Stable",
+            "tier": "basic"
+          },
+          {
+            "id": "template-ranger-spotter",
+            "name": "Ranger: Spotter",
+            "tier": "basic"
+          },
+          {
+            "id": "template-ranger-farsight",
+            "name": "Ranger: Farsight",
+            "tier": "basic"
+          },
+          {
+            "id": "template-ranger-guerilla",
+            "name": "Ranger: Guerilla",
+            "tier": "basic"
+          },
+          {
+            "id": "template-ranger-artillery",
+            "name": "Ranger: Artillery",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Heckler",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-heckler"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": [
+          {
+            "id": "template-heckler-gambit",
+            "name": "Heckler: Gambit",
+            "tier": "basic"
+          },
+          {
+            "id": "template-heckler-flanking",
+            "name": "Heckler: Flanking",
+            "tier": "basic"
+          },
+          {
+            "id": "template-heckler-evasive",
+            "name": "Heckler: Evasive",
+            "tier": "basic"
+          },
+          {
+            "id": "template-heckler-slingshot",
+            "name": "Heckler: Slingshot",
+            "tier": "basic"
+          },
+          {
+            "id": "template-heckler-bomb",
+            "name": "Heckler: Bomb",
+            "tier": "basic"
+          },
+          {
+            "id": "template-heckler-reposition",
+            "name": "Heckler: Reposition",
+            "tier": "basic"
+          },
+          {
+            "id": "template-heckler-poisonblade",
+            "name": "Heckler: Poison Blade",
+            "tier": "basic"
+          },
+          {
+            "id": "template-heckler-evasion",
+            "name": "Heckler: Evasion",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Howlpack",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-howlpack"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": [
+          {
+            "id": "template-howlpack-howl",
+            "name": "Howlpack: Howl",
+            "tier": "basic"
+          },
+          {
+            "id": "template-howlpack-tactics",
+            "name": "Howlpack: Tactics",
+            "tier": "basic"
+          },
+          {
+            "id": "template-howlpack-mangle",
+            "name": "Howlpack: Mangle",
+            "tier": "basic"
+          },
+          {
+            "id": "template-howlpack-wound",
+            "name": "Howlpack: Wound",
+            "tier": "basic"
+          },
+          {
+            "id": "template-howlpack-bloodrush",
+            "name": "Howlpack: Bloodrush",
+            "tier": "basic"
+          },
+          {
+            "id": "template-howlpack-bloodscent",
+            "name": "Howlpack: Bloodscent",
+            "tier": "basic"
+          },
+          {
+            "id": "template-howlpack-flight",
+            "name": "Howlpack: Flight",
+            "tier": "basic"
+          },
+          {
+            "id": "template-howlpack-piercingfang",
+            "name": "Howlpack: Piercing Fang",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Trickster",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-trickster"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": [
+          {
+            "id": "template-trickster-mirage",
+            "name": "Trickster: Mirage",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-dominate",
+            "name": "Trickster: Dominate",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-linger",
+            "name": "Trickster: Linger",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-fade",
+            "name": "Trickster: Fade",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-dreamwalk",
+            "name": "Trickster: Dreamwalk",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-animate",
+            "name": "Trickster: Animate",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-tanglebough",
+            "name": "Trickster: Tanglebough",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-illusoryobject",
+            "name": "Trickster: Illusoryobject",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-confusion",
+            "name": "Trickster: Confusion",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-enthrall",
+            "name": "Trickster: Enthrall",
+            "tier": "basic"
+          },
+          {
+            "id": "template-trickster-shadowswap",
+            "name": "Trickster: Shadow Swap",
+            "tier": "basic"
+          }
+        ]
+      }
+    }
+  ]
+}
