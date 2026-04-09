@@ -86,6 +86,13 @@
       "path": "packs/shard-npc-classes",
       "type": "Item",
       "system": "shard"
+    },
+    {
+      "name": "shard-macros",
+      "label": "Shard Macros",
+      "path": "packs/shard-macros",
+      "type": "Macro",
+      "system": "shard"
     }
   ],
   "socket": false,
