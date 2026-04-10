@@ -548,8 +548,44 @@
 /* ── Damage Card ────────────────────────────────────────────────────── */
 .damage-card .card-header { background: #2c1010; border-bottom-color: var(--shard-miss); }
 .graze-card .card-header  { background: #1a1a10; border-bottom-color: var(--shard-gold); }
+.half-card .card-header   { opacity: 0.8; }
+.half-card .damage-raw    { opacity: 0.75; }
 .damage-label { font-weight: bold; color: var(--shard-miss); }
 .graze-card .damage-label { color: var(--shard-gold); }
+
+/* ── Damage button right-click context menu ─────────────────────────── */
+.shard-damage-ctx {
+  position: fixed;
+  z-index: 10000;
+  background: var(--shard-bg);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.55);
+  min-width: 148px;
+  overflow: hidden;
+}
+.shard-damage-ctx .ctx-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  cursor: pointer;
+  font-size: 0.88em;
+  color: var(--shard-text);
+  white-space: nowrap;
+  transition: background 0.1s, color 0.1s;
+}
+.shard-damage-ctx .ctx-item:hover {
+  background: var(--shard-bg-light);
+  color: var(--shard-accent);
+}
+.shard-damage-ctx .ctx-half {
+  border-top: 1px solid var(--shard-border);
+  color: var(--shard-text-muted);
+}
+.shard-damage-ctx .ctx-half:hover {
+  color: var(--shard-gold);
+}
 
 .damage-result {
   font-size: 1.3em;
