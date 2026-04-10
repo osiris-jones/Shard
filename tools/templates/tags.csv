@@ -1,0 +1,30 @@
+id,name,description,advantageBonus,disadvantageBonus
+melee,Melee,*Melee* **Actions**  typically target only adjacent characters.,0,0
+ranged,Ranged,**Effect:** *Ranged* actions are affected by cover and have **+1 Disadvantage** against adjacent characters.,0,0
+spell,Spell,*Spell* actions are magical in nature.,0,0
+weapon,Weapon,**Effect:** *Weapon* **Actions** require an active *Stance* with the *Weapon* tag.*Ranged Weapon* **Actions** require an active *Stance* with the *Ranged Weapon* tag.,0,0
+shield,Shield,**Effect:** *Shield* actions require a **Stance** with the *Shield* tag.,0,0
+stance,Stance,*Stances* affect the types of actions your character can perform. You have all benefits of an active *Stance.*,0,0
+special,Special,*Special* actions typically have unique restrictions or are granted by other actions.,0,0
+heroic,Heroic,Under construction.,0,0
+aura,Aura,**Effect:** Your *Aura* affects a **Size 1 Area** centered on you.,0,0
+movement,Movement,**Effect:** You can't perform *Movement* **Actions** while **Immobilized**.,0,0
+charged,Charged,**Effect:** You can only peform a *Charged* **Action** while it has a charge; it loses its charge when used.,0,0
+support,Support,*Support* **Actions** typically assist other characters.,0,0
+reaction,Reaction,*Reactions* are typically performed on another character's turn.,0,0
+attack,Attack,**Effect:** *Attack* **Actions** require an **Attack Roll**.,0,0
+summon,Summon,*Summon* **Actions** typically summon characters under your control.,0,0
+legendary,Legendary,**Effect:** You can't control more than one *Legendary Summon.*,0,0
+passive,Passive,*Passive* abilities have ongoing effects.,0,0
+stealth,Stealth,*Stealth* **Actions** typically confer **Concealment**.,0,0
+combo,Combo,"**Effect:** When you perform a *Combo* **Action**, until the end of your next turn, your next *Finisher* **Action** benefits from **Finisher** effects.",0,0
+finisher,Finisher,**Effect:** This **Action** has additional *Finisher* properties if you performed a *Combo* **Action** since your last turn.,0,0
+trap,Trap,"**Effect:** A *Trap* modifies a tile. Once armed, a *Trap* is *Triggered* when a character becomes adjacent during *Movement*.",0,0
+limitround,1/Round,"**Effect:** Perform this **Action** only once per round, refreshing at the start of your second turn and on each of your subsequent turns. *Passive* and other special abilities with this property trigger or take effect no more than once per round.",0,0
+limitencounter,1/Encounter,"**Effect:** **Actions** with this property can be performed only once per encounter. *Passive* and other special abilities with this property can only be used, trigger, or take effect once per encounter.",0,0
+bound,Bound,Bound Passives modify other Actions.,0,0
+ultimate,Ultimate,A character's ultimate ability.,0,0
+accurate,Accurate,Accurate,1,0
+inaccurate,Inaccurate,Inaccurate,0,1
+limitturn,1/Turn,**Effect:** You can't perform this ability more than once during any character's turn; this ability can't take effect more than once per turn.,0,0
+battered,Battered,**Effect:** This ability can only be performed (or this passive only takes effect) while at half of your maximum HP or lower.,0,0

@@ -1,0 +1,917 @@
+id,name,class,rank,cost,focusCost,range,isAttack,damage,hasGraze,grazeDamage,hasResistance,resistanceDV,tags,description,isInnate,isHeroicTalent,parent
+paladin-stance,Guardian's Stance,paladin,0,passive,0,,FALSE,,FALSE,,FALSE,10,"shield,weapon,stance",You can perform *Shield* **Actions**. You have a **Block Rating** equal to 4+[tier].,FALSE,FALSE,
+paladin-raise-shield,Raise Shield,paladin,0,1,0,,FALSE,,FALSE,,FALSE,10,shield,"Until the start of your next turn, attacks against you have **+1 Disadvantage** and you have the **Block Reaction**.",FALSE,FALSE,
+paladin-block,Raise Shield: Block,paladin,0,reaction,0,,FALSE,,FALSE,,FALSE,10,"shield,reaction,limitround","**Condition:** You are targeted by an **Attack** that gains **+1 Disadvantage** from **Raise Shield**.
+**Effect:** Gain **Barrier** equal to your **Block Rating**. If you have no **Barrier** remaining after the attack, you can't use this *Reaction* for the rest of the encounter.",FALSE,FALSE,
+paladin-entrenched,Entrenched,paladin,0,passive,0,,FALSE,,FALSE,,FALSE,10,,Hostile characters treat tiles adjacent to you as **Difficult Terrain**.,FALSE,FALSE,
+paladin-shove,Shove,paladin,0,1,0,Melee,FALSE,,FALSE,,TRUE,10+[tier],melee,"Target hostile character makes a **Resistance Roll** or suffers **Push 2** and becomes **Prone.**
+**Resist:** **Push 1**.",FALSE,FALSE,
+paladin-ultimate,Ultimate: Absolute Defense,paladin,0,1,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,shield","Clear **Prone.** Clear **Immobilized**. **Teleport** to a free space adjacent to an allied character. Until the start of your next turn, you and that character are **Invulnerable**.",FALSE,FALSE,
+paladin-devotion-aura,Devotion Aura,paladin,1,passive,0,,FALSE,,FALSE,,FALSE,10,aura,Allied characters within your **Aura** have **+1 Advantage** on **Resistance Rolls**.,FALSE,FALSE,
+paladin-defensive-reflexes,Defensive Reflexes,paladin,1,0,1,,FALSE,,FALSE,,FALSE,10,,Perform a *Shield* **Action** that costs **1 AP** or less. You're **Stunned +1**. This **Condition** can't be prevented.,FALSE,FALSE,
+paladin-pavise,Pavise,paladin,1,passive,0,,FALSE,,FALSE,,FALSE,10,aura,Allied characters within your **Aura** can use you as **Cover**.,FALSE,FALSE,
+paladin-shield-slam,Shield Slam,paladin,1,1,2,Melee,TRUE,[atk]+1,TRUE,[tier]+1,TRUE,10+[tier],"melee,shield,attack,limitround",**On Hit:** Target makes a **Resistance Roll** or becomes **Prone**.,FALSE,FALSE,
+paladin-opportunity,Guardian,paladin,2,reaction,0,,FALSE,,FALSE,,FALSE,10,"attack,reaction,limitround","**Condition:** An hostile character within **Range** of a  *Melee Attack* **Action** that costs **2 AP** or less performs an *Action* targeting a character other than you.
+**Effect:** Perform that *Melee Attack* **Action** on the triggering character before the triggering **Action**.",FALSE,FALSE,
+paladin-shield-charge,Shield Charge,paladin,2,2,2,,FALSE,,FALSE,,FALSE,10,"shield,movement","Perform the *Basic* **Move Action**.
+During this *Movement:* You can't change directions, have **Damage Resistance**, and ignore **Difficult Terrain**.
+At the end of this *Movement:* Perform a *Melee Attack* **Action** that costs **1 AP** or less as a **Free Action**. It deals **+3 Bonus Damage**.",FALSE,FALSE,
+paladin-shield-mastery,Shield Mastery,paladin,2,passive,0,,FALSE,,FALSE,,FALSE,10,,You have **Block Rating** +2.,FALSE,FALSE,
+paladin-radiance,Radiance,paladin,3,passive,0,,FALSE,,FALSE,,FALSE,10,,"Your *Aura* is a **Size 2 Area**, though characters outside your **Line of Effect** gain no benefits.
+You also gain the **Prominence** *Special* **Action**.",FALSE,FALSE,
+paladin-radiance-special,Radiance: Prominence,paladin,3,1,2,,FALSE,,FALSE,,FALSE,10,"special,limitround","Until the start of your next turn, your *Aura* is a **Size 3 Area**, though characters outside your **Line of Effect** gain no benefits.",FALSE,FALSE,paladin-radiance
+paladin-fortify,Fortify,paladin,3,1,0,,FALSE,,FALSE,,FALSE,10,limitround,"Until the start of your next turn, you have **+1 Armor** and **Immunity to Involuntary Movement.**",FALSE,FALSE,
+paladin-formation-fighting,Formation Fighting,paladin,3,reaction,0,,FALSE,,FALSE,,FALSE,10,"reaction,limitround","**Condition:** An allied character takes damage.
+**Effect:** The damaged character may perform a *Basic* **Move Action** as a **Free Reaction**. This movement must move as far as possible towards you by the shortest available path.
+",FALSE,FALSE,
+paladin-indefatigable,Indefatigable,paladin,4,passive,0,,FALSE,,FALSE,,FALSE,10,,"Whenever **Barrier, Damage Resistance, or Invulnerability** affects the amount of damage you take: Recover **1 Focus**.",FALSE,FALSE,
+paladin-aegis,Aegis,paladin,4,passive,0,,FALSE,,FALSE,,FALSE,10,,**Under Construction**.,FALSE,FALSE,
+paladin-smite,Smite,paladin,4,reaction,2,,FALSE,,FALSE,,FALSE,10,"support,spell,reaction","**Condition:** An allied character makes a successful attack against a hostile character adjacent to you.
+**Effect - Focus Cost 2:** Choose one:
+- The attack does [tier]+2 **Bonus Damage**.
+- The attacker receives [tier]+2 **Healing**.",FALSE,FALSE,
+paladin-rampart,Rampart,paladin,5,3,3,,FALSE,,FALSE,,FALSE,10,"shield,support,spell","You create a **Rampart**, a line of five contiguous tiles where all five share an edge and the centermost is adjacent to you. It lasts until the end of your next turn. Your **Rampart** has the following properties:
+
+- You and allied characters have **Damage Resistance** against attacks that draw **Line of Effect** through the **Rampart**.
+- A hostile character that begins a turn in a tile adjacent to or occupied by the **Rampart** makes a **Resistance Roll** or is **Immobilized 1**. 
+- You have **Maximum Speed: 1** and can't perform *Movement* **Actions** other than the *Basic* **Move Action**. *(The Rampart moves with you.)*
+
+**Sustain** (0 AP): **Focus Cost 2**",FALSE,FALSE,
+paladin-blessed-armor,Blessed Armor,paladin,5,passive,0,,FALSE,,FALSE,,FALSE,10,limitround,The damage of the first successful *Attack* against you each round is reduced by 5 before all other forms of resistance and armor.,FALSE,FALSE,
+towers-generic-shove,Shove,towers,1,1,0,Melee,FALSE,,FALSE,,TRUE,10+[tier],melee,"Target hostile character makes a **Resistance Roll** or suffers **Push 2** and becomes **Prone.**
+**Resist:** **Push 1**.",FALSE,FALSE,
+towers-generic-toughness,Toughness,towers,1,passive,0,,FALSE,,FALSE,,FALSE,10,,**Passive:** +2 Maximum HP.,FALSE,FALSE,
+towers-generic-shield-stance,Shield Stance,towers,1,passive,0,,FALSE,,FALSE,,FALSE,10,"shield,weapon,stance",You can perform *Shield* **Actions**. You have a **Block Rating** equal to 4+[tier] and the **Raise Shield** *Special* **Action**.,FALSE,FALSE,
+towers-generic-grapple,Grapple,towers,2,1,0,Melee,TRUE,0,FALSE,0,FALSE,10,melee,"**On Hit**: You are **Grappling**, and the target is **Restrained**. *(They're special Statuses that exist in a pair.)*
+- The **Grappling** character can't perform **Grapple**, and can't perform more than one *Movement* **Action** in a turn. That character can clear this status as a **Free Action**.
+- The **Restrained** character is **Immobilized** and mirrors the **Grappling** character's movement as involuntary movement. That character has (**1AP**) **Resistance Roll (10):** Clear the status.
+The status is cleared any time the characters are no longer adjacent, either character is reduced to 0 HP, or there is a difference in elevation between the characters.",FALSE,FALSE,
+towers-generic-stampede,Stampede,towers,2,passive,0,,FALSE,,FALSE,,FALSE,10+[tier],melee,"You can attempt to move into a hostile character's space. When you do, that character makes a **Resistance Roll**. If the character **Resists**, your *Movement* ends. Otherwise, you move into that space, but can't end your turn there.
+A **Prone** character automatically fails the **Resistance Roll**.",FALSE,FALSE,
+towers-generic-toughness-2,Improved Toughness,towers,3,passive,0,,FALSE,,FALSE,,FALSE,10,,**Passive:** +4 Maximum HP.,FALSE,FALSE,
+towers-generic-armor,Armor Mastery,towers,3,passive,0,,FALSE,,FALSE,,FALSE,10,,**Passive:** +1 Armor *(max. 2)*,FALSE,FALSE,
+towers-generic-ironskin,Ironskin,towers,4,passive,0,,FALSE,,FALSE,,FALSE,10,,**Passive:** +1 DEF,FALSE,FALSE,
+warrior-stance-gladiator,Gladiator Stance,warrior,0,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance",*Non-Spell* **Action** **Focus Cost -1** *(min. 1).*,FALSE,FALSE,
+warrior-stance-ranged,Ranged Stance,warrior,0,passive,0,,FALSE,,FALSE,,FALSE,10,"ranged,weapon,stance","In **Ranged Stance**, you can perform *Ranged Weapon Attack* **Actions**. Your *Basic* **Attack Action** is *Ranged* and has **Range 4**.",FALSE,FALSE,
+warrior-stance-shield,Shield Stance,warrior,0,passive,0,,FALSE,,FALSE,,FALSE,10,"shield,weapon,stance",You can perform *Shield* **Actions**. You have a **Block Rating** equal to 4+[tier] and the **Raise Shield** *Special* **Action**.,FALSE,FALSE,
+warrior-rearm,Rearm,warrior,0,2,0,,FALSE,,FALSE,,FALSE,10,limitround,"Change an active *Stance* to another *Stance* available to you.
+Then, you may perform a *Weapon, Ranged Weapon, or Shield* **Action** that shares a tag with your current **Stance**.
+That **Action's AP Cost** is reduced by 1 *(min. 1).*",FALSE,FALSE,
+warrior-ultimate,Ultimate: Unstoppable,warrior,0,0,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate","Gain **1 AP**. It can't be spent on *Spell* **Actions**. Gain **Barrier** ***x***, where ***x*** is half your maximum HP. This **Barrier** isn't lost as turns end. Clear **Prone.** Clear any number of **Conditions** of your choice. For each adjacent character, choose: that character falls **Prone** or suffers **Push 1**.
+**For the rest of the encounter:** You can perform an additional **Reaction** during each character's turn, and you have **Start of Turn:** Gain **1 AP**. It can't be spent on *Spell* **Actions**.",FALSE,FALSE,
+warrior-second-wind,Second Wind,warrior,1,passive,0,,FALSE,,FALSE,,FALSE,10,limitencounter,"**Passive:** Increased **Focus Pool (+1)**.
+
+**1/Encounter:** When you **Refocus**, apply **Healing** to yourself equal to half your maximum HP.",FALSE,FALSE,
+warrior-focus-attack,Focus Attack,warrior,1,2,1,Melee,TRUE,[atk]+2,FALSE,,FALSE,10,"accurate,melee,weapon,attack","**Flurry**
+
+**+1 Advantage**",FALSE,FALSE,
+warrior-mighty-attack,Mighty Attack,warrior,1,passive,0,,FALSE,,FALSE,,FALSE,10,bound,"**Bind** to a *non-Spell Attack* **Action**.
+The **Bound** *Attack* has **+1 Disadvantage** and **+1 Bonus Damage**. When dealing damage with the **Bound** *Attack*, roll all damage dice twice and use the highest results.",FALSE,FALSE,
+warrior-shield-stagger,Shield Stagger,warrior,1,passive,0,,FALSE,,FALSE,,FALSE,10,shield,"**While you're in a** *Shield* **Stance:** Whenever an adjacent hostile character damages your **Barrier**, that character suffers **Push 1** and **Off Guard**.",FALSE,FALSE,
+warrior-opportunity,Attack of Opportunity,warrior,2,reaction,0,,FALSE,,FALSE,,FALSE,10,"attack,reaction,limitround","**Condition:** An hostile character within **Range** of a  *Melee Attack* **Action** that costs **2 AP** or less performs a *Movement* **Action**.
+**Effect:** Perform that *Melee Attack* **Action** on the triggering character before the triggering **Action**.",FALSE,FALSE,
+warrior-bash,Bash,warrior,2,1,2,Melee,TRUE,[atk]+2,TRUE,2,FALSE,10,"melee,attack,limitround","**Bash** has **+1 Advantage** against **Slowed, Prone, or Immobilized** characters and deals +3 **Bonus Damage** to those characters.",FALSE,FALSE,
+warrior-duelist-parry,Duelist's Parry,warrior,2,1,1,,FALSE,,FALSE,,FALSE,10,"weapon,limitround","Perform this **Action** only while in a non-*Shield Stance*.
+Until the start of your next turn, you have **DEF +1**.",FALSE,FALSE,
+warrior-battle-charge,Battle Charge,warrior,3,2,2,,FALSE,,FALSE,,FALSE,10,movement,"Move up to twice your **Speed**.
+During this *Movement:* You can't change directions, have **Damage Resistance**, and ignore **Difficult Terrain**.
+At the end of this *Movement:* Adjacent hostile characters are **Slowed 1**. *(No roll.)*",FALSE,FALSE,
+warrior-battle-high,Battle High,warrior,3,passive,0,,FALSE,,FALSE,,FALSE,10,limitturn,You may **Recover 1 Focus** on a hit with a *Basic Melee* **Attack Action**.,FALSE,FALSE,
+warrior-sunder,Sunder,warrior,3,1,1,,FALSE,,FALSE,,TRUE,10+[tier],"melee,weapon",Your next **Attack Action** has **On Hit:** Target makes a **Resistance Roll** or becomes **Sundered 1**.,FALSE,FALSE,
+warrior-shockwave,Shockwave,warrior,4,2,2,Cleave 3,FALSE,,FALSE,,TRUE,10+[tier],"melee,weapon","Characters in a **Cleave 3** area make a **Resistance Roll** or suffer 2[A]+3 **DMG** and fall **Prone,** or become **Immobilized 1** if already **Prone.**
+A character that **Resists** suffers half damage and isn't **Prone** or **Immobilized.**",FALSE,FALSE,
+warrior-indomitable,Indomitable,warrior,4,reaction,2,,FALSE,,FALSE,,FALSE,10,"reaction,limitencounter","**Condition:** You fail a **Resistance Roll.**
+
+**Effect - Focus Cost 2:** Reroll that **Resistance Roll** and use the new result.",FALSE,FALSE,
+warrior-flagbearer,Flagbearer,warrior,4,reaction,1,,FALSE,,FALSE,,FALSE,10,"support,reaction,limitround","**Condition:** An adjacent allied character becomes the target of an **Action** that targets only one character.
+
+**Effect � Focus Cost 1:** You become the new target of that **Action.** *( It's applied even if you're outside the action's normal range. )*",FALSE,FALSE,
+warrior-onslaught,Onslaught,warrior,5,reaction,4,,FALSE,,FALSE,,FALSE,10,"weapon,limitencounter",Perform the *Basic* **Attack Action** with **Flurry** as a **Free Action** four times.,FALSE,FALSE,
+warrior-demolish,Demolisher's Art,warrior,5,1,4,,FALSE,,FALSE,,FALSE,10,"melee,weapon","You gain one use of the **Craterize** *Special* **Action.** Until you perform **Craterize,** you can't perform other *Weapon* or *Attack* **Actions** and can't perform more than one *Movement* **Action** each turn.",FALSE,FALSE,
+warrior-demolish-special,Demolisher's Art: Craterize,warrior,5,2,0,Melee,TRUE,3[atk]+5,FALSE,,TRUE,10+[tier],"special,melee,weapon,attack","Perform **Craterize** only during a **Delayed Turn** and only with **Initiative.**
+
+- **On Attack:** Characters adjacent to the target make a **Resistance Roll** or suffer the attack's full damage, or half damage on a **Resist**.
+- Each character damaged by **Craterize** becomes **Prone**, or **Immobilized 1** if already **Prone**.",FALSE,FALSE,warrior-demolish
+avenger-shadowbringer,Shadowbringer,avenger,0,0,1,,FALSE,,FALSE,,FALSE,10,"spell,limitround","Roll **1d6**. You take that much **Piercing Chaos Damage**.
+The first *Attack* you make as part of any *Attack* **Action** this turn deals that much **Bonus Damage** on a hit.",FALSE,FALSE,
+avenger-taunt,Taunt,avenger,0,1,0,Range 3,FALSE,,FALSE,,FALSE,10,limitround,"Target hostile character is **Taunted 1**.
+*(+1 Disadvantage on Attack Rolls against characters other than you as long as you're not Staggered, Invulnerable, or otherwise untargetable.)*",FALSE,FALSE,
+avenger-grit,Grit,avenger,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"While **Battered**, you have **Damage Resistance**.
+
+**1/Encounter:** The first time **Shadowbringer** would bring you to 0 or less HP, your HP becomes your **Battered** threshold.",FALSE,FALSE,
+avenger-ultimate,Ultimate: Call of the Void,avenger,0,reaction,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,reaction","**Condition:** Damage dealt by a hostile character would reduce your **HP** to 0 or less.
+**Effect:** Gain **Exmortis**. *(It's a special Status.)*
+**Exmortis** has the following effect: You regenerate **Turn AP** and can perform **Actions** normally while at 0 or less HP. You have **+1 Advantage** on all **Action Resolutions**. Characters can't **Aid** you, and you can't gain HP in any way. If you would take any amount of damage, ignore that damage and become **Stunned +1**.
+If you're **Stunned 3** or greater at the start of your turn, **Exmortis** ends and your **HP** becomes 1 if it's less than 1.",FALSE,FALSE,
+avenger-bloodletting,Bloodletting,avenger,1,1,1,,FALSE,,FALSE,,TRUE,10,,"You suffer **Piercing Chaos Damage** equal to the number of **Conditions** affecting you that aren't self-inflicted.Then, choose one of those **Conditions** and make a **Resistance Roll** (10). On a **Resist,** clear that **Condition.**",FALSE,FALSE,
+avenger-mocking-blow,Mocking Blow,avenger,1,1,2,,TRUE,[atk],FALSE,,TRUE,10+[tier],"melee,weapon,attack,limitround","**Flurry**
+**On Hit:** Target makes a **Resistance Roll** or becomes **Taunted 1.**",FALSE,FALSE,
+avenger-the-greatest-teacher,The Greatest Teacher,avenger,1,passive,0,,FALSE,,FALSE,,FALSE,10,reaction,"**Condition:** A hostile character within the range of your *Basic* **Study Action** deals damage to you or an allied character adjacent to you.
+**Effect:** Perform the *Basic* **Study Action** against the triggering character as part of this **Reaction.**",FALSE,FALSE,
+avenger-crisis-core,Crisis Core,avenger,1,passive,0,,FALSE,,FALSE,,FALSE,10,battered,**While Battered:** The first *Attack* you make as part of each *Attack* **Action** you perform deals **+2** **Bonus Damage** on a hit.,FALSE,FALSE,
+avenger-fight-or-flight,Fight or Flight,avenger,2,passive,0,,FALSE,,FALSE,,FALSE,10,battered,**While Battered:** You have **+1 Speed.**,FALSE,FALSE,
+avenger-heavy-stance,Heavy Stance,avenger,2,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance",You have **+1 Attack** and **All In**.,FALSE,FALSE,
+avenger-heavy-stance-special,Heavy Stance: All In,avenger,2,2,0,Melee,TRUE,2[atk]+2,FALSE,,FALSE,10,"special,melee,weapon,attack",,FALSE,FALSE,
+avenger-revenge,Revenge,avenger,2,reaction,0,,FALSE,,FALSE,,FALSE,10,"attack,reaction,limitround","**Condition:** A hostile character within the **Range** of an available *Melee Attack* **Action** inflicts a harmful **Condition** on you.
+**Effect:** Perform that *Melee Attack* **Action** on the triggering character before the **Condition** is inflicted.",FALSE,FALSE,avenger-heavy-stance
+avenger-hatred,Hatred,avenger,3,2,3,,FALSE,,FALSE,,FALSE,10,"aura,spell","**Until the end of your next turn:** Hostile characters within your **Aura** have **+1 Disadvantage** on **Resistance Rolls.**
+**Sustain - Focus Cost:** 1",FALSE,FALSE,
+avenger-menace,Menace,avenger,3,passive,0,,FALSE,,FALSE,,FALSE,10,,**Taunted** you apply doesn't Decay on a character unless that character targets you or forces you to make a **Resistance Roll** with any **Action** during their turn.,FALSE,FALSE,
+avenger-eye-for-an-eye,Eye for an Eye,avenger,3,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you take damage from a hostile character, recover 1 **Focus**.",FALSE,FALSE,
+avenger-scraps-of-life,Scraps of Life,avenger,4,reaction,0,,FALSE,,FALSE,,FALSE,10,"support,reaction,limitround","**Condition:** An adjacent allied character takes damage.
+**Effect:** Prevent that damage. You take that much **Piercing Chaos Damage.**",FALSE,FALSE,
+avenger-intimidation-tactics,Intimidation Tactics,avenger,4,passive,0,,FALSE,,FALSE,,FALSE,10,,"Your *Attack* **Actions** have **+1 Advantage** against **Taunted, Poisoned,** or **Bleeding** characters.",FALSE,FALSE,
+avenger-reflection,Conjure Reflection,avenger,4,2,3,,FALSE,,FALSE,,FALSE,10,"legendary,summon,spell,limitround","Conjure **Reflection** in an adjacent free tile. **Reflection** is **Legendary,** can perform *Basic* **Move** and **Attack Actions** using your **AP**, and doesn't provoke **Reactions.**
+
+**Reflection** (**ATK** d6, **MAG** d6, **HP** N/A, **DEF** Yours, **SPD** Yours, **FP** 0) **1/Round**: When you inflict a **Condition** on a hostile character: **Reflection** performs an **Action** that costs **1 AP** or less as a **Free Action**.
+
+If **Reflection** would take damage, instead, you take that damage. **Reflection** is removed from play when you become **Downed.** **Reflection** is **Invulnerable** to sources of damage that affect multiple characters.",FALSE,FALSE,
+avenger-enchainment,Enchainment,avenger,5,1,1,Range 3,TRUE,[atk]+1,FALSE,,FALSE,10,"melee,weapon,attack","Target any number of hostile characters. 
+
+**For each target beyond the first:** **Focus Cost: +1**.
+- **On Hit:** The target is **Pulled** as close to you as possible.",FALSE,FALSE,
+avenger-frightening-aspersion,Frightening Aspersion,avenger,5,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you inflict **Taunted, Poisoned,** or **Bleeding** to a hostile character, also inflict **Stunned +1.**
+Each hostile character can only be **Stunned** by **Frightening Aspersion** once per encounter.",FALSE,FALSE,
+core-attack,Attack,core,0,1,0,Melee,TRUE,[atk],FALSE,,FALSE,10,"melee,attack","*(During your turn, Attack **Actions** have **+1 Disadvantage** for each other Attack **Action** performed this turn. An Attack **Action** with the **Flurry** property is exempt from this characteristic.)*",TRUE,FALSE,
+core-move,Move,core,0,1,0,,FALSE,,FALSE,,FALSE,10,movement,"**Choose one:** **Move** **Speed**, or clear **Prone**.",TRUE,FALSE,
+core-aid,Aid,core,0,1,0,Melee,FALSE,,FALSE,,TRUE,10,limitround,"While you are adjacent to an allied character, you can **Aid** that character. **Choose one:**
+- **Describe how you aid that character. At the GM's discretion: **Make an **Action Resolution** (DV 10). If you succeed, that character's next **Action Resolution** that benefits from your aid **during their next turn** has **+1 Advantage.** *(This effect does not stack with repeated uses of the Aid action from a single character or with Aid actions from multiple characters.)*
+- That character may clear **Prone** as a **Reaction**.
+- That character clears **Staggered.**",TRUE,FALSE,
+core-study,Study,core,0,1,0,,FALSE,,FALSE,,FALSE,10,,"Target a character within **Range 4.** Choose one of the following:
+� You learn that character's remaining HP and defenses.
+� You learn the character's attacks and abilities.
+� At the GM's discretion, you learn a piece of useful information about the character.",TRUE,FALSE,
+core-evade,Evade,core,0,1,0,,FALSE,,FALSE,,FALSE,10,movement,**Move 1. **Performing **Evade** doesn't trigger hostile **Reactions.**,TRUE,FALSE,
+core-refocus,Refocus,core,0,3,0,,FALSE,,FALSE,,FALSE,10,,Recover one third of your maximum **Focus.** Clear **Off Guard.**,TRUE,FALSE,
+blades-generic-deadly,Deadly,blades,1,passive,0,,FALSE,,FALSE,,FALSE,10,limitround,"**Each round,** your first hit with a *Weapon Attack* **Action** deals **+2 Bonus Damage** to one target.",FALSE,FALSE,
+blades-generic-flanking,Flanking,blades,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"You have **+1 Advantage** on *Melee Attack Actions* against a character you are *Flanking*.
+*(You are Flanking a character if you and an allied character are in melee range of, and on opposite sides of that character. A line drawn from the center of your tile to the center of the ally's tile must pass through opposite corners or sides of the flanked character's tile. It's a special Status.)*",FALSE,FALSE,
+blades-generic-assault,Assault,blades,1,passive,0,,FALSE,,FALSE,,FALSE,10,bound,"**Bind** to a *non-Basic Attack* **Action**. *( When you begin a Quest, choose an option from those available to you to bind this ability to. )*
+The **Bound** *Attack* is a **Combo Action** with **Focus Cost +1.**",FALSE,FALSE,
+blades-generic-battlestance,Battle Stance,blades,2,passive,0,,FALSE,,FALSE,,FALSE,10,"melee,weapon,stance",You have **+1 Attack**.,FALSE,FALSE,
+blades-generic-staggeringblow,Staggering Blow,blades,2,passive,0,,FALSE,,FALSE,,TRUE,10+[tier],"passive,bound","**Bind** to a *non-Basic Attack* **Action**. *( When you begin a Quest, choose an option from those available to you to bind this ability to. )*
+The **Bound** *Attack* has **Finisher:** +3 **Bonus Damage.** The target makes a **Resistance Roll** or becomes **Prone.**",FALSE,FALSE,
+blades-generic-foolsgambit,Fool's Gambit,blades,3,1,1,,FALSE,,FALSE,,FALSE,10,limitround,"**This turn**, your next non-*Basic,* non-*Finisher* *Weapon Attack* **Action** is a *Combo* **Action** and costs 1 AP less *(min. 0)*.",FALSE,FALSE,
+blades-generic-sneak,Sneak,blades,3,2,1,,FALSE,,FALSE,,FALSE,10,"stealth,limitround","Perform **Sneak** only if you're not adjacent to any hostile characters, and only while adjacent to cover or terrain that grants cover.
+You gain **Concealment 3.** It lasts until you take damage or perform any **Action** or **Reaction.**",FALSE,FALSE,
+blades-generic-fleetfoot,Fleetfoot,blades,4,passive,0,,FALSE,,FALSE,,FALSE,10,,**+1 Speed.**,FALSE,FALSE,
+blademaster-truecharge,True Charge,blademaster,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you **Delay**, you may initiate a **True Charge,** which has the following properties:
+- Until your **Delayed** turn begins, if you would take any amount of damage from a single source, you may gain **Damage Resistance** against that damage. Activate this effect only once per **True Charge.**
+- At the beginning of your **Delayed** turn, you may perform the *Basic* **Evade Action** as a **Free Action**.
+- The first *Melee Attack* **Action** you perform during your **Delayed** turn deals **+2 Bonus Damage** on a hit.",FALSE,FALSE,
+blademaster-drawstrike,Draw Strike,blademaster,0,passive,0,,FALSE,,FALSE,,FALSE,10,,Your *Melee Weapon Attack* **Actions** have **Initiative:** The **Attack Roll** has **+1 Advantage.** *( An Action activates its Initiative effects if it's your turn and your first AP is spent on that Action. )*,FALSE,FALSE,
+blademaster-phasing,Phasing,blademaster,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"During *Movement*, you can move through hostile characters. You still provoke Reactions.",FALSE,FALSE,
+blademaster-final-judgment,Final Judgment,blademaster,0,3,0,Range 12,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,attack","Perform **Final Judgement** only during a **Delayed** turn.
+
+As part of this **Action,** perform a *Basic Melee Attack* **Action** against any number of characters within **Range 12**, as long as an unobstructed path of any distance exists through which you could move to that character. These attacks can't be prevented and don't trigger **Reactions.** Attacks made this way have **Flurry,** **+1 Advantage,** and **On Hit:** **+3 Bonus Damage**. Each character targeted this way can only be hit by one successful attack.
+
+You **Teleport** to a free tile within **Range 12.**",FALSE,FALSE,
+blademaster-wind-dance,Wind Dance,blademaster,1,0,1,,FALSE,,FALSE,,FALSE,10,limitround,When your *Weapon Attack* **Action** misses all targets: **Focus Cost 1** - Repeat the missed *Attack* **Action** as a **Free Action**.,FALSE,FALSE,
+blademaster-whirlwind-strike,Whirlwind Strike,blademaster,1,2,3,Melee,TRUE,[atk]+2,FALSE,,FALSE,10,"melee,weapon,attack",Perform the **Attack Roll** against all hostile characters within **Range**.,FALSE,FALSE,
+blademaster-hidden-step,Hidden Step,blademaster,1,0,1,,FALSE,,FALSE,,FALSE,10,movement,Perform a *Basic Evade* **Action**. You're **Stunned +1**--it can't be prevented.,FALSE,FALSE,
+blademaster-true-strike,True Strike,blademaster,1,passive,0,,FALSE,,FALSE,,FALSE,10,limitround,The first **Attack Roll** you make for the first *Weapon Attack* **Action** you perform during each of your turns has **+1 Advantage**.,FALSE,FALSE,
+blademaster-heavy-stance,Heavy Stance,blademaster,2,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance",You have **+1 Attack** and **All In**.,FALSE,FALSE,
+blademaster-heavy-stance-special,Heavy Stance: All In,blademaster,2,2,0,Melee,TRUE,2[atk]+2,FALSE,,FALSE,10,"special,melee,weapon,attack",,FALSE,FALSE,blademaster-heavy-stance
+blademaster-parry,Parry,blademaster,2,reaction,0,,FALSE,,FALSE,,FALSE,10,"weapon,reaction,limitround","**Condition:** A hostile character would deal non-**Piercing** damage to you.
+**Effect:** Gain [Attack] **Barrier**, which can reduce the triggering damage. If this **Barrier** is depleted by damage, you are **Stunned +1.**",FALSE,FALSE,
+blademaster-savage-blade,Savage Edge,blademaster,2,0,2,,FALSE,,FALSE,,FALSE,10,"weapon,limitround","Your next *Weapon Attack* **Action** this turn has the following property:
+**On Hit:** Up to one target makes a **Resistance Roll** or suffers **Bleeding 3**.
+The character suffers **Bleeding +1** on a **Resist**.",FALSE,FALSE,
+blademaster-flickerstep,Flicker Step,blademaster,3,1,2,Range 4,FALSE,,FALSE,,FALSE,10,"movement,limitround",Teleport to a free space.,FALSE,FALSE,
+blademaster-versatile-stance,Versatile Stance,blademaster,3,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance","**When you enter this Stance, choose one:**
+- Gain **Barrier 3.** This **Barrier** isn't lost as turns end.
+- Your next attack deals **+3 Bonus Damage.**
+- You gain **+3 Focus,** exceeding the maximum in your Focus Pool.",FALSE,FALSE,
+blademaster-huntermark,Hunter's Mark,blademaster,3,reaction,,,FALSE,,FALSE,,FALSE,10,reaction,"**Condition:** A hostile character performs any **Action** while you have no Marked enemy.
+**Effect:** Mark the triggering character. When a Marked character is reduced to 0 HP or removed from the encounter, recover 2 **Focus.** While a character is marked, you have **Change Target.**",FALSE,FALSE,
+blademaster-huntermark-special,Hunter's Mark: Change Target,blademaster,3,1,0,Range 4,FALSE,,FALSE,,FALSE,10,special,Change your Marked character to target hostile character.,FALSE,FALSE,blademaster-huntermark
+blademaster-kipup,Kip Up,blademaster,4,0,0,,FALSE,,FALSE,,FALSE,10,"movement,limitround",Clear **Prone**.,FALSE,FALSE,
+blademaster-divinedeflection,Divine Deflection,blademaster,4,0,0,,FALSE,,FALSE,,FALSE,11,"weapon,reaction,limitround","**Condition:** You are hit by a *Ranged Attack.*
+**Effect:** Make a **Resistance Roll** (11). On a **4+:** You have **Damage Resistance** against the triggering attack, and that attack has: ""**On Hit:** The attacker **repeats** the attack against themselves.""",FALSE,FALSE,
+blademaster-sweepingstrikes,Sweeping Strikes,blademaster,4,0,0,Cleave 2,FALSE,,FALSE,,FALSE,10,,In **Versatile Stance** or **Heavy Stance**: Your first *Melee Weapon Attack* **Action** each turn has **Cleave 2**.,FALSE,FALSE,
+blademaster-omnislash,Omnislash,blademaster,5,3,4,Variable,TRUE,2[atk]+3,FALSE,,FALSE,10,"movement,melee,weapon,attack","**Flurry**
+Perform a *Basic* **Move Action** as a **Free Action**. During this *Movement,* you are **Flying** and don't trigger **Reactions.** At the end of the movement, **Omnislash's Attack Roll** targets any number of characters, as long as you were adjacent to each targeted character at any point during this *Movement*.",FALSE,FALSE,
+blademaster-swallow-cutter,Swallow Cutter,blademaster,5,passive,0,,FALSE,,FALSE,,FALSE,10,"passive,limitround","**1/Round:** When your *Melee Attack's* **Attack Roll** has **net Advantage,** you may instead make that attack with no net **Advantage** or **Disadvantage.**
+**If you do,** perform a *Melee Attack* **Action** that costs 1 AP or less as a **Free Action**.",FALSE,FALSE,
+scoundrel-trick-stance,Trick Stance,scoundrel,0,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance",When you perform an *Attack* **Action** against a hostile character that's adjacent to one or more of your allies: The **Attack Roll** has **+1 Advantage.**,FALSE,FALSE,
+scoundrel-skirmisher,Skirmisher,scoundrel,0,passive,0,,FALSE,,FALSE,,FALSE,10,,You can move diagonally.,FALSE,FALSE,
+scoundrel-sneak,Shadow Walk,scoundrel,0,1,0,,FALSE,,FALSE,,FALSE,10,stealth,"Perform **Shadow Walk** only if you're not adjacent to any hostile characters, and only while adjacent to cover or a source of cover.
+You have the **Hide Reaction** until the start of your next turn.",FALSE,FALSE,
+scoundrel-sneak-special,Shadow Walk: Hide,scoundrel,0,reaction,0,,FALSE,,FALSE,,TRUE,10+[tier],"special,reaction,combo,stealth,limitround","**Condition:** A hostile character begins their turn, and you used **Shadow Walk** on your most recent turn.
+**Effect:** The character makes a **Resistance Roll**. A character that fails can't target you with **Actions** this turn unless those **Actions** could target multiple characters.",FALSE,FALSE,scoundrel-sneak
+scoundrel-ultimate,Eviscerate,scoundrel,0,2,0,Melee,TRUE,4[atk]+5,FALSE,,FALSE,10,"heroic,ultimate,finisher,melee,weapon,attack","Perform **Eviscerate** only against a target that is not adjacent to any of its allies.
+
+**On Miss:** Refund **Eviscerate's Inspiration Cost** and **1/Quest** property.
+
+**Finisher: Eviscerate** has the following properties:
+- The **Attack Roll** has +1 **Advantage.**
+- **On Hit:** The target is **Sundered** until the end of their next turn.
+
+Then, **Move** or **Evade** as a **Free Action**.",FALSE,FALSE,
+scoundrel-lightfoot,Lightfoot,scoundrel,1,passive,0,,FALSE,,FALSE,,FALSE,10,,Your *Movement* **Actions** ignore *natural* **Difficult Terrain** and don't activate hostile *Traps*.,FALSE,FALSE,
+scoundrel-rip,Rip,scoundrel,1,1,3,Melee,TRUE,[atk]+1,TRUE,2,TRUE,10+[tier],"combo,melee,weapon,attack",**On Damage**: Target makes a **Resistance Roll** or becomes **Immobilized 1**.,FALSE,FALSE,
+scoundrel-cheapshot,Cheap Shot,scoundrel,1,2,0,Melee,TRUE,[atk],TRUE,1+[tier],FALSE,10,"finisher,melee,weapon,attack","**Finisher - On Hit:** Target is **Dazed +1**, and the attack deals **2 Bonus Damage** for each **Condition** affecting the target.
+**Finisher - On Miss:** Graze 1+[tier]",FALSE,FALSE,
+scoundrel-coldblood,Cold Blood,scoundrel,1,passive,0,,FALSE,,FALSE,,FALSE,10,,Your **Refocus** is a *Combo* **Action**.,FALSE,FALSE,
+scoundrel-dual-stance,Dual Wield Stance,scoundrel,2,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance",You have **+1 Attack** and the **Off Hand** *Passive*.,FALSE,FALSE,
+scoundrel-dual-stance-special,Dual Wield Stance: Off Hand,scoundrel,2,passive,0,,FALSE,,FALSE,,FALSE,10,"special,limitround",Your first *Melee Weapon Attack* **Action** each round has **On Hit:** Perform a *Basic Attack* **Action** with **+1 Advantage.** It's a **Free Action** (?) and deals half damage on a hit.,FALSE,FALSE,scoundrel-dual-stance
+scoundrel-impaler,Impaler,scoundrel,2,2,0,Melee,TRUE,[atk]+4,FALSE,5,FALSE,10,"finisher,melee,weapon,attack,limitround","**Finisher - On Damage:** The total damage is also dealt to up to one hostile character of your choice that's adjacent to the target. *(No roll.)*
+**Finisher - On Miss:** Graze 5.",FALSE,FALSE,
+scoundrel-opportunity,Seize Opening,scoundrel,2,reaction,1,,FALSE,,FALSE,,FALSE,10,"attack,reaction,limitround","**Condition:** An adjacent hostile character is damaged by an allied character.
+**Effect** - **Focus Cost** 1: Perform a *Basic Attack* **Action** on the damaged character. If you're in **Trick Stance**, that *Attack* **Action** has **On Hit:** Inflict **Poisoned +1.**",FALSE,FALSE,
+scoundrel-violent-delights,Violent Delights,scoundrel,3,passive,0,,FALSE,,FALSE,,FALSE,10,,Your *Finisher* **Actions** have **Finisher - On Hit:** Recover 1 **Focus.**,FALSE,FALSE,
+scoundrel-knife-juggler,Knife Juggler,scoundrel,3,passive,0,,FALSE,,FALSE,,FALSE,10,,"In **Trick Stance:** The first *Melee Attack* **Action** you perform during your turn has **Range** 3, deals half damage, and inflicts **Poisoned 2.**
+Otherwise, you have the **Razor** *Special* **Action**.",FALSE,FALSE,
+scoundrel-knife-juggler-special,Knife Juggler: Razor,scoundrel,3,1,1,Range 3,TRUE,3,FALSE,,FALSE,10,"special,melee,weapon,attack","**Flurry**
+Deals **Piercing Damage**. *(Ignores Armor and Barrier.)*",FALSE,FALSE,scoundrel-knife-juggler
+scoundrel-preparation,Preparation,scoundrel,3,passive,0,,FALSE,,FALSE,,FALSE,10,,"If you used a *Stealth* **Action* this turn or have **Concealment**: **Study** has **+3 Range.**
+When you **Study** a character, your next **Attack Roll** against that character deals **+3 Bonus Damage** on a hit.",FALSE,FALSE,
+scoundrel-called-shot,Called Shot,scoundrel,4,2,0,Melee,TRUE,2[atk],FALSE,2,FALSE,10,"finisher,melee,weapon,attack,limitround","**Finisher - On Hit:** Inflict **Bleeding +1, Slowed +1, or Stunned +1.** *(You choose when dealing damage.)*
+**Finisher - On Miss** Graze 2.",FALSE,FALSE,
+scoundrel-bagoftricks,Bag of Tricks,scoundrel,4,passive,0,,FALSE,,FALSE,,FALSE,10,,"In **Trick Stance:** You have the **Malice** *Special* **Action.** Otherwise, the first *Weapon Attack* **Action** you perform during your turn has **On Hit:** Inflict **Poisoned +1**.",FALSE,FALSE,
+scoundrel-bagoftricks-special,Bag of Tricks: Malice,scoundrel,4,2,1,Range 3,TRUE,[tier]+2,FALSE,,FALSE,10,"special,ranged,attack","If you performed a *Melee Weapon* *Attack* **Action** this turn, **Malice** is a **Combo** action, **1 AP** less *(min. 1)*, and you don't suffer **Disadvantage** when using this *Ranged Attack* **Action** while a hostile character is adjacent.
+**On Hit:** Inflict **Poisoned +1.**",FALSE,FALSE,
+scoundrel-skillsteal,Skill Steal,scoundrel,4,reaction,0,,FALSE,,FALSE,,TRUE,10+[tier],"spell,reaction,limitencounter","**Condition:** A hostile non-*Elite* character within **Range 3** performs a *Spell* **Action.**
+**Effect:** That character makes a **Resistance Roll** or you gain that ability for the rest of the encounter. If it deals damage, it deals 2[atk] instead of any other damage profile. **Piercing** or **Chaos Damage** are dealt as normal damage. It doesn't deal **Bonus Damage.** It has **Focus Cost: 3** and **1/Encounter.**",FALSE,FALSE,
+scoundrel-exsanguinate,Exsanguinate,scoundrel,5,1,0,Melee,TRUE,[atk],FALSE,[tier],FALSE,10,"finisher,melee,weapon,attack,limitround","**Finisher: On Hit:** The target suffers ***x*** **Piercing Chaos Damage**, and your choice of **Bleeding** +***x*** or **Poisoned** +***x***, where ***x*** is the target's current **Bleeding** or **Poisoned** value. A character can only suffer this effect **1/Encounter**.
+**Finisher - On Miss:** Graze [T].",FALSE,FALSE,
+scoundrel-ruinousblade,Ruinous Blade,scoundrel,5,passive,0,,FALSE,,FALSE,,FALSE,10,"passive,bound","The **Bound** *Attack* has **On Hit, Choose One:** Inflict **Poisoned +1** or **Bleeding +1.**",FALSE,FALSE,
+marksman-ranged-stance,Ranged Stance,marksman,0,passive,0,,FALSE,,FALSE,,FALSE,10,"ranged,weapon,stance","In **Ranged Stance,** you can perform *Ranged Weapon Attack* **Actions.** Your *Basic* **Attack Action** is *Ranged* and has **Range 4.**",FALSE,FALSE,
+marksman-reactive-shot,Reactive Shot,marksman,0,1,0,,FALSE,,FALSE,,FALSE,10,,"Create **Reactive Shot,** a **Size 1 Area** centered on target tile within **Range** of your *Basic* **Attack Action** that lasts until the start of your next turn. For that duration, you gain the **Predator** (?) *Special* **Reaction**.",FALSE,FALSE,
+marksman-reactive-shot-special,Reactive Shot: Predator,marksman,0,reaction,0,,FALSE,,FALSE,,FALSE,10,"special,reaction","**Condition:** A hostile character moves into your **Reactive Shot.**
+**Effect:** Perform a *Ranged Attack* **Action** that costs or less targeting that character.",FALSE,FALSE,marksman-reactive-shot
+marksman-snare-trap,Snare Trap,marksman,0,1,1,Range 4,FALSE,,FALSE,,TRUE,10+[tier],"trap,limitencounter","A **Snare Trap** is armed at the start of your next turn and activates when a hostile character becomes adjacent while armed.
+- **Effect:** The hostile character makes a **Resistance Roll** or becomes **Immobilized 1** and can't perform reactions while **Immobilized.** A character that **Resists** is **Slowed 1.**",FALSE,FALSE,
+marksman-ultimate,Deadeye,marksman,0,0,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate","**For the rest of the encounter:** 
+- Your *Attack* **Actions** have **Flurry.** 
+- Your **Predator** *Reaction* is **1/Turn**. 
+- Actions with *Range* have **+3 Range.** 
+- Your *Trap* **Actions** with **1/Encounter** are **1/Round** instead.",FALSE,FALSE,
+marksman-admixture,Admixture,marksman,1,1,1,,FALSE,,FALSE,,FALSE,10,spell,"Your next *Ranged Weapon Attack* **Action** this turn has **On Damage:** Inflict **Bleeding 1, Poisoned 1,** or **Slowed 1.** *(You choose.)*",FALSE,FALSE,
+marksman-smoke-trap,Smoke Trap,marksman,1,1,1,Range 4,FALSE,,FALSE,,FALSE,10,"trap,limitencounter","A **Smoke Trap** is armed at the start of your next turn and activates when a hostile character becomes adjacent while armed.
+- **Effect:** The **Trap** detonates in a **Size 1 Area** centered on its tile, which lasts until the end of your next turn. Characters in that area have **Concealment 3.**",FALSE,FALSE,
+marksman-steady-aim,Steady Aim,marksman,1,1,0,,FALSE,,FALSE,,FALSE,10,limitround,"This turn, your *Ranged Attack* **Actions** ignore cover.",FALSE,FALSE,
+marksman-first-aid,First Aid,marksman,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you perform the *Basic* **Aid Action** on an allied character, **Focus Cost:** 2 -- That character receives **1 Healing** and removes **Bleeding, Slowed,** and **Immobilized** if those conditions weren't self-inflicted.",FALSE,FALSE,
+marksman-opportunity,Free Shot,marksman,2,reaction,0,,FALSE,,FALSE,,FALSE,10,"attack,reaction,limitround","**Condition:** A hostile character within your *Basic* **Attack Action's Range** is hit by an allied character's attack.
+**Effect:** Perform your *Basic* **Attack Action** on the hostile character. It deals half damage and no bonus damage.",FALSE,FALSE,
+marksman-full-draw,Full Draw,marksman,2,2,0,Range 4,TRUE,2[atk]+2,FALSE,,FALSE,10,"ranged,weapon,attack",,FALSE,FALSE,
+marksman-exploding-trap,Exploding Trap,marksman,2,1,2,,FALSE,2[mag]+4,FALSE,,TRUE,10+[tier],"trap,limitencounter","An **Exploding Trap** is armed at the start of your next turn and activates when a hostile character becomes adjacent while armed.
+- **Effect:** All characters adjacent to the **Trap** make a **Resistance Roll** or suffer the Trap's damage (half on a **Resist**).",FALSE,FALSE,
+marksman-volley,Volley,marksman,3,2,3,,TRUE,[atk],FALSE,,FALSE,10,"ranged,weapon,attack",Characters in a **Size 1 Area** centered on a tile within your *Basic* **Attack Action's Range** become targets.,FALSE,FALSE,
+marksman-splintering-arrow,Splintering Arrow,marksman,3,passive,0,,FALSE,,FALSE,,FALSE,10,,"**Each round,** the first **Attack Roll** you make as part of a *Ranged Weapon Attack* **Action** has **On Damage:** Deal **3 Damage** to up to one hostile character of your choice adjacent to one target of the attack. *(No roll.)*",FALSE,FALSE,
+marksman-lock-on,Lock On,marksman,3,passive,0,,FALSE,,FALSE,,FALSE,10,,"**Start of Turn:** You may become **Immobilized** until the start of your next turn. While **Immobilized** this way, *Ranged Attack* **Actions** have **+1 Advantage.**",FALSE,FALSE,
+marksman-zen-archer,Zen Archer,marksman,4,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you perform the *Basic* **Refocus Action**, you can perform a *Ranged Attack* **Action** that costs **1 AP** as a **Free Action**. It deals no bonus damage.",FALSE,FALSE,
+marksman-blinding-trap,Blinding Trap,marksman,4,1,1,Range 4,FALSE,,FALSE,,TRUE,10+[tier],"trap,limitencounter","A **Blinding Trap** is armed at the start of your next turn and activates when a hostile character becomes adjacent while armed.
+- **Effect:** The hostile character makes a **Resistance Roll** or becomes **Blinded 4** until the end of their next turn, or **Blinded 1** on a **Resist.** *(A Blinded character treats other characters as though they have Concealment equal to the Blinded amount.)*",FALSE,FALSE,
+marksman-point-blank-stance,Point Blank Stance,marksman,4,passive,0,,FALSE,,FALSE,,FALSE,10,"ranged,weapon,stance","You have **+1 Attack**. Your *Basic* *Attack* **Action** is *Ranged* and has **Range 3.** Your **Actions** with **Range** have a **Maximum Range** of **3.**
+
+You don't suffer **Disadvantage** for performing ***non-Spell*** *Ranged* **Attack Actions** against adjacent targets. Your *Ranged* **Attack Actions** ignore cover.",FALSE,FALSE,
+marksman-rupturing-shot,Rupturing Shot,marksman,5,1,2,,TRUE,[atk]+2,FALSE,,TRUE,10+[tier],"ranged,weapon,attack",**On Damage:** You gain the **Rupture** reaction until the start of your next turn. The target makes a **Resistance Roll** or becomes a **Ruptured** target for the same duration.,FALSE,FALSE,
+marksman-rupturing-shot-special,Rupturing Shot: Rupture,marksman,5,reaction,0,,FALSE,,FALSE,,FALSE,10,"special,reaction,limitround","**Condition:** Your **Ruptured** target ends its turn.
+**Effect:** The triggering character suffers **Piercing Chaos** damage equal to the number of tiles it moved this turn. That character is no longer a **Ruptured** target. *(Includes involuntary movement. No roll.)*",FALSE,FALSE,marksman-rupturing-shot
+marksman-luciform-eye,Luciform Eye,marksman,5,passive,0,,FALSE,,FALSE,,FALSE,10,,Your *Attack* **Actions** with non-*Melee* **Range** have +2 **Range.**,FALSE,FALSE,
+glyphs-generic-focus,Improved Focus,glyphs,1,passive,0,,FALSE,,FALSE,,FALSE,10,,Increased **Focus Pool** (+2).,FALSE,FALSE,
+glyphs-generic-healer,Healer,glyphs,1,passive,0,,FALSE,,FALSE,,FALSE,10,,**Healing** you confer is increased by 1.,FALSE,FALSE,
+glyphs-generic-mending,Mending,glyphs,1,2,0,Melee,FALSE,,FALSE,,FALSE,10,support,You or up to one adjacent friendly non-*summon* character receives [d4]+1 **Healing**.,FALSE,FALSE,
+glyphs-generic-reposition,Reposition,glyphs,2,1,0,,FALSE,,FALSE,,TRUE,10+[tier],movement,"Switch places with an adjacent character. A hostile character makes a **Resistance Roll**, preventing the movement if they **Resist**. *(Each character is simultaneously moved into the other's space. It's involuntary movement for both characters and doesn't target either of those characters.)*",FALSE,FALSE,
+glyphs-generic-cleric-stance,Cleric Stance,glyphs,2,passive,0,,FALSE,,FALSE,,FALSE,10,stance,Your *Support Spell* **Actions** have **Focus Cost** -1.,FALSE,FALSE,
+glyphs-generic-healer-2,Superior Healer,glyphs,3,passive,0,,FALSE,,FALSE,,FALSE,10,,**Healing** you confer is increased by 1.,FALSE,FALSE,
+glyphs-generic-focus-2,Superior Focus,glyphs,3,passive,0,,FALSE,,FALSE,,FALSE,10,,Increased **Focus Pool** (+2).,FALSE,FALSE,
+glyphs-generic-condemnation,Condemnation,glyphs,4,passive,0,,FALSE,,FALSE,,FALSE,10,,The DV of **Resistance Rolls** you force is increased by 1.,FALSE,FALSE,
+arcanimist-arcane-glyph,Arcane Glyph,arcanimist,0,1,1,,FALSE,,FALSE,,FALSE,10,"spell,special,limitencounter","Create an **Arcane Glyph** on your tile.
+- For the rest of the encounter, when you **Refocus:** Move your **Arcane Glyph** to your tile.
+- While in a tile with your **Arcane Glyph:**
+- Your non-*Support* **Spells** have **-1 AP Cost** *(min. 1)*.
+- *Spell* **Actions** have **Focus Cost -1** *(min. 1)*.
+- **Spells** with **Range** have **Range +1**.",FALSE,FALSE,
+arcanimist-arcane-warp,Arcane Warp,arcanimist,0,reaction,2,,FALSE,,FALSE,,FALSE,10,"spell,movement,reaction,limitencounter","**Condition:** Your turn begins.
+**Effect:** **Teleport** to your **Arcane Glyph**.",FALSE,FALSE,
+arcanimist-blast,Blast,arcanimist,0,2,2,Range 4,TRUE,[mag]+1,FALSE,,FALSE,10,"ranged,spell,attack",,FALSE,FALSE,
+arcanimist-blast-2,Blast II,arcanimist,0,3,2,Range 4,TRUE,2[mag]+2,FALSE,,FALSE,10,"ranged,spell,attack",,FALSE,FALSE,
+arcanimist-ultimate,Ultimate Calamity,arcanimist,0,0,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,spell","You gain **3 Bonus AP**. This **Bonus AP** is lost when you perform any non-*Spell* **Action**. This turn, *Spell* **Actions** you perform with **1 or more Bonus AP** cost **0 Focus**. Additionally, this turn, your **Ranged Attacks** gain **Flurry** and treat **Obstructions** as **Cover** as long as any unobstructed path of any distance exists through which they could reach the target.",FALSE,FALSE,
+arcanimist-reliable-blast,Reliable Blast,arcanimist,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"Your *Ranged Spell Attack* **Actions** with **Focus Costs** and without **Graze** have **On Miss: Graze x**, where x is the **Focus Cost**.
+*(Graze can activate **On Damage** effects, but not **On Hit** effects.)*",FALSE,FALSE,
+arcanimist-focused-blast,Focused Blast,arcanimist,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you **Refocus**, receive **1 Healing** and the first *Spell Attack* **Action** you perform during your next turn has **+1 Advantage**. *(Does not stack.)*",FALSE,FALSE,
+arcanimist-concentrated-power,Concentrated Power,arcanimist,1,passive,0,,FALSE,,FALSE,,FALSE,10,,During your **Delayed Turn:** Your first **Attack Action** has **+1 Advantage**.,FALSE,FALSE,
+arcanimist-spellburst,Spellburst,arcanimist,1,2,3,Range 4,FALSE,,FALSE,,TRUE,10,"spell,ranged,limitround","Characters in a **Size 1 Area** centered on the target tile make a **Resistance Roll** or suffer **[mag] Damage**, taking **half damage** on a **Resist**.",FALSE,FALSE,
+arcanimist-scorching-ray,Scorching Ray,arcanimist,2,1,2,Range 5,TRUE,[mag],TRUE,1,FALSE,10,"spell,attack,ranged,limitround",,FALSE,FALSE,
+arcanimist-overload,Overload,arcanimist,2,passive,0,,FALSE,,FALSE,,FALSE,10,,After you perform a *Spell* **Action:** Spend up to **6 Focus**. **Overload** deals that much **Chaos Damage** to each character dealt damage by that *Spell* **Action**. This damage is halved against a target that was dealt half damage by the **Spell**.,FALSE,FALSE,
+arcanimist-exploding-spells,Exploding Spells,arcanimist,2,passive,0,,FALSE,,FALSE,,FALSE,10,,Your *Spell Attack* **Actions** have **On Hit:** Characters adjacent to the target take **[tier]+1 Damage**. This benefit applies only once per **Action**. *(No roll.)*,FALSE,FALSE,
+arcanimist-concussive-blast,Concussive Blast,arcanimist,3,passive,0,,FALSE,,FALSE,,FALSE,10,bound,"**Bind to a *Spell Attack* Action.** *(When you begin an encounter, choose an option from those available to you to bind this ability to.)*
+The **Bound Attack** has **On Hit: Push 1**.",FALSE,FALSE,
+arcanimist-destroyer-stance,Destroyer Stance,arcanimist,3,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance",You have **Magic +2.**,FALSE,FALSE,
+arcanimist-incandescent-ray,Incandescent Ray,arcanimist,3,3,4,Line 8,FALSE,,FALSE,,TRUE,10+[tier],"spell,ranged,limitround","Hostile characters in the **Line** make a **Resistance Roll** or suffer **2d6+3 Damage**, taking **half damage** on a **Resist**.",FALSE,FALSE,
+arcanimist-perfected-fuels,Perfected Fuels,arcanimist,4,passive,0,,FALSE,,FALSE,,FALSE,10,passive,"Your *Spell* **Actions** deal **+2 Bonus Damage** while above half of your maximum **Focus Pool**.
+If you would pay a **Focus Cost**, you may instead pay **1 + x HP**, where x is that **Focus Cost**. *(This is a cost, not damage: it can't be prevented and must be paid to perform the Action.)*",FALSE,FALSE,
+arcanimist-uncontrollable-power,Uncontrollable Power,arcanimist,4,passive,0,,FALSE,,FALSE,,FALSE,10,"passive,bound","**Bind to an Attack Action.** *(When you begin an encounter, choose an option from those available to you to bind this ability to.)*
+The **Bound Attack** has **+1 Disadvantage** and deals **+1d6 Bonus Damage**.",FALSE,FALSE,
+arcanimist-destruction,Destruction,arcanimist,4,3,5,Range 6,TRUE,2[mag]+4,FALSE,,FALSE,10,"spell,attack,ranged","""**Destruction** deals maximum damage to destructibles and treats **Obstructions** as **Cover** as long as any unobstructed path to the target exists.
+
+
+**During your Delayed Turn:** **Destruction** deals **6 Bonus Damage** and has **+1 Advantage**.""",FALSE,FALSE,
+arcanimist-eye-of-oblivion,Eye of Oblivion,arcanimist,5,passive,0,,FALSE,,FALSE,,FALSE,10,passive,When you roll the highest possible number on any die when determining the damage of an **Action:** Roll one of those dice again. The **Action** deals that much **Bonus Damage**.,FALSE,FALSE,
+arcanimist-paradox,Paradox,arcanimist,5,passive,0,,FALSE,,FALSE,,FALSE,10,"special,spell,passive","You have the **Conservation Law** *Special* **Passive** and the **Paradox** *Special* **Action**.
+
+**Conservation Law — Special Passive**
+Each round, the first non-*Paradox* *Spell* **Action** you perform that deals damage has the following properties:
+- The damage the **Spell** deals to each character is reduced by **5**. It deals no **Bonus Damage**.
+- **On Damage:** At the beginning of the next round, **Charge Paradox**.
+- At the end of any round, if **Paradox** is **Charged:** **Discharge Paradox**.",FALSE,FALSE,
+arcanimist-paradox-special,Paradox: Discharge,arcanimist,5,2,0,Range 5,TRUE,5,FALSE,,FALSE,10,"special,spell,attack,charged,ranged,limitround","*(Perform this Action only while it's Charged.)*
+- **Flurry.**
+- **On Attack, Discharge Paradox:** Recover **5 Focus**.",FALSE,FALSE,arcanimist-paradox
+magi-generic-calamity,Calamity,magi,1,passive,0,,FALSE,,FALSE,,FALSE,10,passive,"Each round, your first hit with a *Spell Attack* **Action** deals **+2 Bonus Damage** to one target.",FALSE,FALSE,
+magi-generic-bolt,Bolt,magi,1,2,2,Range 4,TRUE,[mag]+2,TRUE,2,FALSE,10,"ranged,spell,attack",**Flurry**,FALSE,FALSE,
+magi-generic-concussive-rune,Concussive Rune,magi,1,1,2,Range 4,FALSE,1d4+2,FALSE,,TRUE,10+[tier],"trap,spell","A **Concussive Rune** is armed at the start of your next turn and activates when a hostile character becomes adjacent.
+- **Effect:** Characters in a **Size 1 Area** centered on the *Trap* make a **Resistance Roll** or suffer d4+2 **Damage** and **Dazed+1**. A character that resists suffers half damage and isn't **Dazed**.
+
+You can have no more than one **Concussive Trap** in play at a time. Remove the previous one from the map if a new one is created.",FALSE,FALSE,
+magi-generic-evoker-stance,Evoker Stance,magi,2,passive,0,,FALSE,,FALSE,,FALSE,10,stance,Your *Attack Spell* **Actions** have **Focus Cost -1**.,FALSE,FALSE,
+magi-generic-addle,Addle,magi,2,2,2,Range 5,FALSE,[mag],FALSE,,TRUE,10+[tier],spell,Target hostile character makes a **Resistance Roll** or suffers [mag] **damage** and is **Slowed 1** and **Dazed +1**. A character that **Resists** suffers half damage and isn't **Dazed** or **Slowed**.,FALSE,FALSE,
+magi-generic-blink,Blink,magi,3,1,3,Range 5,FALSE,,FALSE,,FALSE,10,"support,spell",Teleport to target free space.,FALSE,FALSE,
+magi-generic-supreme-calamity,Supreme Calamity,magi,3,passive,0,,FALSE,,FALSE,,FALSE,10,passive,"Each round, your first hit with a *Spell Attack* **Action** deals **+2 Bonus Damage** to one target.",FALSE,FALSE,
+magi-generic-signature-spell,Signature Spell,magi,4,passive,0,,FALSE,,FALSE,,FALSE,10,"passive,bound","**Bind** to a *Spell* **Action**.
+The **Bound** *Spell* has **Focus Cost -1** *(min. 0)*.",FALSE,FALSE,
+heroic-generic-precision,Precision,heroic,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"**Bind** to an *Attack* **Action**.
+The **Bound Action** has **+1 Advantage**.",FALSE,TRUE,
+heroic-generic-signature-move,Signature Move,heroic,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"**Bind** to an **Action or Reaction** with a **Focus Cost**.
+The **Bound Action** or **Reaction** has **Focus Cost -1** *(min. 1)*.",FALSE,TRUE,
+heroic-generic-skirmisher,Skirmisher,heroic,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,You can move diagonally.,FALSE,TRUE,
+heroic-generic-prototrophize,Prototrophize,heroic,0,passive,0,,FALSE,,FALSE,,FALSE,10,"heroic,limitencounter","**1/Encounter:** When you **Refocus**, increase the **Flow of Battle** by 1.",FALSE,TRUE,
+heroic-generic-diehard,Diehard,heroic,0,passive,0,,FALSE,,FALSE,,FALSE,10,"heroic,limitencounter","If you would be **Downed**, **1/Encounter:** Make a **Resistance Roll** (10). On a success, you remain at 1 HP.",FALSE,TRUE,
+heroic-generic-supreme-resolve,Supreme Resolve,heroic,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,The *Basic* **Refocus Action** restores 1/2 of your maximum **Focus** instead of 1/3.,FALSE,TRUE,
+heroic-generic-ranger,Ranged Stance,heroic,0,passive,0,,FALSE,,FALSE,,FALSE,10,"heroic,ranged,weapon,stance","In **Ranged Stance,** you can perform *Ranged Weapon Attack* **Actions.** Your *Basic* **Attack Action** is *Ranged* and has **Range 4.**",FALSE,TRUE,
+heroic-generic-swiftcast,Swiftcast,heroic,0,reaction,0,,FALSE,,FALSE,,FALSE,10,"heroic,spell,reaction,limitencounter","**Condition:** Another character's turn ends.
+
+**Effect:** Spend 1 **Inspiration**. Perform a *Spell* **Action** with a **Base AP Cost** of **2 AP** or less as part of this **Reaction**. You still pay all other costs of that **Action**.",FALSE,TRUE,
+marksman-heroic-demolitionist,Demolitionist,marksman,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"When you perform a *Trap* **Action,** you may pay 1 AP. If you do, that *Trap* becomes armed immediately, and you can activate it as a free **Reaction** at the end of any character's turn. *(Traps activated this way aren't considered to be triggered by any character.)
+
+You may perform *Trap* **Actions** as though they had **Spend 1 Inspiration** instead of **1/Encounter.**",FALSE,TRUE,
+marksman-heroic-snipe,Snipe,marksman,0,2,0,Range 7,TRUE,3[atk],TRUE,3+[tier],FALSE,10,"heroic,accurate,ranged,weapon,attack","Perform **Snipe** only during your turn, only with **Initiative**, and only while you have **Concealment**.
+- **Flurry**. 
+- **+1 Advantage**.
+- **On Critical:** The target is **Stunned +2**.",FALSE,TRUE,
+marskman-heroic-trueshot,Trueshot Aura,marksman,0,passive,0,,FALSE,,FALSE,,FALSE,10,"heroic,aura",Allied characters within your *Aura* have **+1 Advantage** with *Ranged* **Attack Actions.**,FALSE,TRUE,
+marksman-heroic-arcane,Arcane Archer,marksman,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"While you aren't in a *Ranged Weapon Stance*: You can perform *Ranged Weapon* **Actions** in any *Stance*.
+If the **Focus Cost** of those **Actions** is lower than the **AP Cost** of those **Actions**, the **Focus Cost** becomes the **AP Cost**.
+Any [atk] in the damage profile of those **Actions** becomes [mag].",FALSE,TRUE,
+marksman-heroic-animal-companion,Animal Companion,marksman,0,2,2,,FALSE,,FALSE,,FALSE,10,"heroic,legendary,summon,spell,limitencounter","Conjure an **Animal Companion** in an adjacent free tile. *( You choose its name and appearance.  )*
+
+Your Animal Companion is **Legendary**. It can perform *Basic* **Move, Attack, and Evade** using your **AP**. It gains **1 Turn AP** of its own at the start of your turn. It can perform all *Melee* **Actions** available to you using your Focus Pool.
+
+**Animal Companion** (**ATK** d6, **MAG** d6, **HP** 1/2 Yours, **DEF** 9, **SPD** 4, **FP** 0, **Armor** 2) **1/Round**: When a hostile character triggers a *Trap*, your **Animal Companion** can perform a *Basic* **Move** or **Attack Action** as a **Free Reaction**.",FALSE,TRUE,
+paladin-heroic-unstoppable,Unstoppable Force,paladin,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"- Ignore **Disadvantage** when performing **Shield Charge** and **Shield Slam.**
+
+- When you **Shield Charge, Spend 1 Inspiration:** You can move up to three times as far and change directions during this movement.
+
+- When you **Shield Slam, Spend 1 Inspiration:** The target is knocked **Prone**, even on a miss or **Resist.**",FALSE,TRUE,
+paladin-heroic-oath-magic,Oath Magic,paladin,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,While in a *Shield Stance:* Your **Magic Bonus** is increased by **1** and you have *Support Spell* **Focus Cost -1** *(min. 1)*.,FALSE,TRUE,
+paladin-heroic-pavise-mastery,Pavise Mastery,paladin,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"- When an attack against an allied character benefits from cover provided by your **Pavise:** The allied character gains **Damage Resistance** to that attack, and as a **Reaction:** You can **Spend 1 Inspiration** and that character becomes **Blessed**.",FALSE,TRUE,
+paladin-heroic-oathsworn-shield,Oathsworn Shield,paladin,0,2,2,Range 4,TRUE,2[atk],FALSE,,FALSE,10,"heroic,ranged,shield,attack","**On Hit:** **Spend 1 Inspiration:** You may repeat **Oathsworn Shield** as a **Free Action** against a different character, with **Range** originating from the previous target. It has **Flurry,** costs **0 Focus,** and deals no **Bonus Damage.** You may pay this **Inspiration** cost any number of times or until you target the same character an additional time.
+
+**On Damage:** The target makes a **Resistance Roll** or becomes **Prone.**",FALSE,TRUE,
+paladin-heroic-dip,Dilletante: Paladin,paladin,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,You gain the **Guardian's Stance** and **Raise Shield Basic Abilities.**,FALSE,TRUE,
+warrior-heroic-maneuver,Maneuver Specialist,warrior,0,passive,0,,FALSE,,FALSE,,FALSE,10,reaction,"- You have the **Grapple** and **Shove Abilities** from the **Deck of Towers Generic Abilities.**
+- **1/Encounter, when a hostile character makes a Resistance Roll against your Grapple or Shove, Spend 1 Inspiration**: That character automatically fails.",FALSE,TRUE,
+warrior-heroic-leap,Heroic Leap,warrior,0,passive,0,,FALSE,,FALSE,,TRUE,10+[tier],heroic,"- When you perform **Battle Charge,** you **Teleport** instead of moving.
+- **At the end of this movement, Spend 1 Inspiration:** Adjacent hostile characters make a **Resistance Roll** or suffer 2[atk] **damage** and are **Immobilized 1.** A character that **Resists** suffers half damage and isn't **Immobilized.**",FALSE,TRUE,
+warrior-heroic-armsmaster,Master at Arms,warrior,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,**Start of Encounter:** You choose two *Stances* from those available to you instead of one. You gain all benefits of both.,FALSE,TRUE,
+warrior-heroic-combat-reflexes,Combat Reflexes,warrior,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"- Your **Attack of Opportunity** is **2/Round** and gains the following additional **Condition:**
+- **Condition:** A hostile character becomes adjacent to you during a voluntary *Movement.* *( Movement continues after your attack. )*",FALSE,TRUE,
+warrior-heroic-dip,Dilletante: Warrior,warrior,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,You gain **Rearm** and a *Stance* of your choice from the **Warrior's Basic Abilities.**,FALSE,TRUE,
+avenger-heroic-shadowbringer,Shadowbreaker,avenger,0,3,0,Line 8,FALSE,3[atk],FALSE,,TRUE,10+[tier],"heroic,melee,weapon","Perform **Shadowbreaker** only during a **Delayed Turn.**
+
+- Hostile characters in the **Line** make a **Resistance Roll** or suffer **Shadowbreaker's** damage and are moved 1 tile to either side of the **Line**. *(You choose which side, if applicable.)*
+- A character that **Resists** suffers half damage and isn't moved.",FALSE,TRUE,
+avenger-heroic-spite,Inviolate Spite,avenger,0,passive,0,Range 12,FALSE,,FALSE,,FALSE,10,heroic,"When a hostile character within **Range 12** clears **Taunted, Spend 1 Inspiration**: Taunt that character.",FALSE,TRUE,
+avenger-heroic-hatred,Burning Hatred,avenger,0,passive,0,,FALSE,,FALSE,,TRUE,10+[tier],heroic,"Your **Hatred** is improved and has the following additional property:
+- **Start of Turn:** Deal [tier]+1 **Piercing Damage** to hostile characters within **Hatred.** Those characters make a **Resistance Roll** or are **Taunted.**",FALSE,TRUE,
+avenger-heroic-crisis-infinity,Crisis Infinity,avenger,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,**While Battered** - **Start of Turn: Gain 1 AP**. Spend this **AP** only on *Basic* **Actions.**,FALSE,TRUE,
+avenger-heroic-dip,Dilettante: Avenger,avenger,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,You gain the **Taunt** and **Shadowbringer** abilities.,FALSE,TRUE,
+blademaster-heroic-sword-summoner,Sword Summoner,blademaster,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"**1/Round:** When you deal damage to one or more targets with a *Melee Attack* **Action**, you gain a **Blade Die**. *(It's a d6. You have a maximum of three.)*
+- When a hostile character adjacent to you begins a turn, that character takes **Piercing Damage** equal to your number of **Blade Dice**. *(Ignores Armor and Barrier.)*
+- When a hostile character within **Range 3** deals damage to you, as a **Free Reaction:** Roll and expend up to two **Blade Dice**. You may choose up to one result, and reduce the damage by that much. You may choose up to one result, and deal that much damage to the triggering character.",FALSE,TRUE,
+blademaster-heroic-storm-approachin,Storm Approaching,blademaster,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,Your *Attack* **Actions** have **Flurry.**,FALSE,TRUE,
+blademaster-heroic-judgment-cut,Judgment Cut,blademaster,0,0,2,Range 4,TRUE,[mag],FALSE,,FALSE,10,"heroic,melee,weapon,attack,spell","Perform **Judgment Cut** only if your most recent **Action** was a non-**Judgment Cut** *Melee Weapon Attack* **Action** that hit one or more hostile characters.
+
+**Flurry**",FALSE,TRUE,
+blademaster-heroic-endless-motivation,Endless Motivation,blademaster,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"**Start of Turn:** Recover 2 **Focus**.
+
+- When you complete a voluntary *Movement,* if you moved away from the most recent hostile character you dealt damage to, lose all **Focus.** *(You moved away from that character If you ended your Movement further away from that character than you began it.)*",FALSE,TRUE,
+blademaster-heroic-profuse-bleeding,Profuse Bleeding,blademaster,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"**Savage Blade** confers **+1 Advantage** to the attack.
+
+If your action would inflict **Bleeding** ***x*** to one or more characters, you may **Spend 1 Inspiration**. If you do, increase that amount by one and you inflict **Bleeding** ***+x*** instead.",FALSE,TRUE,
+scoundrel-heroic-daredevil,Daredevil,scoundrel,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,Your *non-Finisher* *Attack* **Actions** are *Combo* **Actions** during turns in which you've flown 4 or more spaces. You have the *Special* **Acrobat Action.**,FALSE,TRUE,
+scoundrel-heroic-daredevil-special,Daredevil: Acrobat,scoundrel,0,1,0,,FALSE,,FALSE,,FALSE,10,heroic,"You can **Spend 1 Inspiration** rather than pay **Daredevil's AP Cost**.
+
+While moving this turn, you are **Flying**. You can�t change directions while **Flying** this way.",FALSE,TRUE,scoundrel-heroic-daredevil
+scoundrel-heroic-invisible-blade,Invisible Blade,scoundrel,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"*Attack* **Actions** you perform while you have **Concealment** have **+1 Advantage.**
+When you perform a *Stealth* **Action**, you may **Spend 1 Inspiration**. If you do, you gain Concealment 3 until the end of your next turn.",FALSE,TRUE,
+scoundrel-heroic-elegant-finisher,Elegant Finisher,scoundrel,0,passive,0,,FALSE,,FALSE,,FALSE,10,"heroic,bound","Bind to a non-*Combo* *Attack* **Action**.
+The Bound *Attack* is a **Finisher** and has the following property:
+- Finisher, On Hit: Gain **1 AP**.",FALSE,TRUE,
+scoundrel-heroic-elusive,Elusive,scoundrel,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,Your *Basic* **Evade** is **Move 2** and a *Combo* **Action**.,FALSE,TRUE,
+scoundrel-heroic-dip,Dilletante: Scoundrel,scoundrel,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,You gain the **Trick Stance** and **Shadow Walk** abilities.,FALSE,TRUE,
+arcanimist-heroic-apocalypse,Apocalypse,arcanimist,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"**1/Encounter,** when you perform a *Spell Attack* **Action:** You may **Spend 1 Inspiration**. If you do, any damage dealt by that *Spell* is **Chaos Damage.**",FALSE,TRUE,
+arcanimist-heroic-meteor,Meteor,arcanimist,0,3,8,Range 8,FALSE,,FALSE,,FALSE,10,"heroic,spell","**1/Quest, Spend 1 Inspiration:** Characters in a **Size 2 Area** centered on target tile make a **Resistance Roll** or suffer damage and become **Prone.** A character that **Resists** suffers half damage and isn't **Prone.** The **Area** is **Difficult Terrain** for the rest of the encounter.",FALSE,TRUE,
+arcanimist-heroic-manaward,Manaward,arcanimist,0,reaction,0,,FALSE,,FALSE,,FALSE,10,"heroic,spell,reaction,limitencounter","**Condition:** You suffer any amount of damage from a single source.
+
+**Effect:** Prevent that damage. You are **Immobilized 1**.",FALSE,TRUE,
+arcanimist-heroic-enochian,Enochian,arcanimist,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"**Beginning of Encounter:** Create an **Astral Die** and **Umbral Die.** *(They're d6s with values that begin at ""1"".)*
+
+**When your** *Spell* **Action** confers **Healing** or **Barrier** to one or more characters, **choose one or both:**
+- Reduce your **Astral Star**'s value to ""1"" and increase that **Healing** or **Barrier** by **twice the difference.**
+- Increase your **Umbral Star's** value by 1.
+
+**When your** *Spell* **Action** deals damage to one or more characters, **choose one or both:**
+- Reduce your **Umbral Star's** value to ""1"" and recover **Focus** equal to **one plus the difference.**
+- Increase your **Astral Star's** value by 1.",FALSE,TRUE,
+arcanimist-heroic-dip,Dilletante: Arcanimist,arcanimist,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,You gain the **Arcane Glyph** and **Arcane Warp** **Basic Abilities.**,FALSE,TRUE,
+tactician-sign,Sign,tactician,0,passive,0,,FALSE,,FALSE,,FALSE,10,,You don't suffer **Disadvantage** when using a *Ranged Spell Attack* **Action** while a hostile character is adjacent.,FALSE,FALSE,
+tactician-combined-offensive,Combined Offensive,tactician,0,0,0,,FALSE,,FALSE,,FALSE,10,"spell,limitround","You may perform **Combined Offensive** with **1, 2, or 3 AP**. When you perform **Combined Offensive**, choose *Weapon* or *Spell.* Then, perform a corresponding *Attack* **Action** with an **AP Cost** less than or equal to the amount used to perform **Combined Offensive.**
+
+**Then,** perform a *Weapon* **Action** (if you chose *Spell*) or *Spell* **Action** (if you chose *Weapon*) *that* costs **1 AP** as a **Free Action**. You pay all other costs for this **Action.** If this **Action** is also an *Attack*, it must target the same character as the previous **Action.**",FALSE,FALSE,
+tactician-stance,Tactician's Stance,tactician,0,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance",*Support Spell* **Focus Cost -1.**,FALSE,FALSE,
+tactician-ultimate,Grand Strategy,tactician,0,0,0,,FALSE,,FALSE,,FALSE,10,ultimate,"Hostile characters in a **Size 3 Area** centered on you become **Off Guard.** **For the rest of the encounter, you have the following properties:**
+
+- When performing an **Action** reduces you to 0 **Focus,** recover 2 **Focus.**
+
+- Whenever you perform a *Spell* **Action** or the *Basic* **Study Action**, you or an allied character of your choice within **Range** 12 can perform a *Basic* **Evade Action** as a **Free Reaction**.
+
+- **Start of Turn:** You may perform the *Basic* **Study Action** as a **Free Action**.",FALSE,FALSE,
+tactician-heroic-counterspell,Counterspell,tactician,0,reaction,0,Range 6,FALSE,,FALSE,,FALSE,10,"heroic,spell,reaction","**Condition:** A hostile character within **Range 6** performs a *Spell* **Action.**
+
+**Effect:** Prevent that action. You gain [tier] **Focus.** *(The action is treated as if it had no effects. Costs are still paid. If the action was a charged ability, it's no longer charged.)*",FALSE,TRUE,
+tactician-heroic-magicshield,Magic Shield,tactician,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"You have a **Block Rating** equal to [tier]+4. Your *Shield* **Actions** are *Spell* **Actions**, using the higher value between [atk] and [mag] where applicable. You can perform *Shield* **Actions** in any **Stance.** Whenever you perform a *Shield* **Action,** you gain the **Ward Reaction** until the start of your next turn.",FALSE,TRUE,
+tactician-heroic-magicshield-special,Magic Shield: Ward,tactician,0,reaction,0,,FALSE,,FALSE,,FALSE,10,"special,heroic,shield,reaction,limitround","**Condition**: You are targeted by an *Attack* that would deal 1 or more damage.
+
+**Effect - Focus Cost 1:** Gain **Barrier** equal to your **Block Rating.** If you have no **Barrier** remaining after damage is dealt, you are **Stunned +1.**",FALSE,TRUE,tactician-heroic-magicshield
+tactician-heroic-warcaster,War Caster,tactician,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"If you would perform an *Attack* **Action** as a **Reaction,** you may perform a *Spell* **Action** that could target the triggering character instead, and you may **Spend 1 Inspiration** rather than paying the **Focus Cost** for this *Spell* **Action.**",FALSE,TRUE,
+tactician-heroic-contingency,Contingency,tactician,0,0,0,,FALSE,,FALSE,,FALSE,10,"heroic,trap,spell","**Spend 1 Inspiration:** Choose an available *Spell* **Action.** You pay its **Focus Cost** and its **AP Cost** reduced by **1 AP** *(min. 1).* Create a **Glyph of Warding**, a *Trap* which stores that spell, in a free tile within **Range 6**. Starting at the beginning of your next turn, you have the **Activate Contingency** Reaction while the Glyph exists.",FALSE,TRUE,
+tactician-heroic-contingency-special,Contingency: Activate,tactician,0,reaction,0,,FALSE,,FALSE,,FALSE,10,"special,heroic,trap,reaction","**Condition:** An eligible target of the chosen spell moves onto or becomes adjacent to your **Glyph** or begins their turn on or adjacent to your **Glyph.**
+
+**Effect:** The triggering character triggers your **Glyph.** Destroy the **Glyph** and perform that *Spell* **Action** on the triggering character as a **Reaction** with no **Focus** cost. If it has a range profile, the range profile is drawn from the **Glyph's** tile.",FALSE,TRUE,tactician-heroic-contingency
+tactician-heroic-simulation,Simulation,tactician,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"When you **Study** a hostile character, you may roll an **Action Resolution.** **For that character**, the result of that **Action Resolution** is stored until you perform an **Attack Roll** against that character or make a **Resistance Roll** against one of that character's **Actions** or effects.
+
+**When you do:** Instead of performing an **Action Resolution,** use the stored value.",FALSE,TRUE,
+tactician-disciplined-tactician,Disciplined Tactician,tactician,1,passive,passive,,FALSE,,FALSE,,FALSE,10,,"Increased **Focus Pool** (+1).
+
+When you **Refocus**, you may **Study** as a **Free Action**.",FALSE,FALSE,
+tactician-rune-edge,Rune Edge,tactician,1,1,2,Cleave 2,TRUE,[tier]+2,FALSE,,FALSE,10,"melee,attack","All characters in the **Cleave** become targets.
+
+As you perform **Rune Edge**, you choose if it's a *Weapon* or *Spell* **Action**, both, or neither.",FALSE,FALSE,
+tactician-spell-pierce,Spell Pierce,tactician,1,passive,passive,,FALSE,,FALSE,,FALSE,10,limitround,"During your turn, the first *Spell Attack* **Action** you perform has **+1 Advantage**.",FALSE,FALSE,
+tactician-embolden,Embolden,tactician,1,1,2,Range 5,FALSE,,FALSE,,FALSE,10,"support,spell","You perform the *Basic* **Aid Action** on an allied character within **Range 5.** You can always choose to give that character **Advantage** when performing **Aid** this way, though you still have to make an **Action Resolution.**
+
+That character also receives **1 Healing.**",FALSE,FALSE,
+tactician-heavy-arcane-blast,Heavy Arcane Blast,tactician,2,3,2,Range 4,TRUE,2[mag]+4,FALSE,,FALSE,10,"ranged,spell,attack",,FALSE,FALSE,
+tactician-shock,Shock,tactician,2,2,2,Range 4,TRUE,[mag],FALSE,,TRUE,10+[tier],"ranged,spell,attack,limitround","**Flurry**
+
+**On Hit:** The target makes a **Resistance Roll** or is **Stunned +1.**",FALSE,FALSE,
+tactician-imperial-eye,Imperial Eye,tactician,2,passive,passive,,FALSE,,FALSE,,FALSE,10,,"When you **Study** a hostile character, the next *Attack* targeting that character has **On Hit:** [tier]+1 **Bonus Damage.**",FALSE,FALSE,
+tactician-absorb,Absorb,tactician,3,1,2,Range 4,FALSE,,FALSE,,FALSE,10,"support,spell",You or up to one allied character within **Range** gains **Barrier** [mag]. This **Barrier** isn't lost as turns end.,FALSE,FALSE,
+tactician-celerity,Celerity,tactician,3,1,2,,FALSE,,FALSE,,FALSE,10,"support,spell","You or up to one adjacent allied character gain **Haste:** At the beginning of your turn, gain **1 AP**.
+
+**Haste** lasts until the end of the encounter, or until the affected character ends a turn with no AP remaining. *(It's a special Status.)*",FALSE,FALSE,
+tactician-divine-eye,Divine Eye,tactician,3,passive,passive,,FALSE,,FALSE,,FALSE,10,limitround,"**1/Round**: When you **Study** a hostile character, that character becomes **Off Guard.**",FALSE,FALSE,
+tactician-mind-palace,Mind Palace,tactician,4,passive,passive,,FALSE,,FALSE,,FALSE,10,,"**At the end of your turn:** If you performed the *Basic* **Study Action** and dealt no damage to hostile characters, **recover 2 Focus.**",FALSE,FALSE,
+tactician-freedom,Freedom of Movement,tactician,4,1,2,,FALSE,,FALSE,,FALSE,10,"support,spell","You or an adjacent allied character gains **Freedom of Movement** until the end of your next turn. The character ignores **Difficult Terrain** and is immune to **Slowed, Stunned,** and **Immobilized.**
+
+**Sustain** - **Focus Cost: 1** *( Each active instance must be Sustained separately. Freedom of Movement is a special Status. )*",FALSE,FALSE,
+tactician-nova,Nova,tactician,4,2,2,Melee,TRUE,[atk]+[mag]+2,FALSE,,FALSE,10,"melee,weapon,attack",All characters in **Range** become targets.,FALSE,FALSE,
+tactician-might-and-magic,Might and Magic,tactician,5,passive,passive,,FALSE,,FALSE,,FALSE,10,,"When you perform a *Weapon Attack* **Action,** your next *Spell Attack* **Action** has **+1 Advantage** and deals **+2 Bonus Damage.** *( Does not stack. )*
+
+When you perform a *Spell Attack* **Action,** your next *Weapon Attack* **Action** has **+1 Advantage** and deals **+2 Bonus Damage.** *( Does not stack. )*",FALSE,FALSE,
+tactician-visual-calculus,Visual Calculus,tactician,5,2,4,Range 5,FALSE,,FALSE,,FALSE,10,,"Create **Visual Calculus.** It's a **Size 1 Area** centered on target tile.
+
+**For the rest of the encounter:** Hostile characters in the area are **Sundered** and can't perform *Stealth* **Actions** or benefit from **Concealment.**
+
+You have **1 AP:** Move **Visual Calculus** to target tile within **Range** 5.",FALSE,FALSE,
+transmuter-elemental-shift,Elemental Shift,transmuter,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"**Start of Encounter:** Choose a terrain type to associate with your **Elemental Shift.**
+- **Fire** — A character that ends their turn in Fire suffers 1d6 Piercing Damage.
+- **Water** — Water is **Difficult Terrain.**
+- **Air** — Characters in the area have **Concealment 2.**
+
+When you perform the *Basic* **Refocus Action,** you may choose a different terrain type.",FALSE,FALSE,
+transmuter-terrain-transmutation,Terrain Transmutation,transmuter,0,1,1,Range 4,FALSE,,FALSE,,FALSE,10,spell,"Choose a **Size 1 Area** centered on target tile. For the rest of the encounter or until you perform this **Action** again, that area becomes the terrain type associated with your **Elemental Shift.**",FALSE,FALSE,
+transmuter-stable,Stable,transmuter,0,passive,0,,FALSE,,FALSE,,FALSE,10,,Your movement ignores **Difficult Terrain.**,FALSE,FALSE,
+transmuter-ultimate,Ultimate: Alchemical Eruption,transmuter,0,3,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,spell","Choose three **Size 1 Areas** or one **Size 2 Area** centered on tiles within **Range 12.** The areas can't overlap. Each chosen area becomes a terrain type of your choice from among those available to your **Elemental Shift.**
+
+For the rest of the encounter, as you perform **Terrain Transmutation,** you may change the type associated with your **Elemental Shift.** Additionally, your **Elemental Shift** has access to the following special terrain types:
+
+- **Orichalcum:** A character that begins a turn in Orichalcum gains **1 AP.**
+- **Acid:** A character in Acid is **Sundered.**
+- **Ice:** A character that enters the terrain from any direction during a non-Teleport Movement ends that Movement, loses all remaining Movement from that action or effect, then suffers involuntary movement in that direction until they are no longer on an Ice tile or they collide. This involuntary movement doesn't trigger Traps or other abilities.",FALSE,FALSE,
+transmuter-heroic-cloudkill,Cloudkill,transmuter,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"The **Area** created by **Rolling Amber** is **Difficult Terrain** and its edge blocks **Line of Effect.** *(Range can't be drawn through it, into it from outside, or outside of it from inside.)*
+
+When you perform **Rolling Amber, Spend 1 Inspiration:** Characters in the area make an additional **Resistance Roll** against the **Action's** effect immediately. *(As if they'd just begun their turns.)*",FALSE,TRUE,
+transmuter-heroic-adept-of-motion,Adept of Motion,transmuter,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"If you would **Push** or **Pull** a character, instead, you move that character that far in any direction.  You have **Teleport Ally**.",FALSE,TRUE,
+transmuter-heroic-adept-of-motion-special,Adept of Motion: Teleport Ally,transmuter,0,0,0,Range 3,FALSE,,FALSE,,FALSE,10,"special,heroic,limitencounter",**1/Encounter — Spend 1 Inspiration:** Teleport yourself or an allied character within **Range** to a target free tile within **Range.**,FALSE,TRUE,transmuter-heroic-adept-of-motion
+transmuter-heroic-spikes,Spikes,transmuter,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,When a character becomes affected by **Difficult Terrain** you created: That character suffers **3 Piercing Damage.** A character can only take this damage **1/Round.** *(No roll. A character becomes affected by Difficult Terrain when it causes them to spend additional movement.)*,FALSE,TRUE,
+transmuter-heroic-master-controller,Master Controller,transmuter,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"During each of your turns, the first *Spell* **Action** you perform that targets a tile or space has **AP Cost -1** *(min. 1)*.",FALSE,TRUE,
+transmuter-heroic-master-of-boundaries,Master of Boundaries,transmuter,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,**Create Wall** targets a fourth tile. Objects you create have **+2 HP.** You have **Master of Boundaries: Create**.,FALSE,TRUE,
+transmuter-heroic-master-of-boundaries-special,Master of Boundaries: Create,transmuter,0,0,0,Range 5,FALSE,,FALSE,,FALSE,10,"special,heroic,limitencounter",**1/Encounter:** Create a **Wall** in a target free tile within **Range.** It's a **Destructible Obstruction** with [tier]+8 HP and **Elevation 3.**,FALSE,TRUE,transmuter-heroic-master-of-boundaries
+transmuter-mold-earth,Mold Earth,transmuter,1,1,1,Range 8,FALSE,,FALSE,,FALSE,10,spell,"Choose one:
+- For the rest of the encounter, target free tile becomes **Difficult Terrain.**
+- For the rest of the encounter, target tile that's **Difficult Terrain** becomes normal terrain.",FALSE,FALSE,
+transmuter-explosive-runes,Explosive Runes,transmuter,1,passive,0,,FALSE,,FALSE,,FALSE,10,trap,When a hostile character triggers your **Trap:** That character suffers **3 Damage.** *(No roll.)*,FALSE,FALSE,
+transmuter-outmaneuver,Outmaneuver,transmuter,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"Each turn, your first **Attack Action** has **+1 Advantage** against targets in **Difficult Terrain.**",FALSE,FALSE,
+transmuter-elemental-seal,Elemental Seal,transmuter,1,1,2,Range 4,FALSE,,FALSE,,TRUE,10+[tier],"trap,spell,limitround","Perform **Elemental Seal** only while you have fewer than [tier]+1 **Elemental Seals** in play.
+
+An **Elemental Seal** is armed at the start of your next turn and activates when a hostile character becomes adjacent while armed.
+
+**Effect:** The **Trap** detonates in a **Size 1 Area.** Characters in that area make a **Resistance Roll,** suffering **2[mag] Damage** and becoming **Slowed 1.** A character that **Resists** suffers half damage and isn't slowed.",FALSE,FALSE,
+transmuter-elemental-sparks,Elemental Sparks,transmuter,2,2,3,Range 4,TRUE,[mag]+1,FALSE,,FALSE,10,"ranged,spell,attack,limitround","**Flurry** — Target up to three characters. *(Make a separate Attack Roll for each.)*
+
+**On Damage:** The target character suffers **Push 1.**",FALSE,FALSE,
+transmuter-levitate,Levitate,transmuter,2,1,2,,FALSE,,FALSE,,FALSE,10,"support,spell",You or an adjacent allied character is **Flying** during voluntary Movement until the end of that character's next turn.,FALSE,FALSE,
+transmuter-kinesis,Kinesis,transmuter,2,1,1,Range 3,FALSE,,FALSE,,TRUE,10+[tier],spell,"Target hostile character in **Range** makes a **Resistance Roll** or suffers **Push 2** and becomes **Prone.**
+
+**Resist:** **Push 1.**
+
+A **Prone** character always **Resists Kinesis.**",FALSE,FALSE,
+transmuter-phantom-tether,Phantom Tether,transmuter,3,2,2,Range 4,TRUE,[mag]+4,FALSE,,FALSE,10,"ranged,spell,attack","**Flurry**
+
+**On Hit:** Until the start of your next turn, if the target performs a **Movement Action** and moves closer to you, that character suffers **[mag]+4 Damage.** *(No roll.)*",FALSE,FALSE,
+transmuter-create-wall,Create Wall,transmuter,3,2,3,Range 4,FALSE,,FALSE,,FALSE,10,spell,"Target three free contiguous tiles, where each tile shares an edge with the previous tile. Create **Walls,** **Destructible Obstructions** with [tier]+8 HP in those tiles. Tiles obstructed this way have **Elevation 3.**",FALSE,FALSE,
+transmuter-gravity-well,Gravity Well,transmuter,3,2,4,Range 3,FALSE,,FALSE,,TRUE,10,spell,"Characters in a **Size 2 Area** centered on the target tile make a **Resistance Roll.**
+
+A character that fails the **Resistance Roll** is **Teleported** as close to the center of the area as possible. *(You choose the order in which characters are moved.)*",FALSE,FALSE,
+transmuter-sacred-geometry,Sacred Geometry,transmuter,4,passive,0,,FALSE,,FALSE,,FALSE,10,,"At the end of your turn, if you are adjacent to exactly two obstructed tiles: **Recover 2 Focus.**",FALSE,FALSE,
+transmuter-rolling-amber,Rolling Amber,transmuter,4,2,4,Range 4,FALSE,,FALSE,,FALSE,10,spell,"Create **Rolling Amber,** a **Size 1 Area** centered on target tile. It lasts until the end of your next turn.
+
+When a character begins their turn in the area or moves into the area for the first time during their turn: That character makes a **Resistance Roll** or suffers **1d6+[tier] Damage,** or half on a **Resist.** If the character triggered this effect by moving into the area, that movement ends and remaining movement from that effect is lost.
+
+**(1ap) Sustain — Focus Cost: 1:** You may move the area one tile in any direction.",FALSE,FALSE,
+transmuter-erupting-earth,Erupting Earth,transmuter,4,2,2,,FALSE,,FALSE,,FALSE,10,"spell,limitencounter",For the rest of the encounter: You have the **Stalagmite** Reaction.,FALSE,FALSE,
+transmuter-stalagmite,Erupting Earth: Stalagmite,transmuter,4,reaction,0,Range 2,FALSE,,FALSE,,FALSE,10,"special,reaction","**2/Encounter — Condition:** A hostile character attempts to move into a free tile within **Range 2.**
+
+**Effect:** Create a **Wall,** a **Destructible Obstruction** with [tier]+8 HP in that tile. A tile obstructed this way has **Elevation 3.** The triggering movement is prevented, and any movement remaining from that effect is lost.",FALSE,FALSE,transmuter-erupting-earth
+transmuter-reflecting-pool,Reflecting Pool,transmuter,5,2,4,Range 6,FALSE,,FALSE,,FALSE,10,"support,spell,limitencounter","Create a **Reflecting Pool,** a **Size 1 Area** centered on target tile. It lasts for the rest of the encounter.
+
+While in a **Reflecting Pool,** allied characters have:
+
+**(1 AP) - 1/Round:** Perform the last non-Ultimate, non-Summon, non-Reflecting Pool **Action** you performed. It's a **Free Action (0ap)** with **Focus Cost 0** that deals half damage, deals no bonus damage, and can't generate AP or reduce AP Costs. It has **Flurry** if it's an **Attack** and is considered to be charged if it's a **Charged** ability. Any **Inspiration Cost** must still be paid. Usage limits are ignored. *(Such as x/turn, x/round, or x/encounter.)*",FALSE,FALSE,
+transmuter-crystal-of-light,Crystal of Light,transmuter,5,2,4,,FALSE,,FALSE,,FALSE,10,"summon,spell,legendary,limitencounter","Conjure a **Crystal of Light** in an adjacent empty tile. A **Crystal of Light** can **Move** using your AP. The **Crystal of Light** Teleports when making voluntary movement.
+
+Damage dealt to a **Crystal of Light** is reduced to 1 and dealt as Piercing Chaos Damage. A **Crystal of Light** can't be Healed.
+
+**ATK:** 0 | **MAG:** 0 | **HP:** [tier]+3 | **DEF:** 8 | **SPD:** 4 | **FP:** 0
+
+A **Crystal of Light** is **Legendary.** While adjacent to a **Crystal of Light,** you and allied characters have the **Refraction** Reaction. *(You can't control more than one Legendary Summon.)*",FALSE,FALSE,
+transmuter-refraction,Crystal of Light: Refraction,transmuter,5,reaction,0,Range 4,FALSE,,FALSE,,FALSE,10,"special,reaction,limitturn","**1/Turn — Condition:** You become the target of a **Ranged Action** that targets only one character.
+
+**Effect:** Change the target of that **Action** to a character of your choice within **Range 4** of the **Crystal of Light.** The **Crystal of Light** takes **1 Piercing Chaos Damage.**",FALSE,FALSE,transmuter-crystal-of-light
+occultist-dimensional-bolt,Dimensional Bolt,occultist,0,2,1,Range 4,TRUE,[mag]+1,FALSE,,FALSE,10,"ranged,spell,attack","**Flurry**
+
+**On Hit:** Until the start of your next turn, if your **Summon** would deal damage to the target, it deals [tier] **Bonus Damage.**",FALSE,FALSE,
+occultist-the-art,The Art,occultist,0,1,0,,FALSE,,FALSE,,FALSE,10,"spell,limitround","You may perform **The Art** with **1, 2, or 3 AP.** When you perform **The Art**, perform any available **Action** that costs **AP** less than or equal to the amount used to perform **The Art.**
+
+Then, one **Summon** you control performs an available **Action** that costs **1 AP** as a **Free Action.**",FALSE,FALSE,
+occultist-reposition-summon,Reposition Summon,occultist,0,passive,0,,FALSE,,FALSE,,FALSE,10,passive,"While moving, if you would **Collide** with your **Summon** or enter its tile from an adjacent tile, you may instead switch places with it.",FALSE,FALSE,
+occultist-ultimate,Ultimate: The Communion,occultist,0,0,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,spell","For the rest of the encounter: You may perform **Attack** and **Spell Actions** as though you were in the same tile as any **Summon** you control. Additionally, you have **Death Erasure.**",FALSE,FALSE,
+occultist-death-erasure,Death Erasure,occultist,0,reaction,0,Range 5,FALSE,,FALSE,,FALSE,10,"special,reaction,limitround","**1/Round — Condition:** You or an allied character within **Range 5** would fail a **Resistance Roll,** take any amount of damage, or die.
+
+**Effect:** Sacrifice a **Summon.** If you do, ignore the effect that triggered **Death Erasure** and reduce any incoming damage to 0.",FALSE,FALSE,occultist-ultimate
+occultist-heroic-master-summoner,Master Summoner,occultist,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"You can control two **Legendary Summons,** as long as you control no other **Summons** and they aren't two of the same **Legendary Summon.**
+
+Your **Summons** can move diagonally. The first time you **Conjure** a **Legendary Summon** each encounter, if it's your turn, gain **(1ap).**
+
+**1/Quest:** When you **Conjure** a **Legendary Summon, Spend 1 Inspiration:** That **Legendary Summon** gains **Focus Pool 6** (max. 6), has all non-Summon, non-Basic **Spell Actions** available to you, and can perform them using your AP. It also has **Start of Turn:** Recover 1 Focus.",FALSE,TRUE,
+occultist-heroic-the-abyss,The Abyss,occultist,0,passive,0,,FALSE,2[mag],FALSE,,TRUE,10+[tier],"heroic,limitround","When your **Summon** dies, adjacent characters make a **Resistance Roll.** On a failure, those characters take **2[mag] Damage.** A character that **Resists** takes half as much damage.",FALSE,TRUE,
+occultist-heroic-the-abyss-special,The Abyss: Seethe,occultist,0,1,0,,FALSE,2[mag],FALSE,,TRUE,10+[tier],"special,heroic,spell",**Spend 1 Inspiration:** Characters adjacent to one or more of your **Summons** make a **Resistance Roll** or take **2[mag] Damage.** A character that **Resists** takes half as much damage.,FALSE,TRUE,occultist-heroic-the-abyss
+occultist-heroic-the-ritual,The Ritual,occultist,0,passive,0,,FALSE,,FALSE,,FALSE,10,"heroic,limitround","**1/Round,** when you **Sacrifice** a **Summon** during your turn, **Spend 1 Inspiration:** Gain **1 AP.**",FALSE,TRUE,
+occultist-heroic-the-ritual-special,The Ritual: Sacrifice Summon,occultist,0,0,0,,FALSE,,FALSE,,FALSE,10,"special,heroic,spell",**Sacrifice** a **Summon:** Gain **2 Focus.** *(You can't exceed the maximum in your Focus Pool.)*,FALSE,TRUE,occultist-heroic-the-ritual
+occultist-heroic-the-hourglass,The Hourglass,occultist,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"Increases **Focus Pool.** (+1)
+
+You gain an additional **Reaction** during each other character's turn. Use this **Reaction** only to perform a *Spell* Reaction.",FALSE,TRUE,
+occultist-heroic-dilettante,Dilettante: Occultist,occultist,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"You gain the **Basic Ability** ""The Art."" *(You can never gain two abilities with the same name.)*",FALSE,TRUE,
+occultist-conjure-blockade,Conjure Blockade,occultist,1,1,1,,FALSE,,FALSE,,FALSE,10,"summon,spell,limitround","Conjure a **Blockade** in an adjacent empty tile. A **Blockade** has no Basic Actions. It can be used as cover, and is considered a destructible object only for the purposes of providing cover.
+
+The **Blockade** has **Armor** equal to 3 plus your Tier.
+
+**ATK:** 0 | **MAG:** 0 | **HP:** [tier]+6 | **Armor:** 3 | **DEF:** 11 | **SPD:** 0 | **FP:** 0",FALSE,FALSE,
+occultist-conjure-legion,Conjure Legion,occultist,1,2,2,,FALSE,,FALSE,,FALSE,10,"summon,spell,limitround","Conjure a **Legion** in an adjacent empty tile. A **Legion** can perform *Basic* **Move, Attack,** and **Evade** using your AP.
+
+**ATK:** Yours | **MAG:** Yours | **HP:** [tier]+4 | **Armor:** 0 | **DEF:** 11 | **SPD:** 4 | **FP:** 0",FALSE,FALSE,
+occultist-the-talisman,The Talisman,occultist,1,reaction,0,,FALSE,,FALSE,,FALSE,10,"spell,reaction,limitturn","**1/Turn — Condition:** An allied character adjacent to your **Summon** makes an **Attack Roll** or **Resistance Roll.**
+
+**Effect:** The allied character gains **+1 Advantage** on the **Attack Roll** or **Resistance Roll.**",FALSE,FALSE,
+occultist-summon-opportunity,Summon Attack of Opportunity,occultist,1,reaction,0,,FALSE,,FALSE,,FALSE,10,"attack,reaction,limitturn","**1/Turn — Condition:** A hostile character within the **Range** of a **Melee Attack** action available to your **Summon** performs a **Movement Action.**
+
+**Effect:** Your **Summon** uses that **Melee Attack Action** on the triggering character before the triggering **Action.** Each **Summon** can attack this way no more than **1/Round.**",FALSE,FALSE,
+occultist-fortified-conjurations,Fortified Conjurations,occultist,2,passive,0,,FALSE,,FALSE,,FALSE,10,,Your **Summons** have **Max HP: +4.**,FALSE,FALSE,
+occultist-conjure-dantalion,Conjure Dantalion,occultist,2,2,3,,FALSE,,FALSE,,FALSE,10,"summon,spell,legendary,limitround","Conjure **Dantalion** in an adjacent empty tile. **Dantalion** can perform *Basic* **Move, Attack,** and **Evade** using your AP.
+
+**ATK:** Yours | **MAG:** 1d8 | **HP:** [tier]+4 | **Armor:** 0 | **DEF:** 10 | **SPD:** 3 | **FP:** 0
+
+**Dantalion** is **Legendary** and has the **Tome** Reaction, which uses your Reaction. *(You can't control more than one Legendary Summon.)*",FALSE,FALSE,
+occultist-the-tome,Dantalion: The Tome,occultist,2,reaction,0,Range 6,TRUE,[mag]+[tier],FALSE,,FALSE,10,"special,reaction,limitround","**1/Round — Condition:** An allied character other than the summoner attacks a hostile target within **Range 6** of **Dantalion** during their turn.
+
+**Effect:** *Ranged Spell Attack* — **Range:** 6 | **DMG:** [mag]+[tier]
+
+This attack targets the hostile target. It treats obstructions as cover as long as any unobstructed path to the target exists.",FALSE,FALSE,occultist-conjure-dantalion
+occultist-conjure-paimon,Conjure Paimon,occultist,2,2,3,,FALSE,,FALSE,,FALSE,10,"summon,spell,legendary,limitround","Conjure **Paimon** in an adjacent empty tile. **Paimon** can perform *Basic* **Move, Attack,** and **Evade** using your AP.
+
+- **Paimon** is **Flying** and deals all damage as **Chaos Damage.**
+- **Paimon's** movement doesn't trigger hostile **Reactions.**
+
+**ATK:** 1 | **MAG:** 1 | **HP:** [tier]+5 | **DEF:** 10 | **SPD:** 3 | **FP:** 0
+
+**Paimon** is **Legendary** and has the **Cure** Reaction, which uses your Reaction. *(You can't control more than one Legendary Summon.)*",FALSE,FALSE,
+occultist-the-cure,Paimon: The Cure,occultist,2,reaction,0,,FALSE,,FALSE,,FALSE,10,"special,reaction","**Condition:** An allied character moves adjacent to or begins their turn adjacent to **Paimon.**
+
+**Effect:** **Paimon** suffers **2 Chaos Damage.** The allied character clears up to one non-self-inflicted **Condition** and may become **Blessed** or gain **Barrier 2.** *(Their choice.)* This **Barrier** isn't lost as turns end.",FALSE,FALSE,occultist-conjure-paimon
+occultist-the-concept,The Concept,occultist,3,2,0,,FALSE,,FALSE,,FALSE,10,"support,spell,limitround",Recover one third of your maximum **Focus.**,FALSE,FALSE,
+occultist-the-boundary,The Boundary,occultist,3,passive,0,,FALSE,,FALSE,,FALSE,10,,**Beginning of Encounter:** Perform a *Summon Spell* **Action** as a **Free Reaction** before any character takes a turn. *(You still pay its costs.)*,FALSE,FALSE,
+occultist-the-curse,The Curse,occultist,3,2,2,Melee,TRUE,2[mag],FALSE,,FALSE,10,"melee,spell,attack,limitround",**On Attack:** At the beginning of your next turn — up to one **Summon** you control performs **The Curse** as a **Free Action (0ap)** with no **Focus Cost.**,FALSE,FALSE,
+occultist-the-pattern,The Pattern,occultist,4,2,3,,FALSE,,FALSE,,FALSE,10,"support,spell,limitencounter",Each **Summon** you control may perform a *Basic* **Action** that costs **1 AP** or less as a **Free Action.**,FALSE,FALSE,
+occultist-the-answer,The Answer,occultist,4,reaction,1,Range 12,FALSE,,FALSE,,FALSE,10,"support,spell,reaction,limitencounter","**Condition:** An allied character becomes the target of a hostile **Action.**
+
+**Effect:** Switch the location of that allied character with your **Summon** within **Range 12** of that allied character. *(Each character Teleports to the other's location.)*
+
+Your **Summon** becomes the new target of the hostile **Action.**",FALSE,FALSE,
+occultist-the-hunger,The Hunger,occultist,4,1,2,,FALSE,,FALSE,,FALSE,10,"support,spell","**Sacrifice** a **Summon:** Allied characters adjacent to that **Summon** receive **Healing.** The total **Healing** is equal to the sacrificed **Summon's** remaining HP, divided as you choose among those characters.
+
+**The Hunger** doesn't benefit from bonuses to your **Healing.**",FALSE,FALSE,
+occultist-the-plague,The Plague,occultist,5,reaction,2,Range 8,FALSE,,FALSE,,FALSE,10,"summon,spell,reaction,limitround","**Condition:** A hostile character within **Range 8** is reduced to 0 HP.
+
+**Effect — Focus Cost 2:** Summon a **Legion** *(as though you'd performed Conjure Legion)* in a tile adjacent to that character.",FALSE,FALSE,
+occultist-the-nightmare,The Nightmare,occultist,5,2,8,Range 8,FALSE,[mag],FALSE,,TRUE,10+[tier],"summon,spell,legendary,limitencounter","You can **Sacrifice 3 Summons** rather than pay this **Action's Focus Cost.**
+
+Target a free tile. Characters in a **Size 1 Area** centered on that tile make a **Resistance Roll** or suffer [mag] Damage and are **Stunned +1.** Characters that **Resist** suffer half damage and aren't **Stunned.** The target tile is **Obstructed** until the end of the round.
+
+At the end of the round, conjure **Nightmare** in that tile. **Nightmare** can perform *Basic* **Move, Attack,** and **Evade** using your AP. **Nightmare** can always perform all **Melee Actions** available to you, and has the **Pummel** and **The End** *Special* **Actions**. It uses your **Focus.** **Nightmare** is immune to involuntary movement.
+
+**ATK:** 5 | **MAG:** 5 | **HP:** [tier]+10 | **Armor:** 2 | **DEF:** 10 | **SPD:** 2 | **FP:** 0
+
+**Nightmare** is **Legendary.** *(You can't control more than one Legendary Summon.)*",FALSE,FALSE,
+occultist-nightmare-pummel,Nightmare: Pummel,occultist,5,passive,0,,FALSE,,FALSE,,FALSE,10,"special,passive",**Nightmare's** first **Melee Attack Action** each turn has **On Hit:** Target makes a **Resistance Roll** or suffers **Push 2** and **Dazed +1.** The character suffers **Push 1** on a **Resist.**,FALSE,FALSE,occultist-the-nightmare
+occultist-nightmare-the-end,Nightmare: The End,occultist,5,3,0,Melee,TRUE,20,TRUE,8,FALSE,10,"special,melee,attack,limitround","Perform **The End** only during your **Delayed Turn** and only with **Initiative.** *(Your first AP during that turn must be spent on The End.)*
+
+**+1 Advantage.**",FALSE,FALSE,occultist-the-nightmare
+seer-certain-doom,Certain Doom,seer,0,1,0,Range 5,FALSE,,FALSE,,FALSE,10,limitround,"**1/Round:** Deal **[tier]+1 Piercing Chaos Damage** to up to one hostile character within **Range.**
+
+This damage can't be prevented or resisted. It doesn't target the chosen character and ignores the effects of all abilities, statuses, and conditions. **Certain Doom** doesn't trigger **Reactions** and can never deal bonus damage or increased damage.",FALSE,FALSE,
+seer-oracles-path,Oracle's Path,seer,0,passive,0,,FALSE,,FALSE,,FALSE,10,passive,"**Beginning of Encounter:** Declare yourself or an allied character.
+
+This encounter, when the declared character is the first allied character to be damaged by a hostile character: That character receives **1 Healing.** You gain **3 Focus** and begin your next turn with **+1 Turn AP.** Focus gained this way can exceed your maximum and is lost at the end of the encounter.",FALSE,FALSE,
+seer-skirmisher,Skirmisher,seer,0,passive,0,,FALSE,,FALSE,,FALSE,10,passive,You can move diagonally.,FALSE,FALSE,
+seer-ultimate,Ultimate: Omniscience,seer,0,1,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,spell",For the rest of the encounter: You have **Adjudicate.**,FALSE,FALSE,
+seer-adjudicate,Adjudicate,seer,0,reaction,0,,FALSE,,FALSE,,FALSE,10,"special,reaction,limitround","**1/Round — Condition:** An **Action Resolution** is rolled and a result is determined.
+
+**Effect:** Change one of the **Action Resolution** dice to a **1** or **6,** possibly changing the outcome of the **Action Resolution.**
+
+**Adjudicate** is a **Free Reaction.** Additionally, you can't be prevented from taking this **Reaction,** except for by its own **1/Round** limit. *(For example, you can use it while under the effects of harmful Conditions that prevent the use of Reactions. You can use it if you've already performed other Reactions this turn. You can use it while staggered, downed, unconscious, dead, unable to perform actions, or if you are somehow no longer present in the scene.)*",FALSE,FALSE,seer-ultimate
+seer-heroic-time-manipulation,Time Manipulation,seer,0,0,0,,FALSE,,FALSE,,FALSE,10,"heroic,spell,limitencounter",**1/Encounter — Spend 1 Inspiration:** Your next **Action** has **-1 AP Cost** *(min. 0).*,FALSE,TRUE,
+seer-heroic-haruspex,Haruspex,seer,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,You have the **Haruspicy** Action.,FALSE,TRUE,
+seer-heroic-haruspex-special,Haruspex: Haruspicy,seer,0,2,0,,FALSE,,FALSE,,FALSE,10,"special,heroic,spell","While adjacent to a hostile character with **0 HP:** Pay half your maximum HP as an additional cost. If you do, remove that character from play and increase the **Flow of Battle** by 1.",FALSE,TRUE,seer-heroic-haruspex
+seer-heroic-limitless-willpower,Limitless Willpower,seer,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"If you would pay a **Focus** cost, you may instead **Spend 1 Inspiration.**",FALSE,TRUE,
+seer-heroic-foresight,Foresight,seer,0,3,4,,FALSE,,FALSE,,FALSE,10,"heroic,spell","**1/Quest, Spend 1 Inspiration:** For the rest of the encounter, you have **+1 Advantage** on all **Action Resolutions.**",FALSE,TRUE,
+seer-heroic-true-sight,True Sight,seer,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"While performing **Actions,** ignore the effects of **Stealth** abilities and **Concealment.**",FALSE,TRUE,
+seer-reliable-attacks,Reliable Attacks,seer,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"Your **Attack Actions** without **Graze** have **On Miss:** Graze 2.
+
+*(Graze activates On Damage effects, but not On Hit effects.)*",FALSE,FALSE,
+seer-guidance,Guidance,seer,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you perform the *Basic* **Aid Action,** you may have the chosen character become **Blessed** instead of the **Action's** other effects.",FALSE,FALSE,
+seer-read-intent,Read Intent,seer,1,0,1,,FALSE,,FALSE,,FALSE,10,"spell,limitround","This turn, your **Attack** and **Spell Actions** don't trigger hostile **Reactions.**
+
+**Read Intent** doesn't trigger hostile **Reactions.**",FALSE,FALSE,
+seer-disorient,Disorient,seer,1,1,2,Range 5,FALSE,,FALSE,,TRUE,10+[tier],"spell,limitround",Target hostile character makes a **Resistance Roll** or is **Dazed +1.**,FALSE,FALSE,
+seer-manipulate-fate,Manipulate Fate,seer,2,1,2,Range 5,FALSE,,FALSE,,FALSE,10,"support,spell,limitround",An allied character in **Range** immediately performs a *Basic* **Move Action** as a **Free Reaction.**,FALSE,FALSE,
+seer-prepared-heal,Prepared Heal,seer,2,reaction,2,Range 5,FALSE,,FALSE,,FALSE,10,"support,spell,reaction,limitround","**Condition:** You or an allied character within **Range 5** suffer damage.
+
+**Effect — Focus Cost 2:** The damaged character receives [mag] **Healing** after the damage is dealt. A character that **Delayed** this round receives an additional **2 Healing.**",FALSE,FALSE,
+seer-revelation,Revelation,seer,2,1,2,Range 3,FALSE,,FALSE,,FALSE,10,"support,spell","An allied character in **Range** clears **Blinded, Stunned,** and **Dazed.** That character ignores **Concealment** until the end of their next turn.",FALSE,FALSE,
+seer-future-sight,Future Sight,seer,3,2,3,Range 5,FALSE,,FALSE,,FALSE,10,"support,spell,limitround","Choose a **Size 1 Area** in **Range.** At the beginning of your next turn, hostile characters in that **Area** suffer [mag] Damage. Allied characters in the area receive **2 Healing,** plus **1 Healing** for each hostile character in the area. If no characters are in the area, recover **Focus** spent to perform **Future Sight.**",FALSE,FALSE,
+seer-misleading-vision,Misleading Vision,seer,3,1,2,Range 5,FALSE,,FALSE,,TRUE,10+[tier],"spell,limitround","Target hostile character within **Range** makes a **Resistance Roll** or immediately performs a *Basic* **Move Action,** moving their full speed in a direction of your choice as a **Free Reaction.** *(This movement is voluntary, though you choose its direction.)*",FALSE,FALSE,
+seer-assurance,Assurance,seer,3,passive,0,,FALSE,,FALSE,,FALSE,10,"passive,bound","Bind to an **Attack Action.** *(When you begin an encounter, choose an option from those available to you to bind this ability to.)*
+
+The **Bound Attack** can't have net **Advantage** or **Disadvantage** and treats its target's **DEF** as 9.",FALSE,FALSE,
+seer-conceal-reality,Conceal Reality,seer,4,2,3,Range 5,FALSE,,FALSE,,FALSE,10,"support,spell,limitround","Choose a **Size 1 Area** in **Range.**
+
+Until the end of your next turn: Characters in that area have **Concealment 3.**
+
+**Sustain (2ap):** Move the area **2 tiles** in any direction.",FALSE,FALSE,
+seer-entelechy,Entelechy,seer,4,2,3,Range 5,TRUE,2[mag],TRUE,2,FALSE,10,"ranged,spell,attack,limitround","**Flurry**
+
+**On Damage:** Another allied character within **Range** receives **Barrier** equal to the total **Damage** dealt.
+
+**On Miss:** Graze 2. *(Applies On Damage effect.)*",FALSE,FALSE,
+seer-telepathic-bond,Telepathic Bond,seer,4,reaction,3,Range 8,FALSE,,FALSE,,FALSE,10,"support,spell,reaction,limitround","**Condition:** An allied character within **Range** performs the **Refocus Action.**
+
+**Effect — Focus Cost 3:** That character recovers **1 AP** and receives [mag] **Barrier.** It isn't lost as turns end this turn.",FALSE,FALSE,
+seer-grasp-the-future,Grasp the Future,seer,5,1,4,Range 5,FALSE,,FALSE,,FALSE,10,"support,spell,limitencounter","An allied character within **Range** that isn't **Delaying** and hasn't taken a turn this round immediately takes their turn. You can't perform **Reactions** during that turn.
+
+Once that character's turn ends, your turn resumes if you have **Turn AP** remaining.",FALSE,FALSE,
+seer-rewind,Rewind,seer,5,reaction,0,,FALSE,,FALSE,,FALSE,10,"spell,reaction,limitencounter","**Condition:** An allied character performs a non-Ultimate **Action,** and all other **Reactions** to that **Action** *(if any)* have been declared.
+
+**Effect:** Undo the triggering **Action.** The triggering **Action** can't be performed again this turn. Any declared **Reactions** can't be performed again this turn.
+
+*(When you Undo an Action, all effects of that Action, including damage and healing, are reversed, and any statuses and conditions inflicted by that Action are cleared. The triggering Action is treated as though it never occurred. The costs of the triggering Action, including AP, Reactions, Focus, Inspiration, and the Flow of Battle are refunded.)*",FALSE,FALSE,
+mender-life-essence,Life Essence,mender,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"When a character receives **Healing** from you, that character gains **Regeneration 1.**",FALSE,FALSE,
+mender-presence-of-mind,Presence of Mind,mender,0,0,0,,FALSE,,FALSE,,FALSE,10,limitencounter,"Perform **Presence of Mind** only as your first **Action** during your turn. *(You keep the Initiative as long as no AP is spent.)*
+
+Gain **1 AP.** Spend it only on a *Spell* **Action.**",FALSE,FALSE,
+mender-supreme-resolve,Supreme Resolve,mender,0,passive,0,,FALSE,,FALSE,,FALSE,10,,The *Basic* **Refocus Action** restores 1/2 of your maximum **Focus.** *(Instead of 1/3.)*,FALSE,FALSE,
+mender-ultimate,Ultimate: Breath of Life,mender,0,2,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,spell","Perform **Breath of Life** only with **Initiative.** Choose a **Size 3 Area** centered on you.
+
+- For each allied character: if that character is **Downed,** they recover **1 Vigor** and **1 HP** and are returned to play in a free tile in the chosen area. If the character is in the chosen area and isn't **Downed,** that character clears up to one **Condition** of their choice and receives **Regeneration 3.**
+- For each hostile character in the area, that character makes a **Resistance Roll** or is **Stunned +2.** A character that **Resists** is **Stunned 1.**
+
+*(An Action is performed with Initiative if it's the first Action you spend AP on during your turn.)*",FALSE,FALSE,
+mender-heroic-resurrection,Resurrection,mender,0,3,4,Range 6,FALSE,,FALSE,,FALSE,10,"heroic,support,spell","**1/Quest, Spend 1 Inspiration:** End your turn. A **Downed** allied character recovers **1 HP,** removes **Wounded,** is returned to play in a free tile within **Range,** and immediately takes an extra turn. They are **Invulnerable** during this turn.",FALSE,TRUE,
+mender-heroic-supreme-abeyance,Supreme Abeyance,mender,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"Your **Abeyance** gains the following additional **Condition:**
+
+- **Condition:** An allied character within **Range 3** is dealt non-**Chaos** damage by a hostile character.
+
+If **Abeyance** is used to prevent damage dealt to another character, the **Poison** is inflicted on that character.",FALSE,TRUE,
+mender-heroic-divine-intervention,Divine Intervention,mender,0,reaction,1,,FALSE,,FALSE,,FALSE,10,"heroic,reaction,limitround","**Condition:** You apply **Healing** to another character while that character is at or below half their maximum HP.
+
+**Effect — Focus Cost 1:** That character receives **Damage Resistance** until the end of their next turn.",FALSE,TRUE,
+mender-heroic-surecast,Surecast,mender,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,You can't be moved involuntarily if you're **Regenerating.**,FALSE,TRUE,
+mender-heroic-admonishment,Admonishment,mender,0,passive,0,,FALSE,,FALSE,,FALSE,10,heroic,"Each round, the first character that fails a **Resistance Roll** you force is **Stunned 1.**",FALSE,TRUE,
+mender-purifying-focus,Purifying Focus,mender,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you **Refocus,** you or up to one adjacent allied character clear a **Condition** of your choice that wasn't self-inflicted.",FALSE,FALSE,
+mender-alleviating-aid,Alleviating Aid,mender,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"When performing **Aid,** the allied character receives **Regeneration 2.**",FALSE,FALSE,
+mender-bane,Bane,mender,1,1,3,Range 4,TRUE,0,FALSE,,TRUE,10+[tier],"ranged,spell,attack,limitround",**On Hit:** The target makes a **Resistance Roll** or is **Poisoned** [tier]+2.,FALSE,FALSE,
+mender-abeyance,Abeyance,mender,1,reaction,2,,FALSE,,FALSE,,FALSE,10,"reaction,limitround","**Condition:** You're dealt non-**Chaos** damage by a hostile character.
+
+**Effect — Focus Cost 2:** Prevent that damage. You're **Poisoned** x, where x is the amount of damage prevented.",FALSE,FALSE,
+mender-tranquilize,Tranquilize,mender,2,2,3,Range 4,FALSE,,FALSE,,TRUE,10+[tier],"spell,limitround","Up to one hostile character in **Range** becomes **Off Guard.** That character makes a **Resistance Roll** or is perpetually **Dazed** until it suffers nonzero damage from any source. A character that **Resists** is **Dazed 1.**
+
+You can't choose the same character with **Tranquilize** more than once in an encounter.",FALSE,FALSE,
+mender-soothe,Soothe,mender,2,1,3,Range 2,FALSE,,FALSE,,FALSE,10,"support,spell","Perform **Soothe** only with **Initiative.**
+
+You or up to one allied character within **Range** receive [mag] **Healing.**",FALSE,FALSE,
+mender-succor,Succor,mender,2,2,3,Range 6,FALSE,,FALSE,,FALSE,10,"support,spell","You or up to one allied character in **Range** receives **Regeneration 3.** When performed with **Initiative,** **Succor** confers **Regeneration 4** instead.",FALSE,FALSE,
+mender-rebuke,Rebuke,mender,3,1,4,Range 4,FALSE,,FALSE,,TRUE,10,"spell,limitround","Up to one hostile character in **Range** makes a **Resistance Roll** or is **Stunned 1.** If **Rebuke** was performed with **Initiative,** that character is instead **Stunned 2,** becoming **Stunned 1** on a **Resist.**",FALSE,FALSE,
+mender-greater-cure,Greater Cure,mender,3,2,4,Range 3,FALSE,,FALSE,,FALSE,10,"support,spell","You or up to one allied character in **Range** receives [tier]+5 **Healing.** Additionally:
+
+- When performed with **Initiative,** **Greater Cure** confers **3 additional Healing** and **Regeneration +1.**
+- During a **Delayed Turn,** **Greater Cure** confers **3 additional Healing** and **Regeneration +1.**",FALSE,FALSE,
+mender-greater-restoration,Greater Restoration,mender,3,1,2,Range 3,FALSE,,FALSE,,FALSE,10,"support,spell,limitround","Perform **Greater Restoration** only with **Initiative.**
+
+You or up to one allied character in **Range** clear a **Condition** of your choice that wasn't self-inflicted.",FALSE,FALSE,
+mender-panacea,Panacea,mender,4,3,5,,FALSE,,FALSE,,FALSE,10,"support,spell","You and non-**Downed** allied characters in a **Size 2 Area** centered on you receive **3 Healing.** If **Panacea** was performed with **Initiative,** **Panacea** instead confers [mag]+3 **Healing.**",FALSE,FALSE,
+mender-harmonize,Harmonize,mender,4,passive,0,,FALSE,,FALSE,,FALSE,10,passive,"When you perform a *Spell* **Action,** **Teleport 1.** This movement doesn't trigger **Reactions** and can be made either before or after the **Spell Action's** effects take place.",FALSE,FALSE,
+mender-lucid-dreaming,Lucid Dreaming,mender,4,1,5,,FALSE,,FALSE,,FALSE,10,"spell,limitround","Perform **Lucid Dreaming** only with **Initiative.**
+
+At the start of your next turn, recover **7 Focus.**",FALSE,FALSE,
+mender-benediction,Benediction,mender,5,1,3,Range 3,FALSE,,FALSE,,FALSE,10,"support,spell,limitencounter","You or up to one non-**Downed** allied character in **Range** receives x **Healing,** where x is the chosen character's **Maximum HP.** If **Benediction** was performed with **Initiative,** the chosen character has **Damage Resistance** until the start of their next turn.",FALSE,FALSE,
+mender-condemn,Condemn,mender,5,1,4,Range 4,FALSE,,FALSE,,FALSE,10,"spell,limitencounter","Perform **Condemn** only with **Initiative.**
+
+Target hostile character that isn't **Elite** or **Legendary** is **Stunned 3.** *(No roll.)*
+
+You can't target the same character with **Condemn** more than **1/Encounter**.",FALSE,FALSE,
+masquerade-stance,Duet Stance,masquerade,0,passive,0,,FALSE,,FALSE,,FALSE,10,"weapon,stance","**As you enter Duet Stance:** Up to one allied character of your choice becomes your **Foil.**
+- **In Duet Stance, End of Turn:** If you spent 3 or more **Focus** on **Focus Costs** this turn, your **Foil** recovers **Focus** equal to **1/3** of the **Focus** you spent on **Focus Costs** this turn.
+- When you **Refocus,** you may choose a new **Foil.** The chosen character must be within your **line of effect.**
+- You have the **Rite of Inspiration** *Special* **Action**.",FALSE,FALSE,
+masquerade-stance-special,Duet Stance: Rite of Inspiration,masquerade,0,0,0,,FALSE,,FALSE,,FALSE,10,"special,limitencounter",Your **Foil** may perform a non-*Ultimate* **Action** that costs (?) or less as a **Free Reaction.**,FALSE,FALSE,
+masquerade-en-avant,En Avant,masquerade,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"*Movement* **Focus Cost -1**. *(min. 1)*
+
+Your *Basic* **Evade Action** is **Move** 2.
+
+Incoming **falling damage** is reduced to 1.",FALSE,FALSE,
+masquerade-ultimate,Last Dance,masquerade,0,1,0,Melee,TRUE,2[atk],FALSE,,FALSE,10,"heroic,ultimate,melee,weapon,attack","**Flurry**
+
+All hostile characters in **Range** become targets.
+
+**On Attack**: Any number of target non-Downed allied characters within **Range** become **Blessed**, gain **Barrier 3**, and have **+1 Turn AP** next turn.",FALSE,FALSE,
+masquerade-heroic-pawn,En Passant,masquerade,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"**Start of Turn:** Choose one.
+- **Fly 1**.
+- **1/Encounter, Spend 1 Inspiration: Fly** 3.",FALSE,TRUE,
+masquerade-heroic-fortune,Fortune's Favor,masquerade,0,reaction,0,,FALSE,,FALSE,,FALSE,10,limitround,"**Condition:** An Attack Roll targets you, or you make a **Resistance Roll**.
+
+**Effect - Spend 1 Inspiration**: **Gamble** ***x***, where ***x*** is a number of your choice (1-5). If you win, reduce the result of **Attack Roll** or increase the result of the **Resistance Roll** by ***x***.",FALSE,TRUE,
+masquerade-heroic-afteryou,After You,masquerade,0,3,0,Range 3,FALSE,,FALSE,,FALSE,10,limitround,"**""After You!""** can't be **Bound**.
+
+Perform **""After You!""** only while within **Range 3** of a hostile character that hasn't acted during the current round and isn't **Stunned**.
+
+Perform the *Basic* **Refocus Action** as part of this **Action**. You become **Blessed**, gain **Barrier 3**, and have **+1 Turn AP** next turn. ",FALSE,TRUE,
+masquerade-heroic-misdirection,Misdirection,masquerade,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"Hostile characters have **+1 Disadvantage** on the **Resistance Roll** against your Feint.
+
+When an attack against a character you performed **Feint** on this turn consumes **Off Guard**: The target becomes **Off Guard**.",FALSE,TRUE,
+masquerade-heroic-techstep,Technical Step,masquerade,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"While in Duet Stance: You may perform **Rite of Inspiration** as though it had ""**1/Round, Spend 1 Inspiration**"" instead of **1/Encounter**.",FALSE,TRUE,
+masquerade-feint,Feint,masquerade,1,1,0,,FALSE,,FALSE,,TRUE,10+[tier],"melee,weapon,limitround",The target makes a **Resistance Roll** or becomes **Off Guard**.,FALSE,FALSE,
+masquerade-dash,Dash,masquerade,1,1,2,,FALSE,,FALSE,,FALSE,10,"movement,limitround",**Move** up to **Speed**+2. You become **Off Guard**.,FALSE,FALSE,
+masquerade-inspiringstrike,Inspiring Strike,masquerade,1,2,1,,TRUE,[atk],FALSE,,FALSE,10,"melee,weapon,attack",**On Attack**: Up to one allied character within *Range* becomes **Blessed**.,FALSE,FALSE,
+masquerade-performance,Performance,masquerade,1,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you **Refocus**, up to one allied character within *Range* becomes **Blessed**.",FALSE,FALSE,
+masquerade-cascade,Cascade,masquerade,2,1,2,,TRUE,,FALSE,,FALSE,10,"melee,weapon,attack,limitround","- **Flurry**
+- **On Hit**: The target is Dazed +1.",FALSE,FALSE,
+masquerade-flair,Flair,masquerade,2,passive,0,,FALSE,,FALSE,,FALSE,10,bound,"**Bind** to a *Melee Attack* **Action**.
+- The Bound Action is a *Movement* **Action**.
+- You may **Fly** 1 as you perform the **Bound Action**. *(You can target a character outside the Action's Range if this movement brings you into Range.)*",FALSE,FALSE,
+masquerade-silhouette,Silhouette,masquerade,2,reaction,2,,FALSE,,FALSE,,FALSE,10,"movement,reaction,limitround","**Silhouette** doesn't trigger **Reactions**.
+- **Condition: An adjacent character performs a *Movement* **Action**.
+- **Effect (Focus Cost 2):** Perform the *Basic* **Evade Action** as part of this **Reaction**.",FALSE,FALSE,
+masquerade-closedposition,Closed Position,masquerade,3,1,2,,FALSE,,FALSE,,FALSE,10,"movement,reaction","Target a character. **Move** 2. The target mirrors your movement, ignoring restrictions on diagonal movement. Both movements are involuntary.
+A hostile target makes a **Resistance Roll**. On a **Resist**, they aren't moved, and you may still **Move** 2, but your movement is voluntary and triggers **Reactions**.",FALSE,FALSE,
+masquerade-bravura,Bravura,masquerade,3,1,2,,TRUE,[atk],FALSE,,FALSE,10,"melee,weapon,attack","- **Flurry**
+**On Hit:** The target is **Off Guard** and makes a **Resistance Roll** or becomes **Blinded** 3.",FALSE,FALSE,
+masquerade-flyby,Flyby,masquerade,3,1,2,,TRUE,[atk],FALSE,,FALSE,10,"movement,melee,weapon,attack,limitround","**Flurry**
+
+You may **Move** 2 as you perform **Flyby**.
+
+**On Hit**: **Move** 2. This movement doesn't trigger **Reactions**.
+",FALSE,FALSE,
+masquerade-syncopate,Syncopate,masquerade,4,passive,0,,FALSE,,FALSE,,FALSE,10,,"**Start of Turn**: Choose and expend a tag that hasn't been chosen this encounter from among *Attack, Spell, Movement, and Support*.
+
+If all tags have been chosen, instead, reset the expended choices. *(You don't make a choice this turn.)*
+
+**This turn**, if the second Action Point you spend is used to perform an **Action** with the chosen tag, recover 1 Focus. If it isn't, reset the expended tag.",FALSE,FALSE,
+masquerade-petaldance,Falling Petals,masquerade,4,reaction,3,Range 3,FALSE,,FALSE,,TRUE,10+[tier],"weapon,reaction","**Condition:** You finish performing an **Action** that inflicts **Dazed, Off Guard, or Blinded** on a hostile character.
+
+**Effect** **(Focus Cost 3)**: Each hostile character within **Range** makes a **Resistance Roll** or suffers each **Condition** inflicted by the triggering **Action**.",FALSE,FALSE,
+masquerade-improvisation,Improvisation,masquerade,4,2,4,,FALSE,,FALSE,,FALSE,10,limitround,"**Improvisation** can't be **Bound**.
+
+Choose a *Special* **Improvisation** **Action** you haven't chosen this encounter, and perform that **Action** as a part of this **Action.**
+
+On subsequent turns, you can **(1 AP)**: Repeat **Improvisation** with **Focus Cost:** 0. The effect continues until all *Special* **Improvisation** **Actions** have been chosen, or until you end a turn without performing this **Action**.",FALSE,FALSE,
+masquerade-improvisation-special-1,Improvisation: Devilry,masquerade,4,1,0,Range 3,TRUE,2[atk]+2,FALSE,,FALSE,10,"special,melee,weapon,attack,limitround","Perform only as a part of **Inspiration.**
+
+**On Hit:** The target is **Blinded** 3.",FALSE,FALSE,masquerade-improvisation
+masquerade-improvisation-special-2,Improvisation: Dazzlement,masquerade,4,1,0,,FALSE,,FALSE,,TRUE,10+[tier],"special,spell,limitround","Perform only as a part of **Inspiration.**
+
+Each adjacent hostile character makes a ***Resistance Roll** or is **Stunned +1**.",FALSE,FALSE,masquerade-improvisation
+masquerade-improvisation-special-3,Improvisation: Dynamics,masquerade,4,1,0,,FALSE,,FALSE,,FALSE,10,"special,movement,limitround","Perform only as a part of **Inspiration.**
+
+**Fly** 3.",FALSE,FALSE,masquerade-improvisation
+masquerade-improvisation-special-4,Improvisation: Dignity,masquerade,4,1,0,Range 3,FALSE,,FALSE,,FALSE,10,"special,support,limitround","Perform only as a part of **Inspiration.**
+
+You and up to one allied character within **Range** 3 each become **Blessed** and gain **Barrier** 3.",FALSE,FALSE,masquerade-improvisation
+masquerade-restage,Curtain Call,masquerade,5,reaction,3,Range 2,FALSE,,FALSE,,TRUE,10+[tier],"spell,reaction","**Condition:** A turn ends.
+
+**Effect (Focus Cost 3):** Up to one hostile character within **Range** suffers **+1** to each incremental **Condition** that character suffered this turn. Then, that character makes a **Resistance Roll** with **+1 Disadvantage** or suffers ***x*** **Piercing Chaos Damage**, where ***x*** is half the total amount of damage that character suffered this turn. ",FALSE,FALSE,
+masquerade-virtuoso,Virtuoso,masquerade,5,passive,0,,FALSE,,FALSE,,FALSE,10,bound,"**Bind** to an *Attack* **Action**.
+
+The **Bound Action** deals half damage and no bonus damage, and has **AP Cost -1** *(min. 1)*.",FALSE,FALSE,
+lightbearer-motes,Motes of Light,lightbearer,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"**Beginning of Encounter**: Create three **Motes of Light**. *(They're d6s with values that begin at ""1"".)*
+When you provide **Healing**, increase a **Mote of Light**'s value by the amount of **HP** the healed character gains.",FALSE,FALSE,
+lightbearer-searing-ray,Searing Ray,lightbearer,0,1,0,Range 5,FALSE,,TRUE,1,FALSE,10,"ranged,attack","**Flurry**
+
+As an additional cost, choose a **Mote of Light** with a value above ""1"". The base damage is equal to **1** + that **Mote of Light's** value. That **Mote of Light's** value becomes ""1"". You may repeat the attack against the same target or different targets any number of times, until all **Motes of Light** have values of ""1"".
+
+**Searing Ray** doesn't deal **Bonus Damage**, can't be **Bound**, and doesn't trigger **Reactions**.",FALSE,FALSE,
+lightbearer-radiant-touch,Radiant Touch,lightbearer,0,1,0,Melee,FALSE,,FALSE,,FALSE,10,"support,spell,limitround","Up to one allied character in **Range** receives **[mag]+1 Healing**.
+",FALSE,FALSE,
+lightbearer-ultimate,Prominence,lightbearer,0,0,0,,FALSE,,FALSE,,FALSE,10,"heroic,ultimate,spell","Create a **New Sun**, then remove your **Motes of Light** from play. *(The New Sun is a d20 with a value that begins at ""1"" plus the current combined values of your Motes of Light.)*
+
+While you have a **New Sun**:
+- **Start of Turn:** You receive 2 **Healing**.
+- You have **+1 Speed** and are **Flying**.
+- **Healing** you provide can exceed a character's maximum **HP**. When you provide **Healing**, increase the **New Sun's** value by the amount of **HP** the healed character gained. *(Excess HP is lost at the end of the encounter.)*
+- You can perform **Behold, The Glory of a New Sun!**
+",FALSE,FALSE,
+lightbearer-ultimate-special,Prominence: Behold The Glory of a New Sun,lightbearer,0,1,0,Range 5,FALSE,,FALSE,,FALSE,10,limitencounter,"Up to one hostile character in **Range** suffers **Piercing Damage** equal to the **New Sun's** value. That character and all adjacent characters are **Blinded 3**. Remove the **New Sun** from play and return your **Motes of Light** to play. *(Their values begin at ""1"". The hostile character isn't targeted; this action ignores cover and concealment as long as you can draw line of effect to the chosen character.)*",FALSE,FALSE,
+lightbearer-heroic-celestialblast,Celestial Blast,lightbearer,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"- **Start of Encounter:** Create a **Mote of Light**. *(Per the Featherblade's ""Motes of Light"" Basic Ability. Its value begins at ""1"" and increases when you heal characters.)*
+- The first time each turn you perform a *Spell Attack* **Action,** you may choose a **Mote of Light** with a value above 1. If you do, the spell deals bonus damage equal to the **Mote of Light's** value and the **Mote of Light** is turned to 1.",FALSE,TRUE,
+lightbearer-heroic-higher,"Higher, O Higher",lightbearer,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you perform **Rise Up Through The Night, Spend 1 Inspiration:** Instead of healing allied characters at the end of the movement, you heal each allied character you became adjacent to at any point during the movement. Characters healed this way clear **Prone** and are **Blessed**.",FALSE,TRUE,
+lightbearer-heroic-fountain,Fountain of Blood,lightbearer,0,passive,0,,FALSE,,FALSE,,FALSE,10,,"When you create a **Fountain of Light, Spend 1 Inspiration:** Your **Fountain of Light** has three additional charges. You and allied characters adjacent to the **Fountain** can now use the **1/Turn Reaction** and consume a charge to gain **+1 Advantage** on an **Attack Roll** or deal **+1d6 Bonus Damage** on a successful attack.",FALSE,TRUE,
+lightbearer-heroic-icariantrip,Icarian Trip,lightbearer,0,1,3,Range 12,FALSE,,FALSE,,FALSE,10,"support,spell,limitencounter",Teleport up to one allied character to a free adjacent space of their choice.,FALSE,TRUE,
+lightbearer-heroic-featherblade,Featherblade Stance,lightbearer,0,passive,0,,FALSE,,FALSE,,FALSE,10,stance,"Your **Attack Bonus** is increased by **1** and you have **Armor +1** *( max. 2 )* and an **Increased Focus Pool** (+3).
+
+You can't perform more than one *Attack* **Action** in a round.",FALSE,TRUE,
+lightbearer-sanctuary,Sanctuary,lightbearer,1,1,1,,FALSE,,FALSE,,FALSE,10,spell,"Perform **Sanctuary** only if it's your turn.
+
+**Sanctuary** doesn't trigger hostile **Reactions.**
+
+You can't be the target of attacks this turn.",FALSE,FALSE,
+lightbearer-lightbound,Lightbound,lightbearer,1,passive,0,,FALSE,,FALSE,,FALSE,10,,If you cast a *Spell* this turn: Your *Movement* ignores Difficult Terrain.,FALSE,FALSE,
+lightbearer-flash,Flash,lightbearer,1,1,2,Range 4,FALSE,,FALSE,,TRUE,10+[tier],"spell,limitround","Target hostile character makes a **Resistance Roll** or is **Blinded 2** until the end of their next turn.
+",FALSE,FALSE,
+lightbearer-guiding-bolt,Guiding Bolt,lightbearer,1,2,2,Range 4,TRUE,4+[tier],FALSE,,FALSE,10,"ranged,spell,attack,limitround",**On Hit:** The target becomes **Off Guard.**,FALSE,FALSE,
+lightbearer-curewounds,Cure Wounds,lightbearer,2,2,3,,FALSE,,FALSE,,FALSE,10,"support,spell,limitround",You or up to one allied character within **Range** receive [M]+2 **Healing.**,FALSE,FALSE,
+lightbearer-retribution,Retribution,lightbearer,2,reaction,2,,FALSE,,FALSE,,FALSE,10,"spell,reaction,limitround","**Condition**: A hostile character hits you with a *non-Spell Attack.*
+
+**Effect:** Choose one.
+- Each adjacent hostile character makes a **Resistance Roll** or suffers **3 Damage** and becomes **Blinded 2** until the end of their next turn.
+- You and adjacent allied characters receive 1 **Healing.**",FALSE,FALSE,
+lightbearer-lightbomb,Lightbomb,lightbearer,2,2,2,,FALSE,,FALSE,,TRUE,10+[tier],"support,spell,limitround","Choose a **Size 1 Area** in **Range.**
+- Up to one allied character in the area receives [M] **Healing.**
+
+- Up to one hostile character in the area makes a **Resistance Roll** or suffers [M] **DMG** and becomes **Off Guard.** A character that **Resists** suffers half the damage and isn't **Off Guard.**",FALSE,FALSE,
+lightbearer-sunlightstrike,Sunlight Strike,lightbearer,3,1,3,Melee,TRUE,[atk]+2,FALSE,,FALSE,10,"melee,spell,attack,limitround","**Flurry**
+
+**On Damage:** You or an adjacent allied character receives **Healing** equal to half the damage dealt. This **Healing** doesn't benefit from **Bonus Healing.**",FALSE,FALSE,
+lightbearer-tactical-emergency,Tactical Emergency,lightbearer,3,reaction,,,FALSE,,FALSE,,FALSE,10,"movement,reaction,limitround","**Condition:** An allied character takes damage.
+
+**Effect:** Perform a *Basic* **Move Action** as part of this **Reaction.** This movement must move as close as possible to that character via the shortest available path.",FALSE,FALSE,
+lightbearer-lightoflife,Light of Life,lightbearer,3,passive,,,FALSE,,FALSE,,FALSE,10,aura,"When an allied character within your *Aura* begins their turn, that character receives 1 **Healing.** *(Your Aura is a Size 1 Area centered on you.)*",FALSE,FALSE,
+lightbearer-soltenebris,Sol Tenebris,lightbearer,4,2,3,Range 3,FALSE,,FALSE,,TRUE,10+[tier],"spell,limitround",Target hostile character makes a **Resistance Roll** or becomes **Blinded 6** until the end of their next turn. A character that fails the **Resistance Roll** can't be targeted by **Sol Tenebris** again this encounter.,FALSE,FALSE,
+lightbearer-sunlightblade,Sunlight Blade,lightbearer,4,passive,,,FALSE,,FALSE,,FALSE,10,bound,"**Bind** to a non-Spell *Attack* **Action**.
+
+The **Bound** *Attack* has **1/Round,** **Focus Cost +1,** and **On Damage:** You or an adjacent allied character receives **Healing** equal to half the damage dealt. This **Healing** doesn't benefit from **Bonus Healing.**",FALSE,FALSE,
+lightbearer-fountain,Fountain of Light,lightbearer,4,2,3,Range 4,FALSE,,FALSE,,FALSE,10,"support,spell,limitencounter","Create a **Fountain of Light**. It occupies a tile within **Range,** but does not obstruct that tile. It has three **Charges** and disappears when the last charge is consumed.
+
+While adjacent to the **Fountain of Light,** you and allied characters have the **Ambrosia** Reaction.",FALSE,FALSE,
+lightbearer-fountain-special,Fountain of Light: Ambrosia,lightbearer,4,reaction,,,FALSE,,FALSE,,FALSE,10,"reaction,limitturn","**Condition:** You would be dealt damage or forced to make a **Resistance Roll.**
+
+**Effect:** Consume a charge from the **Fountain.** You gain **+3 Barrier** before taking that damage or gain **+1 Advantage on the Resistance Roll.**",FALSE,FALSE,lightbearer-fountain
+lightbearer-wingsofhope,Wings of Hope,lightbearer,5,1,3,,FALSE,,FALSE,,FALSE,10,"movement,spell,limitencounter","Until the start of your next turn, you are **Immobilized** and **Flying.** During this time, you also have **Damage Resistance** and the **Rise Up Through The Night** Reaction.",FALSE,FALSE,
+lightbearer-wingsofhope-special,Rise Up Through The Night,lightbearer,5,reaction,,,FALSE,,FALSE,,FALSE,10,"reaction,movement,limitencounter","**Condition:** Your turn begins.
+
+**Effect:** **Move 12**. **During this movement:** You are **Flying,** ignore **Reactions**, and can't change direction. **At the end of this movement,** you confer [mag] **Healing** to adjacent allied characters.",FALSE,FALSE,lightbearer-wingsofhope
+lightbearer-scour,Scour,lightbearer,5,3,5,Range 4,TRUE,2[atk]+2,FALSE,,FALSE,10,"ranged,spell,attack","**On Hit:** Adjacent hostile characters suffer half the damage dealt to the primary target. *(No roll.)*
+
+Apply half the total damage dealt to all hostile characters by this spell as **Healing,** increased by bonuses to your **Healing** and divided as you choose among yourself and allied characters within **Range 4.** This **Healing** doesn't benefit from **Bonus Healing**.",FALSE,FALSE,

@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "description": "Build tools for the Shard system compendium.",
+  "scripts": {
+    "build":  "node build-compendium.mjs",
+    "import": "node csv-to-source.mjs && node build-compendium.mjs"
+  },
+  "dependencies": {
+    "csv-parse": "^5.0.0",
+    "marked":    "^12.0.0"
+  }
+}

@@ -88,6 +88,13 @@
       "system": "shard"
     },
     {
+      "name": "shard-npc-actors",
+      "label": "NPC Templates",
+      "path": "packs/shard-npc-actors",
+      "type": "Actor",
+      "system": "shard"
+    },
+    {
       "name": "shard-macros",
       "label": "Shard Macros",
       "path": "packs/shard-macros",
@@ -97,6 +104,6 @@
   ],
   "socket": false,
   "url": "",
-  "manifest": "https://raw.githubusercontent.com/osiris-jones/Shard/refs/heads/main/system.json",
-  "download": "https://github.com/osiris-jones/Shard/releases/download/Releases/Shard.zip"
+  "manifest": "",
+  "download": ""
 }

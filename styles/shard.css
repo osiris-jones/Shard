@@ -180,6 +180,33 @@
   font-weight: bold;
 }
 
+/* ── NPC Tier Stepper ───────────────────────────────────────────────── */
+.tier-stepper {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.tier-stepper button {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--shard-border);
+  border-radius: 3px;
+  background: var(--shard-bg);
+  color: var(--shard-text);
+  cursor: pointer;
+  font-size: 0.85em;
+  line-height: 1;
+  padding: 0;
+}
+.tier-stepper button:hover { border-color: var(--shard-accent); color: var(--shard-accent); }
+.tier-val {
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--shard-gold);
+}
+
 /* ATK+ / MAG+ bonus pills — editable, dashed border to signal interactivity */
 .bonus-pill {
   border-style: dashed;
