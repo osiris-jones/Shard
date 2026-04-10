@@ -730,7 +730,7 @@
         "hasResistance": true,
         "resistanceDamage": "",
         "range": "Melee",
-        "effect": "<p>1/Round. Target hostile character makes a <strong>Resistance Roll</strong> or becomes <strong>Prone</strong>.</p>",
+        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or becomes <strong>Prone</strong> and suffers <strong>Push 2</strong>. A character that <strong>Resists</strong> suffers <strong>Push 1</strong>.</p>",
         "_tagIds": [
           "melee",
           "limitround"
@@ -832,7 +832,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p><strong>Heal</strong> costs (◆◆) but instead provides <strong>Regeneration X</strong> where X is half the target&#39;s missing HP.</p>",
+        "effect": "<p><strong>Heal</strong> costs <strong>2 AP</strong> but instead provides <strong>Regeneration X</strong> where X is half the target&#39;s missing HP.</p>",
         "_tagIds": []
       }
     },
@@ -883,7 +883,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Melee",
-        "effect": "<p><strong>+1 Disadvantage</strong>. <strong>On Hit:</strong> The Beast can perform <strong>Clamp</strong> as a Free Action. Against an <strong>Immobilized</strong> character: <strong>+1 Advantage</strong> and <strong>+3 Bonus Damage</strong>.</p>",
+        "effect": "<p><strong>+1 Disadvantage</strong>. <strong>On Hit:</strong> The Beast can perform <strong>Clamp</strong> as a Free Action.</p>\n<p>Against an <strong>Immobilized</strong> character: The attack has <strong>+1 Advantage</strong> and <strong>+3 Bonus Damage</strong>.</p>",
         "_tagIds": [
           "melee",
           "weapon",
@@ -909,11 +909,12 @@
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": true,
-        "resistanceDamage": "",
+        "resistanceDamage": "9+[tier]",
         "range": "Melee",
         "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or is <strong>Immobilized</strong> until they are no longer adjacent to the Beast.</p>",
         "_tagIds": [
-          "melee"
+          "melee",
+          "inaccurate"
         ]
       }
     },
@@ -990,7 +991,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>Perform <strong>Ragdoll</strong> only if a hostile character was <strong>Immobilized</strong> by <strong>Clamp</strong> at the beginning of the Beast&#39;s turn. The <strong>Immobilized</strong> character suffers <strong>Push 4</strong></p>",
+        "effect": "<p>Perform <strong>Ragdoll</strong> only if a hostile character was <strong>Immobilized</strong> by <strong>Clamp</strong> at the beginning of the Beast&#39;s turn. The <strong>Immobilized</strong> character suffers <strong>Push 4</strong>, <strong>Stunned 1</strong> and <strong>Chaos Damage</strong> equal to half their current HP. If it collides with another character both characters become <strong>Prone</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -1014,7 +1015,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>For the rest of the encounter: The Beast has 0 Armor and can&#39;t receive <strong>Healing</strong> or be targeted by <em>Support</em> <strong>Actions</strong>. It gains <strong>+1 SPD</strong> and gains <strong>(◆)</strong> at the beginning of each of its turns.</p>",
+        "effect": "<p>For the rest of the encounter: The Beast has 0 Armor and can&#39;t receive <strong>Healing</strong> or be targeted by <em>Support</em> <strong>Actions</strong>. It gains <strong>+1 SPD</strong> and gains <strong>1 AP</strong> at the beginning of each of its turns.</p>",
         "_tagIds": []
       }
     },
@@ -1114,13 +1115,12 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Range 2",
-        "effect": "<p>1/Turn. <strong>Condition:</strong> The Guardian takes damage.<br><strong>Effect:</strong> Deal [tier]+1 damage to the attacker within Range 2.</p>",
+        "effect": "<p><strong>Condition:</strong> The Guardian takes damage from a hostile character within <strong>Range 2</strong>.<br><strong>Effect:</strong> Deal [tier]+1 damage to the attacker within Range 2. This is a <strong>Free Reaction</strong> and can be used any number of times.</p>",
         "_tagIds": [
           "melee",
           "weapon",
           "attack",
-          "reaction",
-          "limitturn"
+          "reaction"
         ]
       }
     },
@@ -1144,7 +1144,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>Adjacent tiles are <strong>Difficult Terrain</strong> for hostile characters.</p>",
+        "effect": "<p>Hostile characters treat adjacent spaces as <strong>Difficult Terrain</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -1168,7 +1168,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>The Guardian and adjacent allies have <strong>Damage Resistance</strong>. This doesn&#39;t apply while the Guardian is <strong>Prone</strong> or <strong>Immobilized</strong>.</p>",
+        "effect": "<p>The Guardian and adjacent allies have <strong>Damage Resistance</strong>. This doesn&#39;t apply while the Guardian is <strong>Prone</strong>, <strong>Stunned</strong>, or <strong>Immobilized</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -1218,7 +1218,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Range 3",
-        "effect": "<p><strong>On Hit:</strong> Repeat the attack with <strong>Flurry</strong> against a different character within Range 2 of the previous target. This effect can occur no more than [tier]+1 times.</p>",
+        "effect": "<p>When you perform <strong>Bouncing Shield</strong> and hit, you may repeat the attack with <strong>Flurry</strong> against a different character within Range 2 of the previous target. This effect can occur no more than [tier]+1 times.</p>",
         "_tagIds": [
           "ranged",
           "weapon",
@@ -1403,7 +1403,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character within Range 2 performs a <em>Movement</em> <strong>Action</strong>.<br><strong>Effect:</strong> Perform <strong>Melee Attack</strong> on the triggering character before the triggering <strong>Action</strong>.</p>",
+        "effect": "<ul>\n<li><strong>Condition:</strong> A hostile character within Range 2 performs a <em>Movement</em> <strong>Action</strong>.</li>\n<li><strong>Effect:</strong> Perform <strong>Melee Attack</strong> on the triggering character before the triggering <strong>Action</strong>.</li>\n</ul>",
         "_tagIds": [
           "melee",
           "weapon",
@@ -1433,7 +1433,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>The next time the Sentinel performs <strong>Melee Attack</strong> against a target this turn the Sentinel performs <strong>Melee Attack</strong> twice against that target instead.</p>",
+        "effect": "<p>The next time the Sentinel would perform <strong>Melee Attack</strong> against a target, the Sentinel performs <strong>Melee Attack</strong> twice against that target instead.</p>",
         "_tagIds": []
       }
     },
@@ -1457,7 +1457,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>The Sentinel is <strong>Immobilized</strong> until <strong>Combat Reflexes</strong> is deactivated (◆◆). While active: <strong>Attack of Opportunity</strong> triggers <strong>1/Turn</strong> instead of <strong>1/Round</strong>.</p>",
+        "effect": "<p>The Sentinel is <strong>Immobilized</strong> until <strong>Combat Reflexes</strong> is deactivated. (<strong>Deactivate:</strong> ◆◆). </p>\n<p>While active: <strong>Attack of Opportunity</strong> is <strong>1/Turn</strong> instead of <strong>1/Round</strong>.</p>",
         "_tagIds": [
           "special"
         ]
@@ -1624,13 +1624,13 @@
         "cost": "3",
         "charged": false,
         "isAttack": true,
-        "damage": "[X]+[tier]",
+        "damage": "0",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Melee",
-        "effect": "<p>Only available at Initiative. <strong>+1 Advantage</strong>. X equals half the target&#39;s Max HP. Deals <strong>Piercing Chaos Damage</strong>.</p>",
+        "effect": "<p>Perform Executioner&#39;s Swing only with <strong>Initiative</strong>.</p>\n<p> <strong>+1 Advantage</strong>.</p>\n<p>Deals bonus <strong>Piercing Chaos Damage</strong> equal to half the target&#39;s max HP.</p>",
         "_tagIds": [
           "melee",
           "weapon",
@@ -1659,7 +1659,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>Reduces the <strong>AP Cost</strong> of the next <strong>Executioner&#39;s Swing</strong> by 1.</p>",
+        "effect": "<p>Reduces the <strong>AP Cost</strong> of the next <strong>Executioner&#39;s Swing</strong> by 1. <strong>Executioner&#39;s Swing</strong> can&#39;t be performed next turn.</p>",
         "_tagIds": []
       }
     },
@@ -1788,7 +1788,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>When the Executioner reduces a hostile character to 0 HP hostile characters in a <strong>Size 3 Area</strong> centered on the Executioner make a <strong>Resistance Roll</strong></p>",
+        "effect": "<p>When the Executioner reduces a hostile character to 0 HP hostile characters in a <strong>Size 3 Area</strong> centered on the Executioner make a <strong>Resistance Roll</strong>. A character that fails is <strong>Immobilized 1</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -1812,7 +1812,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>When the Executioner performs <strong>Executioner&#39;s Swing</strong>: X equals the target&#39;s maximum HP.</p>",
+        "effect": "<p><strong>Executioner&#39;s Swing</strong> deals double damage.</p>",
         "_tagIds": []
       }
     },
@@ -1826,16 +1826,16 @@
         }
       },
       "system": {
-        "tier": "optional",
+        "tier": "basic",
         "cost": "1",
         "charged": false,
-        "isAttack": false,
-        "damage": "",
+        "isAttack": true,
+        "damage": "[tier]+3",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "",
+        "range": "Melee",
         "effect": "",
         "_tagIds": []
       }
@@ -1850,8 +1850,8 @@
         }
       },
       "system": {
-        "tier": "optional",
-        "cost": "1",
+        "tier": "basic",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -1860,7 +1860,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p>When this NPC is created, choose an adaptation.</p>\n<ul>\n<li>Wings: The Scourge is Flying.</li>\n<li>Plating: The Scourge has +2 Armor.</li>\n<li>Fast: The Scourge has +1 Speed.</li>\n<li>Reflective: The Scourge has +1 Advantage on Resistance Rolls.</li>\n</ul>",
         "_tagIds": []
       }
     },
@@ -1875,17 +1875,19 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "2",
         "charged": false,
-        "isAttack": false,
-        "damage": "",
+        "isAttack": true,
+        "damage": "[tier]+3",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "",
+        "range": "Line 8",
         "effect": "",
-        "_tagIds": []
+        "_tagIds": [
+          "attack"
+        ]
       }
     },
     {
@@ -1899,21 +1901,23 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "2",
         "charged": false,
-        "isAttack": false,
-        "damage": "",
+        "isAttack": true,
+        "damage": "[tier]+3",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "",
+        "range": "Cone 3",
         "effect": "",
-        "_tagIds": []
+        "_tagIds": [
+          "attack"
+        ]
       }
     },
     {
-      "name": "Scourge: Emanation - Line",
+      "name": "Scourge: Emanation - Blast",
       "type": "npc-ability",
       "flags": {
         "shard": {
@@ -1923,17 +1927,19 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "2",
         "charged": false,
-        "isAttack": false,
-        "damage": "",
+        "isAttack": true,
+        "damage": "[tier]+3",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "",
-        "effect": "",
-        "_tagIds": []
+        "range": "Special",
+        "effect": "<p>Targets a <strong>Size 1 Area</strong> within <strong>Range 2</strong>.</p>",
+        "_tagIds": [
+          "attack"
+        ]
       }
     },
     {
@@ -2207,7 +2213,7 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -2216,7 +2222,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p><strong>Set Snare</strong> is <strong>Charged</strong> instead of <strong>1/Encounter</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -2551,7 +2557,7 @@
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": true,
-        "resistanceDamage": "",
+        "resistanceDamage": "9+[tier]",
         "range": "Range 6",
         "effect": "<p>1/Round. <strong>On Hit:</strong> Target makes a <strong>Resistance Roll</strong>. On a failure that character performs <em>Move</em> toward the Angel.</p>",
         "_tagIds": [
@@ -2962,7 +2968,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character&#39;s dice show exactly two 1s.<br><strong>Effect:</strong> That character treats the other shown value as 0 on all future rolls.</p>",
+        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character within <strong>Range 4</strong> makes an <strong>Action Resolution</strong> where the dice show exactly two &quot;1&quot;s.<br><strong>Effect:</strong> Consult the other number shown on the dice. For the rest of the encounter or until the Aberration is defeated � that character treats that value on any die they roll (including an Action Resolution, Advantage, Disadvantage, or damage die) as a 0.</p>",
         "_tagIds": [
           "reaction",
           "limitround"
@@ -3013,7 +3019,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>Damage and Conditions dealt by the Aberration also apply to the next hostile character in alphabetical order.</p>",
+        "effect": "<p>When the Aberration deals damage or inflicts a <strong>Condition</strong> to a hostile non-Summoned character, the hostile character subsequently named in alphabetical order (looping, if necessary) also suffers that much damage or suffers that Condition. <em>(Apply the base damage before defenses. No roll.)</em></p>",
         "_tagIds": []
       }
     },
@@ -3037,7 +3043,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Melee",
-        "effect": "<p>1/Round. Perform <strong>Destroy Summon</strong> only with <strong>Initiative</strong>. <strong>On Hit:</strong> The target <strong>Summoned</strong> character is reduced to 0 HP. (No roll.)</p>",
+        "effect": "<p>Perform <strong>Destroy Summon</strong> only with <strong>Initiative</strong>. </p>\n<p><strong>On Hit:</strong> The target <strong>Summoned</strong> character is reduced to 0 HP. (No roll.)</p>",
         "_tagIds": [
           "melee",
           "weapon",
@@ -3092,7 +3098,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Range 4",
-        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character within Range 4 is reduced to 0 HP.<br><strong>Effect:</strong> For the rest of the Quest that character can&#39;t use a <strong>Narrative Tag</strong> of the Aberration&#39;s choice.</p>",
+        "effect": "<p>1/Round. <strong>Condition:</strong> A hostile character within Range 4 is reduced to 0 HP.<br><strong>Effect:</strong> For the rest of the Quest, that character can&#39;t use a <strong>Narrative Tag</strong> of the Aberration&#39;s choice.</p>",
         "_tagIds": [
           "reaction",
           "limitround"
@@ -3257,8 +3263,8 @@
         }
       },
       "system": {
-        "tier": "optional",
-        "cost": "1",
+        "tier": "basic",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3267,7 +3273,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p><strong>Max HP</strong> +5</p>",
         "_tagIds": []
       }
     },
@@ -3282,7 +3288,7 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3291,7 +3297,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p><strong>Damage Resistance</strong> from <em>Spell</em> <strong>Actions</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -3308,15 +3314,19 @@
         "tier": "optional",
         "cost": "1",
         "charged": false,
-        "isAttack": false,
-        "damage": "",
-        "hasGraze": false,
-        "grazeDamage": "",
+        "isAttack": true,
+        "damage": "2+[tier]",
+        "hasGraze": true,
+        "grazeDamage": "1",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "",
-        "effect": "",
-        "_tagIds": []
+        "range": "Melee",
+        "effect": "<p><strong>On Hit</strong>: The target is <strong>Silenced 1</strong>. <em>(They can&#39;t perform Spell Actions. It&#39;s a special Condition.)</em></p>",
+        "_tagIds": [
+          "melee",
+          "attack",
+          "limitround"
+        ]
       }
     },
     {
@@ -3329,8 +3339,8 @@
         }
       },
       "system": {
-        "tier": "optional",
-        "cost": "1",
+        "tier": "basic",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3339,7 +3349,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p><strong>Max HP</strong> +5</p>",
         "_tagIds": []
       }
     },
@@ -3353,8 +3363,8 @@
         }
       },
       "system": {
-        "tier": "optional",
-        "cost": "1",
+        "tier": "basic",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3363,7 +3373,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<ul>\n<li>The character occupies an area of increased size. They can fit into an area as small as <strong>1x2</strong> but treat that area as <strong>Difficult Terrain</strong>.</li>\n<li>The character is immune to <strong>Involuntary Movement</strong>.</li>\n<li>The character can never gain <strong>Concealment</strong> or perform <em>Stealth</em> <strong>Actions</strong>.</li>\n</ul>\n<p><em>(Areas of effect that originate from a Large character may be larger. Range is drawn from or to any tile you occupy.)</em></p>",
         "_tagIds": []
       }
     },
@@ -3378,7 +3388,7 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3387,7 +3397,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p>Can&#39;t be <strong>Immobilized</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -3402,7 +3412,7 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3411,7 +3421,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p><strong>+1 Armor</strong> <em>(max. 3)</em>.</p>",
         "_tagIds": []
       }
     },
@@ -3425,7 +3435,7 @@
         }
       },
       "system": {
-        "tier": "optional",
+        "tier": "basic",
         "cost": "1",
         "charged": false,
         "isAttack": false,
@@ -3435,7 +3445,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p><strong>Max HP</strong> +5</p>",
         "_tagIds": []
       }
     },
@@ -3449,7 +3459,7 @@
         }
       },
       "system": {
-        "tier": "optional",
+        "tier": "basic",
         "cost": "1",
         "charged": false,
         "isAttack": false,
@@ -3458,9 +3468,13 @@
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "",
-        "effect": "",
-        "_tagIds": []
+        "range": "Range 5",
+        "effect": "<p>An allied character in <strong>Range</strong> performs <strong>Move</strong>.</p>",
+        "_tagIds": [
+          "support",
+          "spell",
+          "limitround"
+        ]
       }
     },
     {
@@ -3474,17 +3488,21 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "reaction",
         "charged": false,
         "isAttack": false,
         "damage": "",
         "hasGraze": false,
         "grazeDamage": "",
-        "hasResistance": false,
+        "hasResistance": true,
         "resistanceDamage": "",
-        "range": "",
-        "effect": "",
-        "_tagIds": []
+        "range": "Range 5",
+        "effect": "<ul>\n<li><strong>Condition:</strong> An allied character fails <strong>Resistance Roll</strong>.</li>\n<li><strong>Effect:</strong> The character gains <strong>3 Barrier</strong> and prevents up to one <strong>Condition</strong> applied by the triggering <strong>Resistance Roll</strong>&#39;s effect.</li>\n</ul>",
+        "_tagIds": [
+          "support",
+          "reaction",
+          "limitround"
+        ]
       }
     },
     {
@@ -3506,9 +3524,13 @@
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "",
-        "effect": "",
-        "_tagIds": []
+        "range": "Range 5",
+        "effect": "<p>An allied character in <strong>Range</strong> performs a <em>non-Spell</em> <em>Attack</em> <strong>Action</strong> that costs <strong>2 AP</strong> or less as a <strong>Free Action</strong>. It deals half damage and no bonus damage.</p>",
+        "_tagIds": [
+          "support",
+          "spell",
+          "limitround"
+        ]
       }
     },
     {
@@ -3521,8 +3543,8 @@
         }
       },
       "system": {
-        "tier": "optional",
-        "cost": "1",
+        "tier": "basic",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3531,7 +3553,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p>Immune to <strong>Difficult Terrain</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -3545,7 +3567,7 @@
         }
       },
       "system": {
-        "tier": "optional",
+        "tier": "basic",
         "cost": "1",
         "charged": false,
         "isAttack": false,
@@ -3554,9 +3576,11 @@
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "",
-        "effect": "",
-        "_tagIds": []
+        "range": "Range 8",
+        "effect": "<p>A hostile character in <strong>Range</strong> loses <strong>Concealment</strong> and becomes <strong>Off Guard</strong>.</p>",
+        "_tagIds": [
+          "limitround"
+        ]
       }
     },
     {
@@ -3570,7 +3594,7 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3579,7 +3603,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p>The <strong>Ranger&#39;s</strong> <em>Ranged Attack</em> <strong>Actions</strong> have <strong>+2 Range</strong> and <strong>Minimum Range</strong> 3. <em>(They can&#39;t target characters closer than 3 spaces away.)</em></p>",
         "_tagIds": []
       }
     },
@@ -3594,7 +3618,7 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3603,7 +3627,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p><strong>Concealment 2</strong> while in <strong>Difficult Terrain</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -3618,7 +3642,7 @@
       },
       "system": {
         "tier": "optional",
-        "cost": "1",
+        "cost": "passive",
         "charged": false,
         "isAttack": false,
         "damage": "",
@@ -3627,7 +3651,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "",
+        "effect": "<p>Treats <strong>obstructions</strong> as <strong>cover</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -4438,6 +4462,548 @@
         "_tagIds": [
           "limitround"
         ]
+      }
+    },
+    {
+      "name": "Elite: Presence",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-presence",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li>Maximum <strong>HP</strong> is <strong>doubled</strong>.</li>\n<li>Takes an additional turn in combat, and has an additional ability.</li>\n<li>The additional ability is either an Elite ability or an ability from any NPC class.</li>\n</ul>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Elite: Dodge",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-dodge",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Move</strong> 1, ignoring <strong>difficult terrain</strong>. <strong>Elite Dodge</strong> doesn&#39;t trigger hostile <strong>Reactions</strong>.</p>",
+        "_tagIds": [
+          "movement",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Elite: Shove",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-shove",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or becomes <strong>Prone</strong> and suffers <strong>Push 2</strong>. A character that <strong>Resists</strong> suffers <strong>Push 1</strong>.</p>",
+        "_tagIds": [
+          "melee"
+        ]
+      }
+    },
+    {
+      "name": "Elite: Attack of Opportunity",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-opportunity",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Condition:</strong> A hostile character within the range of a <strong>Melee Attack Action</strong> performs a <em>Movement</em> <strong>Action</strong>.</p>\n<p><strong>Effect:</strong> Perform that <strong>Melee Attack</strong> on the triggering character before the triggering <em>Movement</em>. The attack deals half damage.</p>",
+        "_tagIds": [
+          "attack",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Elite: Binding",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-binding",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Melee",
+        "effect": "<p>Target hostile character becomes <strong>Off Guard</strong> and makes a <strong>Resistance Roll</strong> or is <strong>Immobilized 1</strong>. A character that <strong>Resists</strong> is <strong>Slowed 1</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Elite: Combat Reflexes",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-reflexes",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Unlimited reactions per turn.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Elite: Defenses",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-defenses",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>+1 Defense and +1 Advantage on Resistance Rolls.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Elite: Calamity",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-calamity",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Bind</strong> to an <em>Attack</em> <strong>Action</strong>. <em>(Bind when the NPC is created.)</em><br>The <strong>Bound</strong> <em>Attack</em> has +1 Advantage and deals +4 Bonus Damage on a Critical Hit.</p>",
+        "_tagIds": [
+          "bound"
+        ]
+      }
+    },
+    {
+      "name": "Elite: Cadence",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-cadence",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The <strong>Elite</strong> has an additional turn in combat, but has <strong>Maximum Turn AP: 2</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Elite: Flight",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-elite-flight",
+          "sourceClass": "npc-template-elite"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The <strong>Elite</strong> is <strong>Flying</strong> while moving.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Large: Directional Shield",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-large-directionalshield",
+          "sourceClass": "npc-template-large"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li>The Large NPC can&#39;t change directions during <em>Movement</em> and has a Directional Shield. It has <strong>Damage Resistance</strong> against attacks drawn through one side (the shielded side) of its token. It chooses which side of its token is the shielded side at the end of any <em>Movement</em>.</li>\n<li>The NPC is no longer immune to <strong>involuntary movement</strong>, but if it would suffer <strong>Push</strong> or <strong>Pull</strong>, instead: it doesn&#39;t, and the source of that <strong>Push</strong> or <strong>Pull</strong> may change the token&#39;s shielded side to a side of their choice.</li>\n</ul>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Phantasm: Phantasm Arrow",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-arrow",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "2[tier]+2",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Line 5",
+        "effect": "<p><strong>Phantasm Arrow</strong> treats <strong>Obstructions</strong> as <strong>Cover</strong>. All characters in the <strong>Line</strong> become targets.</p>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack",
+          "accurate"
+        ]
+      }
+    },
+    {
+      "name": "Phantasm: Distortion",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-distortion",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "0",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 10",
+        "effect": "<p>Swap places with a <strong>Phantasmata</strong> within <strong>Range</strong>.</p>",
+        "_tagIds": [
+          "movement",
+          "spell",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Phantasm: Doppelganger",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-doppelganger",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 10",
+        "effect": "<p>Create a <strong>Phantasmata</strong> in a free tile within range. <strong>Phantasmata</strong> have the same <strong>Defense</strong> as the character that created them, automatically succeed on <strong>Resistance Rolls</strong>, and take no damage when succeeding on a <strong>Resistance Roll</strong>. A character can destroy a <strong>Phantasmata</strong> with a successful <em>Attack</em> that deals 1 or more damage, or by Studying it with a successful Resistance Roll.</p>",
+        "_tagIds": [
+          "spell",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Phantasm: Phantasmagoria",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-phantasmagoria",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "3",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 10",
+        "effect": "<p>If you have no active <strong>Phantasmata</strong>: For each hostile scoring character, create one <strong>Phantasmata</strong> in a free tile within range. <strong>Phantasmata</strong> have the same <strong>Defense</strong> as the character that created them, automatically succeed on <strong>Resistance Rolls</strong>, and take no damage when succeeding on a <strong>Resistance Roll</strong>. A character can destroy a <strong>Phantasmata</strong> with a successful <em>Attack</em> that deals 1 or more damage, or by Studying it with a successful Resistance Roll.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Phantasm: Deception",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-deception",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Deception</strong> is a <strong>Free Reaction</strong>.</p>\n<p>&#39;- <strong>Condition:</strong> The <strong>Phantasm</strong> becomes the target of any <em>Attack</em> <strong>Action</strong> while a <strong>Phantasmata</strong> is within <strong>Range</strong> 10 of the <strong>Phantasm</strong>.</p>\n<ul>\n<li><strong>Effect:</strong> The attacker makes a <strong>Resistance Roll</strong>. On a failure, the <strong>Phantasmata</strong> is destroyed and the <strong>Phantasm</strong> teleports to its tile. The attack misses automatically, and the <strong>Phantasm</strong> suffers no damage or secondary effects from the attack.</li>\n</ul>",
+        "_tagIds": [
+          "reaction"
+        ]
+      }
+    },
+    {
+      "name": "Phantasm: Phantom Edge",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-edge",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "3+[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<ul>\n<li>All hostile characters in Range become targets.</li>\n<li>When a Phantasmata is destroyed, that Phantasmata performs this attack.</li>\n</ul>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Phantasm: Misdirection",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-misdirection",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li><strong>Condition:</strong> The <strong>Phantasm</strong> takes nonzero damage.</li>\n<li><strong>Effect:</strong> The <strong>Phantasm</strong> creates a <strong>Phantasmata</strong> in an adjacent tile, then gains <strong>Concealment 3</strong> and may <strong>Move</strong> 4. This <em>Movement</em> doesn&#39;t trigger hostile <strong>Reactions</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "movement",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "name": "Phantasm: Hallucination",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-hallucination",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 5",
+        "effect": "<p>Create a Phantasmata adjacent to up to one hostile character in Range. That character makes a <strong>Resistance Roll</strong> or is perpetually <strong>Dazed</strong> until they end a turn while not within Range 5 of a Phantasm. A character that <strong>Resists</strong> is <strong>Dazed 1</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Phantasm: Beamsplitter",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-beamsplitter",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li>When performing <strong>Phantasm Arrow</strong>, you may draw the line from any active <strong>Phantasmata</strong>.</li>\n<li>When <strong>Phantasm Arrow&#39;s</strong> line extends through a <strong>Phantasmata</strong>, instead of attacking that <strong>Phantasmata</strong>, the <strong>Line</strong> terminates and may extend in a new <strong>Line 5</strong> originating from that <strong>Phantasmata</strong>.</li>\n</ul>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Phantasm: Blur",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "phantasm-blur",
+          "sourceClass": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Attacks against allied characters adjacent to a <strong>Phantasmata</strong> have <strong>+1 Disadvantage</strong>.</p>",
+        "_tagIds": []
       }
     }
   ],
@@ -5369,6 +5935,77 @@
           }
         ]
       }
+    },
+    {
+      "name": "Phantasm",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-phantasm"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 6,
+          "hpBonus": 2,
+          "def": 9,
+          "spd": 4,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "phantasm-arrow",
+            "name": "Phantasm: Phantasm Arrow",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-distortion",
+            "name": "Phantasm: Distortion",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-doppelganger",
+            "name": "Phantasm: Doppelganger",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-phantasmagoria",
+            "name": "Phantasm: Phantasmagoria",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-deception",
+            "name": "Phantasm: Deception",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-edge",
+            "name": "Phantasm: Phantom Edge",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-misdirection",
+            "name": "Phantasm: Misdirection",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-hallucination",
+            "name": "Phantasm: Hallucination",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-beamsplitter",
+            "name": "Phantasm: Beamsplitter",
+            "tier": "basic"
+          },
+          {
+            "id": "phantasm-blur",
+            "name": "Phantasm: Blur",
+            "tier": "basic"
+          }
+        ]
+      }
     }
   ],
   "npcTemplates": [
@@ -5430,6 +6067,11 @@
           {
             "id": "template-large-plated",
             "name": "Large: Plated",
+            "tier": "basic"
+          },
+          {
+            "id": "template-large-directionalshield",
+            "name": "Large: Directional Shield",
             "tier": "basic"
           }
         ]
@@ -5693,6 +6335,70 @@
           {
             "id": "template-trickster-shadowswap",
             "name": "Trickster: Shadow Swap",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Elite",
+      "type": "npc-template",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-template-elite"
+        }
+      },
+      "system": {
+        "description": "",
+        "_abilityIds": [
+          {
+            "id": "template-elite-presence",
+            "name": "Elite: Presence",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-dodge",
+            "name": "Elite: Dodge",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-shove",
+            "name": "Elite: Shove",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-opportunity",
+            "name": "Elite: Attack of Opportunity",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-binding",
+            "name": "Elite: Binding",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-reflexes",
+            "name": "Elite: Combat Reflexes",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-defenses",
+            "name": "Elite: Defenses",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-calamity",
+            "name": "Elite: Calamity",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-cadence",
+            "name": "Elite: Cadence",
+            "tier": "basic"
+          },
+          {
+            "id": "template-elite-flight",
+            "name": "Elite: Flight",
             "tier": "basic"
           }
         ]
