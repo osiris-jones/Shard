@@ -104,6 +104,6 @@
   ],
   "socket": false,
   "url": "",
-  "manifest": "",
-  "download": ""
+  "manifest": "https://raw.githubusercontent.com/osiris-jones/Shard/refs/heads/main/system.json",
+  "download": "https://github.com/osiris-jones/Shard/releases/download/v0.1.1/Shard.7z"
 }
