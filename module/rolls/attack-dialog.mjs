@@ -366,9 +366,11 @@ Hooks.on("renderChatMessage", (message, html) => {
 
   // Damage / graze / crit-damage buttons on attack cards
   if (flags.attackCard) {
-    html.on("click", ".roll-damage-btn",      () => _rollDamageFromCard(message, false));
-    html.on("click", ".roll-graze-btn",       () => _rollDamageFromCard(message, true));
-    html.on("click", ".roll-crit-damage-btn", () => _rollCritDamageFromCard(message));
+    html.on("click",       ".roll-damage-btn",      () => _rollDamageFromCard(message, false));
+    html.on("click",       ".roll-graze-btn",       () => _rollDamageFromCard(message, true));
+    html.on("click",       ".roll-crit-damage-btn", () => _rollCritDamageFromCard(message));
+    html.on("contextmenu", ".roll-damage-btn, .roll-graze-btn, .roll-crit-damage-btn",
+      ev => _showDamageContextMenu(ev, message));
   }
 
   // Resistance roll button — visible to anyone with a controlled/selected token
@@ -395,7 +397,7 @@ Hooks.on("renderChatMessage", (message, html) => {
   }
 });
 
-async function _rollDamageFromCard(message, isGraze) {
+async function _rollDamageFromCard(message, isGraze, isHalf = false) {
   const flags   = message.flags?.shard ?? {};
   const formula = isGraze ? flags.grazeFormula : flags.damageFormula;
   if (!formula) return;
@@ -403,7 +405,8 @@ async function _rollDamageFromCard(message, isGraze) {
   const roll = new Roll(formula);
   await roll.evaluate();
 
-  const raw = roll.total + (isGraze ? 0 : (flags.damageBonus ?? 0));
+  const rollFull = roll.total + (isGraze ? 0 : (flags.damageBonus ?? 0));
+  const raw      = isHalf ? Math.ceil(rollFull / 2) : rollFull;
 
   // Collect targets eligible for this roll (hit targets for damage, miss for graze)
   const perTarget  = flags.perTarget ?? [];
@@ -435,7 +438,7 @@ async function _rollDamageFromCard(message, isGraze) {
 
   const html = await renderTemplate(
     "systems/shard/templates/chat/damage-card.hbs",
-    { roll, raw, isGraze, appliedTargets }
+    { roll, raw, rollFull, isGraze, isHalf, appliedTargets }
   );
 
   return ChatMessage.create({
@@ -460,7 +463,7 @@ async function _rollDamageFromCard(message, isGraze) {
  * Roll maximized (critical) damage and apply it only to targets that scored a crit.
  * Maximizing substitutes each die with its maximum face value — no randomness.
  */
-async function _rollCritDamageFromCard(message) {
+async function _rollCritDamageFromCard(message, isHalf = false) {
   const flags   = message.flags?.shard ?? {};
   const formula = flags.damageFormula;
   if (!formula) return;
@@ -468,7 +471,8 @@ async function _rollCritDamageFromCard(message) {
   const roll = new Roll(formula);
   await roll.evaluate({ maximize: true });
 
-  const raw = roll.total + (flags.damageBonus ?? 0);
+  const rollFull = roll.total + (flags.damageBonus ?? 0);
+  const raw      = isHalf ? Math.ceil(rollFull / 2) : rollFull;
 
   const perTarget  = flags.perTarget ?? [];
   const applicable = perTarget.filter(t => t.id && t.isCrit === true);
@@ -496,7 +500,7 @@ async function _rollCritDamageFromCard(message) {
 
   const html = await renderTemplate(
     "systems/shard/templates/chat/damage-card.hbs",
-    { roll, raw, isGraze: false, isCrit: true, appliedTargets }
+    { roll, raw, rollFull, isGraze: false, isCrit: true, isHalf, appliedTargets }
   );
 
   return ChatMessage.create({
@@ -514,6 +518,60 @@ async function _rollCritDamageFromCard(message) {
         }))
       }
     }
+  });
+}
+
+function _showDamageContextMenu(event, message) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  // Remove any existing menu
+  document.querySelectorAll(".shard-damage-ctx").forEach(el => el.remove());
+
+  const btn     = event.currentTarget;
+  const isGraze = btn.classList.contains("roll-graze-btn");
+  const isCrit  = btn.classList.contains("roll-crit-damage-btn");
+  const fullLabel = isCrit ? "Critical Damage" : isGraze ? "Graze" : "Roll Damage";
+
+  const menu = document.createElement("div");
+  menu.className = "shard-damage-ctx";
+  menu.innerHTML = `
+    <div class="ctx-item ctx-full"><i class="fas fa-skull"></i> ${fullLabel}</div>
+    <div class="ctx-item ctx-half"><i class="fas fa-adjust"></i> Deal Half</div>
+  `;
+
+  // Position below the button; flip above if near the viewport bottom
+  const rect      = btn.getBoundingClientRect();
+  const MENU_H    = 76;
+  const top       = (rect.bottom + MENU_H > window.innerHeight)
+    ? rect.top - MENU_H - 4
+    : rect.bottom + 4;
+  menu.style.top  = `${top}px`;
+  menu.style.left = `${rect.left}px`;
+  document.body.appendChild(menu);
+
+  const close = () => {
+    menu.remove();
+    document.removeEventListener("click",       close, true);
+    document.removeEventListener("contextmenu", close, true);
+  };
+  // Defer so this event doesn't immediately close the menu
+  setTimeout(() => {
+    document.addEventListener("click",       close, true);
+    document.addEventListener("contextmenu", close, true);
+  }, 0);
+
+  menu.querySelector(".ctx-full").addEventListener("click", e => {
+    e.stopPropagation();
+    close();
+    if (isCrit) _rollCritDamageFromCard(message, false);
+    else        _rollDamageFromCard(message, isGraze, false);
+  });
+  menu.querySelector(".ctx-half").addEventListener("click", e => {
+    e.stopPropagation();
+    close();
+    if (isCrit) _rollCritDamageFromCard(message, true);
+    else        _rollDamageFromCard(message, isGraze, true);
   });
 }
 

@@ -1,8 +1,14 @@
 {{! templates/chat/damage-card.hbs }}
-<div class="shard-chat-card damage-card {{#if isGraze}}graze-card{{else if isCrit}}crit-card{{/if}}">
+<div class="shard-chat-card damage-card {{#if isGraze}}graze-card{{else if isCrit}}crit-card{{/if}}{{#if isHalf}} half-card{{/if}}">
 
   <div class="card-header">
-    <span class="damage-label">{{#if isGraze}}Graze Damage{{else if isCrit}}Critical Damage{{else}}Damage{{/if}}</span>
+    <span class="damage-label">
+      {{#if isHalf}}
+        {{#if isGraze}}½ Graze{{else if isCrit}}½ Critical{{else}}½ Damage{{/if}}
+      {{else}}
+        {{#if isGraze}}Graze Damage{{else if isCrit}}Critical Damage{{else}}Damage{{/if}}
+      {{/if}}
+    </span>
   </div>
 
   <div class="card-body">
@@ -30,7 +36,9 @@
       </div>
     {{/if}}
 
-    <div class="roll-formula hint">{{roll.formula}} = {{raw}}</div>
+    <div class="roll-formula hint">
+      {{roll.formula}}{{#if isHalf}} = {{rollFull}} → ½ = {{raw}}{{else}} = {{raw}}{{/if}}
+    </div>
   </div>
 
 </div>

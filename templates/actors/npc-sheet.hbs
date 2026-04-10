@@ -48,7 +48,11 @@
       <input name="system.stats.armor" type="number" value="{{system.stats.armor}}" style="width:40px" />
     </div>
     <div class="stat-pill"><span class="stat-label">TIER</span>
-      <input name="system.stats.tier" type="number" value="{{system.stats.tier}}" style="width:40px" />
+      <div class="tier-stepper">
+        <button type="button" class="tier-step" data-delta="-1">−</button>
+        <span class="tier-val">{{system.stats.tier}}</span>
+        <button type="button" class="tier-step" data-delta="1">+</button>
+      </div>
     </div>
   </section>
 

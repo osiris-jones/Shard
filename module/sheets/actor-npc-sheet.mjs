@@ -236,6 +236,9 @@ export class ShardNPCActorSheet extends ActorSheet {
     html.on("click", ".item-delete", this._onItemDelete.bind(this));
     html.on("click", ".item-edit",   this._onItemEdit.bind(this));
 
+    // Tier stepper
+    html.on("click", ".tier-step", this._onTierStep.bind(this));
+
     // Vitals
     html.on("change", ".hp-value-input",      this._onHPChange.bind(this));
     html.on("change", ".barrier-value-input", this._onBarrierChange.bind(this));
@@ -447,6 +450,27 @@ export class ShardNPCActorSheet extends ActorSheet {
     event.preventDefault();
     const itemId = event.currentTarget.closest("[data-item-id]").dataset.itemId;
     this.actor.items.get(itemId)?.sheet.render(true);
+  }
+
+  /* ---- Tier Stepper ------------------------------------------------ */
+
+  async _onTierStep(event) {
+    event.preventDefault();
+    const delta = parseInt(event.currentTarget.dataset.delta, 10);
+    const tier  = Math.max(1, (this.actor.system.stats?.tier ?? 1) + delta);
+    const update = { "system.stats.tier": tier };
+
+    const classItem = this.actor.system.npcClassId
+      ? this.actor.items.get(this.actor.system.npcClassId)
+      : null;
+    if (classItem) {
+      const s     = classItem.system.stats;
+      const maxHP = (s.hp ?? 10) + (s.hpBonus ?? 0) * tier;
+      update["system.hp.max"]   = maxHP;
+      update["system.hp.value"] = Math.min(this.actor.system.hp.value, maxHP);
+    }
+
+    await this.actor.update(update);
   }
 
   /* ---- Vitals ------------------------------------------------------ */
