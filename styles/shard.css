@@ -183,10 +183,16 @@
 /* ── NPC Tier Stepper ───────────────────────────────────────────────── */
 .tier-stepper {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 3px;
+  flex-shrink: 0;
 }
 .tier-stepper button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   width: 18px;
   height: 18px;
   border: 1px solid var(--shard-border);
