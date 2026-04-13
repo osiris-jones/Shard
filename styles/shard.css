@@ -220,6 +220,38 @@
 }
 .bonus-pill:focus-within { opacity: 1; border-color: var(--shard-gold); }
 
+/* ── Summon sheet — all stat pills are editable ─────────────────────── */
+/* Text inputs for ATK/MAG dice strings (e.g. "d6", "d8") */
+.summon-sheet .stat-pill .stat-input-text {
+  width: 38px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: var(--shard-gold);
+  font-size: 1.1em;
+  font-weight: bold;
+}
+/* All stat pills on summon sheet get dashed border to show editability */
+.summon-sheet .stat-pill {
+  border-style: dashed;
+}
+.summon-sheet .stat-pill:focus-within {
+  border-color: var(--shard-gold);
+  border-style: solid;
+}
+/* Type badge in header */
+.summon-type-badge {
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--shard-text-muted);
+  background: var(--shard-bg-light);
+  border: 1px solid var(--shard-border);
+  border-radius: var(--shard-radius);
+  padding: 2px 8px;
+}
+
 /* ── Tabs ───────────────────────────────────────────────────────────── */
 .shard-sheet .sheet-tabs {
   display: flex;

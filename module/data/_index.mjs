@@ -8,6 +8,7 @@
 
 import { PCDataModel }           from "./model-pc.mjs";
 import { NPCDataModel }          from "./model-npc.mjs";
+import { SummonDataModel }       from "./model-summon.mjs";
 import { AbilityDataModel }      from "./model-ability.mjs";
 import { NPCAbilityDataModel }   from "./model-npc-ability.mjs";
 import { ClassDataModel }        from "./model-class.mjs";
@@ -18,8 +19,9 @@ import { TagDataModel }          from "./model-tag.mjs";
 export function registerDataModels() {
   // Actors
   CONFIG.Actor.dataModels = {
-    pc:  PCDataModel,
-    npc: NPCDataModel
+    pc:     PCDataModel,
+    npc:    NPCDataModel,
+    summon: SummonDataModel
   };
 
   // Items

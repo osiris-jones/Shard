@@ -1,6 +1,7 @@
 {
   "SHARD.ActorTypePC":         "Player Character",
   "SHARD.ActorTypeNPC":        "Non-Player Character",
+  "SHARD.ActorTypeSummon":     "Summon / Deployable",
   "SHARD.ItemTypeAbility":     "Ability",
   "SHARD.ItemTypeNPCAbility":  "NPC Ability",
   "SHARD.ItemTypeClass":       "Class",
@@ -9,6 +10,7 @@
   "SHARD.ItemTypeTag":         "Tag",
   "SHARD.SheetPC":             "Shard PC Sheet",
   "SHARD.SheetNPC":            "Shard NPC Sheet",
+  "SHARD.SheetSummon":         "Shard Summon Sheet",
   "SHARD.SheetAbility":        "Shard Ability Sheet",
   "SHARD.SheetNPCAbility":     "Shard NPC Ability Sheet",
   "SHARD.SheetClass":          "Shard Class Sheet",

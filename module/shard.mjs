@@ -11,6 +11,7 @@ import { ShardNPCClassItem }     from "./documents/item-npc-class.mjs";
 import { ShardNPCTemplateItem }  from "./documents/item-npc-template.mjs";
 import { ShardPCActorSheet }     from "./sheets/actor-pc-sheet.mjs";
 import { ShardNPCActorSheet }    from "./sheets/actor-npc-sheet.mjs";
+import { ShardSummonActorSheet } from "./sheets/actor-summon-sheet.mjs";
 import { ShardAbilitySheet }     from "./sheets/item-ability-sheet.mjs";
 import { ShardNPCAbilitySheet }  from "./sheets/item-npc-ability-sheet.mjs";
 import { ShardClassSheet }       from "./sheets/item-class-sheet.mjs";
@@ -77,8 +78,9 @@ Hooks.once("init", () => {
   };
 
   CONFIG.Actor.typeLabels = {
-    pc:  "SHARD.ActorTypePC",
-    npc: "SHARD.ActorTypeNPC"
+    pc:     "SHARD.ActorTypePC",
+    npc:    "SHARD.ActorTypeNPC",
+    summon: "SHARD.ActorTypeSummon"
   };
   CONFIG.Item.typeLabels = {
     ability:        "SHARD.ItemTypeAbility",
@@ -96,6 +98,9 @@ Hooks.once("init", () => {
   });
   Actors.registerSheet("shard", ShardNPCActorSheet, {
     types: ["npc"], makeDefault: true, label: "SHARD.SheetNPC"
+  });
+  Actors.registerSheet("shard", ShardSummonActorSheet, {
+    types: ["summon"], makeDefault: true, label: "SHARD.SheetSummon"
   });
 
   Items.unregisterSheet("core", ItemSheet);
@@ -119,6 +124,7 @@ Hooks.once("init", () => {
   loadTemplates([
     "systems/shard/templates/actors/pc-sheet.hbs",
     "systems/shard/templates/actors/npc-sheet.hbs",
+    "systems/shard/templates/actors/summon-sheet.hbs",
     "systems/shard/templates/items/ability-sheet.hbs",
     "systems/shard/templates/items/npc-ability-sheet.hbs",
     "systems/shard/templates/items/npc-class-sheet.hbs",
