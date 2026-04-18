@@ -16,6 +16,10 @@
       <span class="damage-raw">{{raw}}</span>
     </div>
 
+    {{#if rollHTML}}
+      <div class="damage-dice-breakdown">{{{rollHTML}}}</div>
+    {{/if}}
+
     {{#each appliedTargets}}
       <div class="target-applied hint">
         {{actor.name}}:
@@ -36,9 +40,11 @@
       </div>
     {{/if}}
 
-    <div class="roll-formula hint">
-      {{roll.formula}}{{#if isHalf}} = {{rollFull}} → ½ = {{raw}}{{else}} = {{raw}}{{/if}}
-    </div>
+    {{#if isHalf}}
+      <div class="roll-formula hint">
+        {{rollFull}} → ½ = {{raw}}
+      </div>
+    {{/if}}
   </div>
 
 </div>

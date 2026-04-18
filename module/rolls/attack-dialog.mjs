@@ -436,9 +436,10 @@ async function _rollDamageFromCard(message, isGraze, isHalf = false) {
     appliedTargets.push({ actor: targetActor, tokenId: t.tokenId ?? null, armor, reduced: hpTaken, barrierTaken });
   }
 
+  const rollHTML = await roll.render();
   const html = await renderTemplate(
     "systems/shard/templates/chat/damage-card.hbs",
-    { roll, raw, rollFull, isGraze, isHalf, appliedTargets }
+    { roll, rollHTML, raw, rollFull, isGraze, isHalf, appliedTargets }
   );
 
   return ChatMessage.create({
@@ -498,9 +499,10 @@ async function _rollCritDamageFromCard(message, isHalf = false) {
     appliedTargets.push({ actor: targetActor, tokenId: t.tokenId ?? null, armor, reduced: hpTaken, barrierTaken });
   }
 
+  const rollHTML = await roll.render();
   const html = await renderTemplate(
     "systems/shard/templates/chat/damage-card.hbs",
-    { roll, raw, rollFull, isGraze: false, isCrit: true, isHalf, appliedTargets }
+    { roll, rollHTML, raw, rollFull, isGraze: false, isCrit: true, isHalf, appliedTargets }
   );
 
   return ChatMessage.create({

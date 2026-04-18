@@ -1833,11 +1833,14 @@
         "damage": "[tier]+3",
         "hasGraze": false,
         "grazeDamage": "",
-        "hasResistance": false,
-        "resistanceDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
         "range": "Melee",
-        "effect": "",
-        "_tagIds": []
+        "effect": "<p><strong>Flurry</strong></p>\n<p><strong>On Hit:</strong> The target makes a <strong>Resistance Roll</strong> or becomes <strong>Prone</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "attack"
+        ]
       }
     },
     {
@@ -1860,7 +1863,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>When this NPC is created, choose an adaptation.</p>\n<ul>\n<li>Wings: The Scourge is Flying.</li>\n<li>Plating: The Scourge has +2 Armor.</li>\n<li>Fast: The Scourge has +1 Speed.</li>\n<li>Reflective: The Scourge has +1 Advantage on Resistance Rolls.</li>\n</ul>",
+        "effect": "<p>The Scourge has an Adaptation, chosen during creation:</p>\n<ul>\n<li><strong>Wings</strong>: The <strong>Scourge</strong> is <strong>Flying</strong>.</li>\n<li><strong>Plating:</strong> The <strong>Scourge</strong> has +2 Armor.</li>\n<li><strong>Fast:</strong> The <strong>Scourge</strong> has +1 Speed.</li>\n<li><strong>Reflective:</strong> The <strong>Scourge</strong> has <strong>+1 Advantage</strong> on <strong>Resistance Rolls.</strong></li>\n</ul>",
         "_tagIds": []
       }
     },
@@ -1884,9 +1887,10 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Line 8",
-        "effect": "",
+        "effect": "<p>Perform <strong>Emanation</strong> only with <strong>Initiative</strong>.</p>",
         "_tagIds": [
-          "attack"
+          "attack",
+          "limitround"
         ]
       }
     },
@@ -1910,9 +1914,10 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Cone 3",
-        "effect": "",
+        "effect": "<p>Perform <strong>Emanation</strong> only with <strong>Initiative</strong>.</p>",
         "_tagIds": [
-          "attack"
+          "attack",
+          "limitround"
         ]
       }
     },
@@ -1935,10 +1940,11 @@
         "grazeDamage": "",
         "hasResistance": false,
         "resistanceDamage": "",
-        "range": "Special",
-        "effect": "<p>Targets a <strong>Size 1 Area</strong> within <strong>Range 2</strong>.</p>",
+        "range": "Range 2",
+        "effect": "<p>Targets a <strong>Size 1 Area</strong> within <strong>Range 2</strong>.</p>\n<p>Perform <strong>Emanation</strong> only with <strong>Initiative</strong>.</p>",
         "_tagIds": [
-          "attack"
+          "attack",
+          "limitround"
         ]
       }
     },
@@ -4897,7 +4903,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Melee",
-        "effect": "<ul>\n<li>All hostile characters in Range become targets.</li>\n<li>When a Phantasmata is destroyed, that Phantasmata performs this attack.</li>\n</ul>",
+        "effect": "<p>#NAME?</p>",
         "_tagIds": [
           "melee",
           "weapon",
@@ -5004,6 +5010,602 @@
         "range": "",
         "effect": "<p>Attacks against allied characters adjacent to a <strong>Phantasmata</strong> have <strong>+1 Disadvantage</strong>.</p>",
         "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Telegraph",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-telegraph",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Emanation</strong>&#39;s damage is doubled. When the <strong>Scourge</strong> chooses an area with <strong>Emanation</strong>, that attack doesn&#39;t occur until the beginning of the <strong>Scourge&#39;s</strong> first turn next round.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Acid Splash",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-acid-splash",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "<ul>\n<li>Deals <strong>Chaos Damage</strong>.<br><strong>On Attack:</strong> The target becomes <strong>Off Guard</strong>.<br><strong>On Hit:</strong> The target is <strong>Sundered 1</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "ranged",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Scourge: Slippery",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-slippery",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The <strong>Scourge</strong> may <em>Move 2</em> before performing any <em>Attack</em> <strong>Action</strong>. This movement doesn&#39;t trigger hostile <em>Reactions</em>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Flying Leap",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-flying-leap",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "2[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 5",
+        "effect": "<p>The <strong>Scourge</strong> may <strong>Teleport</strong> to a free space within <strong>Range</strong>. Then, characters adjacent to the <strong>Scourge</strong> make a <strong>Resistance Roll</strong> or take [tier] damage and become <strong>Prone</strong>. A character that <strong>Resists</strong> takes half damage and isn&#39;t <strong>Prone</strong>.</p>",
+        "_tagIds": [
+          "movement"
+        ]
+      }
+    },
+    {
+      "name": "Scourge: Titanic Charge",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-titanic-charge",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "3",
+        "charged": true,
+        "isAttack": false,
+        "damage": "2[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "",
+        "effect": "<p>The <strong>Scourge</strong> gains [tier] <strong>Barrier</strong> and <em>Moves</em> twice its Speed. During this movement, it can&#39;t change directions and can pass through hostile characters. Hostile characters it passes through make a <strong>Resistance Roll</strong> or take [tier] damage, become <strong>Prone,</strong> and are <strong>Bleeding</strong> +[tier]; a character that <strong>Resists</strong> takes half damage and isn&#39;t <strong>Bleeding</strong> or <strong>Prone</strong>.</p>\n<p>Up to one character the <strong>Scourge</strong> becomes adjacent to at any point during this <em>Movement</em> is dragged to the <strong>Scourge&#39;s</strong> destination. If that character <strong>Collides</strong> with an obstruction or another character, they become <strong>Prone</strong> and the dragged character and obstruction (or both colliding characters) take [tier] <strong>Chaos Damage</strong>. <em>(No roll.)</em></p>",
+        "_tagIds": [
+          "movement"
+        ]
+      }
+    },
+    {
+      "name": "Scourge: Regeneration",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-regeneration",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The Scourge recovers half its maximum HP when performing <strong>Refocus</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Scourge: Tail Smash",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-tail-smash",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 2",
+        "effect": "<ul>\n<li><strong>Condition:</strong> A hostile character within <strong>Range 2</strong> clears <strong>Prone.</strong></li>\n<li><strong>Effect:</strong> Peform the <em>Attack</em> on that character.</li>\n</ul>\n<p><strong>On Hit:</strong> <strong>Push</strong> 2. <strong>Collide:</strong> <strong>Dazed</strong> +2.</p>",
+        "_tagIds": [
+          "melee",
+          "attack",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Scourge: Wing Buffet",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "scourge-wing-buffet",
+          "sourceClass": "npc-class-scourge"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>All hostile characters in a <strong>Size 1 Area</strong> that contains a free space adjacent to the <strong>Scourge</strong> become targets. Those characters make a <strong>Resistance Roll</strong> or are <strong>Prone</strong> and suffer <strong>Push 2</strong>. A character that <strong>Resists</strong> suffers <strong>Push 1</strong> and isn&#39;t <strong>Prone</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Executioner: Earth Piercer",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "executioner-earth-piercer",
+          "sourceClass": "npc-class-executioner"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "9+[tier]",
+        "range": "",
+        "effect": "<p>All hostile characters in a <strong>Size 1 Area</strong> that contains a free space adjacent to the <strong>Executioner</strong> become targets. Those characters are <strong>Dazed 1</strong> and make a <strong>Resistance Roll</strong> or become <strong>Prone</strong> and <strong>Sundered 1</strong>. Create a 10 HP Obstruction in a free space in the area.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Angel: Pavise",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-pavise",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Allied characters can use this character as Cover.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Angel: Divine Intervention",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-intervention",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li><p><strong>Condition:</strong> An allied character within <strong>Principality</strong> is hit with an attack.</p>\n</li>\n<li><p><strong>Effect:</strong> Deactivate <strong>Principality</strong> as part of this <strong>Reaction</strong>. The character has <strong>Damage Resistance</strong> to the triggering attack and ignores up to one <strong>Condition</strong> inflicted by that attack.</p>\n</li>\n</ul>",
+        "_tagIds": [
+          "support",
+          "spell",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Angel: Revelation",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-revelation",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "1+[tier]",
+        "hasGraze": true,
+        "grazeDamage": "1",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 4",
+        "effect": "<p><strong>+1 Advantage</strong></p>\n<p><strong>On Critical Hit:</strong> The target is <strong>Blinded 3</strong>.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Angel: Unseen Aid",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-unseen-aid",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 8",
+        "effect": "<p><strong>Principality</strong> is centered on a free space within <strong>Range 8</strong> instead of on the <strong>Angel</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Angel: Sunburst",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-sunburst",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "2[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "",
+        "effect": "<p>All hostile characters within <strong>Principality</strong> become targets. Those characters make a <strong>Resistance Roll</strong> or are <strong>Blinded 3</strong> and choose: immediately perform <em>Basic</em> <strong>Move Actions</strong> until they are no longer within <strong>Principality</strong>, or suffer 2[tier] damage. A character that <strong>Resists</strong> is <strong>Blinded 1</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Angel: Winged Feet",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "angel-winged-feet",
+          "sourceClass": "npc-class-angel"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The <strong>Angel</strong> ignores <strong>Difficult Terrain</strong> and doesn&#39;t trigger <strong>Traps</strong> during <em>Movement</em> <strong>Actions</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Medic: Swordbreaker",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "medic-swordbreaker",
+          "sourceClass": "npc-class-medic"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "2",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 4",
+        "effect": "<p>Up to one hostile character in <strong>Range</strong> makes a <strong>Resistance Roll</strong> or is <strong>Disarmed 1</strong>. Characters adjacent to that character take 2 damage.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Duelist: Deflection",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-deflection",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li><strong>Condition:</strong> A character that is not marked by <strong>Duel</strong> makes a non-<em>Spell</em> <em>Attack</em> against the <strong>Duelist</strong>.</li>\n<li><strong>Effect:</strong> The <strong>Duelist</strong> gains <strong>Concealment 3</strong> for the duration of the attack, and the attack gains <strong>On Miss:</strong> Repeat the attack against yourself as a part of this Action.</li>\n</ul>",
+        "_tagIds": [
+          "weapon",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "name": "Duelist: Dazzle",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-dazzle",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "",
+        "effect": "<p>Characters in a <strong>Size 2 Area</strong> centered on the <strong>Duelist</strong> become targets unless they have <strong>Cover</strong> from the <strong>Duelist.</strong> Those characters make a <strong>Resistance Roll</strong> or are <strong>Dazed +3</strong>. A character that <strong>Resists</strong> is <strong>Dazed 1</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Duelist: Mark for Death",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "duelist-mark-for-death",
+          "sourceClass": "npc-class-duelist"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "3",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 5",
+        "effect": "<p>Choose up to one character in <strong>Range.</strong> Until that character performs <strong>Refocus</strong>, all of the <strong>Duelist&#39;s</strong> attacks against that character are critical hits.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Brute: Warcry",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-brute-warcry",
+          "sourceClass": "npc-template-brute"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Perform the <em>Basic</em> <strong>Move Action</strong> as a part of this <strong>Action.</strong> Before or after this <em>Movement</em>, hostile characters in a <strong>Size 2 Area</strong> centered on the <strong>Brute</strong> become <strong>Off Guard</strong>.</p>",
+        "_tagIds": [
+          "movement"
+        ]
+      }
+    },
+    {
+      "name": "Brute: Deadly Throw",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-brute-deadlythrow",
+          "sourceClass": "npc-template-brute"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": true,
+        "damage": "2[tier]+2",
+        "hasGraze": true,
+        "grazeDamage": "2",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "<ul>\n<li><strong>Flurry</strong>.</li>\n<li><strong>On Attack:</strong> The <strong>Brute</strong> is <strong>Disarmed 1</strong>.</li>\n<li><strong>On Hit:</strong> The target becomes <strong>Prone</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Leader: Cover Me",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "template-leader-coverme",
+          "sourceClass": "npc-template-leader"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<ul>\n<li><strong>Condition:</strong> This character performs <strong>Refocus.</strong></li>\n<li><strong>Effect:</strong> Perform <strong>Move Order</strong> or <strong>Attack Order</strong> as a part of this <strong>Reaction</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "support",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Beast: Flail",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "beast-flail",
+          "sourceClass": "npc-class-beast"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+2",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p><strong>1/Round</strong> as a part of performing this <strong>Action</strong>: <strong>Move</strong> 2 and repeat the <em>Attack</em> with <strong>Flurry</strong> against another hostile character. <strong>Flail</strong> doesn&#39;t trigger hostile <strong>Reactions</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "attack"
+        ]
       }
     }
   ],
@@ -5232,6 +5834,11 @@
             "id": "medic-prophylaxis",
             "name": "Medic: Prophylaxis",
             "tier": "basic"
+          },
+          {
+            "id": "medic-swordbreaker",
+            "name": "Medic: Swordbreaker",
+            "tier": "basic"
           }
         ]
       }
@@ -5292,6 +5899,11 @@
           {
             "id": "beast-shatter",
             "name": "Beast: Shatter",
+            "tier": "basic"
+          },
+          {
+            "id": "beast-flail",
+            "name": "Beast: Flail",
             "tier": "basic"
           }
         ]
@@ -5501,6 +6113,11 @@
             "id": "executioner-inthenameofgod",
             "name": "Executioner: In the Name of God",
             "tier": "basic"
+          },
+          {
+            "id": "executioner-earth-piercer",
+            "name": "Executioner: Earth Piercer",
+            "tier": "basic"
           }
         ]
       }
@@ -5522,7 +6139,73 @@
           "spd": 4,
           "armor": 0
         },
-        "_abilityIds": []
+        "_abilityIds": [
+          {
+            "id": "scourge-melee-attack",
+            "name": "Scourge: Melee Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-adaptation",
+            "name": "Scourge: Adaptation",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-emanation-beam",
+            "name": "Scourge: Emanation - Beam",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-emanation-wave",
+            "name": "Scourge: Emanation - Wave",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-emanation-line",
+            "name": "Scourge: Emanation - Blast",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-telegraph",
+            "name": "Scourge: Telegraph",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-acid-splash",
+            "name": "Scourge: Acid Splash",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-slippery",
+            "name": "Scourge: Slippery",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-flying-leap",
+            "name": "Scourge: Flying Leap",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-titanic-charge",
+            "name": "Scourge: Titanic Charge",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-regeneration",
+            "name": "Scourge: Regeneration",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-tail-smash",
+            "name": "Scourge: Tail Smash",
+            "tier": "basic"
+          },
+          {
+            "id": "scourge-wing-buffet",
+            "name": "Scourge: Wing Buffet",
+            "tier": "basic"
+          }
+        ]
       }
     },
     {
@@ -5723,6 +6406,36 @@
           {
             "id": "angel-immaculateaura",
             "name": "Angel: Immaculate Aura",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-pavise",
+            "name": "Angel: Pavise",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-intervention",
+            "name": "Angel: Divine Intervention",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-revelation",
+            "name": "Angel: Revelation",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-unseen-aid",
+            "name": "Angel: Unseen Aid",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-sunburst",
+            "name": "Angel: Sunburst",
+            "tier": "basic"
+          },
+          {
+            "id": "angel-winged-feet",
+            "name": "Angel: Winged Feet",
             "tier": "basic"
           }
         ]
@@ -5932,6 +6645,21 @@
             "id": "duelist-grace",
             "name": "Duelist: Grace",
             "tier": "basic"
+          },
+          {
+            "id": "duelist-deflection",
+            "name": "Duelist: Deflection",
+            "tier": "basic"
+          },
+          {
+            "id": "duelist-dazzle",
+            "name": "Duelist: Dazzle",
+            "tier": "basic"
+          },
+          {
+            "id": "duelist-mark-for-death",
+            "name": "Duelist: Mark for Death",
+            "tier": "basic"
           }
         ]
       }
@@ -6034,6 +6762,16 @@
             "id": "template-brute-throatpunch",
             "name": "Brute: Throat Punch",
             "tier": "basic"
+          },
+          {
+            "id": "template-brute-warcry",
+            "name": "Brute: Warcry",
+            "tier": "basic"
+          },
+          {
+            "id": "template-brute-deadlythrow",
+            "name": "Brute: Deadly Throw",
+            "tier": "basic"
           }
         ]
       }
@@ -6106,6 +6844,11 @@
           {
             "id": "template-leader-attackorder",
             "name": "Leader: Attack Order",
+            "tier": "basic"
+          },
+          {
+            "id": "template-leader-coverme",
+            "name": "Leader: Cover Me",
             "tier": "basic"
           }
         ]
