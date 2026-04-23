@@ -137,7 +137,8 @@ Hooks.once("init", () => {
     "systems/shard/templates/chat/damage-card.hbs",
     "systems/shard/templates/chat/resist-card.hbs",
     "systems/shard/templates/chat/gm-resist-card.hbs",
-    "systems/shard/templates/chat/macro-heal-card.hbs"
+    "systems/shard/templates/chat/macro-heal-card.hbs",
+    "systems/shard/templates/chat/focus-refund-card.hbs"
   ]);
 
   _registerHandlebarsHelpers();
@@ -149,6 +150,62 @@ Hooks.once("ready", () => {
   // Expose roll utilities globally so hotbar macros can call them without imports.
   game.shard.ShardAttackDialog = ShardAttackDialog;
   game.shard.postAbilityToChat = postAbilityToChat;
+
+  // ── Socket: GM-delegated actions for non-owner clients ────────────────
+  // Players attacking an Off Guard target don't own that target, so they
+  // cannot remove the status effect themselves. They emit a socket message
+  // that the first active GM executes on their behalf.
+  game.socket.on("system.shard", async (data) => {
+    if (!data || !data.action) return;
+    // Only the first active GM handles each request, to avoid duplicate work.
+    const firstGM = game.users.find(u => u.isGM && u.active);
+    if (!firstGM || game.user.id !== firstGM.id) return;
+
+    try {
+      switch (data.action) {
+
+        case "removeStatusEffect": {
+          const { actorId, tokenId, sceneId, statusId } = data;
+          let actor = null;
+          if (tokenId && sceneId) {
+            const scene = game.scenes.get(sceneId);
+            const tDoc  = scene?.tokens?.get(tokenId);
+            actor = tDoc?.actor ?? null;
+          }
+          if (!actor && actorId) actor = game.actors.get(actorId);
+          if (!actor || !statusId) return;
+          if (actor.statuses?.has(statusId)) {
+            await actor.toggleStatusEffect(statusId, { active: false });
+          }
+          return;
+        }
+
+        case "applyFocusDelta": {
+          const { actorId, delta } = data;
+          const actor = game.actors.get(actorId);
+          if (!actor || !Number.isFinite(delta)) return;
+          const cur = actor.system.focus?.value ?? 0;
+          const max = actor.system.focus?.max   ?? cur;
+          const next = Math.max(0, Math.min(max, cur + delta));
+          await actor.update({ "system.focus.value": next });
+          return;
+        }
+
+        case "setFocusRefundedFlag": {
+          const { messageId, value } = data;
+          const msg = game.messages.get(messageId);
+          if (!msg) return;
+          await msg.setFlag("shard", "focusRefunded", value);
+          return;
+        }
+
+        default: return;
+      }
+    } catch (err) {
+      console.error(`Shard | GM socket action '${data.action}' failed`, err);
+    }
+  });
+
   console.log("Shard | System ready.");
 });
 

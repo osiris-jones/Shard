@@ -1134,9 +1134,9 @@
         }
       },
       "system": {
-        "tier": "basic",
+        "tier": "optional",
         "cost": "passive",
-        "charged": false,
+        "charged": true,
         "isAttack": false,
         "damage": "",
         "hasGraze": false,
@@ -1168,7 +1168,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>The Guardian and adjacent allies have <strong>Damage Resistance</strong>. This doesn&#39;t apply while the Guardian is <strong>Prone</strong>, <strong>Stunned</strong>, or <strong>Immobilized</strong>.</p>",
+        "effect": "<p>The Guardian and adjacent allies have <strong>Damage Resistance</strong>. This doesn&#39;t apply while the Guardian is <strong>Prone</strong>, <strong>Stunned</strong>, <strong>Slowed</strong>, or <strong>Immobilized</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -1351,8 +1351,10 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>The first time the Guardian is hit by an <strong>Attack</strong> each round: prevent all damage and bonus damage from that <strong>Attack</strong>.</p>",
-        "_tagIds": []
+        "effect": "<p>The first time the Guardian is hit by an <strong>Attack</strong> each round: The <strong>Guardian</strong> is <strong>Invulnerable</strong> to that attack, and it deals no <strong>Bonus Damage</strong>.</p>",
+        "_tagIds": [
+          "limitround"
+        ]
       }
     },
     {
@@ -2250,9 +2252,9 @@
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": true,
-        "resistanceDamage": "",
+        "resistanceDamage": "9+[tier]",
         "range": "Range 6",
-        "effect": "<p><strong>On Hit:</strong> Target makes a <strong>Resistance Roll</strong> or becomes <strong>Addled</strong>.</p>",
+        "effect": "<p><strong>On Hit:</strong> Target makes a <strong>Resistance Roll</strong> or�<strong>During the target&#39;s next turn:</strong> that character&#39;s <em>non-Basic</em> <strong>Actions</strong> have <strong>Focus Cost</strong> +1.</p>",
         "_tagIds": [
           "ranged",
           "spell",
@@ -2688,7 +2690,7 @@
       "system": {
         "tier": "basic",
         "cost": "2",
-        "charged": false,
+        "charged": true,
         "isAttack": true,
         "damage": "[tier]+4",
         "hasGraze": false,
@@ -2724,7 +2726,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p>The Invoker&#39;s next <strong>Flame Strike</strong> knocks targets <strong>Prone</strong> on damage.</p>",
+        "effect": "<p>The Invoker&#39;s next <strong>Flame Strike</strong> has <strong>On Damage:</strong> The target becomes <strong>Prone</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -2748,7 +2750,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<p><strong>+1 Net Advantage</strong> on <strong>Flame Strike</strong> when targeting the same areas as the previous <strong>Flame Strike</strong>.</p>",
+        "effect": "<p>When <strong>Flame Strike</strong> targets the same areas as the <strong>Invoker&#39;s</strong> previous <strong>Flame Strike</strong>, the <strong>Invoker</strong> has <strong>+1 Advantage</strong> on the <em>Attack</em>.</p>",
         "_tagIds": []
       }
     },
@@ -4903,7 +4905,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Melee",
-        "effect": "<p>#NAME?</p>",
+        "effect": "<ul>\n<li>All hostile characters in Range become targets.</li>\n<li>When a Phantasmata is destroyed, that Phantasmata performs this attack.</li>\n</ul>",
         "_tagIds": [
           "melee",
           "weapon",
@@ -5607,6 +5609,562 @@
           "attack"
         ]
       }
+    },
+    {
+      "name": "Guardian: Intervene",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "guardian-intervene",
+          "sourceClass": "npc-class-guardian"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p><strong>1/Round</strong>: A damaged adjacent allied character gets <strong>Barrier</strong> [tier].</p>",
+        "_tagIds": [
+          "support",
+          "spell",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Invoker: Daze",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "invoker-addle",
+          "sourceClass": "npc-class-invoker"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "0",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 3",
+        "effect": "<p>Up to one hostile character in <strong>Range</strong> becomes <strong>Off Guard</strong> and makes a <strong>Resistance Roll</strong> or is <strong>Dazed +1</strong>.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter: Ranged Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-ranged-attack",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+3",
+        "hasGraze": true,
+        "grazeDamage": "[tier]",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 4",
+        "effect": "<p><strong>Graze</strong> doesn&#39;t affect a target that has <strong>Cover</strong>.</p>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter: Swift Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-swift-attack",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Melee",
+        "effect": "<p><strong>Flurry</strong></p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter: Overwatch",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-overwatch",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Charged</strong></p>\n<p>Choose up to one hostile character within <strong>Range</strong> of the <strong>Sharpshooter&#39;s Ranged Attack</strong>. That character becomes <strong>Off Guard, and</strong> until the end of that character&#39;s next turn, as they perform their first <em>Movement</em> <strong>Action</strong>, that character chooses: Prevent that <strong>Action</strong>, or allow the <strong>Sharpshooter</strong> to perform <strong>Ranged Attack</strong> on them as a <strong>Free Reaction</strong> is able. <em>(The costs of a prevented Action are still paid.)</em></p>",
+        "_tagIds": [
+          "ranged"
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter: Jump",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-jump",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>This turn,</strong> the <strong>Sharpshooter</strong> is <strong>Flying</strong> while moving.</p>",
+        "_tagIds": [
+          "spell",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter: Volley",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-volley",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "3",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Choose a <strong>Size 1 Area</strong> centered on a space within <strong>Range 4</strong>. The <strong>Sharpshooter</strong> performs <strong>Ranged Attack</strong> as part of this <strong>Action</strong>. All characters in the area become targets.</p>",
+        "_tagIds": [
+          "ranged",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter: Barricade",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-barricade",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Create a <strong>10 HP Object</strong> in an adjacent free space. It&#39;s <strong>Difficult Terrain, Cover</strong>, and <strong>Destructible</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter: Called Shot",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-called-shot",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>Perform <strong>Called Shot</strong> only during the <strong>Sharpshooter&#39;s</strong> turn. The <strong>Sharpshooter</strong> ends their turn.</p>\n<p>Until the <strong>Sharpshooter</strong> begins any movement, their next <strong>Ranged Attack</strong> has <strong>On Hit:</strong> The <strong>Sharpshooter</strong> chooses�the target becomes <strong>Blinded 3,</strong> <strong>Silenced 1</strong>, or <strong>Immobilized 1</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Sharpshooter: Mancatcher Trap",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-mancatcher-trap",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 4",
+        "effect": "<p>A <strong>Mancatcher Trap</strong> deploys in a free space. It�s armed at the end of the <strong>Sharpshooter�s</strong> turn and triggered when a hostile character becomes adjacent to it.</p>\n<p>Effect: Hostile characters adjacent to the trap make a <strong>Resistance Roll</strong> or suffer <strong>Bleeding [LV]+1</strong> and <strong>Slowed</strong> 1. A character that <strong>Resists</strong> takes half as much <strong>Bleeding</strong> and aren�t <strong>Slowed</strong>.</p>",
+        "_tagIds": [
+          "trap"
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter: Mimir's Eye",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-mimirseye",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The <strong>Ranged Attack Action</strong> made by <strong>Overwatch</strong> has <strong>+1 Accuracy</strong> and treats <strong>Obstructions</strong> as <strong>Cover</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Sharpshooter: The Pawn",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "sharpshooter-the-pawn",
+          "sourceClass": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "0",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>Passive:</strong> The <strong>Sharpshooter</strong> can <strong>Evade</strong>.</p>\n<p>Perform <strong>The Pawn Free Action</strong> only while the <strong>Sharpshooter</strong> has <strong>Initiative</strong>. Perform the <em>Basic</em> <strong>Move Action</strong> as part of this <strong>Free Action</strong>. The <strong>Sharpshooter</strong> can&#39;t <em>Attack</em> this turn.</p>",
+        "_tagIds": [
+          "movement"
+        ]
+      }
+    },
+    {
+      "name": "Displacer: Hostage's Bane",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-hostage-curse",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 5",
+        "effect": "<p>Up to one hostile character in <strong>Range</strong> makes a <strong>Resistance Roll</strong> or is perpetually <strong>Marked by Hostage&#39;s Bane</strong> until they <strong>Refocus</strong> or the <strong>Displacer</strong> performs <strong>Hostage&#39;s Bane</strong> again.</p>\n<p>While a character is <strong>Marked by Hostage&#39;s Bane</strong>, the <strong>Displacer</strong> has <strong>Damage Resistance</strong> against <em>Attack</em> <strong>Actions</strong>, and whenever an <em>Attack</em> <strong>Action</strong> deals damage to the <strong>Displacer,</strong> the <strong>Displacer</strong> deals that much damage to the <strong>Marked</strong> character.</p>",
+        "_tagIds": [
+          "spell",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Displacer: Daze",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-addle",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 5",
+        "effect": "<p>Up to one hostile character in <strong>Range</strong> becomes <strong>Off Guard</strong> and makes a <strong>Resistance Roll</strong> or is <strong>Dazed +1</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Displacer: Vortex Warp",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-vortex-warp",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "1",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 5",
+        "effect": "<p><strong>Vortex Warp</strong> doesn&#39;t trigger hostile <strong>Reactions</strong>.</p>\n<p><strong>Choose One:</strong></p>\n<ul>\n<li>The <strong>Displacer</strong> switches places with an allied character in <strong>Range</strong>. <em>(Each teleports to the other&#39;s space simultaneously.)</em></li>\n<li>Up to one allied character in <strong>Range</strong> may <strong>Teleport 4</strong>. The <strong>Teleport</strong> doesn&#39;t require <strong>Line of Effect</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "support",
+          "spell",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Displacer: Blurry",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-blurry",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "basic",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p>The <strong>Displacer</strong> can <strong>Evade.</strong> <em>Attack Reactions</em> targeting a <strong>Displacer</strong> have <strong>+1 Disadvantage</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Displacer: Sending",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-sending",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 8",
+        "effect": "<p>Create <strong>Portals</strong> in two free spaces within <strong>Range</strong>. They&#39;re <strong>10 HP Objects</strong> that are <strong>Destructible Obstructions</strong>. Whenever a character ends a turn adjacent to a <strong>Portal</strong>, that character may <strong>Teleport</strong> to any space adjacent to another other <strong>Portal</strong> as a <strong>Free Reaction</strong>.</p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Displacer: Displace Attack",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-displace-attack",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "2",
+        "charged": false,
+        "isAttack": true,
+        "damage": "[tier]+1",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "Range 5",
+        "effect": "<p><strong>+1 Advantage</strong></p>\n<p><strong>On Damage:</strong> The target <strong>Teleports</strong> equal to the total damage dealt, controlled by the <strong>Displacer</strong>. If it was a <strong>Critical Hit</strong>, <strong>Teleport</strong> twice as far.</p>",
+        "_tagIds": [
+          "ranged",
+          "spell",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Displacer: Lasting Power",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-lasting-power",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "passive",
+        "charged": false,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "",
+        "range": "",
+        "effect": "<p><strong>End of Turn:</strong> The <strong>Displacer</strong> receives [tier] <strong>Healing</strong> unless it was <strong>Stunned, Slowed, Dazed, or Immobilized</strong> at any time this turn.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Displacer: Banishment",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-banishment",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "3",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 5",
+        "effect": "<p>Up to one hostile character in <strong>Range</strong> makes a <strong>Resistance Roll</strong> or gains <strong>Concealment 6</strong>.</p>\n<p>The <strong>Actions</strong> of a character with <strong>Concealment</strong> gained this way have no effect on characters other than the <strong>Displacer</strong>. <em>(Their attacks inflict no damage and have no on-hit effects; they can&#39;t force resistance rolls or inflict statuses or conditions, and their abilities provide no healing to these characters.)</em></p>",
+        "_tagIds": [
+          "spell"
+        ]
+      }
+    },
+    {
+      "name": "Displacer: Mirage",
+      "type": "npc-ability",
+      "flags": {
+        "shard": {
+          "sourceId": "displacer-mirage",
+          "sourceClass": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "tier": "optional",
+        "cost": "reaction",
+        "charged": true,
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDamage": "9+[tier]",
+        "range": "Range 5",
+        "effect": "<p><strong>Condition:</strong> An allied character within <strong>Range</strong> is hit by an <em>Attack</em> as part of an <em>Attack</em> <strong>Action</strong>.</p>\n<p><strong>Effect:</strong> Interrupt the triggering <strong>Action</strong>�The attacked character gains <strong>Damage Resistance</strong> against the attack&#39;s damage, prevents all <strong>Conditions</strong> inflicted by the attack, and may <strong>Teleport 4</strong>.</p>",
+        "_tagIds": [
+          "support",
+          "spell",
+          "reaction",
+          "limitround"
+        ]
+      }
     }
   ],
   "npcClasses": [
@@ -5702,8 +6260,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 7,
-          "hpBonus": 3,
+          "hp": 9,
+          "hpBonus": 5,
           "def": 10,
           "spd": 4,
           "armor": 0
@@ -5778,8 +6336,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 9,
-          "hpBonus": 3,
+          "hp": 11,
+          "hpBonus": 4,
           "def": 10,
           "spd": 3,
           "armor": 1
@@ -5854,8 +6412,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 4,
-          "hpBonus": 4,
+          "hp": 6,
+          "hpBonus": 6,
           "def": 9,
           "spd": 3,
           "armor": 3
@@ -5920,8 +6478,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 10,
-          "hpBonus": 2,
+          "hp": 12,
+          "hpBonus": 3,
           "def": 11,
           "spd": 3,
           "armor": 0
@@ -5981,6 +6539,11 @@
             "id": "guardian-tears-of-denial",
             "name": "Guardian: Tears of Denial",
             "tier": "basic"
+          },
+          {
+            "id": "guardian-intervene",
+            "name": "Guardian: Intervene",
+            "tier": "basic"
           }
         ]
       }
@@ -5996,8 +6559,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 9,
-          "hpBonus": 3,
+          "hp": 11,
+          "hpBonus": 5,
           "def": 10,
           "spd": 4,
           "armor": 1
@@ -6067,8 +6630,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 9,
-          "hpBonus": 3,
+          "hp": 11,
+          "hpBonus": 5,
           "def": 10,
           "spd": 4,
           "armor": 1
@@ -6133,8 +6696,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 12,
-          "hpBonus": 3,
+          "hp": 15,
+          "hpBonus": 6,
           "def": 8,
           "spd": 4,
           "armor": 0
@@ -6219,8 +6782,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 6,
-          "hpBonus": 3,
+          "hp": 8,
+          "hpBonus": 5,
           "def": 9,
           "spd": 4,
           "armor": 0
@@ -6295,8 +6858,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 5,
-          "hpBonus": 4,
+          "hp": 7,
+          "hpBonus": 6,
           "def": 11,
           "spd": 4,
           "armor": 0
@@ -6366,8 +6929,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 6,
-          "hpBonus": 3,
+          "hp": 8,
+          "hpBonus": 4,
           "def": 10,
           "spd": 4,
           "armor": 2
@@ -6452,7 +7015,7 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 6,
+          "hp": 8,
           "hpBonus": 4,
           "def": 9,
           "spd": 2,
@@ -6508,6 +7071,11 @@
             "id": "invoker-radiantfire",
             "name": "Invoker: Radiant Fire",
             "tier": "basic"
+          },
+          {
+            "id": "invoker-addle",
+            "name": "Invoker: Daze",
+            "tier": "basic"
           }
         ]
       }
@@ -6523,8 +7091,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 6,
-          "hpBonus": 5,
+          "hp": 8,
+          "hpBonus": 8,
           "def": 11,
           "spd": 5,
           "armor": 0
@@ -6609,8 +7177,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 7,
-          "hpBonus": 4,
+          "hp": 9,
+          "hpBonus": 5,
           "def": 11,
           "spd": 4,
           "armor": 1
@@ -6675,8 +7243,8 @@
       "system": {
         "description": "",
         "stats": {
-          "hp": 6,
-          "hpBonus": 2,
+          "hp": 8,
+          "hpBonus": 3,
           "def": 9,
           "spd": 4,
           "armor": 0
@@ -6730,6 +7298,143 @@
           {
             "id": "phantasm-blur",
             "name": "Phantasm: Blur",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-sharpshooter"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 9,
+          "hpBonus": 5,
+          "def": 10,
+          "spd": 3,
+          "armor": 1
+        },
+        "_abilityIds": [
+          {
+            "id": "sharpshooter-ranged-attack",
+            "name": "Sharpshooter: Ranged Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-swift-attack",
+            "name": "Sharpshooter: Swift Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-overwatch",
+            "name": "Sharpshooter: Overwatch",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-jump",
+            "name": "Sharpshooter: Jump",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-volley",
+            "name": "Sharpshooter: Volley",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-barricade",
+            "name": "Sharpshooter: Barricade",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-called-shot",
+            "name": "Sharpshooter: Called Shot",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-mancatcher-trap",
+            "name": "Sharpshooter: Mancatcher Trap",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-mimirseye",
+            "name": "Sharpshooter: Mimir's Eye",
+            "tier": "basic"
+          },
+          {
+            "id": "sharpshooter-the-pawn",
+            "name": "Sharpshooter: The Pawn",
+            "tier": "basic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Displacer",
+      "type": "npc-class",
+      "flags": {
+        "shard": {
+          "sourceId": "npc-class-displacer"
+        }
+      },
+      "system": {
+        "description": "",
+        "stats": {
+          "hp": 12,
+          "hpBonus": 5,
+          "def": 9,
+          "spd": 4,
+          "armor": 0
+        },
+        "_abilityIds": [
+          {
+            "id": "displacer-hostage-curse",
+            "name": "Displacer: Hostage's Bane",
+            "tier": "basic"
+          },
+          {
+            "id": "displacer-addle",
+            "name": "Displacer: Daze",
+            "tier": "basic"
+          },
+          {
+            "id": "displacer-vortex-warp",
+            "name": "Displacer: Vortex Warp",
+            "tier": "basic"
+          },
+          {
+            "id": "displacer-blurry",
+            "name": "Displacer: Blurry",
+            "tier": "basic"
+          },
+          {
+            "id": "displacer-sending",
+            "name": "Displacer: Sending",
+            "tier": "basic"
+          },
+          {
+            "id": "displacer-displace-attack",
+            "name": "Displacer: Displace Attack",
+            "tier": "basic"
+          },
+          {
+            "id": "displacer-lasting-power",
+            "name": "Displacer: Lasting Power",
+            "tier": "basic"
+          },
+          {
+            "id": "displacer-banishment",
+            "name": "Displacer: Banishment",
+            "tier": "basic"
+          },
+          {
+            "id": "displacer-mirage",
+            "name": "Displacer: Mirage",
             "tier": "basic"
           }
         ]

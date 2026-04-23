@@ -2,14 +2,17 @@
 <div class="shard-chat-card ability-card">
 
   <div class="card-header">
-    <img src="{{item.img}}" class="ability-img" />
+    {{#if iconSrc}}<img src="{{iconSrc}}" class="ability-img" />{{/if}}
     <div class="card-title">
       <span class="actor-name">{{actor.name}}</span>
       <span class="ability-name">{{item.name}}</span>
     </div>
     <div class="ability-cost">
       {{shardCostLabel item.system.cost}}
-      {{#if item.system.focusCost}}<span class="focus-cost">{{item.system.focusCost}}F spent</span>{{/if}}
+      {{#if item.system.focusCost}}<span class="focus-cost focus-refundable"
+            data-focus-spent="{{item.system.focusCost}}"
+            data-focus-remaining="{{item.system.focusCost}}"
+            title="Right-click to refund focus">{{item.system.focusCost}}F spent</span>{{/if}}
     </div>
   </div>
 

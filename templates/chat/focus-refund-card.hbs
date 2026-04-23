@@ -1,0 +1,15 @@
+{{! templates/chat/focus-refund-card.hbs }}
+<div class="shard-chat-card focus-refund-card">
+  <div class="card-header">
+    <span class="damage-label">Focus Refunded</span>
+  </div>
+  <div class="card-body">
+    <div class="damage-result"><span class="damage-raw">+{{amount}}F</span></div>
+    <div class="target-applied hint">{{actorName}} regained {{amount}} Focus.</div>
+    <div class="target-applied hint">
+      <a class="undo-focus-refund-btn" title="Undo — reverse this refund">
+        <i class="fas fa-undo"></i> Undo
+      </a>
+    </div>
+  </div>
+</div>

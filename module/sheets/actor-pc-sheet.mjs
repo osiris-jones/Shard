@@ -154,22 +154,15 @@ export class ShardPCActorSheet extends ActorSheet {
 
   activateListeners(html) {
     super.activateListeners(html);
-    if (!this.isEditable) return;
 
-    // Inventory ability expand/collapse
+    // ── Read-only listeners (available to observers) ────────────────────
+    // Ability expand/collapse — observers need this to view ability details.
     html.on("click", ".ability-name-row", this._onAbilityExpand.bind(this));
-
-    // Inventory ability actions
-    html.on("click",  ".ability-activate",    this._onAbilityActivate.bind(this));
-    html.on("click",  ".ability-attack-roll", this._onAttackRoll.bind(this));
-
-    // Section collapse
+    // Section collapse (pure client-side CSS toggle, no actor mutation)
     html.on("click", ".collapsible-header", this._onSectionCollapse.bind(this));
-
-    // Refocus button
-    html.on("click", ".refocus-btn", this._onRefocus.bind(this));
-
-    // Class collapse
+    // Class ability row — left-click to expand inline
+    html.on("click", ".class-ability-row[data-uuid]", this._onClassAbilityExpand.bind(this));
+    // Class block collapse
     html.on("click", ".class-collapse-toggle", this._onClassCollapseToggle.bind(this));
 
     // Restore section collapsed states across re-renders
@@ -180,6 +173,15 @@ export class ShardPCActorSheet extends ActorSheet {
       }
     }
 
+    if (!this.isEditable) return;
+
+    // Inventory ability actions
+    html.on("click",  ".ability-activate",    this._onAbilityActivate.bind(this));
+    html.on("click",  ".ability-attack-roll", this._onAttackRoll.bind(this));
+
+    // Refocus button
+    html.on("click", ".refocus-btn", this._onRefocus.bind(this));
+
     // Drag-sort within ability lists
     html.on("dragover",  ".item-list .item", this._onSortDragOver.bind(this));
     html.on("dragleave", ".item-list .item", this._onSortDragLeave.bind(this));
@@ -188,9 +190,6 @@ export class ShardPCActorSheet extends ActorSheet {
     // Class controls
     html.on("change", ".class-level-input",  this._onClassLevelChange.bind(this));
     html.on("change", ".base-class-radio",   this._onBaseClassChange.bind(this));
-
-    // Class ability row — left-click to expand inline
-    html.on("click", ".class-ability-row[data-uuid]", this._onClassAbilityExpand.bind(this));
 
     // Item controls
     html.on("click", ".item-delete", this._onItemDelete.bind(this));

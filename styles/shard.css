@@ -642,6 +642,43 @@
 .damage-undone .card-body { text-decoration: line-through; }
 .damage-undone .undo-damage-btn { pointer-events: none; cursor: default; }
 
+/* ── Focus Refund ───────────────────────────────────────────────────── */
+/* Focus badge made interactive when refundable */
+.focus-cost.focus-refundable {
+  cursor: context-menu;
+  transition: filter 0.1s;
+}
+.focus-cost.focus-refundable:hover { filter: brightness(1.2); }
+.focus-cost.focus-cost-exhausted  { opacity: 0.6; cursor: default; }
+.focus-cost.focus-cost-exhausted:hover { filter: none; }
+
+/* Focus refund context menu — mirrors .shard-damage-ctx */
+.shard-focus-ctx {
+  position: fixed;
+  background: var(--shard-bg, #1a1a1a);
+  border: 1px solid var(--shard-accent, #b08d57);
+  border-radius: var(--shard-radius, 4px);
+  padding: 4px 0;
+  z-index: 10000;
+  min-width: 140px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.shard-focus-ctx .ctx-item {
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+.shard-focus-ctx .ctx-item:hover {
+  background: var(--shard-accent, #b08d57);
+  color: var(--shard-bg, #1a1a1a);
+}
+
+/* Undone refund card — same visual pattern as .damage-undone */
+.focus-refund-undone { opacity: 0.5; }
+.focus-refund-undone .card-body { text-decoration: line-through; }
+.focus-refund-undone .undo-focus-refund-btn { pointer-events: none; cursor: default; }
+
 /* ── Embedded Dice Roll Tooltip ─────────────────────────────────────── */
 /* Foundry v13 toggles .expanded on .dice-roll; mirror that here so the
    tooltip hidden/shown state works inside our custom card structure.    */

@@ -2,11 +2,19 @@
 <div class="shard-chat-card attack-card">
 
   <div class="card-header">
-    <img src="{{ability.img}}" class="ability-img" />
+    {{#if iconSrc}}<img src="{{iconSrc}}" class="ability-img" />{{/if}}
     <div class="card-title">
       <span class="actor-name">{{actor.name}}</span>
       <span class="ability-name">{{ability.name}}</span>
     </div>
+    {{#if ability.system.focusCost}}
+      <div class="ability-cost">
+        <span class="focus-cost focus-refundable"
+              data-focus-spent="{{ability.system.focusCost}}"
+              data-focus-remaining="{{ability.system.focusCost}}"
+              title="Right-click to refund focus">{{ability.system.focusCost}}F spent</span>
+      </div>
+    {{/if}}
     {{#if tags.length}}
       <div class="card-tags">{{#each tags}}<span class="tag">{{name}}</span>{{/each}}</div>
     {{/if}}

@@ -160,8 +160,20 @@ export class ShardAttackDialog extends Dialog {
       });
 
       // Off Guard is consumed by the attack; Prone persists.
-      if (isOffGuard && targetActor && game.user.isGM) {
-        await targetActor.toggleStatusEffect(offGuardId, { active: false });
+      if (isOffGuard && targetActor) {
+        if (targetActor.isOwner) {
+          await targetActor.toggleStatusEffect(offGuardId, { active: false });
+        } else {
+          // Non-owner: delegate to the GM via socket so the status is
+          // removed regardless of attacker's permission on the target.
+          game.socket.emit("system.shard", {
+            action:   "removeStatusEffect",
+            actorId:  targetActor.id,
+            tokenId:  tokenIds[i] ?? null,
+            sceneId:  canvas.scene?.id ?? null,
+            statusId: offGuardId
+          });
+        }
       }
     }
 
@@ -189,10 +201,13 @@ export class ShardAttackDialog extends Dialog {
 
     const resistanceDV = ability.system.resolveResistanceDV(actor);
 
+    const focusSpent = ability.system.focusCost ?? 0;
+
     const html = await renderTemplate(
       "systems/shard/templates/chat/attack-card.hbs",
       {
         actor, ability, effectHTML,
+        iconSrc:       null,   // placeholder — future: tag-based generic icon
         tags:          ability.system.tags ?? [],
         targetResults, hitAny, missAny, critAny,
         flatBonus,
@@ -224,7 +239,9 @@ export class ShardAttackDialog extends Dialog {
           damageFormula, grazeFormula, resistFormula, damageBonus,
           hasGraze:      ability.system.hasGraze,
           hasResistance: ability.system.hasResistance,
-          resistanceDV
+          resistanceDV,
+          focusSpent,
+          focusRefunded: 0
         }
       }
     });
@@ -250,12 +267,15 @@ export async function postAbilityToChat(actor, ability) {
     "systems/shard/templates/chat/ability-card.hbs",
     {
       actor, item: ability,
+      iconSrc: null,   // placeholder — future: tag-based generic icon
       effectHTML,
       tags:          ability.system.tags ?? [],
       hasResistance: ability.system.hasResistance,
       resistanceDV
     }
   );
+
+  const focusSpent = ability.system.focusCost ?? 0;
 
   return ChatMessage.create({
     content: html,
@@ -267,7 +287,9 @@ export async function postAbilityToChat(actor, ability) {
         abilityId:     ability.id,
         hasResistance: ability.system.hasResistance,
         resistanceDV,
-        resistFormula: ability.system.resolveResistFormula(actor)
+        resistFormula: ability.system.resolveResistFormula(actor),
+        focusSpent,
+        focusRefunded: 0
       }
     }
   });
@@ -378,6 +400,19 @@ Hooks.on("renderChatMessage", (message, html) => {
     html.on("click", ".resist-roll-btn", () => _openResistDialog(message));
   }
 
+  // Right-click focus badge on attack/ability cards to refund focus
+  if (flags.attackCard || flags.abilityCard) {
+    const remaining = (flags.focusSpent ?? 0) - (flags.focusRefunded ?? 0);
+    // Sync the badge's data-attr and dim it if exhausted (visual cue)
+    const badge = html[0].querySelector(".focus-cost.focus-refundable");
+    if (badge) {
+      badge.dataset.focusRemaining = String(Math.max(0, remaining));
+      if (remaining <= 0) badge.classList.add("focus-cost-exhausted");
+    }
+    html.on("contextmenu", ".focus-cost.focus-refundable",
+      ev => _showFocusRefundMenu(ev, message));
+  }
+
   // Undo button on damage cards — restores HP to the damaged actor
   if (flags.damageCard) {
     if (flags.undone) {
@@ -393,6 +428,15 @@ Hooks.on("renderChatMessage", (message, html) => {
       html[0].querySelector(".shard-chat-card")?.classList.add("damage-undone");
     } else {
       html.on("click", ".undo-heal-btn", () => _undoHeal(message));
+    }
+  }
+
+  // Undo button on focus refund cards — reverses the focus refund
+  if (flags.focusRefundCard) {
+    if (flags.undone) {
+      html[0].querySelector(".shard-chat-card")?.classList.add("focus-refund-undone");
+    } else {
+      html.on("click", ".undo-focus-refund-btn", () => _undoFocusRefund(message));
     }
   }
 });
@@ -575,6 +619,191 @@ function _showDamageContextMenu(event, message) {
     if (isCrit) _rollCritDamageFromCard(message, true);
     else        _rollDamageFromCard(message, isGraze, true);
   });
+}
+
+/* -------------------------------------------------------------------- */
+/*  Focus Refund                                                          */
+/* -------------------------------------------------------------------- */
+
+/**
+ * Right-click handler on a .focus-cost.focus-refundable badge.
+ * Shows a discrete menu of refund amounts 1..remaining (plus a "Refund All"
+ * shortcut when remaining > 1).
+ */
+function _showFocusRefundMenu(event, message) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  // Remove any existing menu
+  document.querySelectorAll(".shard-focus-ctx").forEach(el => el.remove());
+
+  const flags     = message.flags?.shard ?? {};
+  const spent     = flags.focusSpent    ?? 0;
+  const refunded  = flags.focusRefunded ?? 0;
+  const remaining = spent - refunded;
+  if (remaining <= 0) return;
+
+  const btn  = event.currentTarget;
+  const menu = document.createElement("div");
+  menu.className = "shard-focus-ctx";
+
+  const items = [];
+  for (let n = 1; n <= remaining; n++) {
+    items.push(`<div class="ctx-item" data-amount="${n}"><i class="fas fa-undo"></i> Refund ${n}F</div>`);
+  }
+  if (remaining > 1) {
+    items.push(`<div class="ctx-item" data-amount="${remaining}"><i class="fas fa-undo-alt"></i> Refund All (${remaining}F)</div>`);
+  }
+  menu.innerHTML = items.join("");
+
+  // Position below the badge; flip above if near the viewport bottom
+  const rect   = btn.getBoundingClientRect();
+  const MENU_H = 28 * (items.length) + 8;
+  const top    = (rect.bottom + MENU_H > window.innerHeight)
+    ? rect.top - MENU_H - 4
+    : rect.bottom + 4;
+  menu.style.top  = `${top}px`;
+  menu.style.left = `${rect.left}px`;
+  document.body.appendChild(menu);
+
+  const close = () => {
+    menu.remove();
+    document.removeEventListener("click",       close, true);
+    document.removeEventListener("contextmenu", close, true);
+  };
+  setTimeout(() => {
+    document.addEventListener("click",       close, true);
+    document.addEventListener("contextmenu", close, true);
+  }, 0);
+
+  menu.querySelectorAll(".ctx-item").forEach(el => {
+    el.addEventListener("click", e => {
+      e.stopPropagation();
+      close();
+      const amount = parseInt(el.dataset.amount, 10);
+      if (Number.isFinite(amount) && amount > 0) _refundFocus(message, amount);
+    });
+  });
+}
+
+/**
+ * Refund `amount` focus to the source actor, bump the source message's
+ * focusRefunded flag, and post a focus-refund chat card with Undo.
+ * Delegates actor/flag mutations to a GM via socket for non-owners.
+ */
+async function _refundFocus(message, amount) {
+  const flags    = message.flags?.shard ?? {};
+  const actorId  = flags.actorId;
+  const spent    = flags.focusSpent    ?? 0;
+  const refunded = flags.focusRefunded ?? 0;
+  const remaining = spent - refunded;
+
+  if (amount <= 0 || amount > remaining) {
+    ui.notifications.warn("Nothing left to refund.");
+    return;
+  }
+
+  const actor = game.actors.get(actorId);
+  if (!actor) {
+    ui.notifications.warn("Source actor not found — cannot refund focus.");
+    return;
+  }
+
+  // Apply focus delta — direct if owner/GM, otherwise via GM socket
+  if (actor.isOwner) {
+    const cur  = actor.system.focus?.value ?? 0;
+    const max  = actor.system.focus?.max   ?? cur;
+    const next = Math.max(0, Math.min(max, cur + amount));
+    await actor.update({ "system.focus.value": next });
+  } else {
+    game.socket.emit("system.shard", {
+      action: "applyFocusDelta", actorId, delta: amount
+    });
+  }
+
+  // Bump source message flag — direct if author/GM, else via GM socket
+  const newRefunded = refunded + amount;
+  if (message.isAuthor || game.user.isGM) {
+    await message.setFlag("shard", "focusRefunded", newRefunded);
+  } else {
+    game.socket.emit("system.shard", {
+      action: "setFocusRefundedFlag", messageId: message.id, value: newRefunded
+    });
+  }
+
+  // Post the refund card
+  const html = await renderTemplate(
+    "systems/shard/templates/chat/focus-refund-card.hbs",
+    { actorName: actor.name, amount }
+  );
+  return ChatMessage.create({
+    content: html,
+    speaker: ChatMessage.getSpeaker({ actor }),
+    flags: {
+      shard: {
+        focusRefundCard: true,
+        actorId,
+        amount,
+        sourceMessageId: message.id
+      }
+    }
+  });
+}
+
+/**
+ * Undo a focus refund — subtract the refunded amount back from the actor
+ * and decrement the source message's focusRefunded flag.
+ */
+async function _undoFocusRefund(message) {
+  const flags     = message.flags?.shard ?? {};
+  const actorId   = flags.actorId;
+  const amount    = flags.amount ?? 0;
+  const sourceId  = flags.sourceMessageId;
+  if (!actorId || amount <= 0) {
+    ui.notifications.warn("No refund data — cannot undo.");
+    return;
+  }
+
+  const actor = game.actors.get(actorId);
+  if (!actor) {
+    ui.notifications.warn("Source actor not found — cannot undo refund.");
+    return;
+  }
+
+  // Inverse focus update
+  if (actor.isOwner) {
+    const cur = actor.system.focus?.value ?? 0;
+    await actor.update({ "system.focus.value": Math.max(0, cur - amount) });
+  } else {
+    game.socket.emit("system.shard", {
+      action: "applyFocusDelta", actorId, delta: -amount
+    });
+  }
+
+  // Decrement source message's focusRefunded flag
+  const sourceMsg = sourceId ? game.messages.get(sourceId) : null;
+  if (sourceMsg) {
+    const curRefunded = sourceMsg.flags?.shard?.focusRefunded ?? 0;
+    const newValue    = Math.max(0, curRefunded - amount);
+    if (sourceMsg.isAuthor || game.user.isGM) {
+      await sourceMsg.setFlag("shard", "focusRefunded", newValue);
+    } else {
+      game.socket.emit("system.shard", {
+        action: "setFocusRefundedFlag", messageId: sourceId, value: newValue
+      });
+    }
+  }
+
+  // Mark this refund card as undone
+  if (message.isAuthor || game.user.isGM) {
+    await message.setFlag("shard", "undone", true);
+  } else {
+    // Non-author undo is rare; fall through — GM socket could be extended
+    // with a generic setFlag action if needed.
+    ui.notifications.info(`Reversed ${amount}F refund for ${actor.name}.`);
+    return;
+  }
+  ui.notifications.info(`Reversed ${amount}F refund for ${actor.name}.`);
 }
 
 async function _undoHeal(message) {

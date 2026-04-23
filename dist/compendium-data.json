@@ -859,7 +859,7 @@
         }
       },
       "system": {
-        "cost": "1",
+        "cost": "passive",
         "focusCost": 0,
         "rank": 3,
         "range": "",
@@ -872,10 +872,8 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Until the start of your next turn, you have <strong>+1 Armor</strong> and <strong>Immunity to Involuntary Movement.</strong></p>",
-        "_tagIds": [
-          "limitround"
-        ]
+        "effect": "<p><strong>End of Turn:</strong> You may <strong>Pay 1 Focus</strong>. If you do, you&#39;re <strong>Immobilized</strong> 1. While <strong>Immobilized</strong> this way, you&#39;re <strong>Immune to Involuntary Movement</strong>. If you&#39;re in a <em>Shield Stance</em>*, you also gain <strong>Barrier</strong> equal to your [tier].</p>",
+        "_tagIds": []
       }
     },
     {
@@ -1253,7 +1251,7 @@
       }
     },
     {
-      "name": "Ironskin",
+      "name": "Warding",
       "type": "ability",
       "flags": {
         "shard": {
@@ -1275,7 +1273,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Passive:</strong> +1 DEF</p>",
+        "effect": "<p><strong>Passive:</strong> You have <strong>+1 Advantage</strong> on <strong>Resistance Rolls</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -1543,9 +1541,10 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>While you&#39;re in a</strong> <em>Shield</em> <strong>Stance:</strong> Whenever an adjacent hostile character damages your <strong>Barrier</strong>, that character suffers <strong>Push 1</strong> and <strong>Off Guard</strong>.</p>",
+        "effect": "<p><strong>While you&#39;re in a</strong> <em>Shield</em> <strong>Stance:</strong> <strong>1/Turn</strong> when an adjacent hostile character damages your <strong>Barrier</strong>, that character suffers <strong>Push 1</strong> and <strong>Off Guard</strong>.</p>",
         "_tagIds": [
-          "shield"
+          "shield",
+          "limitturn"
         ]
       }
     },
@@ -1603,7 +1602,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Bash</strong> has <strong>+1 Advantage</strong> against <strong>Slowed, Prone, or Immobilized</strong> characters and deals +3 <strong>Bonus Damage</strong> to those characters.</p>",
+        "effect": "<p><strong>On Attack:</strong> If the target is <strong>Slowed, Prone, or Immobilized</strong>, Bash has <strong>+1 Advantage</strong> and deals <strong>+3 Bonus Damage</strong> on a hit.</p>",
         "_tagIds": [
           "melee",
           "attack",
@@ -1790,7 +1789,7 @@
       }
     },
     {
-      "name": "Flagbearer",
+      "name": "Engagement",
       "type": "ability",
       "flags": {
         "shard": {
@@ -1799,8 +1798,8 @@
         }
       },
       "system": {
-        "cost": "reaction",
-        "focusCost": 1,
+        "cost": "passive",
+        "focusCost": 0,
         "rank": 4,
         "range": "",
         "isAttack": false,
@@ -1812,11 +1811,9 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> An adjacent allied character becomes the target of an <strong>Action</strong> that targets only one character.</p>\n<p><strong>Effect � Focus Cost 1:</strong> You become the new target of that <strong>Action.</strong> <em>( It&#39;s applied even if you&#39;re outside the action&#39;s normal range. )</em></p>",
+        "effect": "<p>Your <em>Basic</em> <strong>Attack Action</strong> has <strong>On Hit</strong>: The target is <strong>Marked</strong> by your <strong>Engagement</strong>, and other characters <strong>Marked</strong> this way are no longer <strong>Marked</strong>.</p>\n<p><strong>1/Round</strong> as a <strong>Free Action</strong>: <strong>Move</strong> 2 as close as possible to the character <strong>Marked</strong> by <strong>Engagement</strong>. This <strong>Free Action</strong> ignores <strong>Difficult Terrain</strong> and doesn�t trigger hostile <strong>Reactions</strong>.</p>",
         "_tagIds": [
-          "support",
-          "reaction",
-          "limitround"
+          "passive"
         ]
       }
     },
@@ -3252,7 +3249,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your next <em>Weapon Attack</em> <strong>Action</strong> this turn has the following property:<br><strong>On Hit:</strong> Up to one target makes a <strong>Resistance Roll</strong> or suffers <strong>Bleeding 3</strong>.<br>The character suffers <strong>Bleeding +1</strong> on a <strong>Resist</strong>.</p>",
+        "effect": "<p>Your next <em>Weapon Attack</em> <strong>Action</strong> this turn has the following property:<br><strong>On Attack:</strong> Up to one target makes a <strong>Resistance Roll</strong> or suffers <strong>Bleeding 3</strong>.<br>The character suffers <strong>Bleeding +1</strong> on a <strong>Resist</strong>.</p>",
         "_tagIds": [
           "weapon",
           "limitround"
@@ -3796,7 +3793,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your <strong>Refocus</strong> is a <em>Combo</em> <strong>Action</strong>.</p>",
+        "effect": "<p>Increased <strong>Focus Pool (+1)</strong>.</p>\n<p>Your <strong>Refocus</strong> is a <em>Combo</em> <strong>Action</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -4595,7 +4592,7 @@
         "rank": 3,
         "range": "",
         "isAttack": true,
-        "damage": "[atk]",
+        "damage": "[atk]+1",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
@@ -4603,7 +4600,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Characters in a <strong>Size 1 Area</strong> centered on a tile within your <em>Basic</em> <strong>Attack Action&#39;s Range</strong> become targets.</p>",
+        "effect": "<p>Other characters in a <strong>Size 1 Area</strong> centered on a tile within your <em>Basic</em> <strong>Attack Action&#39;s Range</strong> become targets.</p>",
         "_tagIds": [
           "ranged",
           "weapon",
@@ -4745,7 +4742,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>You have <strong>+1 Attack</strong>. Your <em>Basic</em> <em>Attack</em> <strong>Action</strong> is <em>Ranged</em> and has <strong>Range 3.</strong> Your <strong>Actions</strong> with <strong>Range</strong> have a <strong>Maximum Range</strong> of <strong>3.</strong></p>\n<p>You don&#39;t suffer <strong>Disadvantage</strong> for performing <em><strong>non-Spell</strong></em> <em>Ranged</em> <strong>Attack Actions</strong> against adjacent targets. Your <em>Ranged</em> <strong>Attack Actions</strong> ignore cover.</p>",
+        "effect": "<p>You have <strong>+1 Attack</strong>. Your <em>Basic</em> <em>Attack</em> <strong>Action</strong> is <em>Ranged</em> and has <strong>Range 3.</strong> Your <strong>Actions</strong> with <strong>Range</strong> have a <strong>Maximum Range</strong> of <strong>3.</strong></p>\n<p>You don&#39;t suffer <strong>Disadvantage</strong> for performing <em>Ranged</em> <strong>Attack Actions</strong> while hostile characters are adjacent. Your <em>Ranged</em> <strong>Attack Actions</strong> ignore cover.</p>",
         "_tagIds": [
           "ranged",
           "weapon",
@@ -4817,7 +4814,7 @@
       }
     },
     {
-      "name": "Luciform Eye",
+      "name": "Parting Shot",
       "type": "ability",
       "flags": {
         "shard": {
@@ -4826,8 +4823,8 @@
         }
       },
       "system": {
-        "cost": "passive",
-        "focusCost": 0,
+        "cost": "2",
+        "focusCost": 1,
         "rank": 5,
         "range": "",
         "isAttack": false,
@@ -4839,8 +4836,11 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your <em>Attack</em> <strong>Actions</strong> with non-<em>Melee</em> <strong>Range</strong> have +2 <strong>Range.</strong></p>",
-        "_tagIds": []
+        "effect": "<p>Perform the <em>Basic</em> <strong>Evade</strong> Action as a part of this Action. You <strong>fly</strong> when you <strong>Evade</strong> this way. Then, as a part of this <strong>Action</strong>: Perform a Ranged Attack <strong>Action</strong> that costs (?) or less with <strong>+1 Advantage</strong> targeting an enemy your <strong>Evade</strong> moved you further away from.</p>",
+        "_tagIds": [
+          "movement",
+          "limitround"
+        ]
       }
     },
     {
@@ -5088,7 +5088,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Create an <strong>Arcane Glyph</strong> on your tile.</p>\n<ul>\n<li>For the rest of the encounter, when you <strong>Refocus:</strong> Move your <strong>Arcane Glyph</strong> to your tile.</li>\n<li>While in a tile with your <strong>Arcane Glyph:</strong></li>\n<li>Your non-<em>Support</em> <strong>Spells</strong> have <strong>-1 AP Cost</strong> <em>(min. 1)</em>.</li>\n<li><em>Spell</em> <strong>Actions</strong> have <strong>Focus Cost -1</strong> <em>(min. 1)</em>.</li>\n<li><strong>Spells</strong> with <strong>Range</strong> have <strong>Range +1</strong>.</li>\n</ul>",
+        "effect": "<p>Create an <strong>Arcane Glyph</strong> on your tile.</p>\n<ul>\n<li>For the rest of the encounter, when you <strong>Refocus:</strong> Move your <strong>Arcane Glyph</strong> to your tile.</li>\n<li>While in a tile with your <strong>Arcane Glyph:</strong></li>\n<li>Your non-<em>Support</em> <strong>Spells</strong> have <strong>-1 AP Cost</strong> <em>(min. 1)</em>.</li>\n<li><em>Spell</em> <strong>Actions</strong> have <strong>Focus Cost -1</strong> <em>(min. 1)</em>.</li>\n</ul>",
         "_tagIds": [
           "spell",
           "special",
@@ -5366,7 +5366,7 @@
       }
     },
     {
-      "name": "Overload",
+      "name": "Arcane Trace",
       "type": "ability",
       "flags": {
         "shard": {
@@ -5375,21 +5375,25 @@
         }
       },
       "system": {
-        "cost": "passive",
-        "focusCost": 0,
+        "cost": "1",
+        "focusCost": 2,
         "rank": 2,
-        "range": "",
+        "range": "Range 4",
         "isAttack": false,
-        "damage": "",
+        "damage": "2[mag]",
         "hasGraze": false,
         "grazeDamage": "",
-        "hasResistance": false,
-        "resistanceDV": "10",
+        "hasResistance": true,
+        "resistanceDV": "10+[tier]",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>After you perform a <em>Spell</em> <strong>Action:</strong> Spend up to <strong>6 Focus</strong>. <strong>Overload</strong> deals that much <strong>Chaos Damage</strong> to each character dealt damage by that <em>Spell</em> <strong>Action</strong>. This damage is halved against a target that was dealt half damage by the <strong>Spell</strong>.</p>",
-        "_tagIds": []
+        "effect": "<ul>\n<li>An <strong>Arcane Trace</strong> is armed at the start of your next turn and activates when a hostile character becomes adjacent.</li>\n<li>Effect: The <em>Trap</em> detonates in a <strong>Size 1 Area</strong>. Characters in the area take 2[M] Damage and are <strong>Marked</strong> by your <strong>Arcane Trace</strong> until the end of their next turn. Against characters <strong>Marked</strong> by your <strong>Arcane Trace:</strong> Your <em>Spell</em> <strong>Actions</strong> treat obstructions as cover and have +1 <strong>Advantage</strong> on <strong>Attack Rolls</strong>. A character that Resists takes half damage and isn�t <strong>Marked</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "trap",
+          "spell",
+          "limitencounter"
+        ]
       }
     },
     {
@@ -5493,7 +5497,7 @@
         "rank": 3,
         "range": "Line 8",
         "isAttack": false,
-        "damage": "",
+        "damage": "2d6+4",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": true,
@@ -5501,7 +5505,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Hostile characters in the <strong>Line</strong> make a <strong>Resistance Roll</strong> or suffer <strong>2d6+3 Damage</strong>, taking <strong>half damage</strong> on a <strong>Resist</strong>.</p>",
+        "effect": "<p>Hostile characters in the <strong>Line</strong> make a <strong>Resistance Roll</strong> or suffer <strong>2d6+4 Damage</strong>, taking <strong>half damage</strong> on a <strong>Resist</strong>.</p>",
         "_tagIds": [
           "spell",
           "ranged",
@@ -5532,7 +5536,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your <em>Spell</em> <strong>Actions</strong> deal <strong>+2 Bonus Damage</strong> while above half of your maximum <strong>Focus Pool</strong>.<br>If you would pay a <strong>Focus Cost</strong>, you may instead pay <strong>1 + x HP</strong>, where x is that <strong>Focus Cost</strong>. <em>(This is a cost, not damage: it can&#39;t be prevented and must be paid to perform the Action.)</em></p>",
+        "effect": "<p>Your <em>Spell</em> <strong>Actions</strong> deal <strong>+3 Bonus Damage</strong> while above half of your maximum <strong>Focus Pool</strong>.<br>If you would pay a <strong>Focus Cost</strong>, you may instead pay <strong>1 + x HP</strong>, where x is that <strong>Focus Cost</strong>. <em>(This is a cost, not damage: it can&#39;t be prevented and must be paid to perform the Action.)</em></p>",
         "_tagIds": [
           "passive"
         ]
@@ -5622,7 +5626,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>When you roll the highest possible number on any die when determining the damage of an <strong>Action:</strong> Roll one of those dice again. The <strong>Action</strong> deals that much <strong>Bonus Damage</strong>.</p>",
+        "effect": "<p>When you roll the highest possible number on any die when determining the damage of an <strong>Action:</strong> Roll one of those dice again. The <strong>Action</strong> deals that much <strong>Bonus Damage</strong>. <em>(The effect occurs no more than once per damage roll. It always occurs if you score a critical hit.)</em></p>",
         "_tagIds": [
           "passive"
         ]
@@ -5807,7 +5811,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your <em>Attack Spell</em> <strong>Actions</strong> have <strong>Focus Cost -1</strong>.</p>",
+        "effect": "<p>Your <em>Attack Spell</em> <strong>Actions</strong> have <strong>Focus Cost -1</strong>. <em>(min. 1)</em></p>",
         "_tagIds": [
           "stance"
         ]
@@ -6071,7 +6075,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>If you would be <strong>Downed</strong>, <strong>1/Encounter:</strong> Make a <strong>Resistance Roll</strong> (10). On a success, you remain at 1 HP.</p>",
+        "effect": "<p>If you would be <strong>Downed</strong>, <strong>1/Encounter:</strong> <strong>Gamble</strong> 4. On a success, you remain at 1 HP.</p>\n<p>When you become <strong>Staggered</strong>, you become <strong>Blessed</strong>.</p>",
         "_tagIds": [
           "heroic",
           "limitencounter"
@@ -6194,7 +6198,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>When you perform a <em>Trap</em> <strong>Action,</strong> you may pay 1 AP. If you do, that <em>Trap</em> becomes armed immediately, and you can activate it as a free <strong>Reaction</strong> at the end of any character&#39;s turn. *(Traps activated this way aren&#39;t considered to be triggered by any character.)</p>\n<p>You may perform <em>Trap</em> <strong>Actions</strong> as though they had <strong>Spend 1 Inspiration</strong> instead of <strong>1/Encounter.</strong></p>",
+        "effect": "<p>When you perform a <em>Trap</em> <strong>Action,</strong> you may pay 1 AP. If you do, that <em>Trap</em> becomes armed immediately, and you can activate it as a free <strong>Reaction</strong> at the end of any character&#39;s turn. <em>(Traps activated this way aren&#39;t considered to be triggered by any character.)</em></p>\n<p>You may perform <em>Trap</em> <strong>Actions</strong> as though they had <strong>Spend 1 Inspiration</strong> instead of <strong>1/Encounter.</strong></p>",
         "_tagIds": [
           "heroic"
         ]
@@ -6256,7 +6260,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>Allied characters within your <em>Aura</em> have <strong>+1 Advantage</strong> with <em>Ranged</em> <strong>Attack Actions.</strong></p>",
+        "effect": "<p>Allied characters within your <em>Aura</em> have <strong>+1 Advantage</strong> with <em>Ranged</em> <strong>Attack Actions.</strong> Additionally, your <em>Ranged</em> <em>Weapon</em> <strong>Actions</strong> have <strong>+2 Range</strong>.</p>",
         "_tagIds": [
           "heroic",
           "aura"
@@ -6286,7 +6290,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>While you aren&#39;t in a <em>Ranged Weapon Stance</em>: You can perform <em>Ranged Weapon</em> <strong>Actions</strong> in any <em>Stance</em>.<br>If the <strong>Focus Cost</strong> of those <strong>Actions</strong> is lower than the <strong>AP Cost</strong> of those <strong>Actions</strong>, the <strong>Focus Cost</strong> becomes the <strong>AP Cost</strong>.<br>Any [atk] in the damage profile of those <strong>Actions</strong> becomes [mag].</p>",
+        "effect": "<p>You can perform <em>Ranged Weapon</em> <strong>Actions</strong> in any Stance, and your <em>Ranged Spell Attack</em> <strong>Actions</strong> gain the <em>Weapon</em> tag. The <strong>Focus Cost</strong> of your non-<em>Basic</em> <em>Ranged</em> <strong>Actions</strong> becomes equal to their <strong>AP Cost</strong> unless higher. Your <em>Ranged</em> <strong>Actions</strong> use [M] instead of [A].</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -6833,7 +6837,7 @@
         }
       },
       "system": {
-        "cost": "passive",
+        "cost": "0",
         "focusCost": 2,
         "rank": 0,
         "range": "Range 4",
@@ -7172,11 +7176,12 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> You suffer any amount of damage from a single source.</p>\n<p><strong>Effect:</strong> Prevent that damage. You are <strong>Immobilized 1</strong>.</p>",
+        "effect": "<p><strong>Condition:</strong> You suffer any amount of damage from a single source.</p>\n<p><strong>Effect - 1/Encounter:</strong> Prevent that damage. You are <strong>Immobilized 1</strong>.</p>",
         "_tagIds": [
           "heroic",
           "spell",
-          "reaction"
+          "reaction",
+          "limitencounter"
         ]
       }
     },
@@ -7377,11 +7382,12 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> A hostile character within <strong>Range 6</strong> performs a <em>Spell</em> <strong>Action.</strong></p>\n<p><strong>Effect:</strong> Prevent that action. You gain [tier] <strong>Focus.</strong> <em>(The action is treated as if it had no effects. Costs are still paid. If the action was a charged ability, it&#39;s no longer charged.)</em></p>",
+        "effect": "<p><strong>Condition:</strong> A hostile character within <strong>Range 6</strong> performs a <em>Spell</em> <strong>Action.</strong></p>\n<p><strong>Effect</strong> - <strong>Spend 1 Inspiration:</strong> Prevent that action. You gain [tier] <strong>Focus.</strong> <em>(The action is treated as if it had no effects. Costs are still paid. If the action was a charged ability, it&#39;s no longer charged.)</em></p>",
         "_tagIds": [
           "heroic",
           "spell",
-          "reaction"
+          "reaction",
+          "limitencounter"
         ]
       }
     },
@@ -7408,7 +7414,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>You have a <strong>Block Rating</strong> equal to [tier]+4. Your <em>Shield</em> <strong>Actions</strong> are <em>Spell</em> <strong>Actions</strong>, using the higher value between [atk] and [mag] where applicable. You can perform <em>Shield</em> <strong>Actions</strong> in any <strong>Stance.</strong> Whenever you perform a <em>Shield</em> <strong>Action,</strong> you gain the <strong>Ward Reaction</strong> until the start of your next turn.</p>",
+        "effect": "<p>You have a <strong>Block Rating</strong> equal to [tier]+4. Your <em>Shield</em> <strong>Actions</strong> are <em>Spell</em> <strong>Actions</strong>, using the higher value between [atk] and [mag] where applicable. During encounters, your active <em>Stance</em> gains the <em>Shield</em> tag. Whenever you perform a <em>Shield</em> <strong>Action,</strong> you gain the <strong>Ward Reaction</strong> until the start of your next turn.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -7542,7 +7548,7 @@
       }
     },
     {
-      "name": "Simulation",
+      "name": "Fianchetto",
       "type": "ability",
       "flags": {
         "shard": {
@@ -7564,7 +7570,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>When you <strong>Study</strong> a hostile character, you may roll an <strong>Action Resolution.</strong> <strong>For that character</strong>, the result of that <strong>Action Resolution</strong> is stored until you perform an <strong>Attack Roll</strong> against that character or make a <strong>Resistance Roll</strong> against one of that character&#39;s <strong>Actions</strong> or effects.</p>\n<p><strong>When you do:</strong> Instead of performing an <strong>Action Resolution,</strong> use the stored value.</p>",
+        "effect": "<p>When a hostile character&#39;s effect causes you to move, including by forcing you to perform a <em>Movement</em> <strong>Action</strong>: You may <strong>Move</strong> 1 before or after that movement. While moving this way, you can move diagonally, don&#39;t trigger hostile reactions, and ignore difficult terrain.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -7650,7 +7656,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>During your turn, the first <em>Spell Attack</em> <strong>Action</strong> you perform has <strong>+1 Advantage</strong>.</p>",
+        "effect": "<p>During your turn, the first <em>Spell Attack</em> <strong>Action</strong> you perform has <strong>+1 Advantage</strong> against targets that aren&#39;t In cover.</p>",
         "_tagIds": [
           "limitround"
         ]
@@ -7679,10 +7685,11 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>You perform the <em>Basic</em> <strong>Aid Action</strong> on an allied character within <strong>Range 5.</strong> You can always choose to give that character <strong>Advantage</strong> when performing <strong>Aid</strong> this way, though you still have to make an <strong>Action Resolution.</strong></p>\n<p>That character also receives <strong>1 Healing.</strong></p>",
+        "effect": "<p>Perform the <em>Basic</em> <strong>Aid Action</strong> on an allied character within <strong>Range</strong> as part of this <strong>Action</strong>. You can always choose to give that character <strong>Advantage</strong> when performing <strong>Aid</strong> this way, though you still have to make an <strong>Action Resolution.</strong></p>\n<p>That character also receives <strong>1 Healing.</strong></p>",
         "_tagIds": [
           "support",
-          "spell"
+          "spell",
+          "limitround"
         ]
       }
     },
@@ -7699,7 +7706,7 @@
         "cost": "3",
         "focusCost": 2,
         "rank": 2,
-        "range": "Range 4",
+        "range": "Range 5",
         "isAttack": true,
         "damage": "2[mag]+4",
         "hasGraze": false,
@@ -7772,7 +7779,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>When you <strong>Study</strong> a hostile character, the next <em>Attack</em> targeting that character has <strong>On Hit:</strong> [tier]+1 <strong>Bonus Damage.</strong></p>",
+        "effect": "<p>When you Study a hostile character, that character gains <strong>Imperial Eye</strong>; it&#39;s a special <strong>Condition</strong>. An <em>Attack</em> that hits a character clears <strong>Imperial Eye</strong> on that character and deals [t]+1 <strong>Bonus Damage</strong>.</p>",
         "_tagIds": []
       }
     },
@@ -8434,7 +8441,7 @@
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": true,
-        "resistanceDV": "10",
+        "resistanceDV": "10+[tier]",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
@@ -8469,12 +8476,13 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Flurry</strong> — Target up to three characters. <em>(Make a separate Attack Roll for each.)</em></p>\n<p><strong>On Damage:</strong> The target character suffers <strong>Push 1.</strong></p>",
+        "effect": "<p><strong>+1 Advantage</strong></p>\n<p>Target up to three characters. <em>(Make a separate Attack Roll for each.)</em></p>\n<p><strong>On Damage:</strong> The target character suffers <strong>Push 1.</strong></p>",
         "_tagIds": [
           "ranged",
           "spell",
           "attack",
-          "limitround"
+          "limitround",
+          "accurate"
         ]
       }
     },
@@ -10171,7 +10179,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>When you perform the <em>Basic</em> <strong>Aid Action,</strong> you may have the chosen character become <strong>Blessed</strong> instead of the <strong>Action&#39;s</strong> other effects.</p>",
+        "effect": "<p>Your <em>Basic</em> <strong>Aid</strong> action has the following additional option, which can be selected instead of other options:</p>",
         "_tagIds": []
       }
     },
@@ -10198,7 +10206,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>This turn, your <strong>Attack</strong> and <strong>Spell Actions</strong> don&#39;t trigger hostile <strong>Reactions.</strong></p>\n<p><strong>Read Intent</strong> doesn&#39;t trigger hostile <strong>Reactions.</strong></p>",
+        "effect": "<ul>\n<li>The character you <strong>Aid</strong> becomes <strong>Blessed.</strong></li>\n</ul>",
         "_tagIds": [
           "spell",
           "limitround"
@@ -10217,18 +10225,18 @@
       "system": {
         "cost": "1",
         "focusCost": 2,
-        "rank": 1,
+        "rank": 2,
         "range": "Range 5",
         "isAttack": false,
         "damage": "",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": true,
-        "resistanceDV": "10",
+        "resistanceDV": "10+[tier]",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or is <strong>Dazed +1.</strong></p>",
+        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or becomes <strong>Off Guard</strong> and is perpetually <strong>Dazed</strong> until they�re no longer <strong>Off Guard</strong>. Your Disorient can�t apply Off Guard to a character more than <strong>1/Encounter</strong>.</p>",
         "_tagIds": [
           "spell",
           "limitround"
@@ -10310,7 +10318,7 @@
       "system": {
         "cost": "1",
         "focusCost": 2,
-        "rank": 2,
+        "rank": 1,
         "range": "Range 3",
         "isAttack": false,
         "damage": "",
@@ -10321,7 +10329,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>An allied character in <strong>Range</strong> clears <strong>Blinded, Stunned,</strong> and <strong>Dazed.</strong> That character ignores <strong>Concealment</strong> until the end of their next turn.</p>",
+        "effect": "<p>An allied character in <strong>Range</strong> clears <strong>Blinded</strong> and <strong>Dazed.</strong> That character ignores <strong>Concealment</strong> until the end of their next turn.</p>",
         "_tagIds": [
           "support",
           "spell"
@@ -10378,7 +10386,7 @@
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": true,
-        "resistanceDV": "10",
+        "resistanceDV": "10+[tier]",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
@@ -11339,7 +11347,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your <strong>Foil</strong> may perform a non-<em>Ultimate</em> <strong>Action</strong> that costs (?) or less as a <strong>Free Reaction.</strong></p>",
+        "effect": "<p>Your <strong>Foil</strong> may perform a non-<em>Ultimate</em> <strong>Action</strong> that costs (1 AP) or less as a <strong>Free Reaction.</strong></p>",
         "_tagIds": [
           "special",
           "limitencounter"
@@ -11650,7 +11658,7 @@
         "cost": "passive",
         "focusCost": 0,
         "rank": 1,
-        "range": "",
+        "range": "Range 3",
         "isAttack": false,
         "damage": "",
         "hasGraze": false,
@@ -11809,7 +11817,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<ul>\n<li><strong>Flurry</strong><br><strong>On Hit:</strong> The target is <strong>Off Guard</strong> and makes a <strong>Resistance Roll</strong> or becomes <strong>Blinded</strong> 3.</li>\n</ul>",
+        "effect": "<ul>\n<li><p><strong>Flurry</strong></p>\n</li>\n<li><p><strong>On Hit:</strong> The target is <strong>Off Guard</strong> and makes a <strong>Resistance Roll</strong> or becomes <strong>Blinded</strong> 3.</p>\n</li>\n</ul>",
         "_tagIds": [
           "melee",
           "weapon",
@@ -12523,12 +12531,13 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>On Hit:</strong> The target becomes <strong>Off Guard.</strong></p>",
+        "effect": "<p><strong>+1 Advantage</strong></p>\n<p><strong>On Hit:</strong> The target becomes <strong>Off Guard.</strong></p>",
         "_tagIds": [
           "ranged",
           "spell",
           "attack",
-          "limitround"
+          "limitround",
+          "accurate"
         ]
       }
     },
@@ -12586,7 +12595,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition</strong>: A hostile character hits you with a <em>non-Spell Attack.</em></p>\n<p><strong>Effect:</strong> Choose one.</p>\n<ul>\n<li>Each adjacent hostile character makes a <strong>Resistance Roll</strong> or suffers <strong>3 Damage</strong> and becomes <strong>Blinded 2</strong> until the end of their next turn.</li>\n<li>You and adjacent allied characters receive 1 <strong>Healing.</strong></li>\n</ul>",
+        "effect": "<p><strong>Condition</strong>: A hostile character hits you with a <em>non-Spell Attack.</em></p>\n<p><strong>Effect:</strong> Choose one.</p>\n<ul>\n<li>Each adjacent hostile character makes a <strong>Resistance Roll</strong> or suffers <strong>3 Damage</strong> and becomes <strong>Blinded 2</strong> until the end of their next turn. A character that <strong>Resists</strong> suffers <strong>Blinded 1</strong>.</li>\n<li>You and adjacent allied characters receive 1 <strong>Healing.</strong></li>\n</ul>",
         "_tagIds": [
           "spell",
           "reaction",
@@ -12931,6 +12940,782 @@
           "attack"
         ]
       }
+    },
+    {
+      "name": "Sentinel Stance",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-sentinel-stance",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>In <strong>Sentinel Stance</strong>, you may perform <em>Melee Weapon</em> <strong>Actions</strong> as though they had <strong>Range 2</strong> instead of any other <strong>Range Profile</strong>.</p>",
+        "_tagIds": [
+          "weapon",
+          "stance"
+        ]
+      }
+    },
+    {
+      "name": "Thick of the Fight",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-thick-of-the-fight",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>While you&#39;re adjacent to a hostile character, <em>Ranged Attack</em> <strong>Actions</strong> treat you as though you have <strong>cover</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Brace",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-brace",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "1",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>Perform <strong>Brace</strong> only during your turn.</p>\n<p>You have the <strong>Spear Ready</strong> <strong>Reaction</strong> until the start of your next turn.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Brace: Spear Ready",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-brace-special",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "reaction",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<ul>\n<li><p><strong>Condition:</strong> A hostile character ends a movement adjacent to you.</p>\n</li>\n<li><p><strong>Effect:</strong> Choose one; that character&#39;s <em>Attacks</em> have <strong>+1 Disadvantage</strong> against you this turn, <strong>or</strong>; perform a <em>Basic</em> <strong>Attack Action</strong> targeting that character.</p>\n</li>\n</ul>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "name": "Lance of Longinus",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-ultimate",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "2",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "Line 99",
+        "isAttack": true,
+        "damage": "2[atk]",
+        "hasGraze": false,
+        "grazeDamage": "[atk]",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>Lance of Longinus&#39;s Line 99 Range Profile</strong> is drawn from any map edge, ignoring <strong>line of effect</strong>, though it must pass through you. All characters <strong>within</strong> or <strong>adjacent to the line</strong> become targets.</p>\n<p>You and allied characters in the area aren&#39;t attacked. Instead, you gain <strong>Barrier</strong> [tier].</p>\n<p>After attacking, each character that was successfully hit makes a <strong>Resistance Roll</strong> or chooses:</p>\n<ul>\n<li>That character is <strong>Disarmed 1</strong> and <strong>Weakened 1</strong>, or:</li>\n<li>That character is <strong>Silenced 1</strong> and <strong>Vulnerable 1</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "ultimate",
+          "heroic",
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Mimir's Eye",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-heroic-mimir",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": true,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": true,
+        "modifiers": [],
+        "effect": "<p>Your <em>Attacks</em> that consume <strong>Off Guard</strong> ignore <strong>Cover</strong> and <strong>Concealment</strong> against that character.</p>",
+        "_tagIds": [
+          "heroic"
+        ]
+      }
+    },
+    {
+      "name": "Dragoon Dive",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-heroic-dragoon-dive",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "0",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": true,
+        "modifiers": [],
+        "effect": "<ul>\n<li>When you <strong>fly</strong>, your next <em>Attack</em> <strong>Action</strong> this turn has <strong>+1 Advantage</strong>.</li>\n<li>When you take <strong>falling damage</strong>, reduce that <strong>falling damage</strong> to <strong>1</strong> and <strong>fly 1</strong>.</li>\n<li>As a <strong>free action</strong>, you can <strong>spend 1 inspiration</strong> to <strong>fly 1</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "heroic"
+        ]
+      }
+    },
+    {
+      "name": "Hypervelocity",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-heroic-hypervelocity",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": true,
+        "modifiers": [],
+        "effect": "<p>You have an additional <strong>reaction</strong> on each character&#39;s turn.</p>",
+        "_tagIds": [
+          "heroic"
+        ]
+      }
+    },
+    {
+      "name": "Great Cleave",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-heroic-cleave",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": true,
+        "modifiers": [],
+        "effect": "<p>When your <em>Melee</em> <strong>Action</strong> reduces a hostile character to <strong>0 HP</strong>, you may <strong>Spend 1 Inspiration</strong> to perform a <em>Melee</em> <strong>Action</strong> that costs (<strong>2 AP</strong>) or less as a <strong>Reaction</strong>.</p>",
+        "_tagIds": [
+          "heroic"
+        ]
+      }
+    },
+    {
+      "name": "Absolute Tyranny",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-heroic-tyranny",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "3",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": true,
+        "modifiers": [],
+        "effect": "<p>If all hostile characters are within <strong>Range</strong> of your <em>Basic</em> <strong>Attack Action</strong>, increase the <strong>Flow of Battle</strong> by 1.</p>",
+        "_tagIds": [
+          "heroic"
+        ]
+      }
+    },
+    {
+      "name": "Rebalance",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-rebalance",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "reaction",
+        "focusCost": 1,
+        "rank": 1,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>Condition:</strong> You are dealt damage by a hostile character.</p>\n<p><strong>Effect:</strong> Move 1.</p>",
+        "_tagIds": [
+          "movement",
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Lunging Attack",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-lunging-attack",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "1",
+        "focusCost": 2,
+        "rank": 1,
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "[atk]+3",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>Lunging Attack</strong> has <strong>Range +1</strong>.</p>\n<p><strong>On Attack:</strong> You become <strong>Off Guard</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Maneuvering Attack",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-maneuvering-attack",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 1,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>Bind</strong> to an <em>Attack</em> <strong>Action</strong>.<br>The <strong>Bound</strong> <em>Attack</em> has <strong>Focus Cost +1</strong> and <strong>On Hit: Push 1</strong>.</p>",
+        "_tagIds": [
+          "bound"
+        ]
+      }
+    },
+    {
+      "name": "Rallying Motion",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-rallying-motion",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 1,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>When you <strong>Refocus</strong>, you or up to one adjacent allied character clears <strong>Slowed</strong> or <strong>Immobilized</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Fangs Bared",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-fangs-bared",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "1",
+        "focusCost": 0,
+        "rank": 2,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>You have the <strong>Viper Strike</strong> <em>Special Reaction</em> until the start of your next turn.</p>",
+        "_tagIds": [
+          "weapon",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Fangs Bared: Viper Strike",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-fangs-bared-special",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "reaction",
+        "focusCost": 0,
+        "rank": 2,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<ul>\n<li><strong>Condition:</strong> A turn ends.</li>\n<li><strong>Effect:</strong> Perform the <em>Basic</em> <strong>Attack</strong> <strong>Action</strong>.</li>\n</ul>",
+        "_tagIds": [
+          "special",
+          "melee",
+          "weapon",
+          "attack",
+          "reaction",
+          "limitround"
+        ],
+        "_parentId": "warden-fangs-bared"
+      }
+    },
+    {
+      "name": "Trip Attack",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-trip-attack",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 2,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDV": "10+[tier]",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>The <strong>Bound</strong> <em>Attack</em> deals half damage, deals no <strong>Bonus Damage</strong>, and has <strong>On Hit:</strong> The target makes a <strong>Resistance Roll</strong> or becomes <strong>Prone</strong>. A character that <strong>Resists</strong> can&#39;t become <strong>Prone</strong> this way this round.</p>",
+        "_tagIds": [
+          "bound"
+        ]
+      }
+    },
+    {
+      "name": "Heavy Strike",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-heavy-strike",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "2",
+        "focusCost": 1,
+        "rank": 2,
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "2[atk]",
+        "hasGraze": true,
+        "grazeDamage": "2+[tier]",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>On Miss:</strong> Graze 2+[tier]</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Vault",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-vault",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "2",
+        "focusCost": 3,
+        "rank": 3,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDV": "10+[tier]",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>Fly</strong> up to your <strong>Speed</strong>.</p>\n<p>At the end of this <em>Movement</em>: Adjacent hostile characters make a <strong>Resistance Roll</strong> or are <strong>Dazed</strong> +1.</p>",
+        "_tagIds": [
+          "movement",
+          "limitencounter"
+        ]
+      }
+    },
+    {
+      "name": "Outmaneuver",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-outmaneuver",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 3,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>When you deal damage to a character, until end of turn, you can move through that character and that character&#39;s attacks have <strong>+1 Disadvantage</strong> against you.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Backswing Cut",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-backswing-cut",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "1",
+        "focusCost": 2,
+        "rank": 3,
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "2[atk]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<ul>\n<li><strong>Backswing Cut</strong> deals no <strong>Bonus Damage</strong>.</li>\n<li><strong>On Hit:</strong> The target is <strong>Dazed 1</strong>.</li>\n<li><em><strong>Passive</strong></em>: Your other <em>Melee Weapon</em> <strong>Actions</strong> that cost (<strong>2 AP</strong>) or less have <strong>On Hit:</strong> As a part of this <strong>Action</strong>, you may perform <strong>Backswing Cut</strong> on your target as a <strong>Reaction</strong>. <em>( You still pay its Focus Cost and obey its 1/Round limit. )</em></li>\n</ul>",
+        "_tagIds": [
+          "melee",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Outnumbered",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-outnumbered",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 4,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>End of Turn:</strong> If two or more hostile characters are within <strong>Range</strong> of your <em>Basic</em> <strong>Attack Action</strong>, recover <strong>2 Focus</strong>.</p>",
+        "_tagIds": []
+      }
+    },
+    {
+      "name": "Extended Threat",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-extended-threat",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "reaction",
+        "focusCost": 1,
+        "rank": 4,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<ul>\n<li><strong>Condition:</strong> A hostile character affects you with <strong>Involuntary Movement</strong>.</li>\n<li><strong>Effect:</strong> Your next <em>Melee Attack</em> <strong>Action</strong> has <strong>Range +1</strong>. <em>( This effect doesn&#39;t stack. )</em></li>\n</ul>",
+        "_tagIds": [
+          "reaction",
+          "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Giant Sweep",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-giant-sweep",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "2",
+        "focusCost": 3,
+        "rank": 4,
+        "range": "Melee",
+        "isAttack": false,
+        "damage": "3",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDV": "10+[tier]",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>Any number of hostile characters in <strong>Range</strong> become targets, though each target must be adjacent to at least one other target.</p>\n<p>Each target takes [tier] damage and makes a <strong>Resistance Roll</strong> or becomes <strong>Prone</strong> and suffers <strong>Push 1</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon"
+        ]
+      }
+    },
+    {
+      "name": "Run Through",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-run-through",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "2",
+        "focusCost": 3,
+        "rank": 5,
+        "range": "Cleave 2",
+        "isAttack": true,
+        "damage": "[atk]+5",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": true,
+        "resistanceDV": "10+[tier]",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>If <strong>Run Through</strong> targets two characters or a character and a <strong>destructible</strong>, it has <strong>On Hit:</strong> The target makes a <strong>Resistance Roll</strong> or is <strong>Immobilized 1</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Absolute Authority",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "warden-absolute-authority",
+          "classId": "warden"
+        }
+      },
+      "system": {
+        "cost": "reaction",
+        "focusCost": 0,
+        "rank": 5,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<ul>\n<li><strong>Condition:</strong> A hostile character within the <strong>Range</strong> of your <em>Basic</em> <strong>Attack Action</strong> clears <strong>Prone</strong> or performs <strong>Refocus</strong>.</li>\n<li><strong>Effect:</strong> Perform your <em>Basic</em> <strong>Attack Action</strong> on the triggering character as part of this <strong>Reaction.</strong></li>\n</ul>",
+        "_tagIds": [
+          "attack",
+          "reaction",
+          "limitround"
+        ]
+      }
     }
   ],
   "classes": [
@@ -12991,7 +13776,7 @@
           },
           {
             "id": "towers-generic-ironskin",
-            "name": "Ironskin",
+            "name": "Warding",
             "rank": 4
           }
         ]
@@ -13262,7 +14047,7 @@
           },
           {
             "id": "warrior-flagbearer",
-            "name": "Flagbearer",
+            "name": "Engagement",
             "rank": 4
           },
           {
@@ -13962,7 +14747,7 @@
           },
           {
             "id": "marksman-luciform-eye",
-            "name": "Luciform Eye",
+            "name": "Parting Shot",
             "rank": 5
           },
           {
@@ -14060,7 +14845,7 @@
           },
           {
             "id": "arcanimist-overload",
-            "name": "Overload",
+            "name": "Arcane Trace",
             "rank": 2
           },
           {
@@ -14218,7 +15003,7 @@
           },
           {
             "id": "tactician-heroic-simulation",
-            "name": "Simulation",
+            "name": "Fianchetto",
             "rank": 0
           },
           {
@@ -14839,7 +15624,7 @@
           {
             "id": "seer-disorient",
             "name": "Disorient",
-            "rank": 1
+            "rank": 2
           },
           {
             "id": "seer-manipulate-fate",
@@ -14854,7 +15639,7 @@
           {
             "id": "seer-revelation",
             "name": "Revelation",
-            "rank": 2
+            "rank": 1
           },
           {
             "id": "seer-future-sight",
@@ -15441,6 +16226,159 @@
           {
             "id": "lightbearer-scour",
             "name": "Scour",
+            "rank": 5
+          }
+        ]
+      }
+    },
+    {
+      "name": "Warden",
+      "type": "class",
+      "flags": {
+        "shard": {
+          "sourceId": "warden"
+        }
+      },
+      "system": {
+        "description": "<p>You should take levels in this class if: your character fights with a spear, glaive, or lance, and holds enemies at bay with controlling effects and repositioning rather than dealing pure damage.</p>",
+        "stats": {
+          "atk": "d6",
+          "mag": "d4",
+          "def": 10,
+          "spd": 4,
+          "armor": 1,
+          "focusPool": 8,
+          "maxHP": 8
+        },
+        "_abilityIds": [
+          {
+            "id": "warden-sentinel-stance",
+            "name": "Sentinel Stance",
+            "rank": 0
+          },
+          {
+            "id": "warden-thick-of-the-fight",
+            "name": "Thick of the Fight",
+            "rank": 0
+          },
+          {
+            "id": "warden-brace",
+            "name": "Brace",
+            "rank": 0
+          },
+          {
+            "id": "warden-brace-special",
+            "name": "Brace: Spear Ready",
+            "rank": 0
+          },
+          {
+            "id": "warden-ultimate",
+            "name": "Lance of Longinus",
+            "rank": 0
+          },
+          {
+            "id": "warden-heroic-mimir",
+            "name": "Mimir's Eye",
+            "rank": 0
+          },
+          {
+            "id": "warden-heroic-dragoon-dive",
+            "name": "Dragoon Dive",
+            "rank": 0
+          },
+          {
+            "id": "warden-heroic-hypervelocity",
+            "name": "Hypervelocity",
+            "rank": 0
+          },
+          {
+            "id": "warden-heroic-cleave",
+            "name": "Great Cleave",
+            "rank": 0
+          },
+          {
+            "id": "warden-heroic-tyranny",
+            "name": "Absolute Tyranny",
+            "rank": 0
+          },
+          {
+            "id": "warden-rebalance",
+            "name": "Rebalance",
+            "rank": 1
+          },
+          {
+            "id": "warden-lunging-attack",
+            "name": "Lunging Attack",
+            "rank": 1
+          },
+          {
+            "id": "warden-maneuvering-attack",
+            "name": "Maneuvering Attack",
+            "rank": 1
+          },
+          {
+            "id": "warden-rallying-motion",
+            "name": "Rallying Motion",
+            "rank": 1
+          },
+          {
+            "id": "warden-fangs-bared",
+            "name": "Fangs Bared",
+            "rank": 2
+          },
+          {
+            "id": "warden-fangs-bared-special",
+            "name": "Fangs Bared: Viper Strike",
+            "rank": 2
+          },
+          {
+            "id": "warden-trip-attack",
+            "name": "Trip Attack",
+            "rank": 2
+          },
+          {
+            "id": "warden-heavy-strike",
+            "name": "Heavy Strike",
+            "rank": 2
+          },
+          {
+            "id": "warden-vault",
+            "name": "Vault",
+            "rank": 3
+          },
+          {
+            "id": "warden-outmaneuver",
+            "name": "Outmaneuver",
+            "rank": 3
+          },
+          {
+            "id": "warden-backswing-cut",
+            "name": "Backswing Cut",
+            "rank": 3
+          },
+          {
+            "id": "warden-outnumbered",
+            "name": "Outnumbered",
+            "rank": 4
+          },
+          {
+            "id": "warden-extended-threat",
+            "name": "Extended Threat",
+            "rank": 4
+          },
+          {
+            "id": "warden-giant-sweep",
+            "name": "Giant Sweep",
+            "rank": 4
+          },
+          {
+            "id": "warden-run-through",
+            "name": "Run Through",
+            "rank": 5
+          },
+          {
+            "id": "warden-absolute-authority",
+            "name": "Absolute Authority",
             "rank": 5
           }
         ]

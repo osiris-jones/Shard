@@ -2,7 +2,7 @@
   "id": "shard",
   "title": "Shard",
   "description": "Soliloquy's custom tactical RPG system for FoundryVTT.",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "compatibility": {
     "minimum": "12",
     "verified": "13"
@@ -25,7 +25,8 @@
     "systems/shard/templates/chat/attack-card.hbs",
     "systems/shard/templates/chat/ability-card.hbs",
     "systems/shard/templates/chat/damage-card.hbs",
-    "systems/shard/templates/chat/resist-card.hbs"
+    "systems/shard/templates/chat/resist-card.hbs",
+    "systems/shard/templates/chat/focus-refund-card.hbs"
   ],
   "styles": [
     "styles/shard.css"
@@ -106,5 +107,5 @@
   "socket": false,
   "url": "",
   "manifest": "https://raw.githubusercontent.com/osiris-jones/Shard/refs/heads/main/system.json",
-  "download": "https://github.com/osiris-jones/Shard/releases/download/v0.1.6/Shard.zip"
+  "download": "https://github.com/osiris-jones/Shard/releases/download/v0.1.7/Shard.zip"
 }

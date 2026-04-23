@@ -71,16 +71,9 @@ export class ShardSummonActorSheet extends ActorSheet {
 
   activateListeners(html) {
     super.activateListeners(html);
-    if (!this.isEditable) return;
 
-    // Ability expand/collapse
-    html.on("click", ".ability-name-row", this._onAbilityExpand.bind(this));
-
-    // Ability actions
-    html.on("click", ".ability-activate",    this._onAbilityActivate.bind(this));
-    html.on("click", ".ability-attack-roll", this._onAttackRoll.bind(this));
-
-    // Section collapse
+    // ── Read-only listeners (available to observers) ────────────────────
+    html.on("click", ".ability-name-row",   this._onAbilityExpand.bind(this));
     html.on("click", ".collapsible-header", this._onSectionCollapse.bind(this));
 
     // Restore section collapsed states across re-renders
@@ -90,6 +83,12 @@ export class ShardSummonActorSheet extends ActorSheet {
         html.find(`[data-section-body="${section}"]`).addClass("section-body-collapsed");
       }
     }
+
+    if (!this.isEditable) return;
+
+    // Ability actions
+    html.on("click", ".ability-activate",    this._onAbilityActivate.bind(this));
+    html.on("click", ".ability-attack-roll", this._onAttackRoll.bind(this));
 
     // Refocus
     html.on("click", ".refocus-btn", this._onRefocus.bind(this));

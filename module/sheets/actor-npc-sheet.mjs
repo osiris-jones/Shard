@@ -198,10 +198,12 @@ export class ShardNPCActorSheet extends ActorSheet {
 
   activateListeners(html) {
     super.activateListeners(html);
-    if (!this.isEditable) return;
 
-    // Section collapse
+    // ── Read-only listeners (available to observers) ────────────────────
+    html.on("click", ".ability-name-row", this._onAbilityExpand.bind(this));
     html.on("click", ".collapsible-header", this._onSectionCollapse.bind(this));
+    html.on("click", ".class-collapse-toggle", this._onClassCollapseToggle.bind(this));
+    html.on("click", ".class-ability-row[data-uuid]", this._onClassAbilityExpand.bind(this));
 
     // Restore section collapsed states across re-renders
     if (this._collapsedSections) {
@@ -211,23 +213,16 @@ export class ShardNPCActorSheet extends ActorSheet {
       }
     }
 
-    // Inventory ability expand/collapse
-    html.on("click", ".ability-name-row", this._onAbilityExpand.bind(this));
+    if (!this.isEditable) return;
 
     // Inventory ability actions
     html.on("click", ".ability-activate",    this._onAbilityActivate.bind(this));
     html.on("click", ".ability-attack-roll", this._onAttackRoll.bind(this));
 
-    // Class block collapse
-    html.on("click", ".class-collapse-toggle", this._onClassCollapseToggle.bind(this));
-
     // Drag-sort within ability lists
     html.on("dragover",  ".item-list .item", this._onSortDragOver.bind(this));
     html.on("dragleave", ".item-list .item", this._onSortDragLeave.bind(this));
     html.on("drop",      ".item-list .item", this._onSortDrop.bind(this));
-
-    // Class ability row expand
-    html.on("click", ".class-ability-row[data-uuid]", this._onClassAbilityExpand.bind(this));
 
     // NPC class radio (set base class)
     html.on("change", ".npc-class-radio", this._onNPCClassChange.bind(this));
