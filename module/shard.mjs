@@ -31,10 +31,12 @@ Hooks.once("init", () => {
   game.shard = { SHARD };
 
   // ── Register Shard conditions in Foundry's native status effect HUD ──
-  // This makes them appear when right-clicking an actor's token on canvas.
-  for (const s of SHARD.STATUS_EFFECTS) {
-    CONFIG.statusEffects.push({ id: s.id, name: s.name, img: s.img });
-  }
+  // We REPLACE Foundry's default statusEffects array with the Shard set so the
+  // token HUD shows only system-specific conditions (see SHARD.STATUS_EFFECTS
+  // in config.mjs for the list and instructions on adding/editing).
+  CONFIG.statusEffects = SHARD.STATUS_EFFECTS.map(s => ({
+    id: s.id, name: s.name, img: s.img
+  }));
 
   // ── System Settings ──────────────────────────────────────────────────
   const conditionChoices = { "": "(None)" };

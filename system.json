@@ -2,7 +2,7 @@
   "id": "shard",
   "title": "Shard",
   "description": "Soliloquy's custom tactical RPG system for FoundryVTT.",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "compatibility": {
     "minimum": "12",
     "verified": "13"
@@ -107,5 +107,5 @@
   "socket": false,
   "url": "",
   "manifest": "https://raw.githubusercontent.com/osiris-jones/Shard/refs/heads/main/system.json",
-  "download": "https://github.com/osiris-jones/Shard/releases/download/v0.1.7/Shard.zip"
+  "download": "https://github.com/osiris-jones/Shard/releases/download/v0.1.8/Shard.zip"
 }
