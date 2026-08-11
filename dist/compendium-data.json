@@ -757,7 +757,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Perform the <em>Basic</em> <strong>Move Action</strong>.<br>During this <em>Movement:</em> You can&#39;t change directions, have <strong>Damage Resistance</strong>, and ignore <strong>Difficult Terrain</strong>.<br>At the end of this <em>Movement:</em> Perform a <em>Melee Attack</em> <strong>Action</strong> that costs <strong>1 AP</strong> or less as a <strong>Free Action</strong>. It deals <strong>+3 Bonus Damage</strong>.</p>",
+        "effect": "<p>Perform the <em>Basic</em> <strong>Move Action</strong>.<br>During this <em>Movement:</em> You can&#39;t change directions, have <strong>Damage Resistance</strong>, and ignore <strong>Difficult Terrain</strong>. You must move your full <strong>Speed</strong> or until you collide with an object or character.<br>At the end of this <em>Movement:</em> Perform a <em>Melee Attack</em> <strong>Action</strong> that costs <strong>1 AP</strong> or less as part of this <strong>Action</strong>. It has <strong>On Hit:</strong> The target is <strong>Dazed +1</strong>.</p>",
         "_tagIds": [
           "shield",
           "movement"
@@ -971,7 +971,7 @@
       },
       "system": {
         "cost": "reaction",
-        "focusCost": 2,
+        "focusCost": 1,
         "rank": 4,
         "range": "",
         "isAttack": false,
@@ -1032,8 +1032,8 @@
         }
       },
       "system": {
-        "cost": "passive",
-        "focusCost": 0,
+        "cost": "reaction",
+        "focusCost": 1,
         "rank": 5,
         "range": "",
         "isAttack": false,
@@ -1045,7 +1045,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>The damage of the first successful <em>Attack</em> against you each round is reduced by 5 before all other forms of resistance and armor.</p>",
+        "effect": "<p><strong>Condition:</strong> You are hit by an <em>Attack</em> for the first time in a round.<br><strong>Effect � Focus Cost 1:</strong> Gain <strong>Damage Resistance</strong> against the triggering <em>Attack</em>.</p>",
         "_tagIds": [
           "limitround"
         ]
@@ -1512,7 +1512,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Bind</strong> to a <em>non-Spell Attack</em> <strong>Action</strong>.<br>The <strong>Bound</strong> <em>Attack</em> has <strong>+1 Disadvantage</strong> and <strong>+1 Bonus Damage</strong>. When dealing damage with the <strong>Bound</strong> <em>Attack</em>, roll all damage dice twice and use the highest results.</p>",
+        "effect": "<p><strong>Bind</strong> to a <em>non-Spell Attack</em> <strong>Action</strong>.<br>The <strong>Bound</strong> <em>Attack</em> has <strong>+1 Disadvantage</strong>, <strong>+1 Bonus Damage</strong>, and <strong>On Hit:</strong> <strong>Push 1</strong>.</p>",
         "_tagIds": [
           "bound"
         ]
@@ -1692,7 +1692,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>You may <strong>Recover 1 Focus</strong> on a hit with a <em>Basic Melee</em> <strong>Attack Action</strong>.</p>",
+        "effect": "<p>Your <em>Basic Attack</em> <strong>Action</strong> has <strong>On Hit � 1/Round:</strong> Recover <strong>1 Focus</strong>.</p>",
         "_tagIds": [
           "limitturn"
         ]
@@ -1963,7 +1963,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Target hostile character is <strong>Taunted 1</strong>.<br><em>(+1 Disadvantage on Attack Rolls against characters other than you as long as you&#39;re not Staggered, Invulnerable, or otherwise untargetable.)</em></p>",
+        "effect": "<p>Target hostile character is <strong>Taunted</strong>.<br><em>(+1 Disadvantage on Attack Rolls against characters other than you as long as you&#39;re not Staggered, Invulnerable, Concealed, or otherwise untargetable.)</em></p>",
         "_tagIds": [
           "limitround"
         ]
@@ -2138,7 +2138,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>While Battered:</strong> The first <em>Attack</em> you make as part of each <em>Attack</em> <strong>Action</strong> you perform deals <strong>+2</strong> <strong>Bonus Damage</strong> on a hit.</p>",
+        "effect": "<p><strong>While Battered:</strong> Your first hit with an <em>Attack</em> <strong>Action</strong> each round deals <strong>+2 Bonus Damage</strong>.</p>",
         "_tagIds": [
           "battered"
         ]
@@ -2320,7 +2320,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Taunted</strong> you apply doesn&#39;t Decay on a character unless that character targets you or forces you to make a <strong>Resistance Roll</strong> with any <strong>Action</strong> during their turn.</p>",
+        "effect": "<p><strong>Taunted</strong> you apply doesn&#39;t Decay on a character unless that character attacks you or forces you to make a <strong>Resistance Roll</strong> with any <strong>Action</strong> during their turn.</p>",
         "_tagIds": []
       }
     },
@@ -2347,7 +2347,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>When you take damage from a hostile character, recover 1 <strong>Focus</strong>.</p>",
+        "effect": "<p>When you take damage from a hostile character, <strong>Recover 1 Focus</strong>.</p>\n<p>Recover no more than <strong>[T] Focus</strong> this way each round.</p>",
         "_tagIds": []
       }
     },
@@ -3075,31 +3075,33 @@
       }
     },
     {
-      "name": "Hidden Step",
+      "name": "Reckless Slash",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "blademaster-hidden-step",
+          "sourceId": "blademaster-reckless-slash",
           "classId": "blademaster"
         }
       },
       "system": {
-        "cost": "0",
-        "focusCost": 1,
+        "cost": "1",
+        "focusCost": 2,
         "rank": 1,
-        "range": "",
-        "isAttack": false,
-        "damage": "",
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "[atk]+3",
         "hasGraze": false,
         "grazeDamage": "",
-        "hasResistance": false,
-        "resistanceDV": "10",
+        "hasResistance": true,
+        "resistanceDV": "10+[tier]",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Perform a <em>Basic Evade</em> <strong>Action</strong>. You&#39;re <strong>Stunned +1</strong>--it can&#39;t be prevented.</p>",
+        "effect": "<p>The <strong>Attack Roll</strong> has <strong>+1 Disadvantage</strong>.</p>\n<p><strong>On Hit:</strong> The target makes a <strong>Resistance Roll</strong> or is <strong>Bleeding</strong>. If the attack is a <strong>Critical</strong>, that character automatically fails the roll.</p>",
         "_tagIds": [
-          "movement"
+          "melee",
+          "weapon",
+          "attack"
         ]
       }
     },
@@ -3196,16 +3198,47 @@
       }
     },
     {
-      "name": "Parry",
+      "name": "Reprisal",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "blademaster-parry",
+          "sourceId": "blademaster-reprisal",
           "classId": "blademaster"
         }
       },
       "system": {
-        "cost": "reaction",
+        "cost": "1",
+        "focusCost": 1,
+        "rank": 2,
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "[atk]",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>On Hit:</strong> Until the end of your next turn, whenever the target performs a <em>Melee Attack</em> <strong>Action</strong> targeting you, that character takes <strong>2 Piercing Damage</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Savage Attack",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "blademaster-savage-blade",
+          "classId": "blademaster"
+        }
+      },
+      "system": {
+        "cost": "passive",
         "focusCost": 0,
         "rank": 2,
         "range": "",
@@ -3218,41 +3251,9 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> A hostile character would deal non-<strong>Piercing</strong> damage to you.<br><strong>Effect:</strong> Gain [Attack] <strong>Barrier</strong>, which can reduce the triggering damage. If this <strong>Barrier</strong> is depleted by damage, you are <strong>Stunned +1.</strong></p>",
+        "effect": "<p><strong>Bind</strong> to an <em>Attack</em>* <strong>Action</strong>.</p>\n<p>The <strong>Bound</strong> <em>Attack</em> has <strong>Focus Cost +1</strong> and <strong>On Hit</strong>: The target makes a <strong>Resistance Roll</strong> or is <strong>Bleeding</strong>. If the attack is a <strong>Critical</strong>, that character automatically fails the roll.</p>",
         "_tagIds": [
-          "weapon",
-          "reaction",
-          "limitround"
-        ]
-      }
-    },
-    {
-      "name": "Savage Edge",
-      "type": "ability",
-      "flags": {
-        "shard": {
-          "sourceId": "blademaster-savage-blade",
-          "classId": "blademaster"
-        }
-      },
-      "system": {
-        "cost": "0",
-        "focusCost": 2,
-        "rank": 2,
-        "range": "",
-        "isAttack": false,
-        "damage": "",
-        "hasGraze": false,
-        "grazeDamage": "",
-        "hasResistance": false,
-        "resistanceDV": "10",
-        "isInnate": false,
-        "isHeroicTalent": false,
-        "modifiers": [],
-        "effect": "<p>Your next <em>Weapon Attack</em> <strong>Action</strong> this turn has the following property:<br><strong>On Attack:</strong> Up to one target makes a <strong>Resistance Roll</strong> or suffers <strong>Bleeding 3</strong>.<br>The character suffers <strong>Bleeding +1</strong> on a <strong>Resist</strong>.</p>",
-        "_tagIds": [
-          "weapon",
-          "limitround"
+          "bound"
         ]
       }
     },
@@ -3268,7 +3269,7 @@
       "system": {
         "cost": "1",
         "focusCost": 2,
-        "rank": 3,
+        "rank": 4,
         "range": "Range 4",
         "isAttack": false,
         "damage": "",
@@ -3287,7 +3288,7 @@
       }
     },
     {
-      "name": "Versatile Stance",
+      "name": "Adaptation",
       "type": "ability",
       "flags": {
         "shard": {
@@ -3309,15 +3310,12 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>When you enter this Stance, choose one:</strong></p>\n<ul>\n<li>Gain <strong>Barrier 3.</strong> This <strong>Barrier</strong> isn&#39;t lost as turns end.</li>\n<li>Your next attack deals <strong>+3 Bonus Damage.</strong></li>\n<li>You gain <strong>+3 Focus,</strong> exceeding the maximum in your Focus Pool.</li>\n</ul>",
-        "_tagIds": [
-          "weapon",
-          "stance"
-        ]
+        "effect": "<p><strong>When you enter a Stance or Refocus, choose one option you haven&#39;t chosen this encounter:</strong></p>\n<ul>\n<li>Gain <strong>Barrier 3.</strong> This <strong>Barrier</strong> isn&#39;t lost as turns end.</li>\n<li>Your next attack deals <strong>+3 Bonus Damage.</strong></li>\n<li>You gain <strong>+3 Focus,</strong> exceeding the maximum in your Focus Pool.</li>\n</ul>",
+        "_tagIds": []
       }
     },
     {
-      "name": "Hunter's Mark",
+      "name": "Slayer's Mark",
       "type": "ability",
       "flags": {
         "shard": {
@@ -3346,7 +3344,7 @@
       }
     },
     {
-      "name": "Hunter's Mark: Change Target",
+      "name": "Slayer's Mark: Change Target",
       "type": "ability",
       "flags": {
         "shard": {
@@ -3387,7 +3385,7 @@
       "system": {
         "cost": "0",
         "focusCost": 0,
-        "rank": 4,
+        "rank": 3,
         "range": "",
         "isAttack": false,
         "damage": "",
@@ -3428,7 +3426,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> You are hit by a <em>Ranged Attack.</em><br><strong>Effect:</strong> Make a <strong>Resistance Roll</strong> (11). On a <strong>4+:</strong> You have <strong>Damage Resistance</strong> against the triggering attack, and that attack has: &quot;<strong>On Hit:</strong> The attacker <strong>repeats</strong> the attack against themselves.&quot;</p>",
+        "effect": "<p><strong>Condition:</strong> You are hit by a <em>Ranged Attack.</em><br><strong>Effect:</strong> <strong>Gamble 4</strong>. If you win, you have <strong>Damage Resistance</strong> against the triggering attack, and that attack has: &quot;<strong>On Hit:</strong> The attacker becomes an additional target of the attack.&quot;</p>",
         "_tagIds": [
           "weapon",
           "reaction",
@@ -3437,30 +3435,34 @@
       }
     },
     {
-      "name": "Sweeping Strikes",
+      "name": "No Mercy",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "blademaster-sweepingstrikes",
+          "sourceId": "blademaster-no-mercy",
           "classId": "blademaster"
         }
       },
       "system": {
-        "cost": "0",
-        "focusCost": 0,
+        "cost": "2",
+        "focusCost": 1,
         "rank": 4,
-        "range": "Cleave 2",
-        "isAttack": false,
-        "damage": "",
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "2[atk]",
         "hasGraze": false,
         "grazeDamage": "",
-        "hasResistance": false,
-        "resistanceDV": "10",
+        "hasResistance": true,
+        "resistanceDV": "10+[tier]",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>In <strong>Versatile Stance</strong> or <strong>Heavy Stance</strong>: Your first <em>Melee Weapon Attack</em> <strong>Action</strong> each turn has <strong>Cleave 2</strong>.</p>",
-        "_tagIds": []
+        "effect": "<p><strong>No Mercy</strong> deals <strong>Piercing Damage</strong> and has <strong>Flurry</strong>.</p>\n<p><strong>On Hit:</strong> You can&#39;t perform <strong>No Mercy</strong> until the end of your next turn. The target makes a <strong>Resistance Roll</strong> or is <strong>Bleeding.</strong> If the attack is a <strong>Critical</strong>, that character automatically fails the roll.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
       }
     },
     {
@@ -3478,7 +3480,7 @@
         "rank": 5,
         "range": "Variable",
         "isAttack": true,
-        "damage": "2[atk]+3",
+        "damage": "2[atk]+2",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
@@ -3486,7 +3488,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Flurry</strong><br>Perform a <em>Basic</em> <strong>Move Action</strong> as a <strong>Free Action</strong>. During this <em>Movement,</em> you are <strong>Flying</strong> and don&#39;t trigger <strong>Reactions.</strong> At the end of the movement, <strong>Omnislash&#39;s Attack Roll</strong> targets any number of characters, as long as you were adjacent to each targeted character at any point during this <em>Movement</em>.</p>",
+        "effect": "<p><strong>Flurry</strong><br>Perform a <em>Basic</em> <strong>Move Action</strong> as a <strong>Free Action</strong>. During this <em>Movement,</em> you are <strong>Flying</strong> and don&#39;t trigger <strong>Reactions.</strong> At the end of the movement, <strong>Omnislash&#39;s Attack Roll</strong> targets any number of characters, as long as you were adjacent to each targeted character at any point during this <em>Movement</em>.</p>\n<p><strong>On Hit:</strong> The target makes a <strong>Resistance Roll</strong> or is <strong>Bleeding.</strong> If the attack is a <strong>Critical</strong>, that character automatically fails the roll.</p>",
         "_tagIds": [
           "movement",
           "melee",
@@ -3526,11 +3528,11 @@
       }
     },
     {
-      "name": "Trick Stance",
+      "name": "Sneak Attack",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-trick-stance",
+          "sourceId": "scoundrel-sneak-attack",
           "classId": "scoundrel"
         }
       },
@@ -3548,11 +3550,8 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>When you perform an <em>Attack</em> <strong>Action</strong> against a hostile character that&#39;s adjacent to one or more of your allies: The <strong>Attack Roll</strong> has <strong>+1 Advantage.</strong></p>",
-        "_tagIds": [
-          "weapon",
-          "stance"
-        ]
+        "effect": "<p>Your first <em>Attack</em> <strong>Action</strong> each turn has <strong>+1 Advantage</strong> against characters adjacent to one or more of your allies.</p>",
+        "_tagIds": []
       }
     },
     {
@@ -3668,7 +3667,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Perform <strong>Eviscerate</strong> only against a target that is not adjacent to any of its allies.</p>\n<p><strong>On Miss:</strong> Refund <strong>Eviscerate&#39;s Inspiration Cost</strong> and <strong>1/Quest</strong> property.</p>\n<p><strong>Finisher: Eviscerate</strong> has the following properties:</p>\n<ul>\n<li>The <strong>Attack Roll</strong> has +1 <strong>Advantage.</strong></li>\n<li><strong>On Hit:</strong> The target is <strong>Sundered</strong> until the end of their next turn.</li>\n</ul>\n<p>Then, <strong>Move</strong> or <strong>Evade</strong> as a <strong>Free Action</strong>.</p>",
+        "effect": "<p>Perform <strong>Eviscerate</strong> only against a target that is not adjacent to any of its allies.</p>\n<p><strong>On Miss:</strong> Refund <strong>Eviscerate&#39;s Inspiration Cost</strong> and <strong>1/Quest</strong> property.</p>\n<p><strong>Finisher: Eviscerate</strong> has the following properties:</p>\n<ul>\n<li>The <strong>Attack Roll</strong> has +1 <strong>Advantage.</strong></li>\n<li><strong>On Hit:</strong> The target is <strong>Sundered</strong> and <strong>Blinded 3</strong> until the end of their next turn.</li>\n</ul>\n<p>Then, <strong>Move</strong> or <strong>Evade</strong> as a <strong>Free Action</strong>.</p>",
         "_tagIds": [
           "heroic",
           "ultimate",
@@ -3717,19 +3716,19 @@
       },
       "system": {
         "cost": "1",
-        "focusCost": 3,
+        "focusCost": 2,
         "rank": 1,
         "range": "Melee",
         "isAttack": true,
         "damage": "[atk]+1",
         "hasGraze": true,
         "grazeDamage": "2",
-        "hasResistance": true,
+        "hasResistance": false,
         "resistanceDV": "10+[tier]",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>On Damage</strong>: Target makes a <strong>Resistance Roll</strong> or becomes <strong>Immobilized 1</strong>.</p>",
+        "effect": "<p><strong>On Hit:</strong> The target is <strong>Slowed</strong> 1.</p>",
         "_tagIds": [
           "combo",
           "melee",
@@ -3761,27 +3760,28 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Finisher - On Hit:</strong> Target is <strong>Dazed +1</strong>, and the attack deals <strong>2 Bonus Damage</strong> for each <strong>Condition</strong> affecting the target.<br><strong>Finisher - On Miss:</strong> Graze 1+[tier]</p>",
+        "effect": "<p><strong>Flurry</strong><br><strong>Finisher - On Hit:</strong> Target is <strong>Dazed +1</strong>. As part of this <strong>Action</strong>, you perform a <em>Basic</em> <strong>Move Action</strong> that doesn&#39;t trigger hostile <strong>Reactions</strong>.<br><strong>Finisher - On Miss:</strong> Graze 1+[tier]</p>",
         "_tagIds": [
           "finisher",
           "melee",
           "weapon",
-          "attack"
+          "attack",
+          "limitround"
         ]
       }
     },
     {
-      "name": "Cold Blood",
+      "name": "Quickstep",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-coldblood",
+          "sourceId": "scoundrel-quickstep",
           "classId": "scoundrel"
         }
       },
       "system": {
-        "cost": "passive",
-        "focusCost": 0,
+        "cost": "0",
+        "focusCost": 1,
         "rank": 1,
         "range": "",
         "isAttack": false,
@@ -3793,8 +3793,10 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Increased <strong>Focus Pool (+1)</strong>.</p>\n<p>Your <strong>Refocus</strong> is a <em>Combo</em> <strong>Action</strong>.</p>",
-        "_tagIds": []
+        "effect": "<p>Perform the <em>Basic</em> <strong>Evade</strong> Action as a part of this Action.</p>\n<p>You&#39;re <strong>Stunned +1</strong>. This <strong>Condition</strong> can&#39;t be prevented.</p>",
+        "_tagIds": [
+          "movement"
+        ]
       }
     },
     {
@@ -3892,7 +3894,7 @@
       }
     },
     {
-      "name": "Seize Opening",
+      "name": "Follow Up",
       "type": "ability",
       "flags": {
         "shard": {
@@ -3914,7 +3916,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> An adjacent hostile character is damaged by an allied character.<br><strong>Effect</strong> - <strong>Focus Cost</strong> 1: Perform a <em>Basic Attack</em> <strong>Action</strong> on the damaged character. If you&#39;re in <strong>Trick Stance</strong>, that <em>Attack</em> <strong>Action</strong> has <strong>On Hit:</strong> Inflict <strong>Poisoned +1.</strong></p>",
+        "effect": "<p><strong>Condition:</strong> An adjacent hostile character is damaged by an allied character.<br><strong>Effect</strong> - <strong>Focus Cost</strong> 1: Perform a <em>Basic Attack</em> <strong>Action</strong> on the damaged character. It deals half damage and has <strong>On Hit:</strong> The target is <strong>Poisoned +1</strong>.</p>",
         "_tagIds": [
           "attack",
           "reaction",
@@ -3972,16 +3974,18 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>In <strong>Trick Stance:</strong> The first <em>Melee Attack</em> <strong>Action</strong> you perform during your turn has <strong>Range</strong> 3, deals half damage, and inflicts <strong>Poisoned 2.</strong><br>Otherwise, you have the <strong>Razor</strong> <em>Special</em> <strong>Action</strong>.</p>",
-        "_tagIds": []
+        "effect": "<p>Bind to a <em>Melee</em> <em>Attack</em> <strong>Action</strong>.</p>\n<p>The <strong>Bound</strong> <em>Attack</em> has <strong>Range 3</strong> instead of any other <strong>Range Profile</strong>. It deals half damage and has <strong>On Hit:</strong> Up to one target of the attack is <strong>Poisoned 2</strong>.</p>",
+        "_tagIds": [
+          "bound"
+        ]
       }
     },
     {
-      "name": "Knife Juggler: Razor",
+      "name": "Deprecated",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-knife-juggler-special",
+          "sourceId": "deprecated-knife-juggler-special",
           "classId": "scoundrel"
         }
       },
@@ -4005,22 +4009,21 @@
           "melee",
           "weapon",
           "attack"
-        ],
-        "_parentId": "scoundrel-knife-juggler"
+        ]
       }
     },
     {
-      "name": "Preparation",
+      "name": "Cloak of Shadows",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-preparation",
+          "sourceId": "scoundrel-cloak-of-shadows",
           "classId": "scoundrel"
         }
       },
       "system": {
-        "cost": "passive",
-        "focusCost": 0,
+        "cost": "1",
+        "focusCost": 2,
         "rank": 3,
         "range": "",
         "isAttack": false,
@@ -4032,16 +4035,20 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>If you used a <em>Stealth</em> *<em>Action</em> this turn or have <strong>Concealment</strong>: <strong>Study</strong> has <strong>+3 Range.</strong><br>When you <strong>Study</strong> a character, your next <strong>Attack Roll</strong> against that character deals <strong>+3 Bonus Damage</strong> on a hit.</p>",
-        "_tagIds": []
+        "effect": "<p>Perform <strong>Cloak of Shadows</strong> only if you haven&#39;t had <strong>Concealment</strong> this turn.</p>\n<p>Gain <strong>Concealment 3</strong>. Your <strong>Concealment</strong> lasts until the end of your next turn or until you take damage.</p>",
+        "_tagIds": [
+          "stealth",
+          "spell",
+          "limitround"
+        ]
       }
     },
     {
-      "name": "Called Shot",
+      "name": "Cripple",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-called-shot",
+          "sourceId": "scoundrel-cripple",
           "classId": "scoundrel"
         }
       },
@@ -4052,14 +4059,14 @@
         "range": "Melee",
         "isAttack": true,
         "damage": "2[atk]",
-        "hasGraze": false,
-        "grazeDamage": "2",
+        "hasGraze": true,
+        "grazeDamage": "2+[tier]",
         "hasResistance": false,
         "resistanceDV": "10",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Finisher - On Hit:</strong> Inflict <strong>Bleeding +1, Slowed +1, or Stunned +1.</strong> <em>(You choose when dealing damage.)</em><br><strong>Finisher - On Miss</strong> Graze 2.</p>",
+        "effect": "<p><strong>Finisher - On Hit:</strong> <strong>+2 Bonus Damage</strong> and the target is <strong>Stunned +2</strong>. That character can&#39;t be <strong>Stunned</strong> by <strong>Cripple</strong> again this encounter.<br><strong>Finisher - On Miss</strong> Graze [T]+2</p>",
         "_tagIds": [
           "finisher",
           "melee",
@@ -4070,16 +4077,16 @@
       }
     },
     {
-      "name": "Bag of Tricks",
+      "name": "Adrenaline",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-bagoftricks",
+          "sourceId": "scoundrel-adrenaline",
           "classId": "scoundrel"
         }
       },
       "system": {
-        "cost": "passive",
+        "cost": "0",
         "focusCost": 0,
         "rank": 4,
         "range": "",
@@ -4092,16 +4099,18 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>In <strong>Trick Stance:</strong> You have the <strong>Malice</strong> <em>Special</em> <strong>Action.</strong> Otherwise, the first <em>Weapon Attack</em> <strong>Action</strong> you perform during your turn has <strong>On Hit:</strong> Inflict <strong>Poisoned +1</strong>.</p>",
-        "_tagIds": []
+        "effect": "<p><strong>Adrenaline</strong> can&#39;t be <strong>Bound</strong>. Perform <strong>Adrenaline</strong> only during your turn.</p>\n<p><strong>1/Encounter:</strong> Gain <strong>2 AP</strong> and recover <strong>2 Focus</strong>. During your next turn, you don&#39;t gain <strong>Turn AP</strong>, can&#39;t gain or recover <strong>AP or Focus</strong>, and can&#39;t perform <strong>Actions, Reactions, or Free Actions</strong>.</p>",
+        "_tagIds": [
+          "limitencounter"
+        ]
       }
     },
     {
-      "name": "Bag of Tricks: Malice",
+      "name": "Deprecated",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-bagoftricks-special",
+          "sourceId": "deprecated-bagoftricks-special",
           "classId": "scoundrel"
         }
       },
@@ -4119,7 +4128,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>If you performed a <em>Melee Weapon</em> <em>Attack</em> <strong>Action</strong> this turn, <strong>Malice</strong> is a <strong>Combo</strong> action, <strong>1 AP</strong> less <em>(min. 1)</em>, and you don&#39;t suffer <strong>Disadvantage</strong> when using this <em>Ranged Attack</em> <strong>Action</strong> while a hostile character is adjacent.<br><strong>On Hit:</strong> Inflict <strong>Poisoned +1.</strong></p>",
+        "effect": "<p>This shouldn&#39;t appear.</p>",
         "_tagIds": [
           "special",
           "ranged",
@@ -4128,42 +4137,44 @@
       }
     },
     {
-      "name": "Skill Steal",
+      "name": "Gouge",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-skillsteal",
+          "sourceId": "scoundrel-gouge",
           "classId": "scoundrel"
         }
       },
       "system": {
-        "cost": "reaction",
-        "focusCost": 0,
+        "cost": "1",
+        "focusCost": 2,
         "rank": 4,
-        "range": "",
-        "isAttack": false,
-        "damage": "",
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "[atk]+1",
         "hasGraze": false,
         "grazeDamage": "",
-        "hasResistance": true,
-        "resistanceDV": "10+[tier]",
+        "hasResistance": false,
+        "resistanceDV": "10",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> A hostile non-<em>Elite</em> character within <strong>Range 3</strong> performs a <em>Spell</em> <strong>Action.</strong><br><strong>Effect:</strong> That character makes a <strong>Resistance Roll</strong> or you gain that ability for the rest of the encounter. If it deals damage, it deals 2[atk] instead of any other damage profile. <strong>Piercing</strong> or <strong>Chaos Damage</strong> are dealt as normal damage. It doesn&#39;t deal <strong>Bonus Damage.</strong> It has <strong>Focus Cost: 3</strong> and <strong>1/Encounter.</strong></p>",
+        "effect": "<p>Perform <strong>Gouge</strong> only during your turn.</p>\n<p>You may perform <strong>Gouge</strong> as a <strong>Free Action</strong> if it consumes <strong>Off Guard</strong> and it&#39;s your only <em>Attack</em> <strong>Action</strong> this turn.</p>",
         "_tagIds": [
-          "spell",
-          "reaction",
-          "limitencounter"
+          "combo",
+          "melee",
+          "weapon",
+          "attack",
+          "limitround"
         ]
       }
     },
     {
-      "name": "Exsanguinate",
+      "name": "Double Cross",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-exsanguinate",
+          "sourceId": "scoundrel-doublecross",
           "classId": "scoundrel"
         }
       },
@@ -4181,7 +4192,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Finisher: On Hit:</strong> The target suffers <em><strong>x</strong></em> <strong>Piercing Chaos Damage</strong>, and your choice of <strong>Bleeding</strong> +<em><strong>x</strong></em> or <strong>Poisoned</strong> +<em><strong>x</strong></em>, where <em><strong>x</strong></em> is the target&#39;s current <strong>Bleeding</strong> or <strong>Poisoned</strong> value. A character can only suffer this effect <strong>1/Encounter</strong>.<br><strong>Finisher - On Miss:</strong> Graze [T].</p>",
+        "effect": "<p><strong>Finisher: On Hit:</strong> Perform a <em>Basic</em> <strong>Attack Action</strong> with <strong>Flurry</strong> on the target as a part of this <strong>Action</strong>. That attack deals no damage or bonus damage; instead, <strong>On Hit</strong>, the target takes <strong>Piercing Chaos Damage</strong> equal to half their remaining <strong>HP</strong>.</p>\n<p>You can&#39;t perform <strong>Double Cross</strong> against the same character more than <strong>1/Encounter</strong>.</p>",
         "_tagIds": [
           "finisher",
           "melee",
@@ -4192,32 +4203,35 @@
       }
     },
     {
-      "name": "Ruinous Blade",
+      "name": "Cloud of Steel",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-ruinousblade",
+          "sourceId": "scoundrel-cloudofsteel",
           "classId": "scoundrel"
         }
       },
       "system": {
-        "cost": "passive",
+        "cost": "2",
         "focusCost": 0,
         "rank": 5,
-        "range": "",
-        "isAttack": false,
-        "damage": "",
-        "hasGraze": false,
-        "grazeDamage": "",
+        "range": "Special",
+        "isAttack": true,
+        "damage": "[atk]+1",
+        "hasGraze": true,
+        "grazeDamage": "[tier]+1",
         "hasResistance": false,
         "resistanceDV": "10",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>The <strong>Bound</strong> <em>Attack</em> has <strong>On Hit, Choose One:</strong> Inflict <strong>Poisoned +1</strong> or <strong>Bleeding +1.</strong></p>",
+        "effect": "<p><strong>1/Encounter</strong></p>\n<p><strong>Flurry</strong></p>\n<p>All hostile characters in a <strong>Size 1 Area</strong> containing at least one tile adjacent to you become targets.</p>\n<p><strong>On Hit:</strong> You gain <strong>Concealment +1</strong>. Your <strong>Concealment</strong> lasts until the end of your next turn or until you take damage.</p>",
         "_tagIds": [
-          "passive",
-          "bound"
+          "melee",
+          "weapon",
+          "attack",
+          "stealth",
+          "limitencounter"
         ]
       }
     },
@@ -4393,7 +4407,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your next <em>Ranged Weapon Attack</em> <strong>Action</strong> this turn has <strong>On Damage:</strong> Inflict <strong>Bleeding 1, Poisoned 1,</strong> or <strong>Slowed 1.</strong> <em>(You choose.)</em></p>",
+        "effect": "<p>This turn, your <em>Ranged Weapon Attack</em> <strong>Actions</strong> each inflict <strong>Poisoned +1</strong> or <strong>Slowed 1</strong> to up to one target <strong>On Hit</strong>.</p>",
         "_tagIds": [
           "spell"
         ]
@@ -4773,7 +4787,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>On Damage:</strong> You gain the <strong>Rupture</strong> reaction until the start of your next turn. The target makes a <strong>Resistance Roll</strong> or becomes a <strong>Ruptured</strong> target for the same duration.</p>",
+        "effect": "<p><strong>On Hit:</strong> You gain the <strong>Rupture</strong> reaction until the start of your next turn. The target is <strong>Marked by Rupture</strong> and can&#39;t be <strong>Marked by Rupture</strong> again this encounter.</p>",
         "_tagIds": [
           "ranged",
           "weapon",
@@ -4804,7 +4818,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> Your <strong>Ruptured</strong> target ends its turn.<br><strong>Effect:</strong> The triggering character suffers <strong>Piercing Chaos</strong> damage equal to the number of tiles it moved this turn. That character is no longer a <strong>Ruptured</strong> target. <em>(Includes involuntary movement. No roll.)</em></p>",
+        "effect": "<p><strong>Condition:</strong> The <strong>Marked</strong> character ends a turn.<br><strong>Effect:</strong> That character  suffers <strong>Piercing Chaos</strong> damage equal to the number of tiles it moved this turn and is no longer <strong>Marked</strong>.</p>",
         "_tagIds": [
           "special",
           "reaction",
@@ -4818,7 +4832,7 @@
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "marksman-luciform-eye",
+          "sourceId": "marksman-parting-shot",
           "classId": "marksman"
         }
       },
@@ -5859,7 +5873,7 @@
         "cost": "1",
         "focusCost": 3,
         "rank": 3,
-        "range": "Range 5",
+        "range": "Range 6",
         "isAttack": false,
         "damage": "",
         "hasGraze": false,
@@ -6352,7 +6366,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<ul>\n<li><p>Ignore <strong>Disadvantage</strong> when performing <strong>Shield Charge</strong> and <strong>Shield Slam.</strong></p>\n</li>\n<li><p>When you <strong>Shield Charge, Spend 1 Inspiration:</strong> You can move up to three times as far and change directions during this movement.</p>\n</li>\n<li><p>When you <strong>Shield Slam, Spend 1 Inspiration:</strong> The target is knocked <strong>Prone</strong>, even on a miss or <strong>Resist.</strong></p>\n</li>\n</ul>",
+        "effect": "<ul>\n<li><p>Ignore <strong>Disadvantage</strong> and deal <strong>+2 Bonus Damage On Hit</strong> when performing <strong>Shield Charge</strong> and <strong>Shield Slam.</strong></p>\n</li>\n<li><p>When you <strong>Shield Charge, Spend 1 Inspiration:</strong> You can move up to three times as far and change directions during this movement.</p>\n</li>\n<li><p>When you <strong>Shield Slam, Spend 1 Inspiration:</strong> The target is knocked <strong>Prone</strong>, even on a miss or <strong>Resist.</strong></p>\n</li>\n</ul>",
         "_tagIds": [
           "heroic"
         ]
@@ -6410,7 +6424,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<ul>\n<li>When an attack against an allied character benefits from cover provided by your <strong>Pavise:</strong> The allied character gains <strong>Damage Resistance</strong> to that attack, and as a <strong>Reaction:</strong> You can <strong>Spend 1 Inspiration</strong> and that character becomes <strong>Blessed</strong>.</li>\n</ul>",
+        "effect": "<p>You and adjacent allied characters have <strong>Damage Resistance</strong> against attacks from which you have <strong>Cover</strong>. <em>( Attacks that ignore Cover ignore this Damage Resistance. )</em></p>",
         "_tagIds": [
           "heroic"
         ]
@@ -6449,7 +6463,7 @@
       }
     },
     {
-      "name": "Dilletante: Paladin",
+      "name": "Last Stand",
       "type": "ability",
       "flags": {
         "shard": {
@@ -6471,7 +6485,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>You gain the <strong>Guardian&#39;s Stance</strong> and <strong>Raise Shield Basic Abilities.</strong></p>",
+        "effect": "<p>When <strong>Barrier, Damage Resistance,</strong> or <strong>Invulnerability</strong> from your <strong>Reaction</strong> prevents your <strong>HP</strong> from being reduced to <strong>0:</strong> Increase the <strong>Flow of Battle</strong> by 1.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -6842,7 +6856,7 @@
         "rank": 0,
         "range": "Range 4",
         "isAttack": true,
-        "damage": "[mag]",
+        "damage": "[mag]+2",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
@@ -6890,11 +6904,11 @@
       }
     },
     {
-      "name": "Profuse Bleeding",
+      "name": "Bloodthirst",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "blademaster-heroic-profuse-bleeding",
+          "sourceId": "blademaster-heroic-bloodthirst",
           "classId": "blademaster"
         }
       },
@@ -6912,18 +6926,18 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p><strong>Savage Blade</strong> confers <strong>+1 Advantage</strong> to the attack.</p>\n<p>If your action would inflict <strong>Bleeding</strong> <em><strong>x</strong></em> to one or more characters, you may <strong>Spend 1 Inspiration</strong>. If you do, increase that amount by one and you inflict <strong>Bleeding</strong> <em><strong>+x</strong></em> instead.</p>",
+        "effect": "<p><strong>Savage Blade</strong> confers <strong>+1 Advantage</strong> to the <em>Bound</em> <strong>Attack</strong>.</p>\n<p><strong>1/Round</strong> as a <strong>Free Action</strong> you may perform the <strong>Basic Evade Action</strong>. You must move closer to a <strong>Bleeding</strong> character when you <strong>Evade</strong> this way.</p>",
         "_tagIds": [
           "heroic"
         ]
       }
     },
     {
-      "name": "Daredevil",
+      "name": "Deadly Poison",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-heroic-daredevil",
+          "sourceId": "scoundrel-heroic-deadly-poison",
           "classId": "scoundrel"
         }
       },
@@ -6941,18 +6955,18 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>Your <em>non-Finisher</em> <em>Attack</em> <strong>Actions</strong> are <em>Combo</em> <strong>Actions</strong> during turns in which you&#39;ve flown 4 or more spaces. You have the <em>Special</em> <strong>Acrobat Action.</strong></p>",
+        "effect": "<p>If you would inflict <strong>Poisoned</strong> on a character, inflict that much <strong>Poisoned</strong> plus one instead.</p>",
         "_tagIds": [
           "heroic"
         ]
       }
     },
     {
-      "name": "Daredevil: Acrobat",
+      "name": "Deprecated",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-heroic-daredevil-special",
+          "sourceId": "deprecated-heroic-daredevil-special",
           "classId": "scoundrel"
         }
       },
@@ -6970,11 +6984,10 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>You can <strong>Spend 1 Inspiration</strong> rather than pay <strong>Daredevil&#39;s AP Cost</strong>.</p>\n<p>While moving this turn, you are <strong>Flying</strong>. You can�t change directions while <strong>Flying</strong> this way.</p>",
+        "effect": "<p>This shouldn&#39;t appear.</p>",
         "_tagIds": [
           "heroic"
-        ],
-        "_parentId": "scoundrel-heroic-daredevil"
+        ]
       }
     },
     {
@@ -7000,7 +7013,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p><em>Attack</em> <strong>Actions</strong> you perform while you have <strong>Concealment</strong> have <strong>+1 Advantage.</strong><br>When you perform a <em>Stealth</em> <strong>Action</strong>, you may <strong>Spend 1 Inspiration</strong>. If you do, you gain Concealment 3 until the end of your next turn.</p>",
+        "effect": "<p>When you <strong>Refocus</strong>, gain  <strong>Concealment 2</strong>. It lasts until the end of your next turn or until you take damage.</p>\n<p><em>Attack</em> <strong>Actions</strong> you perform while you have <strong>Concealment</strong> have <strong>+1 Advantage.</strong></p>\n<p><strong>1/Round</strong> when your <em>Attack</em> deals damage to a hostile character while you have <strong>Concealment</strong>, that character makes a <strong>Resistance Roll</strong> or is <strong>Stunned +1</strong>.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -7066,11 +7079,11 @@
       }
     },
     {
-      "name": "Dilletante: Scoundrel",
+      "name": "Skill Steal",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "scoundrel-heroic-dip",
+          "sourceId": "scoundrel-heroic-skill-steal",
           "classId": "scoundrel"
         }
       },
@@ -7078,17 +7091,17 @@
         "cost": "passive",
         "focusCost": 0,
         "rank": 0,
-        "range": "",
+        "range": "Range 3",
         "isAttack": false,
         "damage": "",
-        "hasGraze": false,
-        "grazeDamage": "",
+        "hasGraze": true,
+        "grazeDamage": "2[atk]",
         "hasResistance": false,
         "resistanceDV": "10",
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>You gain the <strong>Trick Stance</strong> and <strong>Shadow Walk</strong> abilities.</p>",
+        "effect": "<p><strong>Condition:</strong> A hostile character within <strong>Range 3</strong> performs a <em>non-Legendary</em> <em>Spell</em> <strong>Action</strong>.</p>\n<p><strong>Effect:</strong> You gain that ability for the rest of the encounter. If it deals damage, it deals 2[A] instead of any other damage profile. <strong>Piercing</strong> or <strong>Chaos Damage</strong> are dealt as normal damage. It doesn&#39;t deal <strong>Bonus Damage</strong>. It has <strong>Inspiration Cost: 1</strong> and <strong>1/Encounter</strong>.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -7704,7 +7717,7 @@
       },
       "system": {
         "cost": "3",
-        "focusCost": 2,
+        "focusCost": 3,
         "rank": 2,
         "range": "Range 5",
         "isAttack": true,
@@ -7716,7 +7729,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "",
+        "effect": "<p><strong>On Hit:</strong> <strong>Push 1</strong>.</p>",
         "_tagIds": [
           "ranged",
           "spell",
@@ -7779,8 +7792,10 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>When you Study a hostile character, that character gains <strong>Imperial Eye</strong>; it&#39;s a special <strong>Condition</strong>. An <em>Attack</em> that hits a character clears <strong>Imperial Eye</strong> on that character and deals [t]+1 <strong>Bonus Damage</strong>.</p>",
-        "_tagIds": []
+        "effect": "<p><strong>1/Round:</strong> When you <strong>Study</strong> a hostile character, the next <em>Attack</em> targeting that character before the end of your next turn deals <strong>[T]+1 Bonus Damage</strong> to that character on a hit.</p>",
+        "_tagIds": [
+          "limitround"
+        ]
       }
     },
     {
@@ -8180,7 +8195,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>If you would <strong>Push</strong> or <strong>Pull</strong> a character, instead, you move that character that far in any direction.  You have <strong>Teleport Ally</strong>.</p>",
+        "effect": "<p>If you would <strong>Push</strong> or <strong>Pull</strong> a character, instead, you move that character that many tiles in any direction. If you force a hostile character to perform a <em>Movement</em> <strong>Action</strong>, you may force that character to move diagonally even if they can&#39;t normally.  You have <strong>Teleport Ally</strong>.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -8241,7 +8256,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>When a character becomes affected by <strong>Difficult Terrain</strong> you created: That character suffers <strong>3 Piercing Damage.</strong> A character can only take this damage <strong>1/Round.</strong> <em>(No roll. A character becomes affected by Difficult Terrain when it causes them to spend additional movement.)</em></p>",
+        "effect": "<p>When a character becomes affected by <strong>Difficult Terrain</strong> you created: That character suffers <strong>1 Piercing Damage.</strong> A character can only take this damage <strong>1/Round.</strong> <em>(No roll. A character becomes affected by Difficult Terrain when it causes them to spend additional movement.)</em></p>",
         "_tagIds": [
           "heroic"
         ]
@@ -8270,7 +8285,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>During each of your turns, the first <em>Spell</em> <strong>Action</strong> you perform that targets a tile or space has <strong>AP Cost -1</strong> <em>(min. 1)</em>.</p>",
+        "effect": "<p>During each of your turns, the first <em>non-Attack</em>, <em>non-Trap</em> <strong>Action</strong> you perform that targets either a <strong>free tile</strong> or an <strong>area of any size</strong> has <strong>AP Cost -1</strong> <em>(min. 1)</em>.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -8350,7 +8365,7 @@
         "cost": "1",
         "focusCost": 1,
         "rank": 1,
-        "range": "Range 8",
+        "range": "Range 6",
         "isAttack": false,
         "damage": "",
         "hasGraze": false,
@@ -8360,7 +8375,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Choose one:</p>\n<ul>\n<li>For the rest of the encounter, target free tile becomes <strong>Difficult Terrain.</strong></li>\n<li>For the rest of the encounter, target tile that&#39;s <strong>Difficult Terrain</strong> becomes normal terrain.</li>\n</ul>",
+        "effect": "<p>Choose one:</p>\n<ul>\n<li>Create <strong>Difficult Terrain</strong> in up to one tile in <strong>Range</strong> that doesn&#39;t contain a character or obstruction.</li>\n<li>Target tile in <strong>Range</strong> that contains <strong>Difficult Terrain</strong> becomes normal terrain.</li>\n</ul>\n<p>The effect lasts for the rest of the encounter.</p>",
         "_tagIds": [
           "spell"
         ]
@@ -8556,11 +8571,11 @@
       },
       "system": {
         "cost": "2",
-        "focusCost": 2,
+        "focusCost": 3,
         "rank": 3,
-        "range": "Range 4",
+        "range": "Range 5",
         "isAttack": true,
-        "damage": "[mag]+4",
+        "damage": "[mag]+3",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
@@ -8568,7 +8583,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Flurry</strong></p>\n<p><strong>On Hit:</strong> Until the start of your next turn, if the target performs a <strong>Movement Action</strong> and moves closer to you, that character suffers <strong>[mag]+4 Damage.</strong> <em>(No roll.)</em></p>",
+        "effect": "<p><strong>Flurry</strong></p>\n<p><strong>On Hit:</strong> Until the start of your next turn, if the target performs a <strong>Movement Action</strong> and moves closer to you, that character suffers <strong>[mag]+3 Damage.</strong> <em>(No roll.)</em></p>",
         "_tagIds": [
           "ranged",
           "spell",
@@ -9059,7 +9074,7 @@
       }
     },
     {
-      "name": "The Abyss: Seethe",
+      "name": "The Abyss: Dark Void",
       "type": "ability",
       "flags": {
         "shard": {
@@ -9684,7 +9699,7 @@
         "cost": "reaction",
         "focusCost": 2,
         "rank": 5,
-        "range": "Range 8",
+        "range": "Range 6",
         "isAttack": false,
         "damage": "",
         "hasGraze": false,
@@ -10003,7 +10018,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>You have the <strong>Haruspicy</strong> Action.</p>",
+        "effect": "<p><strong>Start of Turn:</strong> <strong>Heal 1</strong>. This <strong>Healing</strong> doesn&#39;t benefit from <strong>Bonus Healing</strong>.</p>\n<p>You have the <strong>Haruspicy</strong> Action.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -10081,7 +10096,7 @@
       },
       "system": {
         "cost": "3",
-        "focusCost": 4,
+        "focusCost": 0,
         "rank": 0,
         "range": "",
         "isAttack": false,
@@ -10123,7 +10138,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>While performing <strong>Actions,</strong> ignore the effects of <strong>Stealth</strong> abilities and <strong>Concealment.</strong></p>",
+        "effect": "<p>While performing <strong>Actions,</strong> ignore the effects of <strong>Stealth</strong> abilities and <strong>Concealment.</strong></p>\n<p>While attacking, ignore <strong>Cover</strong>.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -13116,7 +13131,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>Your <em>Attacks</em> that consume <strong>Off Guard</strong> ignore <strong>Cover</strong> and <strong>Concealment</strong> against that character.</p>",
+        "effect": "<p>Your <em>Attacks</em> that consume <strong>Off Guard</strong> ignore <strong>Cover</strong> and <strong>Concealment</strong> against that character and deal <strong>+2 Bonus Damage</strong> on hit.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -13174,7 +13189,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>You have an additional <strong>reaction</strong> on each character&#39;s turn.</p>",
+        "effect": "<p>You have an additional <strong>Reaction</strong> on each character&#39;s turn.</p>\n<p>Use this <strong>Reaction</strong> only to perform a <em>non-Spell</em> <strong>Reaction</strong>.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -13935,7 +13950,7 @@
           },
           {
             "id": "paladin-heroic-dip",
-            "name": "Dilletante: Paladin",
+            "name": "Last Stand",
             "rank": 0
           }
         ]
@@ -14326,6 +14341,31 @@
         },
         "_abilityIds": [
           {
+            "id": "blademaster-heroic-sword-summoner",
+            "name": "Sword Summoner",
+            "rank": 0
+          },
+          {
+            "id": "blademaster-heroic-storm-approachin",
+            "name": "Storm Approaching",
+            "rank": 0
+          },
+          {
+            "id": "blademaster-heroic-judgment-cut",
+            "name": "Judgment Cut",
+            "rank": 0
+          },
+          {
+            "id": "blademaster-heroic-endless-motivation",
+            "name": "Endless Motivation",
+            "rank": 0
+          },
+          {
+            "id": "blademaster-heroic-bloodthirst",
+            "name": "Bloodthirst",
+            "rank": 0
+          },
+          {
             "id": "blademaster-truecharge",
             "name": "True Charge",
             "rank": 0
@@ -14356,8 +14396,8 @@
             "rank": 1
           },
           {
-            "id": "blademaster-hidden-step",
-            "name": "Hidden Step",
+            "id": "blademaster-reckless-slash",
+            "name": "Reckless Slash",
             "rank": 1
           },
           {
@@ -14376,39 +14416,39 @@
             "rank": 2
           },
           {
-            "id": "blademaster-parry",
-            "name": "Parry",
+            "id": "blademaster-reprisal",
+            "name": "Reprisal",
             "rank": 2
           },
           {
             "id": "blademaster-savage-blade",
-            "name": "Savage Edge",
+            "name": "Savage Attack",
             "rank": 2
           },
           {
             "id": "blademaster-flickerstep",
             "name": "Flicker Step",
-            "rank": 3
+            "rank": 4
           },
           {
             "id": "blademaster-versatile-stance",
-            "name": "Versatile Stance",
+            "name": "Adaptation",
             "rank": 3
           },
           {
             "id": "blademaster-huntermark",
-            "name": "Hunter's Mark",
+            "name": "Slayer's Mark",
             "rank": 3
           },
           {
             "id": "blademaster-huntermark-special",
-            "name": "Hunter's Mark: Change Target",
+            "name": "Slayer's Mark: Change Target",
             "rank": 3
           },
           {
             "id": "blademaster-kipup",
             "name": "Kip Up",
-            "rank": 4
+            "rank": 3
           },
           {
             "id": "blademaster-divinedeflection",
@@ -14416,8 +14456,8 @@
             "rank": 4
           },
           {
-            "id": "blademaster-sweepingstrikes",
-            "name": "Sweeping Strikes",
+            "id": "blademaster-no-mercy",
+            "name": "No Mercy",
             "rank": 4
           },
           {
@@ -14429,31 +14469,6 @@
             "id": "blademaster-swallow-cutter",
             "name": "Swallow Cutter",
             "rank": 5
-          },
-          {
-            "id": "blademaster-heroic-sword-summoner",
-            "name": "Sword Summoner",
-            "rank": 0
-          },
-          {
-            "id": "blademaster-heroic-storm-approachin",
-            "name": "Storm Approaching",
-            "rank": 0
-          },
-          {
-            "id": "blademaster-heroic-judgment-cut",
-            "name": "Judgment Cut",
-            "rank": 0
-          },
-          {
-            "id": "blademaster-heroic-endless-motivation",
-            "name": "Endless Motivation",
-            "rank": 0
-          },
-          {
-            "id": "blademaster-heroic-profuse-bleeding",
-            "name": "Profuse Bleeding",
-            "rank": 0
           }
         ]
       }
@@ -14479,8 +14494,33 @@
         },
         "_abilityIds": [
           {
-            "id": "scoundrel-trick-stance",
-            "name": "Trick Stance",
+            "id": "scoundrel-heroic-deadly-poison",
+            "name": "Deadly Poison",
+            "rank": 0
+          },
+          {
+            "id": "scoundrel-heroic-invisible-blade",
+            "name": "Invisible Blade",
+            "rank": 0
+          },
+          {
+            "id": "scoundrel-heroic-elegant-finisher",
+            "name": "Elegant Finisher",
+            "rank": 0
+          },
+          {
+            "id": "scoundrel-heroic-elusive",
+            "name": "Elusive",
+            "rank": 0
+          },
+          {
+            "id": "scoundrel-heroic-skill-steal",
+            "name": "Skill Steal",
+            "rank": 0
+          },
+          {
+            "id": "scoundrel-sneak-attack",
+            "name": "Sneak Attack",
             "rank": 0
           },
           {
@@ -14519,8 +14559,8 @@
             "rank": 1
           },
           {
-            "id": "scoundrel-coldblood",
-            "name": "Cold Blood",
+            "id": "scoundrel-quickstep",
+            "name": "Quickstep",
             "rank": 1
           },
           {
@@ -14540,7 +14580,7 @@
           },
           {
             "id": "scoundrel-opportunity",
-            "name": "Seize Opening",
+            "name": "Follow Up",
             "rank": 2
           },
           {
@@ -14554,74 +14594,34 @@
             "rank": 3
           },
           {
-            "id": "scoundrel-knife-juggler-special",
-            "name": "Knife Juggler: Razor",
+            "id": "scoundrel-cloak-of-shadows",
+            "name": "Cloak of Shadows",
             "rank": 3
           },
           {
-            "id": "scoundrel-preparation",
-            "name": "Preparation",
-            "rank": 3
-          },
-          {
-            "id": "scoundrel-called-shot",
-            "name": "Called Shot",
+            "id": "scoundrel-cripple",
+            "name": "Cripple",
             "rank": 4
           },
           {
-            "id": "scoundrel-bagoftricks",
-            "name": "Bag of Tricks",
+            "id": "scoundrel-adrenaline",
+            "name": "Adrenaline",
             "rank": 4
           },
           {
-            "id": "scoundrel-bagoftricks-special",
-            "name": "Bag of Tricks: Malice",
+            "id": "scoundrel-gouge",
+            "name": "Gouge",
             "rank": 4
           },
           {
-            "id": "scoundrel-skillsteal",
-            "name": "Skill Steal",
-            "rank": 4
-          },
-          {
-            "id": "scoundrel-exsanguinate",
-            "name": "Exsanguinate",
+            "id": "scoundrel-doublecross",
+            "name": "Double Cross",
             "rank": 5
           },
           {
-            "id": "scoundrel-ruinousblade",
-            "name": "Ruinous Blade",
+            "id": "scoundrel-cloudofsteel",
+            "name": "Cloud of Steel",
             "rank": 5
-          },
-          {
-            "id": "scoundrel-heroic-daredevil",
-            "name": "Daredevil",
-            "rank": 0
-          },
-          {
-            "id": "scoundrel-heroic-daredevil-special",
-            "name": "Daredevil: Acrobat",
-            "rank": 0
-          },
-          {
-            "id": "scoundrel-heroic-invisible-blade",
-            "name": "Invisible Blade",
-            "rank": 0
-          },
-          {
-            "id": "scoundrel-heroic-elegant-finisher",
-            "name": "Elegant Finisher",
-            "rank": 0
-          },
-          {
-            "id": "scoundrel-heroic-elusive",
-            "name": "Elusive",
-            "rank": 0
-          },
-          {
-            "id": "scoundrel-heroic-dip",
-            "name": "Dilletante: Scoundrel",
-            "rank": 0
           }
         ]
       }
@@ -14747,7 +14747,7 @@
             "rank": 5
           },
           {
-            "id": "marksman-luciform-eye",
+            "id": "marksman-parting-shot",
             "name": "Parting Shot",
             "rank": 5
           },

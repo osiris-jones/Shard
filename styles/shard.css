@@ -361,6 +361,8 @@
   font-size: 0.8em;
   color: var(--shard-bg);
   margin-left: 4px;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 /* ── Section Headers ────────────────────────────────────────────────── */
@@ -508,10 +510,17 @@
 .shard-chat-card .card-title {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .shard-chat-card .actor-name { font-size: 0.75em; color: var(--shard-text-muted); }
 .shard-chat-card .ability-name { font-weight: bold; }
+
+.shard-chat-card .card-header .ability-cost {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
 
 .shard-chat-card .card-body { padding: 10px; }
 .shard-chat-card .card-footer {
@@ -668,6 +677,7 @@
   cursor: pointer;
   font-size: 0.85em;
   white-space: nowrap;
+  color: var(--shard-text, #e8e0d0);
 }
 .shard-focus-ctx .ctx-item:hover {
   background: var(--shard-accent, #b08d57);

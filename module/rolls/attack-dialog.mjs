@@ -474,10 +474,19 @@ async function _rollDamageFromCard(message, isGraze, isHalf = false) {
         continue;
       }
     } else {
-      // Non-GM: compute display values without applying
+      // Non-GM: approximate display value; actual damage is applied by the GM via socket below.
       hpTaken = Math.max(0, raw - armor);
     }
     appliedTargets.push({ actor: targetActor, tokenId: t.tokenId ?? null, armor, reduced: hpTaken, barrierTaken });
+  }
+
+  // Non-GM: delegate actual HP deduction to the first active GM via socket.
+  if (!game.user.isGM && applicable.length > 0) {
+    game.socket.emit("system.shard", {
+      action:  "applyDamage",
+      raw,
+      targets: applicable.map(t => ({ id: t.id, tokenId: t.tokenId ?? null, armor: t.armor ?? 0 }))
+    });
   }
 
   const rollHTML = await roll.render();
@@ -541,6 +550,15 @@ async function _rollCritDamageFromCard(message, isHalf = false) {
       hpTaken = Math.max(0, raw - armor);
     }
     appliedTargets.push({ actor: targetActor, tokenId: t.tokenId ?? null, armor, reduced: hpTaken, barrierTaken });
+  }
+
+  // Non-GM: delegate actual HP deduction to the first active GM via socket.
+  if (!game.user.isGM && applicable.length > 0) {
+    game.socket.emit("system.shard", {
+      action:  "applyDamage",
+      raw,
+      targets: applicable.map(t => ({ id: t.id, tokenId: t.tokenId ?? null, armor: t.armor ?? 0 }))
+    });
   }
 
   const rollHTML = await roll.render();
