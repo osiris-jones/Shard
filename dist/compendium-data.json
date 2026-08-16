@@ -938,17 +938,17 @@
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "paladin-aegis",
+          "sourceId": "paladin-lionheart",
           "classId": "paladin"
         }
       },
       "system": {
         "cost": "passive",
-        "focusCost": 0,
+        "focusCost": 1,
         "rank": 4,
-        "range": "",
-        "isAttack": false,
-        "damage": "",
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "2[atk]+1",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
@@ -956,8 +956,13 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Under Construction</strong>.</p>",
-        "_tagIds": []
+        "effect": "<p><strong>On Attack:</strong> The target is <strong>Marked</strong> by your <strong>Lionheart</strong> until the end of your next turn.</p>\n<p>Whenever damage is dealt to your <strong>Barrier</strong>, up to one character marked by your <strong>Lionheart</strong> takes that much <strong>Piercing Damage</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "shield",
+          "attack"
+        ]
       }
     },
     {
@@ -983,7 +988,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> An allied character makes a successful attack against a hostile character adjacent to you.<br><strong>Effect - Focus Cost 2:</strong> Choose one:</p>\n<ul>\n<li>The attack does [tier]+2 <strong>Bonus Damage</strong>.</li>\n<li>The attacker receives [tier]+2 <strong>Healing</strong>.</li>\n</ul>",
+        "effect": "<p><strong>Condition:</strong> An allied character makes a successful attack against a hostile character adjacent to you.<br><strong>Effect - Focus Cost 1:</strong> Choose one:</p>\n<ul>\n<li>The attack does [tier]+2 <strong>Bonus Damage</strong>.</li>\n<li>The attacker receives [tier]+2 <strong>Healing</strong>.</li>\n</ul>",
         "_tagIds": [
           "support",
           "spell",
@@ -1074,7 +1079,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or suffers <strong>Push 2</strong> and becomes <strong>Prone.</strong><br><strong>Resist:</strong> <strong>Push 1</strong>.</p>",
+        "effect": "<p>Target character makes a <strong>Resistance Roll</strong> or suffers <strong>Push 2</strong> and becomes <strong>Prone.</strong> If the character <strong>Resists</strong> or is an allied character, <strong>Push 1</strong> instead.</p>",
         "_tagIds": [
           "melee"
         ]
@@ -1139,31 +1144,34 @@
       }
     },
     {
-      "name": "Grapple",
+      "name": "Ensnare",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "towers-generic-grapple",
+          "sourceId": "towers-generic-ensnare",
           "classId": "towers"
         }
       },
       "system": {
-        "cost": "1",
-        "focusCost": 0,
+        "cost": "reaction",
+        "focusCost": 1,
         "rank": 2,
         "range": "Melee",
         "isAttack": true,
         "damage": "0",
         "hasGraze": false,
         "grazeDamage": "0",
-        "hasResistance": false,
-        "resistanceDV": "10",
+        "hasResistance": true,
+        "resistanceDV": "10+[tier]",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>On Hit</strong>: You are <strong>Grappling</strong>, and the target is <strong>Restrained</strong>. <em>(They&#39;re special Statuses that exist in a pair.)</em></p>\n<ul>\n<li>The <strong>Grappling</strong> character can&#39;t perform <strong>Grapple</strong>, and can&#39;t perform more than one <em>Movement</em> <strong>Action</strong> in a turn. That character can clear this status as a <strong>Free Action</strong>.</li>\n<li>The <strong>Restrained</strong> character is <strong>Immobilized</strong> and mirrors the <strong>Grappling</strong> character&#39;s movement as involuntary movement. That character has (<strong>1AP</strong>) <strong>Resistance Roll (10):</strong> Clear the status.<br>The status is cleared any time the characters are no longer adjacent, either character is reduced to 0 HP, or there is a difference in elevation between the characters.</li>\n</ul>",
+        "effect": "<p><strong>Condition:</strong> An adjacent hostile character begins movement as part of a <em>Movement</em> <strong>Action</strong>.<br><strong>Effect:</strong> The triggering character becomes <strong>Off Guard</strong> and makes a <strong>Resistance Roll</strong> or is <strong>Dazed +1</strong>.</p>",
         "_tagIds": [
-          "melee"
+          "melee",
+          "weapon",
+          "reaction",
+          "limitround"
         ]
       }
     },
@@ -1571,7 +1579,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> An hostile character within <strong>Range</strong> of a  <em>Melee Attack</em> <strong>Action</strong> that costs <strong>2 AP</strong> or less performs a <em>Movement</em> <strong>Action</strong>.<br><strong>Effect:</strong> Perform that <em>Melee Attack</em> <strong>Action</strong> on the triggering character before the triggering <strong>Action</strong>.</p>",
+        "effect": "<p><strong>Condition:</strong> An hostile character within <strong>Range</strong> of a  <em>Melee Attack</em> <strong>Action</strong> that costs <strong>2 AP</strong> or less begins movement as part of a <em>Movement</em> <strong>Action</strong>.<br><strong>Effect:</strong> Perform that <em>Melee Attack</em> <strong>Action</strong> on the triggering character before the triggering <strong>Action</strong>.</p>",
         "_tagIds": [
           "attack",
           "reaction",
@@ -1611,11 +1619,11 @@
       }
     },
     {
-      "name": "Duelist's Parry",
+      "name": "Battering Ram",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "warrior-duelist-parry",
+          "sourceId": "warrior-battering-ram",
           "classId": "warrior"
         }
       },
@@ -1624,8 +1632,8 @@
         "focusCost": 1,
         "rank": 2,
         "range": "",
-        "isAttack": false,
-        "damage": "",
+        "isAttack": true,
+        "damage": "0",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
@@ -1633,9 +1641,11 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Perform this <strong>Action</strong> only while in a non-<em>Shield Stance</em>.<br>Until the start of your next turn, you have <strong>DEF +1</strong>.</p>",
+        "effect": "<p><strong>On Attack:</strong> Gain [T]+1 <strong>Barrier.</strong></p>\n<p><strong>On Hit:</strong> <strong>Battering Ram</strong> deals <strong>Bonus Damage</strong> equal to your <strong>Block Rating.</strong> <strong>Push 1</strong>. If the target is <strong>Pushed</strong> one or more spaces, you <strong>Fly</strong> that many spaces toward that character.</p>",
         "_tagIds": [
-          "weapon",
+          "melee",
+          "shield",
+          "attack",
           "limitround"
         ]
       }
@@ -1663,7 +1673,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Move up to twice your <strong>Speed</strong>.<br>During this <em>Movement:</em> You can&#39;t change directions, have <strong>Damage Resistance</strong>, and ignore <strong>Difficult Terrain</strong>.<br>At the end of this <em>Movement:</em> Adjacent hostile characters are <strong>Slowed 1</strong>. <em>(No roll.)</em></p>",
+        "effect": "<p>Move up to twice your <strong>Speed</strong>. During this <em>Movement</em>, you can&#39;t change directions, have <strong>Damage Resistance</strong>, and ignore <strong>Difficult Terrain</strong>. At the end of the <em>Movement</em>, adjacent hostile characters are <strong>Slowed 1</strong> and take <strong>[T] Piercing Damage</strong>.</p>",
         "_tagIds": [
           "movement"
         ]
@@ -1721,7 +1731,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your next <strong>Attack Action</strong> has <strong>On Hit:</strong> Target makes a <strong>Resistance Roll</strong> or becomes <strong>Sundered 1</strong>.</p>",
+        "effect": "<p>Your next <strong>Attack Action</strong> has <strong>On Hit:</strong> Up to one target makes a <strong>Resistance Roll</strong> or becomes <strong>Sundered 1</strong>.</p>",
         "_tagIds": [
           "melee",
           "weapon"
@@ -1892,7 +1902,7 @@
         "rank": 5,
         "range": "Melee",
         "isAttack": true,
-        "damage": "3[atk]+5",
+        "damage": "3[atk]+8",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": true,
@@ -2109,7 +2119,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> A hostile character within the range of your <em>Basic</em> <strong>Study Action</strong> deals damage to you or an allied character adjacent to you.<br><strong>Effect:</strong> Perform the <em>Basic</em> <strong>Study Action</strong> against the triggering character as part of this <strong>Reaction.</strong></p>",
+        "effect": "<p><strong>Condition:</strong> A hostile character within the range of your <em>Basic</em> <strong>Study Action</strong> deals damage to you or an allied character adjacent to you.<br><strong>Effect:</strong> Perform the <em>Basic</em> <strong>Study Action</strong> on the triggering character as part of this <strong>Reaction.</strong></p>",
         "_tagIds": [
           "reaction"
         ]
@@ -2167,7 +2177,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>While Battered:</strong> You have <strong>+1 Speed.</strong></p>",
+        "effect": "<p><strong>1/Round:</strong> While <strong>Battered</strong>, you may <strong>Evade</strong> as a <strong>Free Action (0 AP)</strong>. This <strong>Evade</strong> ignores <strong>Difficult Terrain</strong>.</p>",
         "_tagIds": [
           "battered"
         ]
@@ -2178,7 +2188,7 @@
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "avenger-heavy-stance",
+          "sourceId": "blades-heavy-stance",
           "classId": "avenger"
         }
       },
@@ -2208,7 +2218,7 @@
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "avenger-heavy-stance-special",
+          "sourceId": "blades-heavy-stance-special",
           "classId": "avenger"
         }
       },
@@ -2232,7 +2242,8 @@
           "melee",
           "weapon",
           "attack"
-        ]
+        ],
+        "_parentId": "blades-heavy-stance"
       }
     },
     {
@@ -2258,13 +2269,12 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> A hostile character within the <strong>Range</strong> of an available <em>Melee Attack</em> <strong>Action</strong> inflicts a harmful <strong>Condition</strong> on you.<br><strong>Effect:</strong> Perform that <em>Melee Attack</em> <strong>Action</strong> on the triggering character before the <strong>Condition</strong> is inflicted.</p>",
+        "effect": "<p><strong>Condition:</strong> A hostile character within the <strong>Range</strong> of a <em>Melee Attack</em> <strong>Action</strong> that costs <strong>(2 AP)</strong> or less inflicts a <strong>Condition</strong> on you or knocks you <strong>Prone</strong>.<br><strong>Effect:</strong> Perform that <em>Melee Attack</em> <strong>Action</strong> on the triggering character.</p>",
         "_tagIds": [
           "attack",
           "reaction",
           "limitround"
-        ],
-        "_parentId": "avenger-heavy-stance"
+        ]
       }
     },
     {
@@ -3097,7 +3107,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>The <strong>Attack Roll</strong> has <strong>+1 Disadvantage</strong>.</p>\n<p><strong>On Hit:</strong> The target makes a <strong>Resistance Roll</strong> or is <strong>Bleeding</strong>. If the attack is a <strong>Critical</strong>, that character automatically fails the roll.</p>",
+        "effect": "<p><strong>On Attack:</strong> You become <strong>Off Guard</strong>.</p>\n<p><strong>On Hit:</strong> The target makes a <strong>Resistance Roll</strong> or is <strong>Bleeding</strong>. If the attack is a <strong>Critical</strong>, that character automatically fails the roll.</p>",
         "_tagIds": [
           "melee",
           "weapon",
@@ -3139,17 +3149,17 @@
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "blademaster-heavy-stance",
+          "sourceId": "blademaster-no-respite",
           "classId": "blademaster"
         }
       },
       "system": {
-        "cost": "passive",
+        "cost": "2",
         "focusCost": 0,
         "rank": 2,
         "range": "",
-        "isAttack": false,
-        "damage": "",
+        "isAttack": true,
+        "damage": "2[atk]",
         "hasGraze": false,
         "grazeDamage": "",
         "hasResistance": false,
@@ -3157,10 +3167,11 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>You have <strong>+1 Attack</strong> and <strong>All In</strong>.</p>",
+        "effect": "<p><strong>On Hit:</strong> If there are no hostile characters adjacent to the target, <strong>No Respite</strong> deals <strong>4 Bonus Damage</strong>. Otherwise, the hostile characters adjacent to the target take <strong>4 Damage</strong>.</p>",
         "_tagIds": [
+          "melee",
           "weapon",
-          "stance"
+          "attack"
         ]
       }
     },
@@ -3169,12 +3180,12 @@
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "blademaster-heavy-stance-special",
+          "sourceId": "blademaster-counterattack",
           "classId": "blademaster"
         }
       },
       "system": {
-        "cost": "2",
+        "cost": "reaction",
         "focusCost": 0,
         "rank": 2,
         "range": "Melee",
@@ -3187,14 +3198,13 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "",
+        "effect": "<p><strong>1/Round � Condition:</strong> A hostile character performs a <em>Melee Attack</em> <strong>Action</strong> that targets you.</p>\n<p><strong>Effect:</strong> <strong>Gamble 4</strong>. If you win, perform a <em>non-Spell Attack</em> <strong>Action</strong> that targets the triggering character as part of this <strong>Reaction.</strong></p>",
         "_tagIds": [
-          "special",
-          "melee",
           "weapon",
-          "attack"
-        ],
-        "_parentId": "blademaster-heavy-stance"
+          "attack",
+          "reaction",
+          "limitround"
+        ]
       }
     },
     {
@@ -3202,7 +3212,7 @@
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "blademaster-reprisal",
+          "sourceId": "blademaster-reprisal-deprecated",
           "classId": "blademaster"
         }
       },
@@ -3251,7 +3261,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Bind</strong> to an <em>Attack</em>* <strong>Action</strong>.</p>\n<p>The <strong>Bound</strong> <em>Attack</em> has <strong>Focus Cost +1</strong> and <strong>On Hit</strong>: The target makes a <strong>Resistance Roll</strong> or is <strong>Bleeding</strong>. If the attack is a <strong>Critical</strong>, that character automatically fails the roll.</p>",
+        "effect": "<p><strong>Bind</strong> to an <em>Attack</em>* <strong>Action</strong>.</p>\n<p>The <strong>Bound</strong> <em>Attack</em> has <strong>Focus Cost +2</strong> and <strong>On Hit</strong>: The target makes a <strong>Resistance Roll</strong> or is <strong>Bleeding</strong>. If the attack is a <strong>Critical</strong>, that character automatically fails the roll.</p>",
         "_tagIds": [
           "bound"
         ]
@@ -3445,7 +3455,7 @@
       },
       "system": {
         "cost": "2",
-        "focusCost": 1,
+        "focusCost": 2,
         "rank": 4,
         "range": "Melee",
         "isAttack": true,
@@ -3852,7 +3862,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Your first <em>Melee Weapon Attack</em> <strong>Action</strong> each round has <strong>On Hit:</strong> Perform a <em>Basic Attack</em> <strong>Action</strong> with <strong>+1 Advantage.</strong> It&#39;s a <strong>Free Action</strong> (?) and deals half damage on a hit.</p>",
+        "effect": "<p>Your first <em>Combo</em> <strong>Action</strong> each round has <strong>On Hit:</strong> Perform a <em>Basic Attack</em> <strong>Action</strong> with <strong>+1 Advantage.</strong> It&#39;s a <strong>Free Action</strong> (<strong>0 AP</strong>).</p>",
         "_tagIds": [
           "special",
           "limitround"
@@ -3916,7 +3926,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> An adjacent hostile character is damaged by an allied character.<br><strong>Effect</strong> - <strong>Focus Cost</strong> 1: Perform a <em>Basic Attack</em> <strong>Action</strong> on the damaged character. It deals half damage and has <strong>On Hit:</strong> The target is <strong>Poisoned +1</strong>.</p>",
+        "effect": "<p><strong>Condition:</strong> An adjacent hostile character is damaged by an allied character.<br><strong>Effect</strong> - <strong>Focus Cost</strong> 1: Perform a <em>Basic Attack</em> <strong>Action</strong> targeting the damaged character as a part of this <strong>Reaction</strong>. It has <strong>On Hit:</strong> The target is <strong>Poisoned +1</strong>.</p>",
         "_tagIds": [
           "attack",
           "reaction",
@@ -4316,7 +4326,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> A hostile character moves into your <strong>Reactive Shot.</strong><br><strong>Effect:</strong> Perform a <em>Ranged Attack</em> <strong>Action</strong> that costs or less targeting that character.</p>",
+        "effect": "<p><strong>Condition:</strong> A hostile character moves into a space within your <strong>Reactive Shot.</strong><br><strong>Effect:</strong> Perform a <em>Ranged Attack</em> <strong>Action</strong> that costs or less targeting that character.</p>",
         "_tagIds": [
           "special",
           "reaction"
@@ -4407,7 +4417,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>This turn, your <em>Ranged Weapon Attack</em> <strong>Actions</strong> each inflict <strong>Poisoned +1</strong> or <strong>Slowed 1</strong> to up to one target <strong>On Hit</strong>.</p>",
+        "effect": "<p>Until the start of your next turn, your <em>Ranged Weapon Attack</em> <strong>Actions</strong> each inflict <strong>Poisoned +1</strong> or <strong>Slowed 1</strong> to up to one target <strong>On Hit</strong>.</p>",
         "_tagIds": [
           "spell"
         ]
@@ -4850,7 +4860,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Perform the <em>Basic</em> <strong>Evade</strong> Action as a part of this Action. You <strong>fly</strong> when you <strong>Evade</strong> this way. Then, as a part of this <strong>Action</strong>: Perform a Ranged Attack <strong>Action</strong> that costs (?) or less with <strong>+1 Advantage</strong> targeting an enemy your <strong>Evade</strong> moved you further away from.</p>",
+        "effect": "<p>Perform the <em>Basic</em> <strong>Evade</strong> Action as a part of this Action. You <strong>fly</strong> when you <strong>Evade</strong> this way. Then, as a part of this <strong>Action</strong>: Perform a Ranged Attack <strong>Action</strong> that costs (<strong>1 AP</strong>) or less with **+1 Advantage* and <strong>+1 Range</strong> targeting an enemy your <strong>Evade</strong> moved you further away from.</p>",
         "_tagIds": [
           "movement",
           "limitround"
@@ -5950,7 +5960,7 @@
       }
     },
     {
-      "name": "Precision",
+      "name": "Heroic: Precision",
       "type": "ability",
       "flags": {
         "shard": {
@@ -5979,7 +5989,7 @@
       }
     },
     {
-      "name": "Signature Move",
+      "name": "Heroic: Signature Move",
       "type": "ability",
       "flags": {
         "shard": {
@@ -6008,7 +6018,7 @@
       }
     },
     {
-      "name": "Skirmisher",
+      "name": "Heroic: Skirmisher",
       "type": "ability",
       "flags": {
         "shard": {
@@ -6037,7 +6047,7 @@
       }
     },
     {
-      "name": "Prototrophize",
+      "name": "Heroic: Prototrophize",
       "type": "ability",
       "flags": {
         "shard": {
@@ -6067,7 +6077,7 @@
       }
     },
     {
-      "name": "Diehard",
+      "name": "Heroic: Diehard",
       "type": "ability",
       "flags": {
         "shard": {
@@ -6097,7 +6107,7 @@
       }
     },
     {
-      "name": "Supreme Resolve",
+      "name": "Heroic: Supreme Resolve",
       "type": "ability",
       "flags": {
         "shard": {
@@ -6126,11 +6136,11 @@
       }
     },
     {
-      "name": "Ranged Stance",
+      "name": "Heroic - Ranger: Ranged Stance",
       "type": "ability",
       "flags": {
         "shard": {
-          "sourceId": "heroic-generic-ranger",
+          "sourceId": "heroic-generic-ranger-stance",
           "classId": "heroic"
         }
       },
@@ -6154,11 +6164,12 @@
           "ranged",
           "weapon",
           "stance"
-        ]
+        ],
+        "_parentId": "heroic-generic-ranger"
       }
     },
     {
-      "name": "Swiftcast",
+      "name": "Heroic: Swiftcast",
       "type": "ability",
       "flags": {
         "shard": {
@@ -9190,7 +9201,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>Increases <strong>Focus Pool.</strong> (+1)</p>\n<p>You gain an additional <strong>Reaction</strong> during each other character&#39;s turn. Use this <strong>Reaction</strong> only to perform a <em>Spell</em> Reaction.</p>",
+        "effect": "<p>You gain an additional <strong>Reaction</strong> during each other character&#39;s turn. Use this <strong>Reaction</strong> only to perform a <em>Spell</em> Reaction.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -12189,8 +12200,8 @@
         "focusCost": 0,
         "rank": 0,
         "range": "Range 5",
-        "isAttack": false,
-        "damage": "",
+        "isAttack": true,
+        "damage": "0",
         "hasGraze": true,
         "grazeDamage": "1",
         "hasResistance": false,
@@ -12198,7 +12209,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Flurry</strong></p>\n<p>As an additional cost, choose a <strong>Mote of Light</strong> with a value above &quot;1&quot;. The base damage is equal to <strong>1</strong> + that <strong>Mote of Light&#39;s</strong> value. That <strong>Mote of Light&#39;s</strong> value becomes &quot;1&quot;. You may repeat the attack against the same target or different targets any number of times, until all <strong>Motes of Light</strong> have values of &quot;1&quot;.</p>\n<p><strong>Searing Ray</strong> doesn&#39;t deal <strong>Bonus Damage</strong>, can&#39;t be <strong>Bound</strong>, and doesn&#39;t trigger <strong>Reactions</strong>.</p>",
+        "effect": "<p><strong>Flurry</strong></p>\n<p>As an additional cost, choose a <strong>Mote of Light</strong> with a value above &quot;1&quot;. The base damage is equal to <strong>1</strong> + that <strong>Mote of Light&#39;s</strong> value. That <strong>Mote of Light&#39;s</strong> value becomes &quot;1&quot;. You may repeat the attack against the same target or different targets any number of times, until all <strong>Motes of Light</strong> have values of &quot;1&quot;.</p>\n<p><strong>Searing Ray</strong> doesn&#39;t deal <strong>Bonus Damage</strong>, can&#39;t be <strong>Bound</strong>, and doesn&#39;t trigger <strong>Reactions</strong>.</p>\n<p><strong>On Miss:</strong> Graze 1.</p>",
         "_tagIds": [
           "ranged",
           "attack"
@@ -12516,7 +12527,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or is <strong>Blinded 2</strong> until the end of their next turn.</p>",
+        "effect": "<p>Target hostile character makes a <strong>Resistance Roll</strong> or is <strong>Blinded 3</strong> until the end of their next turn.</p>",
         "_tagIds": [
           "spell",
           "limitround"
@@ -12856,6 +12867,7 @@
         "modifiers": [],
         "effect": "<p><strong>Condition:</strong> You would be dealt damage or forced to make a <strong>Resistance Roll.</strong></p>\n<p><strong>Effect:</strong> Consume a charge from the <strong>Fountain.</strong> You gain <strong>+3 Barrier</strong> before taking that damage or gain <strong>+1 Advantage on the Resistance Roll.</strong></p>",
         "_tagIds": [
+          "special",
           "reaction",
           "limitturn"
         ],
@@ -12916,8 +12928,9 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Condition:</strong> Your turn begins.</p>\n<p><strong>Effect:</strong> <strong>Move 12</strong>. <strong>During this movement:</strong> You are <strong>Flying,</strong> ignore <strong>Reactions</strong>, and can&#39;t change direction. <strong>At the end of this movement,</strong> you confer [mag] <strong>Healing</strong> to adjacent allied characters.</p>",
+        "effect": "<p><strong>Condition:</strong> Your turn begins.</p>\n<p><strong>Effect:</strong> <strong>Move 12</strong>. <strong>During this movement:</strong> You are <strong>Flying</strong> and don&#39;t trigger hostile <strong>Reactions</strong>. <strong>At the end of this movement,</strong> you confer [mag] <strong>Healing</strong> to adjacent allied characters.</p>",
         "_tagIds": [
+          "special",
           "reaction",
           "movement",
           "limitencounter"
@@ -12979,7 +12992,7 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p>In <strong>Sentinel Stance</strong>, you may perform <em>Melee Weapon</em> <strong>Actions</strong> as though they had <strong>Range 2</strong> instead of any other <strong>Range Profile</strong>.</p>",
+        "effect": "<p>In <strong>Sentinel Stance</strong>:</p>\n<ul>\n<li><p>You may perform <em>Melee Weapon</em> <strong>Actions</strong> as though they had <strong>Range 2</strong> instead of any other <strong>Range Profile</strong>.</p>\n</li>\n<li><p>You have <strong>+1 Advangage</strong> on <em>Melee Attack</em> <strong>Actions</strong> while it isn&#39;t your turn.</p>\n</li>\n</ul>",
         "_tagIds": [
           "weapon",
           "stance"
@@ -13091,14 +13104,14 @@
         "range": "Line 99",
         "isAttack": true,
         "damage": "2[atk]",
-        "hasGraze": false,
+        "hasGraze": true,
         "grazeDamage": "[atk]",
         "hasResistance": false,
         "resistanceDV": "10",
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Lance of Longinus&#39;s Line 99 Range Profile</strong> is drawn from any map edge, ignoring <strong>line of effect</strong>, though it must pass through you. All characters <strong>within</strong> or <strong>adjacent to the line</strong> become targets.</p>\n<p>You and allied characters in the area aren&#39;t attacked. Instead, you gain <strong>Barrier</strong> [tier].</p>\n<p>After attacking, each character that was successfully hit makes a <strong>Resistance Roll</strong> or chooses:</p>\n<ul>\n<li>That character is <strong>Disarmed 1</strong> and <strong>Weakened 1</strong>, or:</li>\n<li>That character is <strong>Silenced 1</strong> and <strong>Vulnerable 1</strong>.</li>\n</ul>",
+        "effect": "<p><strong>Lance of Longinus&#39;s Line 99 Range Profile</strong> is drawn from any map edge, ignoring <strong>line of effect</strong>, though it must pass through you. All characters <strong>within</strong> or <strong>adjacent to the line</strong> become targets. The attack has <strong>+ 1 Advantage</strong>.</p>\n<p>You and allied characters in the area aren&#39;t attacked. Instead, you gain <strong>Barrier</strong> [tier].</p>\n<p>After attacking, each character that was successfully hit makes a <strong>Resistance Roll</strong> or chooses:</p>\n<ul>\n<li>That character is <strong>Disarmed 1</strong> and <strong>Weakened 1</strong>, or:</li>\n<li>That character is <strong>Silenced 1</strong> and <strong>Vulnerable 1</strong>.</li>\n</ul>\n<p><strong>On Miss:</strong> <strong>Graze</strong> [A].</p>",
         "_tagIds": [
           "ultimate",
           "heroic",
@@ -13247,7 +13260,7 @@
         "isInnate": false,
         "isHeroicTalent": true,
         "modifiers": [],
-        "effect": "<p>If all hostile characters are within <strong>Range</strong> of your <em>Basic</em> <strong>Attack Action</strong>, increase the <strong>Flow of Battle</strong> by 1.</p>",
+        "effect": "<p>You have a Tyranny Die, 1d6 starting at 1. </p>\n<p>(<strong>3 AP</strong>): For each hostile character within <em>Range</em> of your <em>Basic</em> <strong>Attack Action</strong>, increase your <strong>Tyranny Die</strong> by 1. Then, if your <strong>Tyranny Die</strong> is 6: Increase the <strong>Flow of Battle</strong> by 1 and reset your <strong>Tyranny Die</strong> to 1.</p>",
         "_tagIds": [
           "heroic"
         ]
@@ -13519,10 +13532,10 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<p><strong>Fly</strong> up to your <strong>Speed</strong>.</p>\n<p>At the end of this <em>Movement</em>: Adjacent hostile characters make a <strong>Resistance Roll</strong> or are <strong>Dazed</strong> +1.</p>",
+        "effect": "<p>Perform <strong>Vault</strong> only if you didn&#39;t perform <strong>Vault</strong> during your previous turn.</p>\n<p><strong>Fly</strong> up to your <strong>Speed</strong>. During this <em>Movement</em>, you may pass through hostile characters.</p>\n<p>At the end of this <em>Movement</em>: Adjacent hostile characters make a <strong>Resistance Roll</strong> or are <strong>Dazed</strong> +1.</p>",
         "_tagIds": [
           "movement",
-          "limitencounter"
+          "limitround"
         ]
       }
     },
@@ -13725,11 +13738,71 @@
         "isInnate": false,
         "isHeroicTalent": false,
         "modifiers": [],
-        "effect": "<ul>\n<li><strong>Condition:</strong> A hostile character within the <strong>Range</strong> of your <em>Basic</em> <strong>Attack Action</strong> clears <strong>Prone</strong> or performs <strong>Refocus</strong>.</li>\n<li><strong>Effect:</strong> Perform your <em>Basic</em> <strong>Attack Action</strong> on the triggering character as part of this <strong>Reaction.</strong></li>\n</ul>",
+        "effect": "<ul>\n<li><strong>Condition:</strong> A hostile character within the <strong>Range</strong> of your <em>Basic</em> <strong>Attack Action</strong> clears <strong>Prone</strong> or performs <strong>Refocus</strong>.</li>\n<li><strong>Effect:</strong> Perform your <em>Basic</em> <strong>Attack Action</strong> targeting the triggering character as part of this <strong>Reaction.</strong></li>\n</ul>",
         "_tagIds": [
           "attack",
           "reaction",
           "limitround"
+        ]
+      }
+    },
+    {
+      "name": "Reprisal",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "avenger-reprisal",
+          "classId": "avenger"
+        }
+      },
+      "system": {
+        "cost": "2",
+        "focusCost": 2,
+        "rank": 2,
+        "range": "Melee",
+        "isAttack": true,
+        "damage": "2[atk]+2",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p><strong>On Hit</strong>: The character is <strong>Marked</strong> by your <strong>Reprisal</strong> until the end of that character&#39;s next turn. When the character <strong>Marked</strong> by your <strong>Reprisal</strong> forces you to make a <strong>Resistance Roll</strong> or performs an <em>Attack</em> <strong>Action</strong> that targets you, that character takes <strong>2 Piercing Damage</strong>.</p>",
+        "_tagIds": [
+          "melee",
+          "weapon",
+          "attack"
+        ]
+      }
+    },
+    {
+      "name": "Heroic: Ranger",
+      "type": "ability",
+      "flags": {
+        "shard": {
+          "sourceId": "heroic-generic-ranger",
+          "classId": "heroic"
+        }
+      },
+      "system": {
+        "cost": "passive",
+        "focusCost": 0,
+        "rank": 0,
+        "range": "",
+        "isAttack": false,
+        "damage": "",
+        "hasGraze": false,
+        "grazeDamage": "",
+        "hasResistance": false,
+        "resistanceDV": "10",
+        "isInnate": false,
+        "isHeroicTalent": false,
+        "modifiers": [],
+        "effect": "<p>Your <em>Ranged Attacks</em> don&#39;t suffer <strong>+1 Disadvantage</strong> from adjacency to a hostile character, and you have <strong>Ranged Stance.</strong></p>",
+        "_tagIds": [
+          "heroic"
         ]
       }
     }
@@ -13771,8 +13844,8 @@
             "rank": 1
           },
           {
-            "id": "towers-generic-grapple",
-            "name": "Grapple",
+            "id": "towers-generic-ensnare",
+            "name": "Ensnare",
             "rank": 2
           },
           {
@@ -13909,7 +13982,7 @@
             "rank": 4
           },
           {
-            "id": "paladin-aegis",
+            "id": "paladin-lionheart",
             "name": "Aegis",
             "rank": 4
           },
@@ -14032,8 +14105,8 @@
             "rank": 2
           },
           {
-            "id": "warrior-duelist-parry",
-            "name": "Duelist's Parry",
+            "id": "warrior-battering-ram",
+            "name": "Battering Ram",
             "rank": 2
           },
           {
@@ -14175,13 +14248,8 @@
             "rank": 2
           },
           {
-            "id": "avenger-heavy-stance",
-            "name": "Heavy Stance",
-            "rank": 2
-          },
-          {
-            "id": "avenger-heavy-stance-special",
-            "name": "Heavy Stance: All In",
+            "id": "avenger-reprisal",
+            "name": "Reprisal",
             "rank": 2
           },
           {
@@ -14293,8 +14361,13 @@
             "rank": 1
           },
           {
-            "id": "blades-generic-battlestance",
-            "name": "Battle Stance",
+            "id": "blades-heavy-stance",
+            "name": "Heavy Stance",
+            "rank": 2
+          },
+          {
+            "id": "blades-heavy-stance-special",
+            "name": "Heavy Stance: All In",
             "rank": 2
           },
           {
@@ -14406,18 +14479,13 @@
             "rank": 1
           },
           {
-            "id": "blademaster-heavy-stance",
+            "id": "blademaster-no-respite",
             "name": "Heavy Stance",
             "rank": 2
           },
           {
-            "id": "blademaster-heavy-stance-special",
+            "id": "blademaster-counterattack",
             "name": "Heavy Stance: All In",
-            "rank": 2
-          },
-          {
-            "id": "blademaster-reprisal",
-            "name": "Reprisal",
             "rank": 2
           },
           {
@@ -15870,42 +15938,47 @@
         "_abilityIds": [
           {
             "id": "heroic-generic-precision",
-            "name": "Precision",
+            "name": "Heroic: Precision",
             "rank": 0
           },
           {
             "id": "heroic-generic-signature-move",
-            "name": "Signature Move",
+            "name": "Heroic: Signature Move",
             "rank": 0
           },
           {
             "id": "heroic-generic-skirmisher",
-            "name": "Skirmisher",
+            "name": "Heroic: Skirmisher",
             "rank": 0
           },
           {
             "id": "heroic-generic-prototrophize",
-            "name": "Prototrophize",
+            "name": "Heroic: Prototrophize",
             "rank": 0
           },
           {
             "id": "heroic-generic-diehard",
-            "name": "Diehard",
+            "name": "Heroic: Diehard",
             "rank": 0
           },
           {
             "id": "heroic-generic-supreme-resolve",
-            "name": "Supreme Resolve",
+            "name": "Heroic: Supreme Resolve",
             "rank": 0
           },
           {
             "id": "heroic-generic-ranger",
-            "name": "Ranged Stance",
+            "name": "Heroic: Ranger",
+            "rank": 0
+          },
+          {
+            "id": "heroic-generic-ranger-stance",
+            "name": "Heroic - Ranger: Ranged Stance",
             "rank": 0
           },
           {
             "id": "heroic-generic-swiftcast",
-            "name": "Swiftcast",
+            "name": "Heroic: Swiftcast",
             "rank": 0
           }
         ]

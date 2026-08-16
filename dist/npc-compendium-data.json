@@ -276,7 +276,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "",
-        "effect": "<ul>\n<li>At the end of a turn granted by <strong>Team Up</strong>: Another Minion that hasn&#39;t taken a turn this round immediately takes a turn. That character can&#39;t use <strong>Team Up</strong> this turn.</li>\n<li>When a hostile character defeats this minion during their turn: that character gains (?). A character can only gain AP this way 1/Round.</li>\n</ul>",
+        "effect": "<ul>\n<li>At the end of a turn granted by <strong>Team Up</strong>: Another Minion that hasn&#39;t taken a turn this round immediately takes a turn. That character can&#39;t use <strong>Team Up</strong> or <strong>Swarm</strong> this turn.</li>\n<li>When a hostile character defeats this minion during their turn: that character gains (1 AP). A character can only gain AP this way 1/Round.</li>\n</ul>",
         "_tagIds": []
       }
     },
@@ -4905,7 +4905,7 @@
         "hasResistance": false,
         "resistanceDamage": "",
         "range": "Melee",
-        "effect": "<ul>\n<li>All hostile characters in Range become targets.</li>\n<li>When a Phantasmata is destroyed, that Phantasmata performs this attack.</li>\n</ul>",
+        "effect": "<p>#NAME?</p>",
         "_tagIds": [
           "melee",
           "weapon",
